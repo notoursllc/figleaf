@@ -1,7 +1,6 @@
 {
     "name": "@notoursllc/figleaf",
     "version": "0.1.0",
-    "private": true,
     "description": "Yet another inadequate covering made my humans",
     "author": "",
     "scripts": {
@@ -43,12 +42,12 @@
     },
     "_id": "figleaf@0.1.0",
     "bugs": {
-        "url": "https://github.com/gbruins-notours/figleaf/issues"
+        "url": "https://github.com/notoursllc/figleaf/issues"
     },
     "license": "ISC",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/gbruins-notours/figleaf.git"
+        "url": "git+https://github.com/notoursllc/figleaf.git"
     },
     "workspaces": [
         "packages/*"
