@@ -11,5 +11,5 @@ export default {
 
 
 <style lang="scss">
-@import '../../../src/scss/index';
+@import '../../../packages/figleaf/scss';
 </style>

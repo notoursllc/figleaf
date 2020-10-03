@@ -1,4 +1,4 @@
-import NButton from '../components/button/NButton';
+import NButton from '../packages/figleaf/components/button/NButton';
 
 export default {
     title: 'Components/Button',
