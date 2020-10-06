@@ -1,8 +1,8 @@
-import NButton from '../packages/figleaf/components/button/NButton';
+import FButton from '../packages/figleaf/components/button/FButton';
 
 export default {
     title: 'Components/Button',
-    component: NButton,
+    component: FButton,
     argTypes: {
         size: {
             control: {
@@ -34,9 +34,9 @@ export default {
 const Template = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     components: {
-        NButton
+        FButton
     },
-    template: '<n-button v-bind="$props">{{ $props.label }}</n-button>'
+    template: '<f-button v-bind="$props">{{ $props.label }}</f-button>'
 });
 
 

@@ -1,4 +1,5 @@
 <script>
+import Vue from 'vue';
 import flatPickr from 'vue-flatpickr-component';
 import 'flatpickr/dist/flatpickr.css';
 
@@ -11,7 +12,7 @@ const defaultConfig = {
 };
 
 
-export default {
+export default Vue.extend({
     inheritAttrs: false,
 
     props: {
@@ -59,7 +60,7 @@ export default {
             this.$emit('input', val);
         }
     }
-};
+});
 </script>
 
 
