@@ -1,0 +1,30 @@
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from "@storybook/addon-actions";
+import { linkTo } from '@storybook/addon-links'
+
+import NDatePicker from '../packages/figleaf/components/datepicker/NDatePicker';
+
+<Meta title="Components/DatePicker" component={NDatePicker} />
+
+# Date Picker
+
+<Props of={NDatePicker} />
+
+This component is based on <a href="https://flatpickr.js.org/" target="_blank">FlatPickr.</a>
+Please see their docs for a complete set of instructions.
+
+<Preview>
+    <Story name="Demo">
+        {{
+            components: { 
+                NDatePicker 
+            },
+            data: () => {
+                return {
+                    config: { dateFormat: "Y-m-d" }
+                }
+            },
+            template: '<n-date-picker :config="config" />'
+        }}
+    </Story>
+</Preview>

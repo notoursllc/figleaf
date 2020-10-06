@@ -1,5 +1,8 @@
 {
     "name": "@notoursllc/figleaf",
     "version": "0.1.4",
-    "description": "Yet another inadequate covering made my humans"
+    "description": "Yet another inadequate covering made my humans",
+    "dependencies": {
+        "vue-flatpickr-component": "^8.1.6"
+    }
 }
