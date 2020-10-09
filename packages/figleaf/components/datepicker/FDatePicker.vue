@@ -8,7 +8,13 @@ import 'flatpickr/dist/flatpickr.css';
 // Formatting tokens:  https://flatpickr.js.org/formatting/
 
 const defaultConfig = {
-    dateFormat: 'M j, Y'
+    dateFormat: 'Z',
+    wrap: true,
+    altFormat: 'M j, Y',
+    altInput: true,
+    enableTime: true,
+    hourIncrement: 1,
+    minuteIncrement: 1
 };
 
 
@@ -17,11 +23,7 @@ export default Vue.extend({
 
     props: {
         value: {
-            type: Object,
-            default: null,
-            validator: (value) => {
-                return value instanceof Date;
-            }
+            default: null
         }
     },
 
@@ -31,7 +33,7 @@ export default Vue.extend({
 
     data () {
         return {
-            selectedDate: new Date()
+            selectedDate: null
         };
     },
 
@@ -41,23 +43,18 @@ export default Vue.extend({
         }
     },
 
-    watch: {
-        value: {
-            handler(newVal) {
+    created() {
+        const unwatch = this.$watch('value', function (newVal, oldVal) {
+            if(newVal && !oldVal) {
                 this.selectedDate = newVal;
-            },
-            immediate: true
-        }
+                unwatch();
+            }
+        });
     },
 
     methods: {
-        onChange(val) {
-            if(Array.isArray(val) && val.length === 1) {
-                this.$emit('input', val[0]);
-                return;
-            }
-
-            this.$emit('input', val);
+        onChange(selectedDates, dateString) {
+            this.$emit('input', dateString);
         }
     }
 });
@@ -65,9 +62,24 @@ export default Vue.extend({
 
 
 <template>
-    <flat-pickr
-        v-model="selectedDate"
-        :config="finalConfig"
-        @on-change="onChange"
-        v-bind="$attrs" />
+    <div class="f-date-picker">
+        <flat-pickr
+            v-model="selectedDate"
+            :config="finalConfig"
+            @on-change="onChange"
+            v-bind="$attrs" />
+        <slot></slot>
+    </div>
 </template>
+
+
+<style lang="scss">
+@import "../../scss/variables.scss";
+
+.f-date-picker {
+    input[readonly] {
+        background-color: $gray-200;
+        cursor: pointer;
+    }
+}
+</style>

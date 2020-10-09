@@ -3,6 +3,7 @@
     "version": "0.1.6",
     "description": "Yet another inadequate covering made my humans",
     "dependencies": {
+        "svg-inline-loader": "^0.8.2",
         "vue-flatpickr-component": "^8.1.6"
     }
 }
