@@ -6,8 +6,6 @@ import FigIcon from '../icon/FigIcon';
 export default Vue.extend({
     name: 'FigSelect',
 
-    // functional: true,
-
     components: {
         FigIcon,
         vSelect
@@ -30,28 +28,7 @@ export default Vue.extend({
                 `fig-select-${this.size}`
             ];
         }
-    },
-
-    // https://vuejs.org/v2/guide/render-function.html#Passing-Attributes-and-Events-to-Child-Elements-Components
-    // render(h, context) {
-    //     const children = [];
-
-    //     children.push(
-    //         h(
-    //             'template',
-    //             {
-    //                 attrs: {
-    //                     '#open-indicator': attributes
-    //                 }
-    //             }
-    //         )
-    //     )
-    //     return h(
-    //         vSelect,
-    //         context.data,
-    //         context.children
-    //     );
-    // }
+    }
 });
 </script>
 
