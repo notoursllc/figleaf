@@ -7,13 +7,12 @@ export default {
     functional: true,
 
     render(h, ctx) {
-        const classes = ['icon', ctx.data.staticClass];
+        const icon = ctx.props.icon;
+        const classes = ['fig-icon', `fig-icon-${icon}`, ctx.data.staticClass];
 
         if(ctx.props.spin) {
             classes.push('icon-spin');
         }
-
-        const icon = ctx.props.icon;
 
         // delete the 'icon' prop... no need to add that prop to the attributes:
         delete ctx.props.icon;
