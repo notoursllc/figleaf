@@ -2,7 +2,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-    name: 'FButton',
+    name: 'FigButton',
 
     props: {
         size: {
@@ -43,13 +43,13 @@ export default Vue.extend({
     computed: {
         classNames() {
             const classes = [
-                'n-btn',
-                `n-btn-${this.variant}`,
-                `n-btn-${this.size}`,
+                'fig-btn',
+                `fig-btn-${this.variant}`,
+                `fig-btn-${this.size}`,
             ];
 
             if(this.isBlock) {
-                classes.push('n-btn-block');
+                classes.push('fig-btn-block');
             }
 
             return classes;
