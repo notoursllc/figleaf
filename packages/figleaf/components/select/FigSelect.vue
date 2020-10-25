@@ -72,7 +72,7 @@ export default Vue.extend({
 <style lang="scss">
 .fig-select {
     .fig-icon-chevron-down {
-        margin-bottom: -4px;
+        margin-top: -3px;
     }
 }
 </style>
