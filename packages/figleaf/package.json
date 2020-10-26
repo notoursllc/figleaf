@@ -1,6 +1,6 @@
 {
     "name": "@notoursllc/figleaf",
-    "version": "0.1.11",
+    "version": "0.1.12",
     "description": "Yet another inadequate covering made my humans",
     "dependencies": {
         "svg-inline-loader": "^0.8.2",
