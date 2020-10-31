@@ -1,6 +1,6 @@
 {
     "name": "@notoursllc/figleaf",
-    "version": "0.1.12",
+    "version": "0.1.13",
     "description": "Yet another inadequate covering made my humans",
     "dependencies": {
         "flatpickr": "^4.6.6",
