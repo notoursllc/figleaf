@@ -3,11 +3,44 @@ import Vue from 'vue';
 import vSelect from 'vue-select';
 import FigIcon from '../icon/FigIcon';
 
+// https://vue-select.org/guide/components.html#setting-globally-at-registration
+vSelect.props.components.default = () => ({
+    Deselect: {
+        render: (h) => {
+            h(
+                FigIcon,
+                {
+                    attrs: {
+                        icon: 'x',
+                        width: 20,
+                        height: 20,
+                        'stroke-width': 1
+                    }
+                }
+            );
+        }
+    },
+    OpenIndicator: {
+        render: (h) => {
+            h(
+                FigIcon,
+                {
+                    attrs: {
+                        icon: 'chevron-down',
+                        width: 20,
+                        height: 20,
+                        'stroke-width': 1
+                    }
+                }
+            );
+        }
+    }
+});
+
 export default Vue.extend({
     name: 'FigSelect',
 
     components: {
-        FigIcon,
         vSelect
     },
 
@@ -37,12 +70,7 @@ export default Vue.extend({
         :class="classNames"
         v-bind="$attrs"
         v-on="$listeners">
-        <template #open-indicator="{ attributes }">
-            <span v-bind="attributes">
-                <fig-icon icon="chevron-down" :stroke-width="1" :width="20" :height="20" />
-            </span>
-        </template>
-        <slot></slot>
+        <slot v-for="(_, name) in $slots" :name="name" :slot="name" />
     </v-select>
 </template>
 
