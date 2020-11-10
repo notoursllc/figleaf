@@ -92,4 +92,15 @@ export default Vue.extend({
         margin-top: -3px;
     }
 }
+
+.fig-select-sm {
+    .vs__search,
+    .vs__selected {
+        line-height: 1.2;
+        font-size: 14px;
+    }
+    .vs__dropdown-menu {
+        font-size: 14px;
+    }
+}
 </style>
