@@ -3,39 +3,6 @@ import Vue from 'vue';
 import vSelect from 'vue-select';
 import FigIcon from '../icon/FigIcon';
 
-// https://vue-select.org/guide/components.html#setting-globally-at-registration
-vSelect.props.components.default = () => ({
-    Deselect: {
-        render: (h) => {
-            h(
-                FigIcon,
-                {
-                    attrs: {
-                        icon: 'x',
-                        width: 20,
-                        height: 20,
-                        'stroke-width': 1
-                    }
-                }
-            );
-        }
-    },
-    OpenIndicator: {
-        render: (h) => {
-            h(
-                FigIcon,
-                {
-                    attrs: {
-                        icon: 'chevron-down',
-                        width: 20,
-                        height: 20,
-                        'stroke-width': 1
-                    }
-                }
-            );
-        }
-    }
-});
 
 export default Vue.extend({
     name: 'FigSelect',
@@ -54,6 +21,42 @@ export default Vue.extend({
         }
     },
 
+    data: () => ({
+        // https://vue-select.org/guide/components.html#deselect
+        Deselect: {
+            render: (h) => {
+                return h(
+                    FigIcon,
+                    {
+                        attrs: {
+                            icon: 'x',
+                            width: 18,
+                            height: 18,
+                            'stroke-width': 1
+                        }
+                    }
+                );
+            }
+        },
+
+        // https://vue-select.org/guide/components.html#openindicator
+        OpenIndicator: {
+            render: (h) => {
+                return h(
+                    FigIcon,
+                    {
+                        attrs: {
+                            icon: 'chevron-down',
+                            width: 20,
+                            height: 20,
+                            'stroke-width': 1
+                        }
+                    }
+                );
+            }
+        }
+    }),
+
     computed: {
         classNames() {
             return [
@@ -65,8 +68,10 @@ export default Vue.extend({
 });
 </script>
 
+
 <template>
     <v-select
+        :components="{Deselect, OpenIndicator}"
         :class="classNames"
         v-bind="$attrs"
         v-on="$listeners">
@@ -74,12 +79,17 @@ export default Vue.extend({
     </v-select>
 </template>
 
+
 <style lang="scss">
 .fig-select {
-    .fig-icon-chevron-down {
+    background-color: #fff;
+
+    .fig-icon.vs__open-indicator {
+        fill: none;
+    }
+
+    .vs__clear .fig-icon-x {
         margin-top: -3px;
     }
 }
 </style>
-
-
