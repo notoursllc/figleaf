@@ -21,7 +21,7 @@ export default {
                     break;
 
                 default:
-                    classes.push('border-gray-400');
+                    classes.push('border-gray-500');
             }
 
             return classes;
