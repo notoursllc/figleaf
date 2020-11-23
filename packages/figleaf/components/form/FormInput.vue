@@ -1,6 +1,7 @@
 <script>
 import Vue from 'vue';
 import FigIcon from '../icon/FigIcon';
+import form_input_mixin from './form_input_mixin';
 
 
 export default Vue.extend({
@@ -9,6 +10,10 @@ export default Vue.extend({
     components: {
         FigIcon
     },
+
+    mixins: [
+        form_input_mixin
+    ],
 
     props: {
         value: {
@@ -24,6 +29,20 @@ export default Vue.extend({
     data: () => ({
         selectedValue: null
     }),
+
+    computed: {
+        inputClassNames() {
+            const classes = [
+                ...this.formInputMix_stateClassNames
+            ];
+
+            if(this.clearable) {
+                classes.push('pr-8');
+            }
+
+            return classes;
+        }
+    },
 
     watch: {
         value: {
@@ -54,8 +73,9 @@ export default Vue.extend({
             type="text"
             v-model="selectedValue"
             @input="emitInput"
-            class="form-input w-full border-gray-400"
-            :class="{'pr-8': this.clearable}">
+            class="form-input w-full"
+            :class="inputClassNames"
+            v-bind="$attrs">
         <button
             v-if="clearable"
             type="button"
@@ -63,8 +83,8 @@ export default Vue.extend({
             class="absolute top-0 right-0 background-transparent p-1 pr-2 flex items-center min-h-full text-center border-0">
             <fig-icon
                 icon="x"
-                :stroke-width="1"
-                stroke="#000"
+                :stroke-width="2"
+                stroke="#555"
                 :width="16"
                 :height="16" />
         </button>
