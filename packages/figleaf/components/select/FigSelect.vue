@@ -18,6 +18,11 @@ export default Vue.extend({
             validator: (value) => {
                 return ['sm', 'md', 'lg'].includes(value);
             }
+        },
+
+        rightRadius: {
+            type: Boolean,
+            default: true
         }
     },
 
@@ -59,10 +64,16 @@ export default Vue.extend({
 
     computed: {
         classNames() {
-            return [
+            const names = [
                 'fig-select',
                 `fig-select-${this.size}`
             ];
+
+            if(!this.rightRadius) {
+                names.push('fig-select-no-right-radius');
+            }
+
+            return names;
         }
     }
 });
@@ -96,11 +107,18 @@ export default Vue.extend({
 .fig-select-sm {
     .vs__search,
     .vs__selected {
-        line-height: 1.2;
+        line-height: 1.4;
         font-size: 14px;
     }
     .vs__dropdown-menu {
         font-size: 14px;
+    }
+}
+
+.fig-select-no-right-radius {
+    .vs__dropdown-toggle {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
 }
 </style>
