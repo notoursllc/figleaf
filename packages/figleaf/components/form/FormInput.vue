@@ -54,13 +54,13 @@ export default Vue.extend({
             type="text"
             v-model="selectedValue"
             @input="emitInput"
-            class="form-input width-full"
+            class="form-input w-full border-gray-400"
             :class="{'pr-8': this.clearable}">
         <button
             v-if="clearable"
             type="button"
             @click="onClear"
-            class="absolute top-0 right-0 background-transparent p-1 pr-2 flex items-center min-height-full text-center border-0">
+            class="absolute top-0 right-0 background-transparent p-1 pr-2 flex items-center min-h-full text-center border-0">
             <fig-icon
                 icon="x"
                 :stroke-width="1"
