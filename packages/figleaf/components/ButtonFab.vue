@@ -70,25 +70,22 @@ export default Vue.extend({
     <button
         type="button"
         tabindex="0"
-        class="rounded-full p-4"
+        class="fig-button-fab fixed rounded-full p-14px z-1"
         :class="buttonClasses"
         v-on="$listeners">
         <fig-icon
             :icon="icon"
-            :height="30"
-            :width="30"
+            :height="28"
+            :width="28"
             stroke="#fff" />
     </button>
 </template>
 
 
 <style lang="scss" scoped>
-.fab {
-    z-index: 1;
-    position: fixed;
+.fig-button-fab {
     bottom: 20px;
     right: 20px;
-    padding: 14px;
 }
 
 .fab2 {
