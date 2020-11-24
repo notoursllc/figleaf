@@ -21,7 +21,6 @@ export const methods = {
         }
 
         toastConfig.id = generateId();
-        toastConfig.variant = toastConfig.group || 'info';
 
         // add toasts to the front of the array so
         // the new ones appear at the top of the UI
