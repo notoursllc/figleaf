@@ -1,13 +1,10 @@
 <script>
 import Vue from 'vue';
-import flatpickr from '../../directives/flatpickr';
+import Flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.css';
 import FormInput from './FormInput';
 
 export default Vue.extend({
-    directives: {
-        flatpickr
-    },
-
     components: {
         FormInput
     },
@@ -23,12 +20,18 @@ export default Vue.extend({
             default: () => {
                 return {};
             }
+        },
+
+        clearable: {
+            type: Boolean,
+            default: true
         }
     },
 
     data () {
         return {
-            selectedDate: null
+            selectedDate: null,
+            Flatpickr: null
         };
     },
 
@@ -38,17 +41,20 @@ export default Vue.extend({
             // Events:  https://flatpickr.js.org/events/
             // Formatting tokens:  https://flatpickr.js.org/formatting/
 
-            const format = this.config.enableTime === false ? 'dateFormatPicker_mdy' : 'dateFormatPicker_mdy_hm';
+            const format = this.config.enableTime === false ? 'M j, Y' : 'M j, Y h:i K';
+
+            const defaultConfig = {
+                dateFormat: 'Z',
+                altFormat: format,
+                altInput: true,
+                enableTime: true,
+                hourIncrement: 1,
+                minuteIncrement: 1
+            };
 
             return Object.assign(
-                {
-                    dateFormat: 'Z',
-                    altFormat: this.$t(format),
-                    altInput: true,
-                    enableTime: true,
-                    hourIncrement: 1,
-                    minuteIncrement: 1
-                },
+                {},
+                defaultConfig,
                 this.config,
                 {
                     wrap: false // needs to be false
@@ -57,26 +63,40 @@ export default Vue.extend({
         }
     },
 
-    created() {
-        const unwatch = this.$watch('value', function (newVal, oldVal) {
-            if(newVal && !oldVal) {
+    watch: {
+        value: {
+            handler: function(newVal) {
                 this.selectedDate = newVal;
+            },
+            immediate: true
+        }
+    },
 
-                if(unwatch) {
-                    unwatch();
-                }
-            }
-        },
-        { immediate: true });
+    mounted() {
+        this.$watch(
+            'config',
+            function (newVal) {
+                this.Flatpickr = new Flatpickr(
+                    this.$refs.formInputDateTime.$el.firstChild,
+                    this.finalConfig
+                );
+            },
+            { immediate: true }
+        );
+    },
+
+    beforeDestroy() {
+        this.Flatpickr.destroy();
     },
 
     methods: {
-        onChange(val, dateString) {
-            this.$emit('input', val);
+        emitInput() {
+            this.$emit('input', this.selectedDate);
         },
 
         onClear() {
-            this.$refs.dateInput.$el._flatpickr.clear();
+            this.Flatpickr.clear();
+            this.emitInput();
         }
     }
 });
@@ -86,11 +106,17 @@ export default Vue.extend({
 <template>
     <form-input
         v-model="selectedDate"
-        clearable
-        @input="onChange"
-        @click="onClear"
-        v-on="$listeners"
-        v-flatpickr="finalConfig"
-        ref="dateInput" />
+        :clearable="clearable"
+        @input="emitInput"
+        @clear="onClear"
+        ref="formInputDateTime"
+        class="fig-input-date" />
 </template>
 
+
+<style>
+.fig-input-date .form-input[readonly] {
+    background-color: #fff !important;
+    cursor: pointer !important;
+}
+</style>
