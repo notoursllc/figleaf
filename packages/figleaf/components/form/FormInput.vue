@@ -58,9 +58,14 @@ export default Vue.extend({
             this.$emit('input', this.selectedValue);
         },
 
+        emitClear() {
+            this.$emit('clear', this.selectedValue);
+        },
+
         onClear() {
             this.selectedValue = null;
             this.emitInput();
+            this.emitClear();
         }
     }
 });
