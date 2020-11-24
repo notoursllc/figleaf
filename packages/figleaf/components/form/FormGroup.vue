@@ -20,23 +20,6 @@ export default Vue.extend({
     computed: {
         containerClasses() {
             return this.stacked ? 'flex-col' : 'flex-row';
-        },
-
-        labelClasses() {
-            const classes = [];
-
-            if(this.stacked) {
-                classes.push(
-                    'pt-1'
-                );
-            }
-            else {
-                classes.push(
-                    'pr-2'
-                );
-            }
-
-            return classes;
         }
     }
 });
@@ -48,26 +31,26 @@ export default Vue.extend({
         role="group"
         class="flex"
         :class="containerClasses">
-        <label
+        <div
             v-if="$slots.label || isButton"
             class="text-left"
-            :class="labelClasses">
+            :class="{'pr-2': !stacked}">
             <slot name="label">&nbsp;</slot>
-        </label>
+        </div>
 
         <div v-if="!isButton">
             <slot></slot>
 
             <div
                 v-if="$slots.error"
-                class="text-red-600 pt-1 block"
+                class="text-red-600 pt-1"
                 tabindex="-1"
                 role="alert"
                 aria-live="assertive"><slot name="error" /></div>
 
             <div
                 v-if="$slots.description"
-                class="text-gray-700 pt-1 block"
+                class="text-gray-600 pt-1 text-sm"
                 tabindex="-1"><slot name="description" /></div>
         </div>
     </div>
