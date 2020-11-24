@@ -1,3 +1,5 @@
+export { default as FigButton } from './components/Button';
+
 // form
 export { default as FigFormCheckbox } from './components/form/FormCheckbox';
 export { default as FigFormGroup } from './components/form/FormGroup';
