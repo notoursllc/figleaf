@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+ * https://v1.tailwindcss.com/docs/adding-new-utilities#using-css
+ */
+@layer utilities {
+    .form-input-sm {
+        padding-top: 0.2rem;
+        padding-right: 0.5rem;
+        padding-bottom: 0.2rem;
+        padding-left: 0.5rem;
+    }
+}

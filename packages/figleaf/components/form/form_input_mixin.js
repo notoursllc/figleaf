@@ -4,6 +4,14 @@ export default {
         state: {
             type: Boolean,
             default: null
+        },
+
+        size: {
+            type: String,
+            default: 'md',
+            validator: (value) => {
+                return ['sm', 'md'].includes(value);
+            }
         }
     },
 
@@ -24,8 +32,12 @@ export default {
                     classes.push('border-gray-500');
             }
 
+            if(this.size === 'sm') {
+                classes.push('form-input-sm');
+            }
+
             return classes;
         }
     }
 
-}
+};
