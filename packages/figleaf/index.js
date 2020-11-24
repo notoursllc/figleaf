@@ -1,4 +1,5 @@
 export { default as FigButton } from './components/Button';
+export { default as FigButtonFab } from './components/ButtonFab';
 
 // form
 export { default as FigFormCheckbox } from './components/form/FormCheckbox';
