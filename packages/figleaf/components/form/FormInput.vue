@@ -20,6 +20,11 @@ export default Vue.extend({
             type: String
         },
 
+        type: {
+            type: String,
+            default: 'text'
+        },
+
         clearable: {
             type: Boolean,
             default: false
@@ -75,7 +80,7 @@ export default Vue.extend({
 <template>
     <div class="relative w-full">
         <input
-            type="text"
+            :type="type"
             v-model="selectedValue"
             @input="emitInput"
             class="form-input w-full"
