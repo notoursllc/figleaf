@@ -1,12 +1,17 @@
 <script>
 import accounting from 'accounting';
 import { CurrencyDirective } from 'vue-currency-input';
+import form_input_mixin from './form_input_mixin';
 
 
 export default {
     directives: {
         currency: CurrencyDirective
     },
+
+    mixins: [
+        form_input_mixin
+    ],
 
     props: {
         value: {
@@ -19,6 +24,12 @@ export default {
         return {
             selectedPrice: null
         };
+    },
+
+    computed: {
+        inputClassNames() {
+            return this.formInputMix_stateClassNames;
+        }
     },
 
     watch: {
