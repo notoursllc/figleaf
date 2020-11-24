@@ -2,10 +2,11 @@
 import Vue from 'vue';
 import vSelect from 'vue-select';
 import FigIcon from '../icon/FigIcon';
+import 'vue-select/src/scss/vue-select.scss';
 
 
 export default Vue.extend({
-    name: 'FigSelect',
+    name: 'FormSelect',
 
     components: {
         vSelect
