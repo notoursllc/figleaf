@@ -7,6 +7,8 @@ import form_input_mixin from './form_input_mixin';
 export default Vue.extend({
     name: 'FormInput',
 
+    inheritAttrs: false,
+
     components: {
         FigIcon
     },
@@ -16,9 +18,7 @@ export default Vue.extend({
     ],
 
     props: {
-        value: {
-            type: String
-        },
+        value: {},
 
         type: {
             type: String,
@@ -28,17 +28,23 @@ export default Vue.extend({
         clearable: {
             type: Boolean,
             default: false
+        },
+
+        inputClasses: {
+            type: String
         }
     },
 
     data: () => ({
-        selectedValue: null
+        selectedValue: null,
+        endCapBaseClasses: 'flex items-center leading-normal bg-gray-100 border-t border-b border-gray-350 px-3 whitespace-no-wrap text-grey-dark text-sm'
     }),
 
     computed: {
         inputClassNames() {
             const classes = [
-                ...this.formInputMix_stateClassNames
+                ...this.formInputMix_stateClassNames,
+                this.inputClasses
             ];
 
             if(this.clearable) {
@@ -48,6 +54,11 @@ export default Vue.extend({
             if(this.type === 'color') {
                 classes.push('p-1 h-10');
             }
+
+            classes.push(
+                this.$slots.prefix ? 'rounded-l-none' : 'rounded-l-md',
+                this.$slots.suffix ? 'rounded-r-none' : 'rounded-r-md'
+            );
 
             return classes;
         }
@@ -82,12 +93,20 @@ export default Vue.extend({
 
 
 <template>
-    <div class="relative w-full">
+    <div class="flex flex-wrap items-stretch w-full relative">
+        <div
+            v-if="$slots.prefix"
+            class="flex -mr-px">
+            <span
+                :class="endCapBaseClasses"
+                class="rounded-l-md rounded-r-none border-l"><slot name="prefix"></slot></span>
+        </div>
+
         <input
             :type="type"
             v-model="selectedValue"
             @input="emitInput"
-            class="form-input w-full"
+            class="form-input flex-shrink flex-grow leading-normal w-px flex-1 border h-10 px-3 relative"
             :class="inputClassNames"
             v-bind="$attrs">
         <button
@@ -102,5 +121,13 @@ export default Vue.extend({
                 :width="16"
                 :height="16" />
         </button>
+
+        <div
+            v-if="$slots.suffix"
+            class="flex -mr-px">
+            <span
+                :class="endCapBaseClasses"
+                class="rounded-r-md rounded-l-none border-r"><slot name="suffix"></slot></span>
+        </div>
     </div>
 </template>
