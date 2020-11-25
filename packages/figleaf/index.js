@@ -1,3 +1,5 @@
+export { default as FigBadge } from './components/Badge';
+
 export { default as FigButton } from './components/Button';
 export { default as FigButtonFab } from './components/ButtonFab';
 
