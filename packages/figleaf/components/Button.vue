@@ -30,7 +30,8 @@ export default Vue.extend({
                     'plain-outline',
                     'primary',
                     'success',
-                    'success-outline'].includes(value);
+                    'success-outline',
+                    'naked'].includes(value);
             }
         },
 
@@ -138,6 +139,10 @@ export default Vue.extend({
                         this.isDisabled ? 'text-gray-600' : 'text-green-700 border-green-600 hover:bg-green-600'
                     );
                     break;
+
+                case 'naked':
+                    classes.push('border-0 background-transparent p-0');
+                    break;
             }
 
             // sizes
@@ -151,7 +156,9 @@ export default Vue.extend({
                     break;
 
                 default:
-                    classes.push('py-2 px-3 text-md leading-tight');
+                    if(this.variant !== 'naked') {
+                        classes.push('py-2 px-3 text-md leading-tight');
+                    }
             }
 
             return classes;
