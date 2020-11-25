@@ -1,7 +1,6 @@
 <script>
 import Vue from 'vue';
 
-
 export default Vue.extend({
     name: 'Badge',
 
@@ -13,21 +12,31 @@ export default Vue.extend({
 
         pill: {
             type: Boolean,
-            default: true
+            default: false
         },
 
         variant: {
             type: String,
-            default: 'secondary',
+            default: 'light',
             validator: (value) => {
                 return [
-                    'primary',
-                    'secondary',
                     'success',
                     'error',
                     'warning',
                     'info',
-                    'dark'
+                    'dark',
+                    'light'
+                ].includes(value);
+            }
+        },
+
+        size: {
+            type: String,
+            default: 'lg',
+            validator: (value) => {
+                return [
+                    'sm',
+                    'lg'
                 ].includes(value);
             }
         }
@@ -35,40 +44,40 @@ export default Vue.extend({
 
     computed: {
         classNames() {
-            const classes = ['fig-badge p-1'];
+            const classes = ['fig-badge px-2 py-1 font-semibold'];
 
-            if(this.pill) {
-                classes.push('rounded-l-full rounded-r-full');
-            }
+            classes.push(
+                this.size === 'lg' ? 'text-sm' : 'text-xs'
+            );
+
+            classes.push(
+                this.pill ? 'rounded-xl' : 'rounded-sm'
+            );
 
             // variants
             switch(this.variant) {
-                case 'primary':
-                    classes.push('text-white bg-blue-600');
-                    break;
-
-                case 'secondary':
-                    classes.push('text-white bg-gray-700');
+                case 'info':
+                    classes.push('text-blue-900 bg-blue-200');
                     break;
 
                 case 'success':
-                    classes.push('text-white bg-green-500');
+                    classes.push('text-green-900 bg-green-200');
                     break;
 
                 case 'error':
-                    classes.push('text-white bg-red-600');
+                    classes.push('text-red-900 bg-red-200');
                     break;
 
                 case 'warning':
-                    classes.push('text-gray-800 bg-yellow-500');
-                    break;
-
-                case 'info':
-                    classes.push('text-blue-800 bg-blue-300');
+                    classes.push('text-orange-900 bg-orange-300');
                     break;
 
                 case 'dark':
                     classes.push('text-white bg-gray-900');
+                    break;
+
+                case 'light':
+                    classes.push('text-gray-800 bg-gray-300');
                     break;
             }
 
@@ -76,7 +85,7 @@ export default Vue.extend({
         }
     },
 
-    render(h, ctx) {
+    render(h) {
         return h(
             this.tag,
             {
