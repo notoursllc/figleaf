@@ -23,6 +23,24 @@ export default {
             validator: (value) => {
                 return ['success', 'error', 'primary'].includes(value);
             }
+        },
+
+        inverse: {
+            type: Boolean,
+            default: false
+        }
+    },
+
+    data: () => ({
+        isChecked: null
+    }),
+
+    watch: {
+        value: {
+            handler: function(newVal) {
+                this.isChecked = this.inverse ? !newVal : newVal;
+            },
+            immediate: true
         }
     },
 
@@ -32,6 +50,12 @@ export default {
                 `toggle-switch-${this.size}`,
                 `toggle-switch-${this.variant}`
             ];
+        }
+    },
+
+    methods: {
+        emitInput() {
+            this.$emit('input', this.inverse ? !this.isChecked : this.isChecked)
         }
     }
 };
@@ -45,8 +69,8 @@ export default {
             v-bind="$attrs"
             type="checkbox"
             class="toggle-input absolute left-0 opacity-0 w-4 h-5 z-minus-1"
-            :checked="value"
-            @change="$emit('input', $event.target.checked)">
+            v-model="isChecked"
+            @change="emitInput">
         <span
             class="toggle-switch flex items-center relative bg-gray-300 rounded-full"
             :class="switchClasses"></span>
