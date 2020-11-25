@@ -1,5 +1,7 @@
 <script>
 import Vue from 'vue';
+import accounting from 'accounting';
+import { CurrencyDirective } from 'vue-currency-input';
 import FigIcon from '../icon/FigIcon';
 import form_input_mixin from './form_input_mixin';
 
@@ -8,6 +10,10 @@ export default Vue.extend({
     name: 'FormInput',
 
     inheritAttrs: false,
+
+    directives: {
+        currency: CurrencyDirective
+    },
 
     components: {
         FigIcon
@@ -37,7 +43,7 @@ export default Vue.extend({
 
     data: () => ({
         selectedValue: null,
-        endCapBaseClasses: 'flex items-center leading-normal bg-gray-100 border-t border-b border-gray-350 px-3 whitespace-no-wrap text-grey-dark text-sm'
+        endCapBaseClasses: 'flex items-center leading-normal bg-gray-100 border-t border-b border-gray-350 px-2 whitespace-no-wrap text-grey-dark text-sm'
     }),
 
     computed: {
@@ -60,14 +66,32 @@ export default Vue.extend({
                 this.$slots.suffix ? 'rounded-r-none' : 'rounded-r-md'
             );
 
+            if(this.$attrs.disabled) {
+                classes.push('cursor-not-allowed bg-gray-100 text-gray-400');
+            }
+
             return classes;
+        },
+
+        isMoneyType() {
+            return this.type === 'money';
         }
     },
 
     watch: {
         value: {
             handler: function(newVal) {
-                this.selectedValue = newVal;
+                if(this.isMoneyType) {
+
+                    /**
+                     * Value is sent as a number (in cents) that needs
+                     * to be converted to 'dollars' (divide by 100)
+                     */
+                    this.selectedValue = newVal ? parseInt(newVal, 10)/100 : 0;
+                }
+                else {
+                    this.selectedValue = newVal;
+                }
             },
             immediate: true
         }
@@ -75,7 +99,22 @@ export default Vue.extend({
 
     methods: {
         emitInput() {
-            this.$emit('input', this.selectedValue);
+            if(this.isMoneyType) {
+                let clean = 0;
+
+                if(this.selectedValue) {
+                    clean = accounting.toFixed(parseFloat(this.selectedValue) * 100, 0);
+
+                    // accounting returns a string.  This converts back to a float
+                    clean = parseFloat(clean);
+                    this.$emit('input', clean);
+                }
+
+                this.$emit('input', clean);
+            }
+            else {
+                this.$emit('input', this.selectedValue);
+            }
         },
 
         emitClear() {
@@ -87,47 +126,118 @@ export default Vue.extend({
             this.emitInput();
             this.emitClear();
         }
+    },
+
+    render(h) {
+        let prefixElement = null;
+        let suffixElement = null;
+        const self = this;
+
+        // prefix slot
+        if(self.$slots.prefix) {
+            prefixElement = h(
+                'div',
+                {
+                    class: 'flex -mr-px'
+                },
+                [
+                    h(
+                        'span',
+                        {
+                            class: [
+                                self.endCapBaseClasses,
+                                'rounded-l-md rounded-r-none border-l'
+                            ]
+                        },
+                        self.$slots.prefix
+                    )
+                ]
+            );
+        };
+
+        // suffix slot
+        if(this.$slots.suffix) {
+            suffixElement = h(
+                'div',
+                {
+                    class: 'flex -mr-px'
+                },
+                [
+                    h(
+                        'span',
+                        {
+                            class: [
+                                self.endCapBaseClasses,
+                                'rounded-r-md rounded-l-none border-r'
+                            ]
+                        },
+                        self.$slots.suffix
+                    )
+                ]
+            );
+        };
+
+        // input element
+        const directives = [];
+        if(self.isMoneyType) {
+            directives.push({
+                name: 'currency',
+                value: {
+                    currency: 'USD',
+                    locale: 'en-US',
+                    valueAsInteger: false,
+                    allowNegative: false,
+                    distractionFree: true,
+                    autoDecimalMode: true,
+                    valueRange: { min: 0 }
+                }
+            });
+        }
+
+        const inputElement = h(
+            'input',
+            {
+                attrs: {
+                    type: self.isMoneyType ? 'text' : self.type,
+                    ...self.$attrs
+                },
+
+                class: [
+                    'form-input flex-shrink flex-grow leading-normal w-px flex-1 border h-10 px-3 relative',
+                    ...self.inputClassNames
+                ],
+
+                domProps: {
+                    value: self.selectedValue
+                },
+
+                on: {
+                    input: self.emitInput
+                },
+
+                directives: directives
+            }
+        );
+
+        const parentChildren = [];
+
+        if(prefixElement) {
+            parentChildren.push(prefixElement);
+        }
+
+        parentChildren.push(inputElement);
+
+        if(suffixElement) {
+            parentChildren.push(suffixElement);
+        }
+
+        return h(
+            'div',
+            {
+                class: 'flex flex-wrap items-stretch w-full relative'
+            },
+            parentChildren
+        );
     }
 });
 </script>
-
-
-<template>
-    <div class="flex flex-wrap items-stretch w-full relative">
-        <div
-            v-if="$slots.prefix"
-            class="flex -mr-px">
-            <span
-                :class="endCapBaseClasses"
-                class="rounded-l-md rounded-r-none border-l"><slot name="prefix"></slot></span>
-        </div>
-
-        <input
-            :type="type"
-            v-model="selectedValue"
-            @input="emitInput"
-            class="form-input flex-shrink flex-grow leading-normal w-px flex-1 border h-10 px-3 relative"
-            :class="inputClassNames"
-            v-bind="$attrs">
-        <button
-            v-if="clearable"
-            type="button"
-            @click="onClear"
-            class="absolute top-0 right-0 background-transparent p-1 pr-2 flex items-center min-h-full text-center border-0">
-            <fig-icon
-                icon="x"
-                :stroke-width="2"
-                stroke="#555"
-                :width="16"
-                :height="16" />
-        </button>
-
-        <div
-            v-if="$slots.suffix"
-            class="flex -mr-px">
-            <span
-                :class="endCapBaseClasses"
-                class="rounded-r-md rounded-l-none border-r"><slot name="suffix"></slot></span>
-        </div>
-    </div>
-</template>
