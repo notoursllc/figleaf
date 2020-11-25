@@ -9,6 +9,7 @@ export { default as FigFormGroup } from './components/form/FormGroup';
 export { default as FigFormInput } from './components/form/FormInput';
 export { default as FigFormInputDate} from './components/form/FormInputDate';
 export { default as FigFormInputMoney } from './components/form/FormInputMoney';
+export { default as FigFormInputNumber } from './components/form/FormInputNumber';
 export { default as FigFormRadio } from './components/form/FormRadio';
 export { default as FigFormSelect } from './components/form/FormSelect';
 export { default as FigFormTextarea } from './components/form/FormTextarea';
