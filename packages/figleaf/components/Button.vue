@@ -109,7 +109,7 @@ export default Vue.extend({
                 case 'plain':
                 case 'plain-outline':
                     classes.push(
-                        this.isDisabled ? 'bg-gray-200 text-gray-600' : 'bg-gray-300 hover:bg-gray-400 text-gray-800'
+                        this.isDisabled ? 'bg-gray-100 text-gray-600' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
                     );
 
                     if(this.variant === 'plain-outline') {

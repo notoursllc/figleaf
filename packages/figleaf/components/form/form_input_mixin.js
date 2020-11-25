@@ -29,7 +29,7 @@ export default {
                     break;
 
                 default:
-                    classes.push('border-gray-500');
+                    classes.push('border-gray-350');
             }
 
             if(this.size === 'sm') {

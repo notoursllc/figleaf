@@ -24,6 +24,10 @@ export default Vue.extend({
         rightRadius: {
             type: Boolean,
             default: true
+        },
+
+        reduce: {
+            type: Function
         }
     },
 
@@ -85,8 +89,9 @@ export default Vue.extend({
     <v-select
         :components="{Deselect, OpenIndicator}"
         :class="classNames"
+        v-on="$listeners"
         v-bind="$attrs"
-        v-on="$listeners">
+        :reduce="reduce">
         <slot v-for="(_, name) in $slots" :name="name" :slot="name" />
     </v-select>
 </template>

@@ -50,7 +50,7 @@ export default Vue.extend({
 
             <div
                 v-if="$slots.description"
-                class="text-gray-600 pt-1 text-sm"
+                class="text-gray-500 pt-1 text-sm"
                 tabindex="-1"><slot name="description" /></div>
         </div>
     </div>
