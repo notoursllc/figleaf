@@ -5,25 +5,28 @@ export default Vue.extend({
     name: 'FormRadio',
 
     props: {
-        value: {}
+        value: {},
+        checkedValue: {
+            required: true
+        }
     },
 
     data: () => ({
-        isChecked: null
+        isChecked: false
     }),
 
     watch: {
         value: {
             handler: function(newVal) {
-                this.isChecked = newVal;
+                this.isChecked = (newVal === this.checkedValue);
             },
             immediate: true
         }
     },
 
     methods: {
-        emitInput(val) {
-            this.$emit('input', this.isChecked);
+        emitInput(e) {
+            this.$emit('input', this.checkedValue);
         }
     }
 });
@@ -33,11 +36,11 @@ export default Vue.extend({
 <template>
     <label class="inline-flex items-center">
         <input
-            type="radio"
-            class="form-radio border-gray-500"
-            v-bind="$attrs"
+            :checked="isChecked"
             @change="emitInput"
-            v-model="isChecked">
+            v-bind="$attrs"
+            type="radio"
+            class="form-radio border-gray-500">
         <span class="ml-2" v-if="$slots.default"><slot></slot></span>
     </label>
 </template>
