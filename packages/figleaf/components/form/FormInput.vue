@@ -45,6 +45,10 @@ export default Vue.extend({
                 classes.push('pr-8');
             }
 
+            if(this.type === 'color') {
+                classes.push('p-1 h-10');
+            }
+
             return classes;
         }
     },
