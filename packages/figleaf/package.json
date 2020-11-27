@@ -8,6 +8,7 @@
         "accounting": "^0.4.1",
         "flatpickr": "^4.6.6",
         "lodash.isfinite": "^3.3.2",
+        "lodash.isobject": "^3.0.2",
         "svg-inline-loader": "^0.8.2",
         "vue-currency-input": "^1.22.3",
         "vue-flatpickr-component": "^8.1.6",

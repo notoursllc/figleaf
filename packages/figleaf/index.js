@@ -5,6 +5,7 @@ export { default as FigButtonFab } from './components/ButtonFab';
 
 // form
 export { default as FigFormCheckbox } from './components/form/FormCheckbox';
+export { default as FigFormSelectCountry } from './components/form/FormSelectCountry';
 export { default as FigFormGroup } from './components/form/FormGroup';
 export { default as FigFormInput } from './components/form/FormInput';
 export { default as FigFormInputDate} from './components/form/FormInputDate';
