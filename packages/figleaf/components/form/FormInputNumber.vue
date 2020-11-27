@@ -40,8 +40,12 @@ export default Vue.extend({
 
         size: {
             type: String,
-            required: false,
-            default: 'md'
+            required: false
+        },
+
+        controls: {
+            type: Boolean,
+            default: false
         }
     },
 
@@ -136,19 +140,21 @@ export default Vue.extend({
         :size="size"
         @input="emitInput"
         v-bind="$attrs"
-        input-classes="px-10 text-center">
-        <fig-button
-            slot="prefix"
-            variant="naked"
-            @click="up"
-            :disabled="plusDisabled"
-            icon="plus" />
+        input-classes="text-center">
+        <template v-if="controls">
+            <fig-button
+                slot="prefix"
+                variant="naked"
+                @click="up"
+                :disabled="plusDisabled"
+                icon="plus" />
 
-        <fig-button
-            slot="suffix"
-            variant="naked"
-            @click="down"
-            :disabled="minusDisabled"
-            icon="minus" />
+            <fig-button
+                slot="suffix"
+                variant="naked"
+                @click="down"
+                :disabled="minusDisabled"
+                icon="minus" />
+        </template>
     </form-input>
 </template>
