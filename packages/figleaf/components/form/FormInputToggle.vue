@@ -1,4 +1,6 @@
 <script>
+// This component was heavily inspired by:  https://thomlom.dev/how-to-build-reusable-and-accessible-switch-vue/
+
 export default {
     name: 'FormInputToggle',
 
@@ -68,7 +70,7 @@ export default {
         <input
             v-bind="$attrs"
             type="checkbox"
-            class="toggle-input absolute left-0 opacity-0 w-4 h-5 z-minus-1"
+            class="toggle-input sr-only"
             v-model="isChecked"
             @change="emitInput">
         <span

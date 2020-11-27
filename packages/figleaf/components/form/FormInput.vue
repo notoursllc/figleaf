@@ -216,7 +216,7 @@ export default Vue.extend({
                 },
 
                 class: [
-                    'form-input flex-shrink flex-grow leading-normal flex-1 border px-3 relative',
+                    'form-input flex-shrink flex-grow leading-normal border px-3 relative',
                     ...self.inputClassNames
                 ],
 
