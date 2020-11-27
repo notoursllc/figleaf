@@ -75,8 +75,8 @@ export default {
             class="toggle-switch flex items-center relative bg-gray-300 rounded-full"
             :class="switchClasses"></span>
         <span
-            v-if="$slots.label"
-            class="ml-2 overflow-hidden truncate"><slot name="label"></slot></span>
+            v-if="$slots.default"
+            class="ml-2 overflow-hidden truncate"><slot></slot></span>
     </label>
 </template>
 
