@@ -38,6 +38,14 @@ export default Vue.extend({
 
         inputClasses: {
             type: String
+        },
+
+        size: {
+            type: String,
+            default: 'md',
+            validator: (value) => {
+                return ['sm', 'md'].includes(value);
+            }
         }
     },
 
@@ -58,8 +66,13 @@ export default Vue.extend({
             }
 
             if(this.type === 'color') {
-                classes.push('p-1 h-10');
+                classes.push('p-1');
             }
+
+            // size
+            classes.push(
+                this.size === 'sm' ? 'h-8' : 'h-10'
+            );
 
             classes.push(
                 this.$slots.prefix ? 'rounded-l-none' : 'rounded-l-md',
@@ -203,7 +216,7 @@ export default Vue.extend({
                 },
 
                 class: [
-                    'form-input flex-shrink flex-grow leading-normal w-px flex-1 border h-10 px-3 relative',
+                    'form-input flex-shrink flex-grow leading-normal flex-1 border px-3 relative',
                     ...self.inputClassNames
                 ],
 
@@ -234,7 +247,7 @@ export default Vue.extend({
         return h(
             'div',
             {
-                class: 'flex flex-wrap items-stretch w-full relative'
+                class: 'flex flex-no-wrap items-stretch relative'
             },
             parentChildren
         );
