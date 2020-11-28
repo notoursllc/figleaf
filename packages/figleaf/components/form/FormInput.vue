@@ -71,7 +71,7 @@ export default Vue.extend({
 
             // size
             classes.push(
-                this.size === 'sm' ? 'h-8' : 'h-10'
+                this.size === 'sm' ? 'h-6' : 'h-8'
             );
 
             classes.push(
