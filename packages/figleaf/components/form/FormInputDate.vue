@@ -77,7 +77,7 @@ export default Vue.extend({
             'config',
             function (newVal) {
                 this.Flatpickr = new Flatpickr(
-                    this.$refs.formInputDateTime.$el.firstChild,
+                    this.$refs.formInputDateTime.$el,
                     this.finalConfig
                 );
             },

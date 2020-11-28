@@ -40,8 +40,7 @@ export default {
              * to be converted to 'dollars' (divide by 100)
              */
             handler(newVal) {
-                this.selectedPrice = newVal ? newVal/100 : 0;
-                // console.log('watch', newVal, this.selectedPrice)
+                this.selectedPrice = newVal ? parseInt(newVal, 10)/100 : 0;
 
             },
             immediate: true

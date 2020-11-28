@@ -9,6 +9,7 @@ export { default as FigFormSelectCountry } from './components/form/FormSelectCou
 export { default as FigFormGroup } from './components/form/FormGroup';
 export { default as FigFormInput } from './components/form/FormInput';
 export { default as FigFormInputDate} from './components/form/FormInputDate';
+export { default as FigFormInputEndcapper} from './components/form/FormInputEndcapper';
 export { default as FigFormInputMoney } from './components/form/FormInputMoney';
 export { default as FigFormInputNumber } from './components/form/FormInputNumber';
 export { default as FigFormInputToggle } from './components/form/FormInputToggle';

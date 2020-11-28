@@ -2,9 +2,9 @@
 import Vue from 'vue';
 import isFinite from 'lodash.isfinite';
 import { isNumber } from '../utils/common';
-import FigIcon from '../icon/FigIcon';
 import FormInput from './FormInput';
 import FigButton from '../Button';
+import FormInputEndcapper from './FormInputEndcapper';
 
 
 export default Vue.extend({
@@ -13,14 +13,14 @@ export default Vue.extend({
     inheritAttrs: false,
 
     components: {
-        FigIcon,
         FormInput,
-        FigButton
+        FigButton,
+        FormInputEndcapper
     },
 
     props: {
         value: {
-            type: Number
+            // type: Number
         },
 
         max: {
@@ -131,30 +131,32 @@ export default Vue.extend({
 
 
 <template>
-    <form-input
-        v-model="selectedValue"
-        type="number"
-        :min="min"
-        :max="max"
-        :step="step"
-        :size="size"
-        @input="emitInput"
-        v-bind="$attrs"
-        input-classes="text-center">
-        <template v-if="controls">
-            <fig-button
-                slot="prefix"
-                variant="naked"
-                @click="up"
-                :disabled="plusDisabled"
-                icon="plus" />
+    <form-input-endcapper>
+        <fig-button
+            slot="prefix"
+            variant="naked"
+            @click="up"
+            :disabled="plusDisabled"
+            icon="plus" />
 
-            <fig-button
-                slot="suffix"
-                variant="naked"
-                @click="down"
-                :disabled="minusDisabled"
-                icon="minus" />
-        </template>
-    </form-input>
+        <form-input
+            v-model="selectedValue"
+            type="number"
+            :min="min"
+            :max="max"
+            :step="step"
+            :size="size"
+            @input="emitInput"
+            v-bind="$attrs"
+            square-left
+            square-right
+            input-classes="text-center" />
+
+        <fig-button
+            slot="suffix"
+            variant="naked"
+            @click="down"
+            :disabled="minusDisabled"
+            icon="minus" />
+    </form-input-endcapper>
 </template>
