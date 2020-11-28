@@ -65,7 +65,7 @@ export default {
 
 
 <template>
-    <label class="flex cursor-pointer items-center">
+    <label class="fig-toggle flex cursor-pointer items-center">
         <!-- note: input classes visually hide the checkbox input element -->
         <input
             v-bind="$attrs"
