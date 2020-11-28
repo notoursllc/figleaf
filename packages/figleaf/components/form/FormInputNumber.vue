@@ -46,6 +46,11 @@ export default Vue.extend({
         controls: {
             type: Boolean,
             default: false
+        },
+
+        center: {
+            type: Boolean,
+            default: false
         }
     },
 
@@ -132,13 +137,6 @@ export default Vue.extend({
 
 <template>
     <form-input-endcapper>
-        <fig-button
-            slot="prefix"
-            variant="naked"
-            @click="up"
-            :disabled="plusDisabled"
-            icon="plus" />
-
         <form-input
             v-model="selectedValue"
             type="number"
@@ -150,13 +148,22 @@ export default Vue.extend({
             v-bind="$attrs"
             square-left
             square-right
-            input-classes="text-center" />
+            :input-classes="center ? 'text-center' : ''" />
 
-        <fig-button
-            slot="suffix"
-            variant="naked"
-            @click="down"
-            :disabled="minusDisabled"
-            icon="minus" />
+        <template v-if="controls">
+            <fig-button
+                slot="prefix"
+                variant="naked"
+                @click="up"
+                :disabled="plusDisabled"
+                icon="plus" />
+
+            <fig-button
+                slot="suffix"
+                variant="naked"
+                @click="down"
+                :disabled="minusDisabled"
+                icon="minus" />
+        </template>
     </form-input-endcapper>
 </template>
