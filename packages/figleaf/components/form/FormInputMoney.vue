@@ -1,13 +1,21 @@
 <script>
 import accounting from 'accounting';
-import { CurrencyDirective } from 'vue-currency-input';
+// import { CurrencyDirective } from 'vue-currency-input';
 import form_input_mixin from './form_input_mixin';
+import FormInputNumber from './FormInputNumber';
+import FormInputEndcapper from './FormInputEndcapper';
+
 
 
 export default {
-    directives: {
-        currency: CurrencyDirective
+    components: {
+        FormInputNumber,
+        FormInputEndcapper
     },
+
+    // directives: {
+    //     currency: CurrencyDirective
+    // },
 
     mixins: [
         form_input_mixin
@@ -17,12 +25,25 @@ export default {
         value: {
             type: Number,
             default: 0
+        },
+
+        size: {
+            type: String
         }
     },
 
     data: function() {
         return {
             selectedPrice: null
+            // currencyConfig: {
+            //     currency: 'USD',
+            //     locale: 'en-US',
+            //     valueAsInteger: true,
+            //     allowNegative: false,
+            //     distractionFree: true,
+            //     autoDecimalMode: true,
+            //     valueRange: { min: 0 }
+            // }
         };
     },
 
@@ -41,7 +62,6 @@ export default {
              */
             handler(newVal) {
                 this.selectedPrice = newVal ? parseInt(newVal, 10)/100 : 0;
-
             },
             immediate: true
         }
@@ -64,7 +84,6 @@ export default {
                 clean = parseFloat(clean);
             }
 
-            // console.log('MONEY EMIT CLEAN', clean, typeof clean)
             this.$emit('input', clean);
         }
     }
@@ -73,21 +92,16 @@ export default {
 
 
 <template>
-    <input
-        type="text"
-        v-model="selectedPrice"
-        @input="emitInput"
-        class="form-input w-full fig-input-money"
-        :class="inputClassNames"
-        v-currency="{
-            currency: 'USD',
-            locale: 'en-US',
-            valueAsInteger: false,
-            allowNegative: false,
-            distractionFree: true,
-            autoDecimalMode: true,
-            valueRange: { min: 0 },
-            allowNegative: false }">
+    <form-input-endcapper>
+        <template slot="prefix">$</template>
+        <form-input-number
+            v-model="selectedPrice"
+            @input="emitInput"
+            :size="size"
+            :min="0"
+            :step=".01"
+            input-classes="fig-input-money" />
+    </form-input-endcapper>
 </template>
 
 
