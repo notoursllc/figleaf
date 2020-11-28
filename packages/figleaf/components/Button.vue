@@ -61,6 +61,11 @@ export default Vue.extend({
         icon: {
             type: String,
             default: null
+        },
+
+        onlyIcon: {
+            type: Boolean,
+            default: false
         }
     },
 
@@ -96,7 +101,7 @@ export default Vue.extend({
                 case 'ghost':
                     classes.push(
                         // 'bg-transparent',
-                        this.isDisabled ? 'text-gray-600' : 'text-gray-900 hover:bg-gray-400'
+                        this.isDisabled ? 'text-gray-600' : 'text-gray-900 hover:bg-gray-300'
                     );
                     break;
 
@@ -148,16 +153,22 @@ export default Vue.extend({
             // sizes
             switch(this.size) {
                 case 'sm':
-                    classes.push('py-1 px-3 text-sm');
+                    classes.push(
+                        this.onlyIcon ? 'p-1' : 'py-1 px-3 text-sm'
+                    );
                     break;
 
                 case 'lg':
-                    classes.push('py-4 px-6 text-md');
+                    classes.push(
+                        this.onlyIcon ? 'p-4' :'py-4 px-6 text-md'
+                    );
                     break;
 
                 default:
                     if(this.variant !== 'naked') {
-                        classes.push('py-2 px-3 text-md leading-tight');
+                        classes.push(
+                            this.onlyIcon ? 'p-2' : 'py-2 px-3 text-md leading-tight'
+                        );
                     }
             }
 
