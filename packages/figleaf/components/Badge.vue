@@ -77,7 +77,7 @@ export default Vue.extend({
                     break;
 
                 case 'light':
-                    classes.push('text-gray-800 bg-gray-300');
+                    classes.push('text-gray-700 bg-gray-200');
                     break;
             }
 
