@@ -10,8 +10,13 @@ export { default as FigDropdown } from './components/dropdown/Dropdown';
 export { default as FigDropdownButton } from './components/dropdown/DropdownButton';
 export { default as FigDropdownDivider } from './components/dropdown/DropdownDivider';
 
+// popover
+export { default as FigPopover } from './components/popover/Popover';
+export { default as FigPopoverDivider } from './components/popover/PopoverDivider';
+
 // tooltip
 export { default as FigTooltip } from './components/tooltip/Tooltip';
+export { default as FigTooltipDivider } from './components/tooltip/TooltipDivider';
 
 // form
 export { default as FigFormCheckbox } from './components/form/FormCheckbox';
