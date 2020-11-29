@@ -1,7 +1,12 @@
 export { default as FigBadge } from './components/Badge';
+export { default as FigCountry } from './components/Country';
 
+// buttons
 export { default as FigButton } from './components/Button';
 export { default as FigButtonFab } from './components/ButtonFab';
+
+// dropdown
+export { default as FigDropdown } from './components/dropdown/Dropdown';
 
 // form
 export { default as FigFormCheckbox } from './components/form/FormCheckbox';
