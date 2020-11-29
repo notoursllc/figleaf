@@ -18,7 +18,7 @@ export default Vue.extend({
 
     computed: {
         countryName() {
-            if(this.alpha2) {
+            if(!this.alpha2) {
                 return '';
             }
 
