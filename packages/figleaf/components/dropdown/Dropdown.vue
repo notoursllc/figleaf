@@ -1,4 +1,8 @@
 <script>
+// this component was heavily influenced by:
+// https://raw.githubusercontent.com/coreui/coreui-vue/master/src/components/dropdown/CDropdown.vue
+// https://coreui.io/vue/docs/components/dropdown.html
+
 import Vue from 'vue';
 import { createPopper } from '@popperjs/core';
 import vClickOutside from 'v-click-outside';
@@ -9,67 +13,176 @@ export default Vue.extend({
         clickOutside: vClickOutside.directive
     },
 
+    props: {
+        placement: {
+            type: String,
+            validator: (position) => {
+                return [
+                    '',
+                    'top-end',
+                    'top',
+                    'top-start',
+                    'bottom-end',
+                    'bottom',
+                    'bottom-start',
+                    'right-start',
+                    'right',
+                    'right-end',
+                    'left-start',
+                    'left',
+                    'left-end'
+                ].includes(position);
+            },
+            default: 'bottom-start'
+        },
+
+        show: {
+            type: Boolean,
+            default: false
+        },
+
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+
+        offset: {
+            type: Array,
+            default: () => [0, 0]
+        },
+
+        flip: {
+            type: Boolean,
+            default: true
+        },
+
+        customPopperOptions: {
+            type: Object,
+            default: null
+        }
+    },
+
     data() {
         return {
-            dropdownPopoverShow: false
+            visible: this.show
         };
     },
 
-    methods: {
-        toggleDropdown: function () {
-            if (this.dropdownPopoverShow) {
-                this.hideDropdown();
-            }
-            else {
-                this.showDropdown();
+    watch: {
+        show: {
+            handler(val) {
+                this.visible = val;
             }
         },
 
-        showDropdown() {
-            this.dropdownPopoverShow = true;
-            createPopper(
-                this.$refs.btnDropdownRef,
-                this.$refs.popoverDropdownRef,
-                {
-                    placement: 'bottom-start'
-                }
-            );
-        },
-
-        hideDropdown() {
-            this.dropdownPopoverShow = false;
-        },
-
-        onClickOutside (event) {
-            console.log('Clicked outside. Event: ', event);
-            this.hideDropdown();
+        visible: {
+            handler (val) {
+                val ? this.createPopper() : this.removePopper();
+                // this.$emit('update:show', val)
+            },
+            immediate: true
         }
+    },
+
+    computed: {
+        defaultPopperOptions () {
+            return {
+                placement: this.placement,
+                modifiers: [
+                    {
+                        name: 'offset',
+                        options: {
+                            offset: this.offset
+                        }
+                    },
+                    {
+                        name: 'flip',
+                        enabled: this.flip
+                    },
+                    {
+                        name: 'preventOverflow',
+                        options: {
+                            padding: 10
+                        }
+                    }
+                ]
+            };
+        },
+
+        ariaAttrs () {
+            return {
+                'aria-expanded': this.visible ? 'true' : 'false',
+                'aria-haspopup': 'true'
+            };
+        }
+    },
+
+
+    methods: {
+        checkClick(e) {
+            if (this.$scopedSlots.toggler
+                && this.$el.firstElementChild.contains(e.target)) {
+                this.toggle(e);
+            }
+        },
+
+        hide() {
+            this.visible = false;
+        },
+
+        toggle(e) {
+            e.preventDefault();
+            this.visible = !this.visible;
+        },
+
+        onClickOutside(event) {
+            this.hide();
+        },
+
+        removePopper() {
+            if (this._popper) {
+                this._popper.destroy();
+            }
+            this._popper = null;
+        },
+
+        createPopper() {
+            this.removePopper();
+
+            if (this.disabled) {
+                this.visible = false;
+                return;
+            };
+
+            this.$nextTick(() => {
+                this._popper = createPopper(
+                    this.$el.firstChild,
+                    this.$refs.menu,
+                    this.customPopperOptions || this.defaultPopperOptions
+                );
+            });
+        }
+    },
+
+    mounted () {
+        this.$on('fig::dropdown::close', this.hide);
     }
 });
 </script>
 
 
 <template>
-    <div class="flex flex-wrap">
-        <div class="w-full sm:w-6/12 md:w-4/12 px-4">
-            <div
-                v-click-outside="onClickOutside"
-                class="relative inline-flex align-middle w-full">
-                <button
-                    class="text-white font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 bg-green-500 active:bg-green-600 ease-linear transition-all duration-150"
-                    type="button"
-                    ref="btnDropdownRef"
-                    v-on:click="toggleDropdown()">
-                    green Dropdown
-                </button>
+    <div
+        v-click-outside="onClickOutside"
+        @click="checkClick($event)"
+        class="relative inline-flex align-middle w-full">
+        <slot name="toggler" :aria-attrs="ariaAttrs"></slot>
 
-                <div
-                    ref="popoverDropdownRef"
-                    class="bg-green-500 text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1 min-w-48"
-                    :class="{hidden: !dropdownPopoverShow, block: dropdownPopoverShow}">
-                    <slot></slot>
-                </div>
-            </div>
+        <div
+            ref="menu"
+            class="bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1 min-w-48"
+            :class="{hidden: !visible, block: visible}">
+            <slot></slot>
         </div>
     </div>
 </template>
