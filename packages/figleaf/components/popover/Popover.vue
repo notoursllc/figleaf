@@ -122,11 +122,8 @@ export default Vue.extend({
 
     methods: {
         checkClick(e) {
-            // if (this.$scopedSlots.toggler
-            //     && this.$el.firstElementChild.contains(e.target)) {
-            //     this.toggle(e);
-            // }
-            if (this.$scopedSlots.toggler) {
+            if (this.$scopedSlots.toggler
+                && this.$el.firstElementChild.contains(e.target)) {
                 this.toggle(e);
             }
         },
@@ -140,8 +137,11 @@ export default Vue.extend({
             this.visible = !this.visible;
         },
 
-        onClickOutside(event) {
-            // this.hide();
+        onClickOutside(e) {
+            if (this.$scopedSlots.toggler
+                && !this.$el.firstElementChild.contains(e.target)) {
+                this.hide();
+            }
         },
 
         removePopper() {
@@ -167,10 +167,6 @@ export default Vue.extend({
                 );
             });
         }
-    },
-
-    mounted () {
-        this.$on('fig::dropdown::close', this.hide);
     }
 });
 </script>
@@ -185,9 +181,19 @@ export default Vue.extend({
 
         <div
             ref="menu"
-            class="bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1 min-w-48"
+            class="bg-white text-base text-gray-700 z-50 float-left list-none text-left rounded shadow-sm mt-1 min-w-48 border border-gray-300"
             :class="{hidden: !visible, block: visible}">
-            <slot></slot>
+            <!-- header -->
+            <div
+                v-if="$slots.header"
+                class="px-2 py-1 border-solid border-b border-gray-300 bg-gray-100 font-medium"><slot name="header"></slot></div>
+
+            <div class="px-3 py-1 text-sm"><slot></slot></div>
+
+            <!-- footer -->
+            <div
+                v-if="$slots.footer"
+                class="px-2 py-1 text-sm border-solid border-t border-gray-300 bg-gray-100"><slot name="footer"></slot></div>
         </div>
     </div>
 </template>
