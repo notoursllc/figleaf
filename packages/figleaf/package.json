@@ -1,6 +1,6 @@
 {
     "name": "@notoursllc/figleaf",
-    "version": "0.1.36",
+    "version": "0.1.37",
     "description": "Yet another inadequate covering made my humans",
     "dependencies": {
         "@nuxtjs/tailwindcss": "^3.2.0",
