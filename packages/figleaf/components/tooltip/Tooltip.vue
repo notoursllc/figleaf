@@ -6,39 +6,164 @@ import { createPopper } from '@popperjs/core';
 export default Vue.extend({
     name: 'Tooltip',
 
+    props: {
+        placement: {
+            type: String,
+            validator: (position) => {
+                return [
+                    '',
+                    'top-end',
+                    'top',
+                    'top-start',
+                    'bottom-end',
+                    'bottom',
+                    'bottom-start',
+                    'right-start',
+                    'right',
+                    'right-end',
+                    'left-start',
+                    'left',
+                    'left-end'
+                ].includes(position);
+            },
+            default: 'bottom-start'
+        },
+
+        show: {
+            type: Boolean,
+            default: false
+        },
+
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+
+        centered: {
+            type: Boolean,
+            default: true
+        },
+
+        offset: {
+            type: Array,
+            default: () => [0, 0]
+        },
+
+        flip: {
+            type: Boolean,
+            default: true
+        },
+
+        customPopperOptions: {
+            type: Object,
+            default: null
+        }
+
+        // target: {}
+    },
+
     data() {
         return {
-            tooltipShow: false
+            visible: this.show
         };
     },
 
+    watch: {
+        show: {
+            handler(val) {
+                this.visible = val;
+            }
+        },
+
+        visible: {
+            handler (val) {
+                val ? this.createPopper() : this.removePopper();
+            },
+            immediate: true
+        }
+    },
+
+    computed: {
+        defaultPopperOptions () {
+            return {
+                placement: this.placement,
+                modifiers: [
+                    {
+                        name: 'offset',
+                        options: {
+                            offset: this.offset
+                        }
+                    },
+                    {
+                        name: 'flip',
+                        enabled: this.flip
+                    },
+                    {
+                        name: 'preventOverflow',
+                        options: {
+                            padding: 10
+                        }
+                    }
+                ]
+            };
+        },
+
+        ariaAttrs () {
+            return {
+                'aria-expanded': this.visible ? 'true' : 'false',
+                'aria-haspopup': 'true'
+            };
+        }
+    },
+
     methods: {
-        toggleTooltip: function() {
-            if(this.tooltipShow) {
-                this.tooltipShow = false;
+        checkHover(e) {
+            if (this.$scopedSlots.toggler) {
+                this.toggle(e);
+            }
+        },
+
+        hide() {
+            this.visible = false;
+        },
+
+        toggle(e) {
+            e.preventDefault();
+
+            if(this.visible) {
+                this.visible = false;
             }
             else {
-                this.tooltipShow = true;
-
+                this.visible = true;
                 this.createPopper();
             }
         },
 
-        createPopper() {
-            // this.removePopper();
+        removePopper() {
+            if (this._popper) {
+                this._popper.destroy();
+            }
+            this._popper = null;
+        },
 
-            // if (this.disabled) {
-            //     this.visible = false;
-            //     return;
-            // };
+        createPopper() {
+            this.removePopper();
+
+            if (this.disabled) {
+                this.visible = false;
+                return;
+            };
+
+            let targetEl = this.$el.firstChild;
+            // if(this.target) {
+            //     targetEl = this.target.$el || this.target;
+            // }
 
             this.$nextTick(() => {
                 this._popper = createPopper(
-                    this.$refs.btnRef,
+                    targetEl,
                     this.$refs.tooltipRef,
-                    {
-                        placement: 'left'
-                    }
+                    this.customPopperOptions || this.defaultPopperOptions
                 );
             });
         }
@@ -48,21 +173,24 @@ export default Vue.extend({
 
 
 <template>
-  <div class="flex flex-wrap">
-    <div class="w-full text-center">
-      <button ref="btnRef" v-on:mouseenter="toggleTooltip()" v-on:mouseleave="toggleTooltip()" class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1" type="button" style="transition:all .15s ease">
-        left pink
-      </button>
-      <div ref="tooltipRef" v-bind:class="{'hidden': !tooltipShow, 'block': tooltipShow}" class="bg-pink-600 border-0 mr-3 block z-50 font-normal leading-normal text-sm max-w-xs text-left no-underline break-words rounded-lg">
-        <div>
-          <div class="bg-pink-600 text-white opacity-75 font-semibold p-3 mb-0 border-b border-solid border-gray-200 uppercase rounded-t-lg">
-            pink tooltip title
-          </div>
-          <div class="text-white p-3">
-            And here's some amazing content. It's very engaging. Right?
-          </div>
+    <div
+        class="relative inline-flex"
+        @mouseenter="checkHover($event)"
+        @mouseleave="checkHover($event)">
+        <slot name="toggler" :aria-attrs="ariaAttrs"></slot>
+        <div
+            ref="tooltipRef"
+            :class="{'hidden': !visible, 'block': visible, 'text-center': centered, 'text-left': !centered}"
+            class="fig-tip bg-gray-800 text-white absolute top-0 left-0 py-1 px-2 block z-50 font-normal leading-normal text-xs max-w-xs break-words rounded-sm">
+            <slot></slot>
         </div>
-      </div>
     </div>
-  </div>
 </template>
+
+
+<style scoped>
+.fig-tip {
+    min-width: 100px;
+    opacity: .9;
+}
+</style>
