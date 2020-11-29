@@ -10,6 +10,9 @@ export { default as FigDropdown } from './components/dropdown/Dropdown';
 export { default as FigDropdownButton } from './components/dropdown/DropdownButton';
 export { default as FigDropdownDivider } from './components/dropdown/DropdownDivider';
 
+// tooltip
+export { default as FigTooltip } from './components/tooltip/Tooltip';
+
 // form
 export { default as FigFormCheckbox } from './components/form/FormCheckbox';
 export { default as FigFormSelectCountry } from './components/form/FormSelectCountry';
