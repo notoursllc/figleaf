@@ -9,6 +9,8 @@ import vClickOutside from 'v-click-outside';
 
 
 export default Vue.extend({
+    name: 'Dropdown',
+
     directives: {
         clickOutside: vClickOutside.directive
     },
