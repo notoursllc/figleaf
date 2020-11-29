@@ -7,6 +7,8 @@ export { default as FigButtonFab } from './components/ButtonFab';
 
 // dropdown
 export { default as FigDropdown } from './components/dropdown/Dropdown';
+export { default as FigDropdownButton } from './components/dropdown/DropdownButton';
+export { default as FigDropdownDivider } from './components/dropdown/DropdownDivider';
 
 // form
 export { default as FigFormCheckbox } from './components/form/FormCheckbox';
