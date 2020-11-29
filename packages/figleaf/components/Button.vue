@@ -196,13 +196,15 @@ export default Vue.extend({
         :disabled="isDisabled"
         :aria-disabled="isDisabled">
         <div class="flex flex-row items-center">
-            <fig-icon
-                v-if="icon"
-                :icon="icon"
-                :stroke-width="2"
-                :stroke="iconStrokeColor"
-                :width="18"
-                :height="18" />
+            <slot name="icon">
+                <fig-icon
+                    v-if="icon"
+                    :icon="icon"
+                    :stroke-width="2"
+                    :stroke="iconStrokeColor"
+                    :width="18"
+                    :height="18" />
+            </slot>
             <span
                 v-if="$slots.default"
                 :class="{'pl-1': icon}"><slot></slot></span>
