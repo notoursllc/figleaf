@@ -61,11 +61,6 @@ export default Vue.extend({
         icon: {
             type: String,
             default: null
-        },
-
-        onlyIcon: {
-            type: Boolean,
-            default: false
         }
     },
 
@@ -154,20 +149,20 @@ export default Vue.extend({
             switch(this.size) {
                 case 'sm':
                     classes.push(
-                        this.onlyIcon ? 'p-1' : 'py-1 px-3 text-sm'
+                        !this.$slots.default ? 'p-1' : 'py-1 px-3 text-sm'
                     );
                     break;
 
                 case 'lg':
                     classes.push(
-                        this.onlyIcon ? 'p-4' :'py-4 px-6 text-md'
+                        !this.$slots.default ? 'p-4' :'py-4 px-6 text-md'
                     );
                     break;
 
                 default:
                     if(this.variant !== 'naked') {
                         classes.push(
-                            this.onlyIcon ? 'p-2' : 'py-2 px-3 text-md leading-tight'
+                            !this.$slots.default ? 'p-2' : 'py-2 px-3 text-md leading-tight'
                         );
                     }
             }
@@ -201,16 +196,16 @@ export default Vue.extend({
         :disabled="isDisabled"
         :aria-disabled="isDisabled">
         <div class="flex flex-row items-center">
-            <span v-if="$slots.icon" class="pr-1"><slot name="icon"></slot></span>
             <fig-icon
                 v-if="icon"
                 :icon="icon"
                 :stroke-width="2"
                 :stroke="iconStrokeColor"
                 :width="18"
-                :height="18"
-                class="mr-1" />
-            <slot></slot>
+                :height="18" />
+            <span
+                v-if="$slots.default"
+                :class="{'pl-1': icon}"><slot></slot></span>
         </div>
     </button>
 </template>
