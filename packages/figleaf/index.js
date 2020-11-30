@@ -10,6 +10,9 @@ export { default as FigDropdown } from './components/dropdown/Dropdown';
 export { default as FigDropdownButton } from './components/dropdown/DropdownButton';
 export { default as FigDropdownDivider } from './components/dropdown/DropdownDivider';
 
+// modal
+export { default as FigModal } from './components/Modal';
+
 // popover
 export { default as FigPopover } from './components/popover/Popover';
 export { default as FigPopoverDivider } from './components/popover/PopoverDivider';
