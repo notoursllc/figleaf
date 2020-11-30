@@ -1,8 +1,4 @@
 <script>
-// this component was heavily influenced by:
-// https://raw.githubusercontent.com/coreui/coreui-vue/master/src/components/dropdown/CDropdown.vue
-// https://coreui.io/vue/docs/components/dropdown.html
-
 import Vue from 'vue';
 import { createPopper } from '@popperjs/core';
 import vClickOutside from 'v-click-outside';
@@ -61,7 +57,9 @@ export default Vue.extend({
         customPopperOptions: {
             type: Object,
             default: null
-        }
+        },
+
+        target: {}
     },
 
     data() {
@@ -116,11 +114,22 @@ export default Vue.extend({
                 'aria-expanded': this.visible ? 'true' : 'false',
                 'aria-haspopup': 'true'
             };
+        },
+
+        propTarget() {
+            if(this.target) {
+                return this.target.$el || this.target;
+            }
+            return null;
         }
     },
 
 
     methods: {
+        emitVisible() {
+            this.$emit('visible', this.visible);
+        },
+
         checkClick(e) {
             if (this.$scopedSlots.toggler
                 && this.$el.firstElementChild.contains(e.target)) {
@@ -130,16 +139,22 @@ export default Vue.extend({
 
         hide() {
             this.visible = false;
+            this.emitVisible();
         },
 
         toggle(e) {
             e.preventDefault();
             this.visible = !this.visible;
+            this.emitVisible();
         },
 
         onClickOutside(e) {
-            if (this.$scopedSlots.toggler
-                && !this.$el.firstElementChild.contains(e.target)) {
+            // If the target property is set and the click target is not contained in the prop target element
+            // then hide the popup
+            if (this.propTarget && !this.propTarget.contains(e.target)) {
+                this.hide();
+            }
+            else if (this.$scopedSlots.toggler && !this.$el.firstElementChild.contains(e.target)) {
                 this.hide();
             }
         },
@@ -155,13 +170,15 @@ export default Vue.extend({
             this.removePopper();
 
             if (this.disabled) {
-                this.visible = false;
+                this.hide();
                 return;
             };
 
+            const targetEl = this.propTarget || this.$el.firstChild;
+
             this.$nextTick(() => {
                 this._popper = createPopper(
-                    this.$el.firstChild,
+                    targetEl,
                     this.$refs.menu,
                     this.customPopperOptions || this.defaultPopperOptions
                 );
@@ -181,19 +198,19 @@ export default Vue.extend({
 
         <div
             ref="menu"
-            class="bg-white text-base text-gray-700 z-50 float-left list-none text-left rounded shadow-sm mt-1 min-w-48 border border-gray-300"
+            class="bg-white text-base text-gray-700 z-50 list-none text-left rounded shadow-sm mt-1 min-w-48 max-w-md border border-gray-300"
             :class="{hidden: !visible, block: visible}">
             <!-- header -->
             <div
                 v-if="$slots.header"
                 class="px-2 py-1 border-solid border-b border-gray-300 bg-gray-100 font-medium"><slot name="header"></slot></div>
 
-            <div class="px-3 py-1 text-sm"><slot></slot></div>
+            <div class="px-3 py-2 text-sm"><slot></slot></div>
 
             <!-- footer -->
             <div
                 v-if="$slots.footer"
-                class="px-2 py-1 text-sm border-solid border-t border-gray-300 bg-gray-100"><slot name="footer"></slot></div>
+                class="p-2 text-sm border-solid border-t border-gray-300 bg-gray-100"><slot name="footer"></slot></div>
         </div>
     </div>
 </template>
