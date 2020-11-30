@@ -14,6 +14,10 @@ export { default as FigDropdownDivider } from './components/dropdown/DropdownDiv
 export { default as FigPopover } from './components/popover/Popover';
 export { default as FigPopoverDivider } from './components/popover/PopoverDivider';
 
+// overlay
+export { default as FigOverlay } from './components/Overlay';
+export { default as FigSpinner } from './components/Spinner';
+
 // tooltip
 export { default as FigTooltip } from './components/tooltip/Tooltip';
 export { default as FigTooltipDivider } from './components/tooltip/TooltipDivider';
