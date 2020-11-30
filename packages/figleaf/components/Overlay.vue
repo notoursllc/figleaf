@@ -1,5 +1,3 @@
-
-
 <script>
 import Vue from 'vue';
 import Spinner from './Spinner';
@@ -20,7 +18,7 @@ export default Vue.extend({
 
         opacity: {
             type: Number,
-            default: 0.85,
+            default: 0.75,
             validator(val) {
                 return val >= 0 && val <= 1;
             }
@@ -32,18 +30,18 @@ export default Vue.extend({
         },
 
         size: {
-            type: Number,
-            default: 0.85,
+            type: String,
+            default: 'lg',
             validator(size) {
-                return ['sm', 'md', 'lg'].indexOf(size) > -1;
+                return ['xs', 'sm', 'md', 'lg', 'xl'].indexOf(size) > -1;
             }
         },
 
         variant: {
-            type: Number,
-            default: 0.85,
+            type: String,
+            default: 'primary',
             validator(val) {
-                return ['primary', 'success', 'error'].indexOf(val) > -1;
+                return ['primary', 'secondary', 'success', 'error'].indexOf(val) > -1;
             }
         },
 
@@ -60,24 +58,33 @@ export default Vue.extend({
     computed: {
         spinnerWidth() {
             switch(this.size) {
+                case 'xs':
+                    return 14;
+
                 case 'sm':
-                    return 40;
+                    return 26;
 
                 case 'lg':
-                    return 80;
+                    return 60;
+
+                case 'xl':
+                    return 90;
 
                 default:
-                    return 60;
+                    return 40;
             }
         },
 
         spinnerColor() {
             switch(this.variant) {
                 case 'success':
-                    return '#22c55e';
+                    return '#16a34a';
 
                 case 'error':
                     return '#ef4444';
+
+                case 'secondary':
+                    return '#a8a29e';
 
                 default:
                     return '#60a5fa';
@@ -86,21 +93,21 @@ export default Vue.extend({
 
         spinnerThicknes() {
             switch(this.size) {
-                case 'sm':
-                    return 2;
-
-                case 'lg':
+                case 'xs':
                     return 4;
 
-                default:
+                case 'sm':
                     return 3;
+
+                default:
+                    return 2;
             }
         },
 
         backdropStyle() {
             const style = {
                 opacity: this.opacity,
-                backgroundColor: this.dark ? '#CBD5E0' : '#fff'
+                backgroundColor: this.dark ? '#CBD5E0' : '#e7e5e4'
             };
 
             if(this.blur) {
@@ -116,6 +123,7 @@ export default Vue.extend({
 
 <template>
     <div class="fig-overlay relative">
+        <slot></slot>
         <div
             v-if="show"
             class="absolute inset-0"
