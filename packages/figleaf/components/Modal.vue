@@ -47,7 +47,7 @@ export default Vue.extend({
 
     methods: {
         emitVisible() {
-            this.$emit('visible', this.visible)
+            this.$emit('visible', this.visible);
         },
 
         toggle() {
