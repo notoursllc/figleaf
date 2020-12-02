@@ -23,7 +23,7 @@ export default Vue.extend({
 
     methods: {
         onFileChange(e) {
-            this.$emit('change', e.target.files || e.dataTransfer.files);
+            this.$emit('input', e.target.files || e.dataTransfer.files);
 
             // resetting the value so the same file can be uploaded sequentially if desired
             // (without this, the change event wont trigger the second time)
