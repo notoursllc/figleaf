@@ -31,7 +31,7 @@ export default Vue.extend({
 
         size: {
             type: String,
-            default: 'lg',
+            default: 'md',
             validator(size) {
                 return ['xs', 'sm', 'md', 'lg', 'xl'].indexOf(size) > -1;
             }
@@ -91,7 +91,7 @@ export default Vue.extend({
             }
         },
 
-        spinnerThicknes() {
+        strokeWidth() {
             switch(this.size) {
                 case 'xs':
                     return 4;
@@ -139,7 +139,7 @@ export default Vue.extend({
                 <Spinner
                     :width="spinnerWidth"
                     :color="spinnerColor"
-                    :stroke-width="spinnerThicknes" />
+                    :stroke-width="strokeWidth" />
             </div>
         </div>
     </div>
