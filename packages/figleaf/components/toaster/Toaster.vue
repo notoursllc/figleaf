@@ -165,14 +165,17 @@ export default {
 
                     <!-- message -->
                     <div
-                        class="pl-3 py-2 overflow-y-auto fig-toast-content"
+                        class="py-3 px-4 overflow-y-auto fig-toast-content"
                         :class="{'pr-6': toastConfig.closable !== false, 'pr-4': !(toastConfig.closable !== false)}">
+                        <!-- title -->
                         <div
-                            class="text-sm font-semibold break-words"
+                            class="text-sm font-semibold break-words mb-1"
                             :class="getTitleClass(toastConfig.variant)">{{ toastConfig.title }}</div>
+
+                        <!-- message -->
                         <div
                             v-if="toastConfig.text"
-                            class="text-gray-600 text-sm pt-1 break-words">{{ toastConfig.text }}</div>
+                            class="text-gray-600 text-sm break-words">{{ toastConfig.text }}</div>
                     </div>
 
                     <!-- close button -->
