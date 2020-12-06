@@ -1,6 +1,6 @@
 <script>
 import Vue from 'vue';
-import FigIcon from './icon/FigIcon';
+import FigIcon from '../icon/FigIcon';
 
 const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
 
@@ -23,24 +23,9 @@ export default Vue.extend({
         }
     },
 
-    data() {
-        return {
-
-        };
-    },
-
     inject: [
         'tableState'
     ],
-
-    watch: {
-        'sharedState.sort': {
-            handler(newVal) {
-                this.emitSort();
-            },
-            deep: true
-        }
-    },
 
     computed: {
         isActive() {
