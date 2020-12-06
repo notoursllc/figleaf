@@ -2,11 +2,16 @@
 // https://github.com/bootstrap-vue/bootstrap-vue/blob/7ea0cc4a16d27b179eca47d351eaa9fe6fdfd56e/src/components/modal/helpers/bv-modal.js#L85
 
 import Vue from 'vue';
+import isObject from 'lodash.isobject';
 import Confirm from './Confirm.vue';
 
 export default () => {
 
-    Vue.prototype.$confirm = (message, config) => {
+    if(!isObject(Vue.prototype.$figleaf)) {
+        Vue.prototype.$figleaf = {};
+    }
+
+    Vue.prototype.$figleaf.confirm = (message, config) => {
         const ConfirmComponent = Vue.extend(Confirm);
 
         const cfg = Object.assign(
@@ -14,15 +19,19 @@ export default () => {
             {
                 title: null,
                 okLabel: null,
+                okLabelClass: null,
                 cancelLabel: null,
-                size: 'sm'
+                cancelLabelClass: null,
+                size: 'sm',
+                centered: true
             },
             config
         );
 
         const confirm = new ConfirmComponent({
             propsData: {
-                size: cfg.size
+                size: cfg.size,
+                centered: cfg.centered
             },
 
             mounted() {
@@ -71,11 +80,23 @@ export default () => {
         }
 
         if(cfg.okLabel) {
-            confirm.$slots.okLabel = cfg.okLabel;
+            confirm.$slots.okLabel = confirm.$createElement(
+                'div',
+                {
+                    class: cfg.okLabelClass || 'text-blue-600 font-semibold'
+                },
+                cfg.okLabel
+            );
         }
 
         if(cfg.cancelLabel) {
-            confirm.$slots.cancelLabel = cfg.cancelLabel;
+            confirm.$slots.cancelLabel = confirm.$createElement(
+                'div',
+                {
+                    class: cfg.cancelLabelClass || 'text-blue-600 font-semibold'
+                },
+                cfg.cancelLabel
+            );
         }
 
         if(message) {
@@ -93,7 +114,7 @@ export default () => {
 
             confirm.$once('hook:destroyed', () => {
                 if (!resolved) {
-                    reject(new Error('Figleaf Confirm was destroyed before resolve'))
+                    reject(new Error('Figleaf Confirm was destroyed before resolve'));
                 }
             });
 

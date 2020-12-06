@@ -11,6 +11,11 @@ export default Vue.extend({
             validator(size) {
                 return ['sm', 'md', 'lg', 'xl'].indexOf(size) > -1;
             }
+        },
+
+        centered: {
+            type: Boolean,
+            default: false
         }
     },
 
@@ -78,17 +83,20 @@ export default Vue.extend({
             <!--content-->
             <div class="relative w-full">
                 <div
-                    class="relative my-6 mx-auto border-0 rounded-md shadow-lg bg-white outline-none focus:outline-none"
+                    class="relative mx-auto border-0 rounded-md shadow-lg bg-white outline-none focus:outline-none"
                     :class="widthClass">
 
-                    <!--title-->
-                    <div
-                        v-if="$slots.title"
-                        class="py-2 px-5 break-words"><slot name="title"></slot></div>
+                    <div class="p-5">
+                        <!--title-->
+                        <div
+                            v-if="$slots.title"
+                            class="pb-2 break-words font-semibold"
+                            :class="{'text-center': centered}"><slot name="title"></slot></div>
 
-                    <!--body-->
-                    <div class="relative py-4 px-5 flex-auto text-md text-gray-600 break-words text-center">
-                        <slot name="message"></slot>
+                        <!--body-->
+                        <div
+                            class="relative flex-auto text-md text-gray-600 break-words text-center"
+                            :class="{'text-center': centered}"><slot name="message"></slot></div>
                     </div>
 
                     <!--footer buttons-->
@@ -119,7 +127,7 @@ export default Vue.extend({
     @apply flex items-center border-t border-solid border-gray-300 bg-gray-100 rounded-b-md;
 }
 .footer-container > button {
-    @apply text-center py-3 px-5 border-0 font-medium;
+    @apply text-center py-3 px-5 border-0;
     flex-basis:50%;
 }
 .footer-container > button.confirm-btn-right {
