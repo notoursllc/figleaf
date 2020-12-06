@@ -50,7 +50,7 @@ export default Vue.extend({
 
         offset: {
             type: Array,
-            default: () => [0, 0]
+            default: () => [0, 8]
         },
 
         flip: {
@@ -105,6 +105,13 @@ export default Vue.extend({
                         name: 'preventOverflow',
                         options: {
                             padding: 10
+                        }
+                    },
+                    {
+                        name: 'arrow',
+                        options: {
+                            enabled: true,
+                            element: this.$refs.arrow
                         }
                     }
                 ]
@@ -182,9 +189,49 @@ export default Vue.extend({
 
         <div
             ref="menu"
-            class="bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1 min-w-48"
+            class="co-dropdown min-w-48"
             :class="{hidden: !visible, block: visible}">
+            <div ref="arrow" class="arrow"></div>
             <slot></slot>
         </div>
     </div>
 </template>
+
+
+<style lang="postcss" scoped>
+.co-dropdown {
+    @apply bg-white text-base z-50 float-left py-2 list-none text-left rounded mt-1;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+/* https://popper.js.org/docs/v2/tutorial/#arrow */
+.arrow,
+.arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  z-index: -1;
+}
+
+.arrow::before {
+  content: '';
+  transform: rotate(45deg);
+  background: #fff;
+}
+
+[data-popper-placement^='top'] > .arrow {
+  bottom: -4px;
+}
+
+[data-popper-placement^='bottom'] > .arrow {
+  top: -4px;
+}
+
+[data-popper-placement^='left'] > .arrow {
+  right: -4px;
+}
+
+[data-popper-placement^='right'] > .arrow {
+  left: -4px;
+}
+</style>
