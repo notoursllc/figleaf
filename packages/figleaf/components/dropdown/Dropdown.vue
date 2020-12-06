@@ -189,7 +189,7 @@ export default Vue.extend({
 
         <div
             ref="menu"
-            class="co-dropdown min-w-48"
+            class="fig-dropdown min-w-48"
             :class="{hidden: !visible, block: visible}">
             <div ref="arrow" class="arrow"></div>
             <slot></slot>
@@ -199,7 +199,7 @@ export default Vue.extend({
 
 
 <style lang="postcss" scoped>
-.co-dropdown {
+.fig-dropdown {
     @apply bg-white text-base z-50 float-left py-2 list-none text-left rounded mt-1;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }

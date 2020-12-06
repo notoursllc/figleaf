@@ -46,7 +46,7 @@ export default Vue.extend({
 
         offset: {
             type: Array,
-            default: () => [0, 0]
+            default: () => [0, 10]
         },
 
         flip: {
@@ -205,7 +205,7 @@ export default Vue.extend({
 
         <div
             ref="menu"
-            class="co-popover"
+            class="fig-popover"
             :class="{hidden: !visible, block: visible}">
             <div ref="arrow" class="arrow"></div>
 
@@ -226,7 +226,7 @@ export default Vue.extend({
 
 
 <style lang="postcss" scoped>
-.co-popover {
+.fig-popover {
     @apply bg-white text-base text-gray-700 z-50 list-none text-left rounded shadow-sm mt-1 max-w-md border border-gray-300;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }

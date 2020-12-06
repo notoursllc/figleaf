@@ -46,7 +46,7 @@ export default Vue.extend({
 
         offset: {
             type: Array,
-            default: () => [0, 0]
+            default: () => [0, 8]
         },
 
         flip: {
@@ -103,6 +103,13 @@ export default Vue.extend({
                         options: {
                             padding: 10
                         }
+                    },
+                    {
+                        name: 'arrow',
+                        options: {
+                            enabled: true,
+                            element: this.$refs.arrow
+                        }
                     }
                 ]
             };
@@ -154,7 +161,7 @@ export default Vue.extend({
                 return;
             };
 
-            let targetEl = this.$el.firstChild;
+            const targetEl = this.$el.firstChild;
             // if(this.target) {
             //     targetEl = this.target.$el || this.target;
             // }
@@ -181,16 +188,49 @@ export default Vue.extend({
         <div
             ref="tooltipRef"
             :class="{'hidden': !visible, 'block': visible, 'text-center': centered, 'text-left': !centered}"
-            class="fig-tip bg-gray-800 text-white absolute top-0 left-0 py-1 px-2 block z-50 font-normal leading-normal text-xs max-w-xs break-words rounded-sm">
+            class="fig-tip">
+            <div ref="arrow" class="arrow"></div>
             <slot></slot>
         </div>
     </div>
 </template>
 
 
-<style scoped>
+<style lang="postcss" scoped>
 .fig-tip {
+    @apply bg-gray-800 text-white absolute top-0 left-0 py-1 px-2 block z-50 font-normal leading-normal text-xs max-w-xs break-words rounded-sm;
     min-width: 100px;
     opacity: .9;
+}
+
+/* https://popper.js.org/docs/v2/tutorial/#arrow */
+.arrow,
+.arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  z-index: -1;
+}
+
+.arrow::before {
+  content: '';
+  transform: rotate(45deg);
+  @apply bg-gray-800;
+}
+
+[data-popper-placement^='top'] > .arrow {
+  bottom: -4px;
+}
+
+[data-popper-placement^='bottom'] > .arrow {
+  top: -4px;
+}
+
+[data-popper-placement^='left'] > .arrow {
+  right: -4px;
+}
+
+[data-popper-placement^='right'] > .arrow {
+  left: -4px;
 }
 </style>
