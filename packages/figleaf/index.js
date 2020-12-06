@@ -25,6 +25,11 @@ export { default as FigPopoverDivider } from './components/popover/PopoverDivide
 export { default as FigOverlay } from './components/Overlay';
 export { default as FigSpinner } from './components/Spinner';
 
+// table
+export { default as FigSimpleTable } from './components/table/SimpleTable';
+export { default as FigTh } from './components/table/Th';
+export { default as FigTd } from './components/table/Td';
+
 // tooltip
 export { default as FigTooltip } from './components/tooltip/Tooltip';
 export { default as FigTooltipDivider } from './components/tooltip/TooltipDivider';
