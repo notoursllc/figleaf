@@ -1,6 +1,5 @@
 export { default as FigBadge } from './components/Badge';
 export { default as FigCountry } from './components/Country';
-export { default as FigConfirm } from './components/confirm/Confirm';
 
 // buttons
 export { default as FigButton } from './components/Button';
@@ -10,6 +9,10 @@ export { default as FigButtonFab } from './components/ButtonFab';
 export { default as FigDropdown } from './components/dropdown/Dropdown';
 export { default as FigDropdownButton } from './components/dropdown/DropdownButton';
 export { default as FigDropdownDivider } from './components/dropdown/DropdownDivider';
+
+// icon
+export { default as FigIcon } from './components/icon/FigIcon';
+export { default as FigIconSprite } from './components/icon/FigIconSprite';
 
 // modal
 export { default as FigModal } from './components/Modal';
