@@ -10,6 +10,10 @@ export { default as FigDropdown } from './components/dropdown/Dropdown';
 export { default as FigDropdownButton } from './components/dropdown/DropdownButton';
 export { default as FigDropdownDivider } from './components/dropdown/DropdownDivider';
 
+// grid
+export { default as FigCol } from './components/grid/Col';
+export { default as FigRow } from './components/grid/Row';
+
 // icon
 export { default as FigIcon } from './components/icon/FigIcon';
 export { default as FigIconSprite } from './components/icon/FigIconSprite';
