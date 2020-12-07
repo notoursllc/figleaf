@@ -143,7 +143,6 @@ export default Vue.extend({
             }
             else {
                 this.visible = true;
-                this.createPopper();
             }
         },
 
@@ -199,7 +198,7 @@ export default Vue.extend({
 
 <style lang="postcss" scoped>
 .fig-tip {
-    @apply bg-gray-800 text-white absolute top-0 left-0 py-1 px-2 block z-50 font-normal leading-normal text-xs max-w-xs break-words rounded-sm;
+    @apply bg-gray-800 text-white absolute top-0 left-0 py-1 px-2 z-50 font-normal leading-normal text-xs max-w-xs break-words rounded-sm;
     min-width: 100px;
     opacity: .9;
 }
