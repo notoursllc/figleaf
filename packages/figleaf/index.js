@@ -26,7 +26,7 @@ export { default as FigOverlay } from './components/Overlay';
 export { default as FigSpinner } from './components/Spinner';
 
 // table
-export { default as FigSimpleTable } from './components/tableSimple/TableSimple';
+export { default as FigTableSimple } from './components/tableSimple/TableSimple';
 export { default as FigTd } from './components/tableSimple/Td';
 export { default as FigTh } from './components/tableSimple/Th';
 

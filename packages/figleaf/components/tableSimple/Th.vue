@@ -37,17 +37,26 @@ export default Vue.extend({
 
             if(this.isActive) {
                 classes.push(
-                    'bg-coolGray-300',
-                    'text-purple-600',
+                    'bg-gray-200',
+                    'text-purple-800',
+                    'border-b-2',
+                    'border-purple-600',
                     'transition-transform',
-                    'duration-1000'
+                    'duration-500'
                 );
             }
             else {
                 classes.push(
-                    'text-gray-600',
+                    'text-gray-500',
                     'border-b',
-                    'border-gray-600'
+                    'border-gray-300'
+                );
+            }
+
+            if(this.sortable) {
+                classes.push(
+                    'cursor-pointer',
+                    'pr-3'
                 );
             }
 
@@ -55,30 +64,6 @@ export default Vue.extend({
                 classes.push(
                     'border',
                     'border-gray-600'
-                );
-            }
-
-            return classes;
-        },
-
-        contentClasses() {
-            const classes = [];
-
-            if(this.isActive) {
-                classes.push(
-                    'border-purple-600'
-                );
-            }
-            else {
-                classes.push(
-                    'border-gray-100'
-                );
-            }
-
-            if(this.tableState.sortable) {
-                classes.push(
-                    'cursor-pointer',
-                    'pr-3'
                 );
             }
 
@@ -106,7 +91,6 @@ export default Vue.extend({
                 const isAsc = this.tableState.sort.by === this.prop ? !this.tableState.sort.isAsc : false;
                 this.tableState.sort.by = this.prop;
                 this.tableState.sort.isAsc = isAsc;
-                this.emit('sort');
             }
         }
     }
@@ -116,34 +100,31 @@ export default Vue.extend({
 
 <template>
     <th
-        class="fig-table-th transition-colors relative font-medium bg-gray-100"
+        class="fig-table-th transition-colors relative font-normal text-gray-600 bg-gray-100 border-b border-gray-300 text-sm text-left px-2 py-1"
         :class="classNames"
         @click="onClick"
         v-bind="$attrs">
-        <div
-            class="p-2 border-b-2"
-            :class="contentClasses">
-            <slot></slot>
-            <i
-                v-if="sortable"
-                class="fig-table-th-arrow"
-                :class="arrowClasses">
-                <fig-icon
-                    icon="chevron-up"
-                    :stroke-width="1"
-                    stroke="#000"
-                    :width="10"
-                    :height="10" />
-            </i>
-        </div>
+        <slot></slot>
+        <span
+            v-if="sortable"
+            class="fig-table-th-arrow"
+            :class="arrowClasses">
+            <fig-icon
+                class="block"
+                icon="chevron-up"
+                :stroke-width="2"
+                stroke="#737373"
+                :width="16"
+                :height="16" />
+        </span>
     </th>
 </template>
 
 
 <style lang="postcss" scoped>
 .fig-table-th .fig-table-th-arrow {
-    @apply absolute transition-transform duration-500 -mt-2;
-    top: 50%;
+    @apply absolute transition-transform duration-500 mt-1;
+    /* top: 50%; */
     right: 8px;
 }
 .fig-table-th .fig-table-th-arrow-down {

@@ -20,11 +20,6 @@ export default Vue.extend({
             default: false
         },
 
-        sortable: {
-            type: Boolean,
-            default: false
-        },
-
         shadow: {
             type: Boolean,
             default: false
@@ -92,16 +87,15 @@ export default Vue.extend({
 
 <template>
     <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
-        <div class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
+        <div class="align-middle inline-block min-w-full overflow-hidden bg-white shadow-dashboard pt-3">
             <table
                 class="fig-table"
                 :class="tableClasses">
                 <thead>
                     <slot name="head"></slot>
                 </thead>
-                <tbody class="bg-white">
-                    <slot name="body"></slot>
-                </tbody>
+
+                <slot></slot>
             </table>
         </div>
     </div>
@@ -111,6 +105,10 @@ export default Vue.extend({
 <style lang="postcss" scoped>
 .fig-table {
     @apply min-w-full border border-gray-300;
+}
+
+.fig-table > tbody {
+    @apply bg-white;
 }
 
 .fig-table-striped tbody tr:nth-of-type(even){
