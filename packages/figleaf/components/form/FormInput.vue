@@ -58,7 +58,7 @@ export default Vue.extend({
 
             // size
             classes.push(
-                this.size === 'sm' ? 'h-6' : 'h-8'
+                this.size === 'sm' ? 'h-8' : 'default-input-height'
             );
 
             classes.push(
@@ -97,6 +97,13 @@ export default Vue.extend({
         :type="type"
         v-model="selectedValue"
         @input="emitInput"
-        class="form-input flex flex-shrink flex-grow leading-normal border px-3 relative"
+        class="form-input w-full"
         :class="inputClassNames" />
 </template>
+
+
+<style scoped>
+.default-input-height {
+    height: 2.2rem;
+}
+</style>
