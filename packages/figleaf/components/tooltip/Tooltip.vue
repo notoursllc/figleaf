@@ -200,7 +200,6 @@ export default Vue.extend({
 .fig-tip {
     @apply bg-gray-800 text-white absolute top-0 left-0 py-1 px-2 z-50 font-normal leading-normal text-xs max-w-xs break-words rounded-sm;
     min-width: 100px;
-    opacity: .9;
 }
 
 /* https://popper.js.org/docs/v2/tutorial/#arrow */
