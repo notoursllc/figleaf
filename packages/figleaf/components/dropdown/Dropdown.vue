@@ -4,9 +4,11 @@
 // https://coreui.io/vue/docs/components/dropdown.html
 
 import Vue from 'vue';
+import VueHotkey from 'v-hotkey';
 import { createPopper } from '@popperjs/core';
 import vClickOutside from 'v-click-outside';
 
+Vue.use(VueHotkey);
 
 export default Vue.extend({
     name: 'Dropdown',
@@ -183,13 +185,14 @@ export default Vue.extend({
 <template>
     <div
         v-click-outside="onClickOutside"
+        v-hotkey="{'esc': onClickOutside}"
         @click="checkClick($event)"
-        class="relative inline-flex align-middle w-full">
+        class="relative inline-flex align-middle">
         <slot name="toggler" :aria-attrs="ariaAttrs"></slot>
 
         <div
             ref="menu"
-            class="fig-dropdown min-w-48"
+            class="fig-dropdown"
             :class="{hidden: !visible, block: visible}">
             <div ref="arrow" class="arrow"></div>
             <slot></slot>
