@@ -86,6 +86,7 @@ export default Vue.extend({
     computed: {
         defaultPopperOptions () {
             return {
+                strategy: 'fixed',
                 placement: this.placement,
                 modifiers: [
                     {
