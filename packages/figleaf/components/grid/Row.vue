@@ -1,15 +1,4 @@
 <script>
-// NOTE: used this tool to figure out the class names:
-// https://tailwindgrids.com/#/
-
-function fractionValidator(value) {
-    return ['1/6', '1/5', '1/4', '1/3', '1/2', 'full', ''].includes(value);
-}
-
-function gapValidator(value) {
-    return ['32', '24', '20', '16', '12', '10', '8', '6', '5', '4', '3', '2', '1', 'px', ''].includes(value);
-}
-
 export default {
     name: 'FigRow',
 
@@ -17,83 +6,100 @@ export default {
         // desktop
         xl: {
             type: String,
-            default: null,
-            validator: fractionValidator
+            default: null
         },
 
         // laptop
         lg: {
             type: String,
-            default: null,
-            validator: fractionValidator
+            default: null
         },
 
         // tablet
         md: {
             type: String,
-            default: null,
-            validator: fractionValidator
+            default: null
         },
 
         // wide mobile
         sm: {
             type: String,
-            default: null,
-            validator: fractionValidator
+            default: null
         },
 
         // mobile (default)
         default: {
             type: String,
-            default: 'full',
-            validator: fractionValidator
+            default: 'full'
         },
 
         // desktop gap
         xlGap: {
             type: String,
-            default: null,
-            validator: gapValidator
+            default: null
         },
 
         // laptop gap
         lgGap: {
             type: String,
-            default: null,
-            validator: gapValidator
+            default: null
         },
 
         // tablet gap
         mdGap: {
             type: String,
-            default: null,
-            validator: gapValidator
+            default: null
         },
 
         // wide mobile gap
         smGap: {
             type: String,
-            default: null,
-            validator: gapValidator
+            default: null
         },
 
         // mobile gap (default)
         defaultGap: {
             type: String,
-            default: '3',
-            validator: gapValidator
+            default: '3'
         }
+    },
+
+    data() {
+        return {
+            sharedState: {
+                colClasses: this.colClassNames()
+            }
+        };
     },
 
     provide() {
         return {
             gridState: {
-                colClasses: this.colClassNames
+                ...this.sharedState
             }
         };
     },
 
     computed: {
+        rowClassNames() {
+            const classes = ['flex', 'flex-wrap'];
+
+            ['xl', 'lg', 'md', 'sm', 'default'].forEach((size) => {
+                const val = this[size];
+                if(!['full', 'screen', 'min', 'max', 'auto'].includes(val) && val) {
+                    const base = `-mx-${val}`;
+
+                    classes.push(
+                        size === 'default' ? base : `${size}:${base}`
+                    );
+                }
+            });
+
+            return classes;
+        }
+    },
+
+    methods: {
         colClassNames() {
             const classes = [];
 
@@ -115,23 +121,6 @@ export default {
                         size === 'default'
                             ? `px-${gapVal} my-${gapVal}`
                             : `${size}:px-${gapVal} ${size}:my-${gapVal}`
-                    );
-                }
-            });
-
-            return classes;
-        },
-
-        rowClassNames() {
-            const classes = ['flex', 'flex-wrap'];
-
-            ['xl', 'lg', 'md', 'sm', 'default'].forEach((size) => {
-                const val = this[size];
-                if(val !== 'full' && val) {
-                    const base = `-mx-${val}`;
-
-                    classes.push(
-                        size === 'default' ? base : `${size}:${base}`
                     );
                 }
             });

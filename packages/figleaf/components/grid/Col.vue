@@ -11,7 +11,6 @@ export default {
             return this.gridState.colClasses;
         }
     }
-
 };
 </script>
 
