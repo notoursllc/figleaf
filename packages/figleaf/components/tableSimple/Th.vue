@@ -59,10 +59,10 @@ export default Vue.extend({
                 classes.push(
                     'bg-gray-200',
                     'text-purple-800',
-                    'border-b-2',
                     'border-purple-600',
                     'transition-transform',
-                    'duration-500'
+                    'duration-500',
+                    this.tableState.sort.isAsc ? 'border-t-2' : 'border-b-2'
                 );
             }
             else {
