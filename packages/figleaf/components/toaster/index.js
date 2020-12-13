@@ -6,13 +6,14 @@ export default () => {
 
     Vue.component('FigToaster', Toaster);
 
-    Vue.prototype.$toast = (message, toastConfig) => {
+    Vue.prototype.$toast = (toastConfig) => {
         return methods.addToast(
             Object.assign(
                 {},
                 {
+                    variant: 'info',
                     title: null,
-                    text: message,
+                    text: null,
                     closable: true,
                     timeout: 0
                 },
@@ -22,18 +23,16 @@ export default () => {
     };
 
 
-    Vue.prototype.$successToast = (message, toastConfig) => {
+    Vue.prototype.$successToast = (toastConfig) => {
         return Vue.prototype.$toast(
-            message,
             Object.assign({}, toastConfig, { variant: 'success', timeout: 5000 })
         );
     };
 
 
-    Vue.prototype.$errorToast = (message, toastConfig) => {
+    Vue.prototype.$errorToast = (toastConfig) => {
         return Vue.prototype.$toast(
-            message,
-            Object.assign({}, toastConfig, { variant: 'error', timeout: 0 })
+            Object.assign({}, toastConfig, { variant: 'error' })
         );
     };
 
