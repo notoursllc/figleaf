@@ -34,6 +34,7 @@ export { default as FigSpinner } from './components/Spinner';
 export { default as FigTableSimple } from './components/tableSimple/TableSimple';
 export { default as FigTd } from './components/tableSimple/Td';
 export { default as FigTh } from './components/tableSimple/Th';
+export { default as FigTrNoResults } from './components/tableSimple/TrNoResults';
 
 // tooltip
 export { default as FigTooltip } from './components/tooltip/Tooltip';
