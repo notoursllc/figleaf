@@ -69,11 +69,15 @@ export default Vue.extend({
             return this.isLoading || ['true', true].indexOf(this.$attrs.disabled) > -1;
         },
 
+        hasIcon() {
+            return this.$slots.icon || this.icon;
+        },
+
         classNames() {
             const classes = [];
 
             if(this.block) {
-                classes.push('block');
+                classes.push('block w-full');
             }
 
             if(this.dotted) {
@@ -155,7 +159,7 @@ export default Vue.extend({
 
                 case 'lg':
                     classes.push(
-                        !this.$slots.default ? 'p-4' :'py-4 px-6 text-md'
+                        !this.$slots.default ? 'p-4' :'py-3 px-6 text-md'
                     );
                     break;
 
@@ -190,24 +194,23 @@ export default Vue.extend({
     <button
         v-on="$listeners"
         :type="type"
-        class="fig-button rounded font-medium"
+        class="fig-button rounded font-medium relative"
         :class="classNames"
         tabindex="0"
         :disabled="isDisabled"
         :aria-disabled="isDisabled">
-        <div class="flex flex-row items-center">
-            <slot name="icon">
-                <fig-icon
-                    v-if="icon"
-                    :icon="icon"
-                    :stroke-width="2"
-                    :stroke="iconStrokeColor"
-                    :width="18"
-                    :height="18" />
-            </slot>
-            <span
-                v-if="$slots.default"
-                :class="{'pl-1': icon}"><slot></slot></span>
+        <div class="flex flex-row items-center justify-center">
+            <div v-if="hasIcon">
+                <slot name="icon">
+                    <fig-icon
+                        :icon="icon"
+                        :stroke-width="2"
+                        :stroke="iconStrokeColor"
+                        :width="18"
+                        :height="18" />
+                </slot>
+            </div>
+            <div :class="{'pl-1': hasIcon && $slots.default}"><slot></slot></div>
         </div>
     </button>
 </template>
