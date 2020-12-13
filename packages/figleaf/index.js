@@ -17,6 +17,7 @@ export { default as FigRow } from './components/grid/Row';
 // icon
 export { default as FigIcon } from './components/icon/FigIcon';
 export { default as FigIconSprite } from './components/icon/FigIconSprite';
+export { default as FigVictoryIcon } from './components/icon/VictoryIcon';
 
 // modal
 export { default as FigModal } from './components/Modal';
