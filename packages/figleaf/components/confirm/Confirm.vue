@@ -83,7 +83,7 @@ export default Vue.extend({
             <!--content-->
             <div class="relative w-full">
                 <div
-                    class="relative mx-auto border-0 rounded-md shadow-lg bg-white outline-none focus:outline-none"
+                    class="relative mx-auto border-0 rounded-md shadow-tight bg-white outline-none focus:outline-none"
                     :class="widthClass">
 
                     <div class="p-5">

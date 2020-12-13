@@ -1,31 +1,31 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
-/*
- * https://v1.tailwindcss.com/docs/adding-new-utilities#using-css
- */
-@layer utilities {
-    .form-input-sm {
-        padding-top: 0.2rem;
-        padding-right: 0.5rem;
-        padding-bottom: 0.2rem;
-        padding-left: 0.5rem;
-    }
-
-    .leading-14px {
-        line-height: .875rem;
-    }
-
-    .p-14px {
-        padding: .875rem;
-    }
-
-    .z-1 {
-        z-index: 1;
-    }
-
-    .cursor-grab {
-        cursor: grab;
-    }
+.form-input-sm {
+    padding-top: 0.2rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.2rem;
+    padding-left: 0.5rem;
 }
+
+.leading-14px {
+    line-height: .875rem;
+}
+
+.p-14px {
+    padding: .875rem;
+}
+
+.z-1 {
+    z-index: 1;
+}
+
+.cursor-grab {
+    cursor: grab;
+}
+
+.shadow-tight {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+@tailwind utilities;

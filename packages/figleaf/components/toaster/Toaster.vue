@@ -143,7 +143,7 @@ export default {
                 move-class="transition duration-500">
 
                 <div
-                    class="flex max-w-sm w-full mx-auto shadow-md rounded-lg overflow-hidden mt-4 relative pointer-events-auto"
+                    class="flex max-w-sm w-full mx-auto shadow-tight rounded-lg overflow-hidden mt-4 relative pointer-events-auto"
                     :class="getMessageClasses(toastConfig.variant)"
                     v-for="toastConfig in includedToasts"
                     :key="toastConfig.id">
