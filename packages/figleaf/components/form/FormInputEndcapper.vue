@@ -4,9 +4,31 @@ import Vue from 'vue';
 export default Vue.extend({
     name: 'FormInputEndcapper',
 
+    props: {
+        prefixAs: {
+            type: String,
+            default: 'span'
+        },
+
+        suffixAs: {
+            type: String,
+            default: 'span'
+        }
+    },
+
     data: () => ({
-        endCapBaseClasses: 'flex items-center leading-normal bg-gray-100 border-t border-b border-gray-350 px-2 whitespace-no-wrap text-grey-dark text-sm'
-    })
+        endCapBaseClasses: 'flex items-center leading-normal border-t border-b bg-gray-200 border-gray-350 px-2 whitespace-no-wrap text-grey-dark text-sm'
+    }),
+
+    methods: {
+        onPrefixClick() {
+            this.$emit('prefixClick');
+        },
+
+        onSuffixClick() {
+            this.$emit('suffixClick');
+        }
+    }
 });
 </script>
 
@@ -14,25 +36,22 @@ export default Vue.extend({
 <template>
     <div class="flex flex-no-wrap items-stretch relative">
         <!-- prefix -->
-        <div
+        <component
             v-if="$slots.prefix"
-            class="flex -mr-px">
-            <span
-                class="rounded-l-md rounded-r-none border-l"
-                :class="endCapBaseClasses"><slot name="prefix"></slot></span>
-        </div>
+            :is="prefixAs"
+            class="-mr-px rounded-l-md rounded-r-none border-l"
+            :class="endCapBaseClasses"
+            @click="onPrefixClick"><slot name="prefix"></slot></component>
 
         <!-- input -->
         <slot></slot>
 
         <!-- suffix -->
-        <div
+        <component
             v-if="$slots.suffix"
-            class="flex -mr-px">
-            <span
-                class="rounded-r-md rounded-l-none border-r"
-                :class="endCapBaseClasses"><slot name="suffix"></slot></span>
-        </div>
-
+            :is="suffixAs"
+            class="-mr-px rounded-r-md rounded-l-none border-r"
+            :class="endCapBaseClasses"
+            @click="onSuffixClick"><slot name="suffix"></slot></component>
     </div>
 </template>
