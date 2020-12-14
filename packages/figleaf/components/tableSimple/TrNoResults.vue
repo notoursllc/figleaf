@@ -18,7 +18,7 @@ export default Vue.extend({
     <tr>
         <td
             :colspan="colspan"
-            class="text-center text-gray-600"
+            class="text-center text-gray-500 px-6 py-1"
             v-bind="$attrs"><slot>{{ $t('No data') }}</slot></td>
     </tr>
 </template>
