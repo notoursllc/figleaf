@@ -71,7 +71,7 @@ export default Vue.extend({
     watch: {
         show: {
             handler(val) {
-                this.visible = val;
+                this.setVisible(val);
             }
         },
 
@@ -134,7 +134,8 @@ export default Vue.extend({
 
 
     methods: {
-        emitVisible() {
+        setVisible(visible) {
+            this.visible = !!visible;
             this.$emit('visible', this.visible);
         },
 
@@ -146,14 +147,12 @@ export default Vue.extend({
         },
 
         hide() {
-            this.visible = false;
-            this.emitVisible();
+            this.setVisible(false);
         },
 
         toggle(e) {
             e.preventDefault();
-            this.visible = !this.visible;
-            this.emitVisible();
+            this.setVisible(!this.visible);
         },
 
         onClickOutside(e) {
@@ -206,7 +205,7 @@ export default Vue.extend({
 
         <div
             ref="menu"
-            class="fig-popover"
+            class="bg-white text-base text-gray-700 z-50 list-none text-left rounded shadow-sm mt-1 max-w-md border border-gray-300 shadow-tight"
             :class="{hidden: !visible, block: visible}">
             <div ref="arrow" class="arrow"></div>
 
@@ -227,11 +226,6 @@ export default Vue.extend({
 
 
 <style lang="postcss" scoped>
-.fig-popover {
-    @apply bg-white text-base text-gray-700 z-50 list-none text-left rounded shadow-sm mt-1 max-w-md border border-gray-300;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-}
-
 /* https://popper.js.org/docs/v2/tutorial/#arrow */
 .arrow,
 .arrow::before {
