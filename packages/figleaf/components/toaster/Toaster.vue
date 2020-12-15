@@ -130,7 +130,7 @@ export default {
 
 
 <template>
-    <div class="fixed inset-0 flex px-4 py-6 p-6 items-start justify-end z-10 pointer-events-none">
+    <div class="fig-toast">
         <div class="max-w-sm w-full">
 
             <transition-group
@@ -165,7 +165,7 @@ export default {
 
                     <!-- message -->
                     <div
-                        class="py-3 px-4 overflow-y-auto fig-toast-content"
+                        class="fig-toast-content"
                         :class="{'pr-6': toastConfig.closable !== false, 'pr-4': !(toastConfig.closable !== false)}">
                         <!-- title -->
                         <div
@@ -199,8 +199,14 @@ export default {
 </template>
 
 
-<style scoped>
+<style lang="postcss" scoped>
+/* Note that toasts should have the hightest z-index so they appear over modal and everything else */
+.fig-toast {
+    @apply fixed inset-0 flex px-4 py-6 p-6 items-start justify-end pointer-events-none;
+    z-index: 9999;
+}
 .fig-toast-content {
+    @apply py-3 px-4 overflow-y-auto;
     max-height: 300px;
 }
 </style>
