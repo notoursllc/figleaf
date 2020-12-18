@@ -83,9 +83,18 @@ export default Vue.extend({
             if(this.dotted) {
                 classes.push('border-dashed border border-gray-500')
             }
+            else {
+                // transparent border so the button does not appear smaller
+                // than a button with a dotted border
+                classes.push('border border-transparent')
+            }
 
             if(this.isDisabled) {
                 classes.push('cursor-not-allowed');
+            }
+
+            if(this.hasIcon) {
+                classes.push('align-bottom');
             }
 
             // variants
@@ -194,22 +203,22 @@ export default Vue.extend({
     <button
         v-on="$listeners"
         :type="type"
-        class="fig-button rounded font-medium relative"
+        class="fig-button rounded font-medium"
         :class="classNames"
         tabindex="0"
         :disabled="isDisabled"
         :aria-disabled="isDisabled">
         <div class="flex flex-row items-center justify-center">
-            <div v-if="hasIcon">
+            <template v-if="hasIcon">
                 <slot name="icon">
                     <fig-icon
                         :icon="icon"
-                        :stroke-width="2"
+                        :stroke-width="1.5"
                         :stroke="iconStrokeColor"
-                        :width="18"
-                        :height="18" />
+                        :width="20"
+                        :height="20" />
                 </slot>
-            </div>
+            </template>
             <div :class="{'pl-1': hasIcon && $slots.default}"><slot></slot></div>
         </div>
     </button>
