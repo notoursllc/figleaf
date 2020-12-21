@@ -201,7 +201,7 @@ export default Vue.extend({
         v-click-outside="onClickOutside"
         @click="checkClick($event)"
         class="relative inline-flex">
-        <slot name="toggler" :aria-attrs="ariaAttrs"></slot>
+        <div class="leading-none"><slot name="toggler" :aria-attrs="ariaAttrs"></slot></div>
 
         <div
             ref="menu"

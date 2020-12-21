@@ -189,7 +189,7 @@ export default Vue.extend({
         v-hotkey="{'esc': onClickOutside}"
         @click="checkClick($event)"
         class="relative inline-flex align-middle">
-        <slot name="toggler" :aria-attrs="ariaAttrs"></slot>
+        <div class="leading-none"><slot name="toggler" :aria-attrs="ariaAttrs"></slot></div>
 
         <div
             ref="menu"

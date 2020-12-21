@@ -166,13 +166,11 @@ export default Vue.extend({
             //     targetEl = this.target.$el || this.target;
             // }
 
-            this.$nextTick(() => {
-                this._popper = createPopper(
-                    targetEl,
-                    this.$refs.tooltipRef,
-                    this.customPopperOptions || this.defaultPopperOptions
-                );
-            });
+            this._popper = createPopper(
+                targetEl,
+                this.$refs.tooltipRef,
+                this.customPopperOptions || this.defaultPopperOptions
+            );
         }
     }
 });
@@ -184,7 +182,7 @@ export default Vue.extend({
         class="relative inline-flex"
         @mouseenter="checkHover($event)"
         @mouseleave="checkHover($event)">
-        <slot name="toggler" :aria-attrs="ariaAttrs"></slot>
+        <div class="leading-none"><slot name="toggler" :aria-attrs="ariaAttrs"></slot></div>
         <div
             ref="tooltipRef"
             :class="{'hidden': !visible, 'block': visible, 'text-center': centered, 'text-left': !centered}"
