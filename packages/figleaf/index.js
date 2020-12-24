@@ -1,5 +1,5 @@
-export { default as FigBadge } from './components/Badge';
 export { default as FigCountry } from './components/Country';
+export { default as FigTag } from './components/Tag';
 
 // buttons
 export { default as FigButton } from './components/Button';
