@@ -2,17 +2,12 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-    name: 'Tag',
+    name: 'Badge',
 
     props: {
         tag: {
             type: String,
-            default: 'span'
-        },
-
-        pill: {
-            type: Boolean,
-            default: false
+            default: 'div'
         },
 
         variant: {
@@ -44,14 +39,10 @@ export default Vue.extend({
 
     computed: {
         classNames() {
-            const classes = ['fig-tag px-2 py-1 font-semibold'];
+            const classes = ['fig-badge rounded-full inline-block font-semibold h-5 text-center whitespace-no-wrap absolute tracking-normal px-1 py-0'];
 
             classes.push(
-                this.size === 'lg' ? 'text-sm' : 'text-xs'
-            );
-
-            classes.push(
-                this.pill ? 'rounded-xl' : 'rounded-sm'
+                this.size === 'lg' ? 'text-base' : 'text-sm leading-5'
             );
 
             // variants
@@ -73,7 +64,7 @@ export default Vue.extend({
                     break;
 
                 case 'dark':
-                    classes.push('text-white bg-gray-900');
+                    classes.push('text-white bg-gray-500');
                     break;
 
                 case 'light':
