@@ -159,25 +159,33 @@ export default Vue.extend({
             }
 
             // sizes
+            const isNaked = this.variant === 'naked';
             switch(this.size) {
                 case 'sm':
-                    classes.push(
-                        !this.$slots.default ? 'p-1' : 'py-1 px-3 text-sm'
-                    );
+                    if(!isNaked) {
+                        classes.push(
+                            !this.$slots.default ? 'p-1' : 'py-1 px-3'
+                        );
+                    }
+                    classes.push('text-sm');
                     break;
 
                 case 'lg':
-                    classes.push(
-                        !this.$slots.default ? 'p-4' :'py-3 px-6 text-md'
-                    );
+                    if(!isNaked) {
+                        classes.push(
+                            !this.$slots.default ? 'p-4' :'py-3 px-6'
+                        );
+                    }
+                    classes.push('text-md');
                     break;
 
                 default:
-                    if(this.variant !== 'naked') {
+                    if(!isNaked) {
                         classes.push(
-                            !this.$slots.default ? 'p-2' : 'py-2 px-3 text-md leading-tight'
+                            !this.$slots.default ? 'p-2' : 'py-2 px-3'
                         );
                     }
+                    classes.push('text-md leading-tight');
             }
 
             return classes;
