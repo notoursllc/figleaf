@@ -27,11 +27,11 @@ export default Vue.extend({
 
         size: {
             type: String,
-            default: 'lg',
+            default: 'sm',
             validator: (value) => {
                 return [
                     'sm',
-                    'lg'
+                    'md'
                 ].includes(value);
             }
         }
@@ -39,28 +39,28 @@ export default Vue.extend({
 
     computed: {
         classNames() {
-            const classes = ['fig-badge rounded-full inline-block font-semibold h-5 text-center whitespace-no-wrap absolute tracking-normal px-1 py-0'];
+            const classes = ['fig-badge'];
 
             classes.push(
-                this.size === 'lg' ? 'text-base' : 'text-sm leading-5'
+                this.size === 'md' ? 'fig-badge-md' : 'fig-badge-sm'
             );
 
             // variants
             switch(this.variant) {
                 case 'info':
-                    classes.push('text-blue-900 bg-blue-200');
+                    classes.push('text-white bg-blue-600');
                     break;
 
                 case 'success':
-                    classes.push('text-green-900 bg-green-200');
+                    classes.push('text-white bg-green-600');
                     break;
 
                 case 'error':
-                    classes.push('text-red-900 bg-red-200');
+                    classes.push('text-white bg-red-600');
                     break;
 
                 case 'warning':
-                    classes.push('text-orange-900 bg-orange-300');
+                    classes.push('text-white bg-orange-600');
                     break;
 
                 case 'dark':
@@ -68,7 +68,7 @@ export default Vue.extend({
                     break;
 
                 case 'light':
-                    classes.push('text-gray-700 bg-gray-200');
+                    classes.push('text-gray-700 bg-gray-300');
                     break;
             }
 
@@ -89,3 +89,18 @@ export default Vue.extend({
     }
 });
 </script>
+
+
+<style scoped>
+.fig-badge {
+    @apply rounded-full flex items-center justify-center font-semibold whitespace-no-wrap absolute tracking-normal px-1 py-0;
+}
+.fig-badge-sm {
+    @apply text-sm leading-5 h-5;
+    min-width: 20px;
+}
+.fig-badge-md {
+    @apply text-lg leading-6 h-6;
+    min-width: 24px;
+}
+</style>
