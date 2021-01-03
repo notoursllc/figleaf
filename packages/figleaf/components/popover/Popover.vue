@@ -205,7 +205,7 @@ export default Vue.extend({
 
         <div
             ref="menu"
-            class="bg-white text-base text-gray-700 z-50 list-none text-left rounded shadow-sm mt-1 max-w-md border border-gray-300 shadow-tight"
+            class="bg-white text-base text-gray-700 z-50 list-none text-left rounded mt-1 max-w-md border border-gray-300 shadow-tight"
             :class="{hidden: !visible, block: visible}">
             <div ref="arrow" class="arrow"></div>
 
