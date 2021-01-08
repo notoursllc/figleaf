@@ -86,7 +86,7 @@ export default Vue.extend({
 
 
 <template>
-    <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
+    <div class="-my-2 p-1 overflow-x-auto">
         <div class="align-middle inline-block min-w-full overflow-hidden bg-white shadow-dashboard">
             <table
                 class="fig-table"
