@@ -1,7 +1,7 @@
 {
     "name": "@notoursllc/figleaf",
     "version": "0.1.66",
-    "description": "Yet another inadequate covering made my humans",
+    "description": "Yet another inadequate covering made my humans.",
     "dependencies": {
         "@nuxtjs/tailwindcss": "^3.2.0",
         "@popperjs/core": "2.4.4",
@@ -17,5 +17,5 @@
         "vue-flatpickr-component": "^8.1.6",
         "vue-select": "^3.10.8"
     },
-    "gitHead": "0ba599affd4e1d1043cd3ef133b9f8bbb1e99a60"
+    "gitHead": "489a4c785ee0e9bf3d92ad8ff827e6c775d8afb9"
 }
