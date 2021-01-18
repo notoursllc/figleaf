@@ -1,3 +1,5 @@
+const { getWhiteListClasses } = require('./components/grid/gridConfig');
+
 module.exports = {
     future: {
         // removeDeprecatedGapUtilities: true,
@@ -14,7 +16,10 @@ module.exports = {
             // TypeScript
             // 'plugins/**/*.ts',
             // 'nuxt.config.ts'
-        ]
+        ],
+        options: {
+            whitelist: getWhiteListClasses()
+        }
     },
     theme: {
         extend: {
