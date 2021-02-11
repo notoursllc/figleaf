@@ -3,7 +3,7 @@
 
 import Vue from 'vue';
 import isObject from 'lodash.isobject';
-import Confirm from './AtcConfirm.vue';
+import AtcConfirm from './AtcConfirm.vue';
 
 export default () => {
 
@@ -12,7 +12,7 @@ export default () => {
     }
 
     Vue.prototype.$figleaf.atcConfirm = (message, config) => {
-        const AtcConfirmComponent = Vue.extend(Confirm);
+        const AtcConfirmComponent = Vue.extend(AtcConfirm);
 
         const cfg = Object.assign(
             {},
