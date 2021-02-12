@@ -73,13 +73,8 @@ export default Vue.extend({
 </template>
 
 
-<style lang="scss">
-@import "../../scss/variables.scss";
-
-.f-date-picker {
-    input[readonly] {
-        background-color: $gray-200;
-        cursor: pointer;
-    }
+<style lang="postcss">
+.f-date-picker input[readonly] {
+    @apply cursor-pointer bg-gray-200;
 }
 </style>

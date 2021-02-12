@@ -2,7 +2,7 @@
 import Vue from 'vue';
 import vSelect from 'vue-select';
 import FigIcon from '../icon/FigIcon';
-import 'vue-select/src/scss/vue-select.scss';
+import 'vue-select/dist/vue-select.css';
 
 
 export default Vue.extend({
@@ -97,34 +97,30 @@ export default Vue.extend({
 </template>
 
 
-<style lang="scss">
+<style lang="postcss">
 .fig-select {
-    background-color: #fff;
-
-    .fig-icon.vs__open-indicator {
-        fill: none;
-    }
-
-    .vs__clear .fig-icon-x {
-        margin-top: -3px;
-    }
+    @apply bg-white;
 }
 
-.fig-select-sm {
-    .vs__search,
-    .vs__selected {
-        line-height: 1.4;
-        font-size: 14px;
-    }
-    .vs__dropdown-menu {
-        font-size: 14px;
-    }
+.fig-select .fig-icon.vs__open-indicator {
+    fill: none;
 }
 
-.fig-select-no-right-radius {
-    .vs__dropdown-toggle {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
+.fig-select .vs__clear .fig-icon-x {
+    margin-top: -3px;
+}
+
+.fig-select-sm .vs__search,
+.fig-select-sm .vs__selected {
+    line-height: 1.4;
+    font-size: 14px;
+}
+.fig-select-sm .vs__dropdown-menu {
+    font-size: 14px;
+}
+
+.fig-select-no-right-radius .vs__dropdown-toggle {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 </style>

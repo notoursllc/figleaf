@@ -82,7 +82,7 @@ export default Vue.extend({
 </template>
 
 
-<style lang="scss" scoped>
+<style scoped>
 .fig-button-fab {
     bottom: 20px;
     right: 20px;
