@@ -26,6 +26,7 @@ export { default as FigModal } from './components/Modal';
 // popover
 export { default as FigPopover } from './components/popover/Popover';
 export { default as FigPopoverDivider } from './components/popover/PopoverDivider';
+export { default as FigPopConfirm } from './components/PopConfirm';
 
 // overlay
 export { default as FigOverlay } from './components/Overlay';
