@@ -40,7 +40,15 @@ export default Vue.extend({
 
         size: {
             type: String,
-            required: false
+            default: 'md',
+            validator: (value) => {
+                return ['sm', 'md', 'lg'].includes(value);
+            }
+        },
+
+        controlsRight: {
+            type: Boolean,
+            default: false
         },
 
         controls: {
@@ -65,6 +73,18 @@ export default Vue.extend({
 
         minusDisabled() {
             return isFinite(this.min) && parseFloat(this.selectedValue) <= this.min;
+        },
+
+        classNames() {
+            const classes = [
+                `fig-input-number-${this.size}`
+            ];
+
+            if(this.controlsRight) {
+                classes.push('is-controls-right');
+            }
+
+            return classes;
         }
     },
 
@@ -136,21 +156,36 @@ export default Vue.extend({
 
 
 <template>
-    <form-input-endcapper>
-        <form-input
-            v-model="selectedValue"
-            type="number"
-            :min="min"
-            :max="max"
-            :step="step"
-            :size="size"
-            @input="emitInput"
-            v-bind="$attrs"
-            square-left
-            square-right
-            :input-classes="center ? 'text-center' : ''" />
+    <div class="fig-input-number" :class="classNames">
+        <template v-if="controlsRight">
+            <fig-button
+                variant="naked"
+                @click="down"
+                :disabled="minusDisabled"
+                size="sm"
+                class="control-right-decrease">-</fig-button>
 
-        <template v-if="controls">
+            <fig-button
+                variant="naked"
+                @click="up"
+                :disabled="plusDisabled"
+                size="sm"
+                class="control-right-increase">+</fig-button>
+        </template>
+
+        <div class="fig-input-wrapper">
+            <form-input
+                v-model="selectedValue"
+                type="number"
+                :min="min"
+                :max="max"
+                :step="step"
+                :size="size"
+                @input="emitInput"
+                v-bind="$attrs" />
+        </div>
+
+        <!-- <template v-if="controls">
             <fig-button
                 slot="prefix"
                 variant="naked"
@@ -164,6 +199,95 @@ export default Vue.extend({
                 @click="down"
                 :disabled="minusDisabled"
                 icon="minus" />
-        </template>
-    </form-input-endcapper>
+        </template> -->
+    </div>
 </template>
+
+<style>
+.fig-input-number {
+    @apply relative w-full;
+    min-width: 80px;
+}
+.fig-input-number-sm {
+    @apply leading-7;
+    min-width: 66px;
+}
+.fig-input-number-md {
+    @apply leading-8;
+}
+.fig-input-number-lg {
+    @apply leading-9;
+}
+
+.fig-input-wrapper {
+    @apply relative inline-block w-full;
+}
+
+.fig-input-number-sm > button {
+    width: 30px;
+    line-height: 14px;
+}
+.fig-input-number-md > button,
+.fig-input-number-lg > button {
+    width: 40px;
+    line-height: 19px;
+}
+
+.fig-input-number input {
+    padding-right: 42px;
+}
+.fig-input-number-sm input {
+    padding-right: 32px;
+}
+
+.control-right-increase,
+.control-right-decrease {
+    @apply cursor-pointer h-auto text-center bg-gray-100 text-gray-600 absolute text-sm;
+    z-index: 1;
+    top: 1px;
+    right: 1px;
+    transition: line-height 0.15s ease-out;
+}
+.control-right-increase {
+    @apply border-gray-300 border-0 border-b border-l;
+    border-radius: 0 4px 0 0;
+}
+.control-right-decrease {
+    @apply border-gray-300 border-0 border-l;
+    bottom: 1px;
+    top: auto;
+    left: auto;
+    border-right: none;
+    border-radius: 0 0 4px 0;
+}
+
+.fig-input-number button:hover {
+    line-height: 25px;
+    z-index: 2;
+}
+.fig-input-number-sm button:hover {
+    line-height: 20px;
+}
+
+
+.control-right-decrease:hover {
+    border-top: 1px solid #dcdfe6;
+}
+.control-right-increase:disabled,
+.control-right-decrease:disabled {
+    @apply cursor-not-allowed text-gray-300;
+}
+
+
+/* Chrome, Safari, Edge, Opera: hide arrows */
+.fig-input-number input::-webkit-outer-spin-button,
+.fig-input-number input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox: hide arrows */
+.fig-input-number[input] {
+  -moz-appearance: textfield;
+}
+</style>

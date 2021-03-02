@@ -105,8 +105,8 @@ export default {
 </template>
 
 
-<style scoped>
+<style>
 .fig-input-money {
-    min-width: 70px;
+    min-width: 65px;
 }
 </style>

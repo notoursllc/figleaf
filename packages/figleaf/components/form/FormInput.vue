@@ -26,7 +26,8 @@ export default Vue.extend({
             type: String,
             default: 'md',
             validator: (value) => {
-                return ['sm', 'md'].includes(value);
+                // return ['sm', 'md'].includes(value);
+                return ['xs', 'sm', 'md', 'lg'].includes(value);
             }
         },
 
@@ -49,6 +50,7 @@ export default Vue.extend({
         inputClassNames() {
             const classes = [
                 ...this.formInputMix_stateClassNames,
+                `fig-input-${this.size}`,
                 this.inputClasses
             ];
 
@@ -56,14 +58,9 @@ export default Vue.extend({
                 classes.push('p-1');
             }
 
-            // size
             classes.push(
-                this.size === 'sm' ? 'h-8' : 'default-input-height'
-            );
-
-            classes.push(
-                this.squareLeft ? 'rounded-l-none' : 'rounded-l-md',
-                this.squareRight ? 'rounded-r-none' : 'rounded-r-md'
+                this.squareLeft ? 'rounded-l-none' : 'rounded-l-sm',
+                this.squareRight ? 'rounded-r-none' : 'rounded-r-sm'
             );
 
             if(this.$attrs.disabled) {
@@ -101,9 +98,3 @@ export default Vue.extend({
         :class="inputClassNames" />
 </template>
 
-
-<style scoped>
-.default-input-height {
-    height: 2.2rem;
-}
-</style>
