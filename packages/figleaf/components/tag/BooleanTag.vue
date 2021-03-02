@@ -1,12 +1,12 @@
 <script>
 import Vue from 'vue';
-import FigBadge from './Badge';
+import FigTag from './Tag';
 
 export default Vue.extend({
-    name: 'FigBooleanBadge',
+    name: 'FigBooleanTag',
 
     components: {
-        FigBadge
+        FigTag
     },
 
     props: {
@@ -37,7 +37,7 @@ export default Vue.extend({
             return this.bool ? 'success' : 'error';
         },
 
-        badgeLabel() {
+        tagLabel() {
             if(this.bool) {
                 return this.trueLabel || this.$t('true');
             }
@@ -49,10 +49,10 @@ export default Vue.extend({
 </script>
 
 <template>
-    <fig-badge
+    <fig-tag
         :tag="tag"
         :size="size"
         :variant="variant"
         v-on="$listeners"
-        v-bind="$attrs">{{ badgeLabel }}</fig-badge>
+        v-bind="$attrs">{{ tagLabel }}</fig-tag>
 </template>

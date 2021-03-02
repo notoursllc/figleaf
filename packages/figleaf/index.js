@@ -1,9 +1,5 @@
-export { default as FigCountry } from './components/Country';
-export { default as FigTag } from './components/Tag';
-
-// badge
 export { default as FigBadge } from './components/badge/Badge';
-export { default as FigBooleanBadge } from './components/badge/BooleanBadge';
+export { default as FigCountry } from './components/Country';
 
 // buttons
 export { default as FigButton } from './components/Button';
@@ -34,6 +30,10 @@ export { default as FigPopConfirm } from './components/PopConfirm';
 // overlay
 export { default as FigOverlay } from './components/Overlay';
 export { default as FigSpinner } from './components/Spinner';
+
+// tag
+export { default as FigTag } from './components/tag/Tag';
+export { default as FigBooleanTag } from './components/tag/BooleanTag';
 
 // table
 export { default as FigTableSimple } from './components/tableSimple/TableSimple';
