@@ -55,10 +55,6 @@ export default () => {
                 }
 
                 this.show();
-
-                if(this.$refs.btn_confirm_cancel) {
-                    this.$refs.btn_confirm_cancel.focus();
-                }
             },
 
             destroyed() {
@@ -118,12 +114,10 @@ export default () => {
                 }
             });
 
-            confirm.$on('hide', confirmEvt => {
-                if (!confirmEvt.defaultPrevented) {
-                    resolved = true;
-                    resolve(confirmEvt.figConfirm.confirmed);
-                    confirm.$destroy();
-                }
+            confirm.$on('hide', (isConfirmed) => {
+                resolved = true;
+                resolve(isConfirmed);
+                confirm.$destroy();
             });
 
             // Create a mount point (a DIV) and mount the msgBo which will trigger it to show
