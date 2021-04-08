@@ -1,6 +1,6 @@
 <script>
 import Vue from 'vue';
-import FigButton from '../Button';
+import FigButton from '../button/Button';
 import FigIcon from '../icon/FigIcon';
 
 export default Vue.extend({

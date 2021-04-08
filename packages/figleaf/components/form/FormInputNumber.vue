@@ -3,7 +3,7 @@ import Vue from 'vue';
 import isFinite from 'lodash.isfinite';
 import { isNumber } from '../utils/common';
 import FormInput from './FormInput';
-import FigButton from '../Button';
+import FigButton from '../button/Button';
 import FormInputEndcapper from './FormInputEndcapper';
 
 
@@ -266,7 +266,7 @@ export default Vue.extend({
     z-index: 2;
 }
 .fig-input-number-sm button:hover {
-    line-height: 20px;
+    line-height: 17px;
 }
 
 

@@ -140,10 +140,10 @@ export default {
     );
 }
 
-.toggle-input:focus + .toggle-switch::before,
+/* .toggle-input:focus + .toggle-switch::before,
 .toggle-input:focus:checked + .toggle-switch::before {
     @apply shadow-outline;
-}
+} */
 
 .toggle-input:disabled + .toggle-switch {
     @apply bg-gray-300 cursor-not-allowed;

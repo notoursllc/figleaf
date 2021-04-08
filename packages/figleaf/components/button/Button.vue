@@ -1,6 +1,11 @@
 <script>
 import Vue from 'vue';
-import FigIcon from './icon/FigIcon';
+import FigIcon from '../icon/FigIcon';
+import {
+    buttonSizes,
+    buttonVariants,
+    buttonTypes
+} from './constants';
 
 export default Vue.extend({
     name: 'Button',
@@ -12,35 +17,20 @@ export default Vue.extend({
     props: {
         size: {
             type: String,
-            default: 'md',
-            validator: (value) => {
-                return ['sm', 'md', 'lg'].includes(value);
-            }
+            default: buttonSizes.md,
+            validator: (value) => Object.keys(buttonSizes).includes(value)
         },
 
         variant: {
             type: String,
-            default: 'plain',
-            validator: (value) => {
-                return [
-                    'danger',
-                    'ghost',
-                    'link',
-                    'plain',
-                    'plain-outline',
-                    'primary',
-                    'success',
-                    'success-outline',
-                    'naked'].includes(value);
-            }
+            default: buttonVariants.plain,
+            validator: (value) => Object.keys(buttonVariants).includes(value)
         },
 
         type: {
             type: String,
-            default: 'button',
-            validator: (value) => {
-                return ['button', 'submit', 'reset'].includes(value);
-            }
+            default: buttonTypes.button,
+            validator: (value) => Object.keys(buttonTypes).includes(value)
         },
 
         loading: {

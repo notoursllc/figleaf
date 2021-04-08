@@ -1,6 +1,6 @@
 <script>
 import { v4 as uuidv4 } from 'uuid';
-import FigButton from './Button';
+import FigButton from './button/Button';
 import FigPopover from './popover/Popover';
 
 export default {

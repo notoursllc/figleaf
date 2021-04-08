@@ -1,58 +1,61 @@
 {
-    "name": "@notoursllc/figleaf",
-    "version": "0.1.0",
-    "description": "Yet another inadequate covering made my humans",
-    "author": "",
-    "scripts": {
-        "test:unit": "vue-cli-service test:unit",
-        "lint": "vue-cli-service lint",
-        "storybook:build": "vue-cli-service storybook:build -c config/storybook",
-        "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook"
-    },
-    "main": "index.js",
-    "dependencies": {
-        "core-js": "^3.6.5",
-        "vue": "^2.6.11"
-    },
-    "devDependencies": {
-        "@storybook/addon-actions": ">=5.3.0",
-        "@storybook/addon-docs": ">=5.3.0",
-        "@storybook/addon-links": ">=5.3.0",
-        "@storybook/addon-notes": ">=5.3.0",
-        "@storybook/vue": ">=5.3.0",
-        "@vue/cli-plugin-babel": "~4.5.0",
-        "@vue/cli-plugin-eslint": "~4.5.0",
-        "@vue/cli-plugin-unit-jest": "~4.5.0",
-        "@vue/cli-service": "~4.5.0",
-        "@vue/eslint-config-standard": "^5.1.2",
-        "@vue/test-utils": "^1.0.3",
-        "babel-eslint": "^10.1.0",
-        "eslint": "^6.7.2",
-        "eslint-plugin-import": "^2.20.2",
-        "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-promise": "^4.2.1",
-        "eslint-plugin-standard": "^4.0.0",
-        "eslint-plugin-vue": "^6.2.2",
-        "lerna": "^3.22.1",
-        "node-sass": "^4.12.0",
-        "sass-loader": "^8.0.2",
-        "vue-cli-plugin-storybook": "~1.2.2",
-        "vue-template-compiler": "^2.6.11"
-    },
-    "_id": "figleaf@0.1.0",
-    "bugs": {
-        "url": "https://github.com/notoursllc/figleaf/issues"
-    },
-    "license": "ISC",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/notoursllc/figleaf.git"
-    },
-    "workspaces": [
-        "packages/*"
-    ],
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org"
-    }
+  "name": "@notoursllc/figleaf",
+  "version": "0.1.0",
+  "description": "Yet another inadequate covering made my humans",
+  "author": "",
+  "scripts": {
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "autoprefixer": "^10.2.5",
+    "core-js": "^3.6.5",
+    "postcss": "^8.2.9",
+    "tailwindcss": "^2.0.4",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@storybook/addon-actions": "^6.2.5",
+    "@storybook/addon-essentials": "^6.2.5",
+    "@storybook/addon-links": "^6.2.5",
+    "@storybook/vue": "^6.2.5",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "@vue/test-utils": "^1.0.3",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "lerna": "^3.22.1",
+    "vue-cli-plugin-tailwind": "^2.0.6",
+    "vue-loader": "^15.9.6",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "_id": "figleaf@0.1.0",
+  "bugs": {
+    "url": "https://github.com/notoursllc/figleaf/issues"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notoursllc/figleaf.git"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
 }

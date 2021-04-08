@@ -1,7 +1,7 @@
 <script>
 import Vue from 'vue';
 import VueHotkey from 'v-hotkey';
-import FigButton from './Button';
+import FigButton from './button/Button';
 
 Vue.use(VueHotkey);
 
