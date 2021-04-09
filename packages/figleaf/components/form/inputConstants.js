@@ -1,5 +1,5 @@
 export const formInputStateClasses = {
-    success: 'border-green-600',
+    success: 'border-green-500',
     error: 'border-red-700'
 };
 
