@@ -15,13 +15,6 @@ export default {
                 type: 'select',
                 options: Object.keys(formInputSizes)
             }
-        },
-
-        state: {
-            control: {
-                type: 'select',
-                options: Object.keys(formInputStateClasses)
-            }
         }
     }
 };
@@ -42,7 +35,7 @@ const Template = (args, { argTypes }) => ({
 export const FormSelectNative = Template.bind({});
 FormSelectNative.args = {
     size: formInputSizes.md,
-    state: formInputStateClasses.success,
+    state: null,
     options: [
         { label: 'One', value: 1 },
         { label: 'Two', value: 2 },
