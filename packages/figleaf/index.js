@@ -20,7 +20,7 @@ export { default as FigIconSprite } from './components/icon/FigIconSprite';
 export { default as FigVictoryIcon } from './components/icon/VictoryIcon';
 
 // modal
-export { default as FigModal } from './components/Modal';
+export { default as FigModal } from './components/modal/Modal';
 
 // popover
 export { default as FigPopover } from './components/popover/Popover';

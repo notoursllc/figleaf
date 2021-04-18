@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import VueHotkey from 'v-hotkey';
 import FigButton from './button/Button';
+import { modalSizes } from './constants';
 
 Vue.use(VueHotkey);
 
@@ -15,10 +16,8 @@ export default Vue.extend({
     props: {
         size: {
             type: String,
-            default: 'lg',
-            validator(size) {
-                return ['sm', 'md', 'lg', 'xl'].indexOf(size) > -1;
-            }
+            default: modalSizes.lg,
+            validator: (value) => Object.keys(modalSizes).includes(value)
         },
 
         closeButton: {
@@ -92,9 +91,9 @@ export default Vue.extend({
                 <div
                     v-if="$slots.header"
                     class="flex items-center justify-between py-2 px-5 border-b border-solid border-gray-300 rounded-t-md">
-                    <h3 class="text-lg font-semibold break-words">
+                    <div class="text-lg font-semibold break-words">
                         <slot name="header"></slot>
-                    </h3>
+                    </div>
 
                     <fig-button
                         v-if="closeButton"
