@@ -40,7 +40,7 @@ export default Vue.extend({
             @change="emitInput"
             v-bind="$attrs"
             type="radio"
-            class="form-radio border-gray-350">
+            class="form-radio border-gray-300">
         <span class="ml-2" v-if="$slots.default"><slot></slot></span>
     </label>
 </template>

@@ -62,7 +62,7 @@ export default Vue.extend({
     <label class="inline-flex items-center">
         <input
             type="checkbox"
-            class="form-checkbox border-gray-350"
+            class="form-checkbox border-gray-300"
             v-bind="$attrs"
             @change="emitInput"
             v-model="isChecked">

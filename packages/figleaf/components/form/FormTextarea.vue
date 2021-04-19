@@ -37,5 +37,5 @@ export default Vue.extend({
         v-model="selectedValue"
         @input="emitInput"
         v-bind="$attrs"
-        class="form-textarea block w-full border-gray-350"></textarea>
+        class="form-textarea block w-full border-gray-300"></textarea>
 </template>
