@@ -1,7 +1,7 @@
 <script>
 import Vue from 'vue';
 import VueHotkey from 'v-hotkey';
-import FigButton from './button/Button';
+import FigButton from '../button/Button';
 import { modalSizes } from './constants';
 
 Vue.use(VueHotkey);
