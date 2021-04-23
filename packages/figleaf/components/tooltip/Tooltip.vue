@@ -1,7 +1,7 @@
 <script>
 import Vue from 'vue';
 import { createPopper } from '@popperjs/core';
-
+import { tooltipPlacements } from './constants';
 
 export default Vue.extend({
     name: 'Tooltip',
@@ -9,24 +9,8 @@ export default Vue.extend({
     props: {
         placement: {
             type: String,
-            validator: (position) => {
-                return [
-                    '',
-                    'top-end',
-                    'top',
-                    'top-start',
-                    'bottom-end',
-                    'bottom',
-                    'bottom-start',
-                    'right-start',
-                    'right',
-                    'right-end',
-                    'left-start',
-                    'left',
-                    'left-end'
-                ].includes(position);
-            },
-            default: 'bottom-start'
+            default: tooltipPlacements['bottom-start'],
+            validator: (value) => Object.keys(tooltipPlacements).includes(value)
         },
 
         show: {
@@ -194,9 +178,9 @@ export default Vue.extend({
 </template>
 
 
-<style lang="postcss" scoped>
+<style scoped>
 .fig-tip {
-    @apply bg-gray-800 text-white absolute top-0 left-0 py-1 px-2 z-50 font-normal leading-normal text-xs max-w-xs break-words rounded-sm;
+    @apply bg-gray-800 text-white absolute top-0 left-0 py-1 px-2 z-50 font-normal leading-normal text-sm max-w-xs break-words rounded-sm;
     min-width: 100px;
 }
 
@@ -224,10 +208,10 @@ export default Vue.extend({
 }
 
 [data-popper-placement^='left'] > .arrow {
-  right: -4px;
+  right: 0px;
 }
 
 [data-popper-placement^='right'] > .arrow {
-  left: -4px;
+  left: -8px;
 }
 </style>
