@@ -1,5 +1,6 @@
 <script>
 import Vue from 'vue';
+import { spinnerStrokeWidths } from './constants';
 
 export default Vue.extend({
     name: 'Spinner',
@@ -18,9 +19,7 @@ export default Vue.extend({
         strokeWidth: {
             type: Number,
             default: 2,
-            validator(val) {
-                return [1, 2, 3].indexOf(val) > -1;
-            }
+            validator: (value) => spinnerStrokeWidths.includes(value)
         }
     }
 });

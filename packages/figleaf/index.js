@@ -30,7 +30,7 @@ export { default as FigPopConfirm } from './components/PopConfirm';
 
 // overlay
 export { default as FigOverlay } from './components/Overlay';
-export { default as FigSpinner } from './components/Spinner';
+export { default as FigSpinner } from './components/spinner/Spinner';
 
 // tag
 export { default as FigTag } from './components/tag/Tag';

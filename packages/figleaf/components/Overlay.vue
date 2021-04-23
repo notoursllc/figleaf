@@ -1,6 +1,6 @@
 <script>
 import Vue from 'vue';
-import Spinner from './Spinner';
+import Spinner from './spinner/Spinner';
 
 export default Vue.extend({
     name: 'Overlay',
