@@ -140,7 +140,7 @@ export default Vue.extend({
 </template>
 
 
-<style lang="postcss" scoped>
+<style scoped>
 .footer-container {
     @apply flex items-center border-t border-solid border-gray-300 bg-gray-100 rounded-b-md;
 }

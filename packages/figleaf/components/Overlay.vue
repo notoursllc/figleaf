@@ -146,7 +146,7 @@ export default Vue.extend({
 </template>
 
 
-<style lang="postcss">
+<style>
 .spinner-container {
     @apply absolute;
     top: 50%;

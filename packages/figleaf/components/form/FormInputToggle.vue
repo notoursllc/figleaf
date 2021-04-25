@@ -83,7 +83,7 @@ export default {
 </template>
 
 
-<style lang="postcss">
+<style>
 .toggle-switch-sm {
     --switch-container-width: 34px;
 }

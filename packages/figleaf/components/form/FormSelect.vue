@@ -97,7 +97,7 @@ export default Vue.extend({
 </template>
 
 
-<style lang="postcss">
+<style>
 .fig-select {
     @apply bg-white;
 }

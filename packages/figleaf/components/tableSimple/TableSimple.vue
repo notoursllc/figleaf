@@ -102,7 +102,7 @@ export default Vue.extend({
 </template>
 
 
-<style lang="postcss" scoped>
+<style scoped>
 .fig-table {
     @apply min-w-full border border-gray-300;
 }

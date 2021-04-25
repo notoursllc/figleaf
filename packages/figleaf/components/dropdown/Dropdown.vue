@@ -202,7 +202,7 @@ export default Vue.extend({
 </template>
 
 
-<style lang="postcss" scoped>
+<style scoped>
 /* https://popper.js.org/docs/v2/tutorial/#arrow */
 .arrow,
 .arrow::before {

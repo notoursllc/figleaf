@@ -127,7 +127,7 @@ export default Vue.extend({
 </template>
 
 
-<style lang="postcss" scoped>
+<style scoped>
 .fig-table-th {
     @apply transition-colors relative font-normal text-gray-600 bg-gray-100 text-sm text-left border-r border-b border-gray-300;
 }

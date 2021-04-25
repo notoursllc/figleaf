@@ -73,7 +73,7 @@ export default Vue.extend({
 </template>
 
 
-<style lang="postcss">
+<style>
 .f-date-picker input[readonly] {
     @apply cursor-pointer bg-gray-200;
 }

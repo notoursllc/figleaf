@@ -105,7 +105,7 @@ export default Vue.extend({
 </template>
 
 
-<style lang="postcss">
+<style>
 .fig-atm-confirm {
     @apply w-11/12 mx-auto;
     top: 40px;

@@ -199,7 +199,7 @@ export default {
 </template>
 
 
-<style lang="postcss" scoped>
+<style scoped>
 /* Note that toasts should have the hightest z-index so they appear over modal and everything else */
 .fig-toast {
     @apply fixed inset-0 flex px-4 py-6 p-6 items-start justify-end pointer-events-none;
