@@ -1,8 +1,8 @@
 <script>
 import Vue from 'vue';
 import isObject from 'lodash.isobject';
-import FormSelect from './FormSelect';
-import countries_mixin from '../../mixins/countries_mixin';
+import FormSelect from '../FormSelect';
+import countries_mixin from '../../../mixins/countries_mixin';
 
 export default Vue.extend({
     components: {
@@ -20,7 +20,7 @@ export default Vue.extend({
         }
     },
 
-    data() {
+    data: function() {
         return {
             selectedCountry: null
         };
