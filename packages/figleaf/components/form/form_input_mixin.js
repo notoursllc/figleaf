@@ -24,7 +24,7 @@ export default {
 
     computed: {
         formInputMix_stateClassNames() {
-            const classes = [];
+            const classes = ['border'];
 
             switch(this.state) {
                 case true:
