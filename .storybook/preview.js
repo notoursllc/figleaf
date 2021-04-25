@@ -1,3 +1,4 @@
+import i18n from './i18n';
 import { addDecorator } from '@storybook/vue';
 import Canvas from './components/Canvas.vue';
 
@@ -15,6 +16,7 @@ addDecorator(() => ({
     components: {
         Canvas
     },
+    i18n,
     template: `
         <Canvas>
             <story />
