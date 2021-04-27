@@ -1,4 +1,3 @@
-import { fromCodePoint } from 'core-js/core/string';
 import FigTextCard from './TextCard.vue';
 import { textCardVariants } from './constants';
 
