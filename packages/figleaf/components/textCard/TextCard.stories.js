@@ -33,6 +33,6 @@ const Template = (args, { argTypes }) => ({
 
 export const TextCard = Template.bind({});
 TextCard.args = {
-    variant: textCardVariants.plain
+    variant: textCardVariants.light
 };
 

@@ -8,7 +8,7 @@ export default Vue.extend({
     props: {
         variant: {
             type: String,
-            default: textCardVariants.plain,
+            default: textCardVariants.light,
             validator: (value) => Object.keys(textCardVariants).includes(value)
         },
 
@@ -38,7 +38,7 @@ export default Vue.extend({
             switch(this.variant) {
                 case textCardVariants.dark:
                     classes.push(
-                        'bg-gray-600 text-white'
+                        'bg-gray-700 text-white'
                     );
                     break;
 
@@ -62,6 +62,6 @@ export default Vue.extend({
             <div v-if="$slots['header-left']" class="flex items-center flex-grow"><slot name="header-left" /></div>
             <div v-if="$slots['header-right']" class="flex items-center"><slot name="header-right" /></div>
         </header>
-        <div v-if="showBody" class="p-3"><slot /></div>
+        <div v-if="showBody" class="p-3 bg-white"><slot /></div>
     </section>
 </template>

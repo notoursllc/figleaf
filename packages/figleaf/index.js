@@ -42,6 +42,9 @@ export { default as FigTd } from './components/tableSimple/Td';
 export { default as FigTh } from './components/tableSimple/Th';
 export { default as FigTrNoResults } from './components/tableSimple/TrNoResults';
 
+// text card
+export { default as FigTextCard } from './components/textCard/TextCard';
+
 // tooltip
 export { default as FigTooltip } from './components/tooltip/Tooltip';
 export { default as FigTooltipDivider } from './components/tooltip/TooltipDivider';
