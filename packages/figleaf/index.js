@@ -20,6 +20,9 @@ export { default as FigIcon } from './components/icon/FigIcon';
 export { default as FigIconSprite } from './components/icon/FigIconSprite';
 export { default as FigVictoryIcon } from './components/icon/VictoryIcon';
 
+// layouts
+export { default as FigCartCtaLayout } from './components/layouts/cartCta/CartCtaLayout';
+
 // modal
 export { default as FigModal } from './components/modal/Modal';
 
