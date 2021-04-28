@@ -4,13 +4,31 @@ export default {
     name: 'CartCtaLayout',
 
     props: {
-        shadow: {
+        rightFirstOnBreak: {
             type: Boolean
         }
     },
 
     computed: {
+        parentClasses() {
+            const classes = ['flex lg:flex-row items-start items-stretch mx-auto'];
 
+            classes.push(
+                this.rightFirstOnBreak ? 'flex-col-reverse' : 'flex-col'
+            );
+
+            return classes;
+        },
+
+        rightClasses() {
+            const classes = ['flex-shrink-0 align-top w-full lg:w-1/3'];
+
+            classes.push(
+                this.rightFirstOnBreak ? 'pb-4 lg:pb-0' : 'pb-0'
+            );
+
+            return classes;
+        }
     }
 };
 </script>
@@ -18,9 +36,9 @@ export default {
 
 <template>
     <section class="container mx-auto">
-        <div class="flex flex-col md:flex-row items-start items-stretch mx-auto">
-            <div class="flex-grow md:pr-8 align-top w-full md:w-2/3"><slot name="left"></slot></div>
-            <div class="flex-shrink-0 align-top w-full md:w-1/3"><slot name="right"></slot></div>
+        <div :class="parentClasses">
+            <div class="flex-grow pr-0 pb-4 lg:pr-4 lg:pb-0 align-top w-full lg:w-2/3"><slot name="left"></slot></div>
+            <div :class="rightClasses"><slot name="right"></slot></div>
         </div>
     </section>
 </template>
