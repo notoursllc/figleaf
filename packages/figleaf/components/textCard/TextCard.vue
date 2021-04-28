@@ -24,7 +24,7 @@ export default Vue.extend({
 
     computed: {
         sectionClasses() {
-            const classes = ['fig-text-card border border-gray-200 p-0'];
+            const classes = ['fig-text-card border border-gray-200 p-0 rounded-sm'];
 
             if(this.shadow) {
                 classes.push('shadow');
