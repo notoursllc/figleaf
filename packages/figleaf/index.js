@@ -6,6 +6,9 @@ export { default as FigIconLabel } from './components/iconLabel/IconLabel';
 export { default as FigButton } from './components/button/Button';
 export { default as FigButtonFab } from './components/ButtonFab';
 
+// divider
+export { default as FigDivider } from './components/divider/Divider';
+
 // dropdown
 export { default as FigDropdown } from './components/dropdown/Dropdown';
 export { default as FigDropdownButton } from './components/dropdown/DropdownButton';
