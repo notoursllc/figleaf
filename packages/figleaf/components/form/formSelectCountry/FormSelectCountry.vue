@@ -1,8 +1,9 @@
 <script>
 import Vue from 'vue';
 import isObject from 'lodash.isobject';
-import FormSelect from '../FormSelect';
+import FormSelect from '../formSelect/FormSelect';
 import countries_mixin from '../../../mixins/countries_mixin';
+import { formSelectProps } from '../formSelect/constants';
 
 export default Vue.extend({
     components: {
@@ -14,10 +15,7 @@ export default Vue.extend({
     ],
 
     props: {
-        value: {
-            type: String,
-            default: null
-        }
+        ...formSelectProps
     },
 
     data: function() {
@@ -52,5 +50,6 @@ export default Vue.extend({
         v-model="selectedCountry"
         :options="countrymix_countryList"
         label="name"
-        @input="onChange" />
+        @input="onChange"
+        v-bind="$props" />
 </template>

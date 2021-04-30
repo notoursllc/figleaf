@@ -1,9 +1,9 @@
 <script>
 import Vue from 'vue';
 import vSelect from 'vue-select';
-import FigIcon from '../icon/FigIcon';
+import FigIcon from '../../icon/FigIcon';
+import { formSelectProps } from './constants';
 import 'vue-select/dist/vue-select.css';
-
 
 export default Vue.extend({
     name: 'FormSelect',
@@ -13,22 +13,7 @@ export default Vue.extend({
     },
 
     props: {
-        size: {
-            type: String,
-            default: 'md',
-            validator: (value) => {
-                return ['sm', 'md', 'lg'].includes(value);
-            }
-        },
-
-        rightRadius: {
-            type: Boolean,
-            default: true
-        },
-
-        reduce: {
-            type: Function
-        }
+        ...formSelectProps
     },
 
     data: () => ({
@@ -90,8 +75,7 @@ export default Vue.extend({
         :components="{Deselect, OpenIndicator}"
         :class="classNames"
         v-on="$listeners"
-        v-bind="$attrs"
-        :reduce="reduce">
+        v-bind="$props">
         <slot v-for="(_, name) in $slots" :name="name" :slot="name" />
     </v-select>
 </template>

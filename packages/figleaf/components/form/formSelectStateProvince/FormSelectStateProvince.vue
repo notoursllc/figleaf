@@ -1,8 +1,9 @@
 <script>
 import Vue from 'vue';
 import isObject from 'lodash.isobject';
-import FigFormSelect from '../FormSelect';
+import FigFormSelect from '../formSelect/FormSelect';
 import FigFormInput from '../FormInput';
+import { formSelectProps } from '../formSelect/constants';
 
 const countryStatesMap = {
     // United States
@@ -160,22 +161,15 @@ export default Vue.extend({
     },
 
     props: {
+        ...formSelectProps,
+
         value: {
             type: String
         },
 
-        country: {
-            type: String
-        },
-
-        placeholder: {
-            type: String
-        },
-
-        disabled: {
-            type: Boolean,
-            default: false
-        }
+        country: String,
+        disabled: Boolean,
+        placeholder: String
     },
 
     data() {
@@ -233,10 +227,9 @@ export default Vue.extend({
         <fig-form-select
             v-if="stateOptions.length"
             v-model="selectedState"
+            v-bind="$props"
             :options="stateOptions"
-            @input="emitInput"
-            :placeholder="placeholder"
-            :disabled="disabled" />
+            @input="emitInput" />
         <fig-form-input
             v-else
             v-model="selectedState"

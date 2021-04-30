@@ -4,7 +4,6 @@ import Vue from 'vue';
 export default Vue.extend({
     name: 'FormGroup',
 
-
     props: {
         stacked: {
             type: Boolean,
