@@ -1,5 +1,5 @@
 import FigFormSelectStateProvince from './FormSelectStateProvince.vue';
-import FigFormSelectCountry from '../formSelectCountry/FormSelectCountry.vue';
+import FigFormSelectCountry from '../selectCountry/FormSelectCountry.vue';
 
 export default {
     title: 'Components/Form/SelectStateProvince',

@@ -5,7 +5,7 @@ import {
 } from '../inputConstants.js';
 
 export default {
-    title: 'Components/Form/FormSelectNative',
+    title: 'Components/Form/SelectNative',
 
     component: FigFormSelectNative,
 
