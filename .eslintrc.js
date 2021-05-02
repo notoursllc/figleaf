@@ -70,7 +70,7 @@ module.exports = {
         'one-var': OFF,
         'operator-linebreak': OFF,
         'padded-blocks': OFF,
-        'quotes': [ERROR, 'single'],
+        'quotes': [ERROR, 'single', { "allowTemplateLiterals": true }],
         'semi': [ERROR, 'always'],
         'semi-spacing': [ERROR, { 'before': false, 'after': true }],
         'space-before-blocks': [ERROR, 'always'],
