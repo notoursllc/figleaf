@@ -2,7 +2,7 @@
 import Vue from 'vue';
 import Flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.css';
-import FormInput from './FormInput';
+import FormInput from './formInput/FormInput';
 
 export default Vue.extend({
     components: {

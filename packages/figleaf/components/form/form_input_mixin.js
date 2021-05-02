@@ -1,5 +1,4 @@
 import {
-    formInputStateClasses,
     formInputSizes
 } from './inputConstants.js';
 
@@ -23,38 +22,25 @@ export default {
     },
 
     computed: {
-        formInputMix_stateClassNames() {
-            const classes = ['border'];
+        formInputMix_classNames() {
+            const classes = [
+                'fig-form-control',
+                `fig-form-control-${this.size}`
+            ];
 
-            switch(this.state) {
-                case true:
+            if(this.disabled) {
+                classes.push('cursor-not-allowed bg-gray-100 text-gray-400');
+            }
+            else {
+                if(this.state === true) {
                     classes.push('border-green-500');
-                    break;
-
-                case false:
+                }
+                if(this.state === false) {
                     classes.push('border-red-500');
-                    break;
-
-                default:
-                    classes.push('border-gray-300');
+                }
             }
 
             return classes;
-        },
-
-        stateCssClass() {
-            if(this.state === true || this.state === false) {
-                return this.state ? formInputStateClasses.success : formInputStateClasses.error;
-            }
-            return null;
-        },
-
-        sizeCssClass() {
-            return `fig-form-control-${this.size}`;
-        },
-
-        disabledCssClasses() {
-            return this.disabled ? 'bg-gray-200': 'bg-white';
         }
     }
 

@@ -47,12 +47,6 @@ export default {
         };
     },
 
-    computed: {
-        inputClassNames() {
-            return this.formInputMix_stateClassNames;
-        }
-    },
-
     watch: {
         value: {
 

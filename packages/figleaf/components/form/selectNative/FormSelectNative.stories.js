@@ -1,6 +1,5 @@
 import FigFormSelectNative from './FormSelectNative.vue';
 import {
-    formInputStateClasses,
     formInputSizes
 } from '../inputConstants.js';
 

@@ -28,14 +28,9 @@ export default Vue.extend({
     computed: {
         classNames() {
             const classes = [
-                'fig-form-select-native form-select fig-form-control',
-                this.sizeCssClass,
-                this.disabledCssClasses
+                'fig-form-select-native form-select',
+                ...this.formInputMix_classNames
             ];
-
-            if(this.stateCssClass) {
-                classes.push(this.stateCssClass);
-            }
 
             return classes;
         }

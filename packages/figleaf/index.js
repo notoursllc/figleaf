@@ -60,7 +60,7 @@ export { default as FigFormCheckbox } from './components/form/FormCheckbox';
 export { default as FigFormSelectCountry } from './components/form/selectCountry/FormSelectCountry';
 export { default as FigFormSelectStateProvince } from './components/form/selectStateProvince/FormSelectStateProvince';
 export { default as FigFormGroup } from './components/form/group/FormGroup';
-export { default as FigFormInput } from './components/form/FormInput';
+export { default as FigFormInput } from './components/form/formInput/FormInput';
 export { default as FigFormInputDate } from './components/form/FormInputDate';
 export { default as FigFormInputEndcapper } from './components/form/FormInputEndcapper';
 export { default as FigFormInputFileButton } from './components/form/FormInputFileButton';

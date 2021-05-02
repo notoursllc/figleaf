@@ -1,7 +1,6 @@
 <script>
 import Vue from 'vue';
-import form_input_mixin from './form_input_mixin';
-
+import form_input_mixin from '../form_input_mixin';
 
 export default Vue.extend({
     name: 'FormInput',
@@ -22,15 +21,6 @@ export default Vue.extend({
             type: String
         },
 
-        size: {
-            type: String,
-            default: 'md',
-            validator: (value) => {
-                // return ['sm', 'md'].includes(value);
-                return ['xs', 'sm', 'md', 'lg'].includes(value);
-            }
-        },
-
         squareLeft: {
             type: Boolean,
             default: false
@@ -49,8 +39,7 @@ export default Vue.extend({
     computed: {
         inputClassNames() {
             const classes = [
-                ...this.formInputMix_stateClassNames,
-                `fig-input-${this.size}`,
+                ...this.formInputMix_classNames,
                 this.inputClasses
             ];
 
@@ -62,10 +51,6 @@ export default Vue.extend({
                 this.squareLeft ? 'rounded-l-none' : 'rounded-l-sm',
                 this.squareRight ? 'rounded-r-none' : 'rounded-r-sm'
             );
-
-            if(this.$attrs.disabled) {
-                classes.push('cursor-not-allowed bg-gray-100 text-gray-400');
-            }
 
             return classes;
         }
@@ -95,6 +80,7 @@ export default Vue.extend({
         v-model="selectedValue"
         @input="emitInput"
         class="form-input w-full"
-        :class="inputClassNames" />
+        :class="inputClassNames"
+        :disabled="disabled" />
 </template>
 

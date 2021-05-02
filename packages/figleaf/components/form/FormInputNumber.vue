@@ -2,7 +2,7 @@
 import Vue from 'vue';
 import isFinite from 'lodash.isfinite';
 import { isNumber } from '../utils/common';
-import FormInput from './FormInput';
+import FormInput from './formInput/FormInput';
 import FigButton from '../button/Button';
 import FormInputEndcapper from './FormInputEndcapper';
 
