@@ -17,6 +17,10 @@ export default Vue.extend({
             default: 'text'
         },
 
+        placeholder: {
+            type: String
+        },
+
         inputClasses: {
             type: String
         },
@@ -53,6 +57,14 @@ export default Vue.extend({
             );
 
             return classes;
+        },
+
+        canShowLabel() {
+            return this.$slots.label && !this.selectedValue;
+        },
+
+        computedPlaceholder() {
+            return this.canShowLabel ? null : this.placeholder;
         }
     },
 
@@ -75,12 +87,41 @@ export default Vue.extend({
 
 
 <template>
-    <input
-        :type="type"
-        v-model="selectedValue"
-        @input="emitInput"
-        class="form-input w-full"
-        :class="inputClassNames"
-        :disabled="disabled" />
+    <div class="relative">
+        <input
+            :type="type"
+            v-model="selectedValue"
+            @input="emitInput"
+            class="form-input w-full"
+            :class="inputClassNames"
+            :disabled="disabled"
+            :placeholder="computedPlaceholder">
+        <div v-if="canShowLabel" class="form-input-label"><slot name="label"></slot></div>
+    </div>
 </template>
+
+<style scoped>
+.form-input-label {
+    @apply absolute text-gray-400;
+    left: 1em;
+}
+.fig-form-control-sm + .form-input-label {
+    top: 0.05em;
+}
+.fig-form-control-md + .form-input-label {
+    top: 0.25em;
+}
+.fig-form-control-lg + .form-input-label {
+    top: 0.35em;
+}
+
+.fig-form-control:focus + .form-input-label {
+    @apply inline-block bg-white text-gray-800;
+    top: -0.8em;
+    left: 1em;
+    padding: 0px 0.5em;
+    z-index: 2;
+    font-size: 11px;
+}
+</style>
 
