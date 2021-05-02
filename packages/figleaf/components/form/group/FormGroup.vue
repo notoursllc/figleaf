@@ -10,11 +10,6 @@ export default Vue.extend({
             default: true
         },
 
-        smartLabel: {
-            type: Boolean,
-            default: false
-        },
-
         isButton: {
             type: Boolean,
             default: false
@@ -24,13 +19,9 @@ export default Vue.extend({
     computed: {
         containerClasses() {
             const classes = [
-                'relative',
+                'fig-form-group',
                 this.stacked ? 'flex-col' : 'flex-row'
             ];
-
-            if(this.smartLabel) {
-                classes.push('fig-form-group-smart-label');
-            }
 
             return classes;
         },
@@ -59,19 +50,13 @@ export default Vue.extend({
         class="flex"
         :class="containerClasses">
         <label
-            v-if="!smartLabel && $slots.label || isButton"
+            v-if="canShowLabel"
             :class="labelClasses">
             <slot name="label">&nbsp;</slot>
         </label>
 
         <template v-if="!isButton">
             <slot></slot>
-
-            <label
-                v-if="smartLabel && canShowLabel"
-                :class="labelClasses">
-                <slot name="label">&nbsp;</slot>
-            </label>
 
             <div
                 v-if="$slots.error"
@@ -90,20 +75,11 @@ export default Vue.extend({
 
 
 <style scoped>
+.fig-form-group {
+    @apply relative;
+}
+
 .fig-form-group-label {
     @apply text-left block relative;
-}
-
-.fig-form-group-smart-label .fig-form-group-label {
-    @apply hidden absolute;
-}
-
-.fig-form-group-smart-label .form-input:focus + .fig-form-group-label {
-    @apply inline-block  bg-white;
-    top: -0.8em;
-    left: 1em;
-    padding: 0px 0.5em;
-    z-index: 2;
-    font-size: 11px;
 }
 </style>

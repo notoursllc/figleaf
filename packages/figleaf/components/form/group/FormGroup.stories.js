@@ -1,5 +1,5 @@
 import FigFormGroup from './FormGroup.vue';
-import FigFormInput from '../FormInput.vue';
+import FigFormInput from '../formInput/FormInput.vue';
 
 export default {
     title: 'Components/Form/Group',
