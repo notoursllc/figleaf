@@ -241,6 +241,7 @@ export default Vue.extend({
             @input="emitInput"
             :placeholder="placeholder"
             :disabled="disabled"
-            :size="this.size" />
+            :size="this.size"
+            :state="this.state" />
     </div>
 </template>
