@@ -61,7 +61,8 @@ export default Vue.extend({
         classNames() {
             const names = [
                 'fig-select',
-                `fig-select-${this.size || 'md'}`
+                `fig-select-${this.size || 'md'}`,
+                this.formInputMix_stateClass
             ];
 
             if(!this.rightRadius) {
@@ -127,5 +128,13 @@ export default Vue.extend({
 
 .fig-select-lg .vs__dropdown-toggle {
     height: calc(2.3em + .2rem + 2px);
+}
+
+/* state */
+.fig-select.fig-form-control-state-success .vs__dropdown-toggle {
+    @apply border-green-500;
+}
+.fig-select.fig-form-control-state-error .vs__dropdown-toggle {
+    @apply border-red-500;
 }
 </style>

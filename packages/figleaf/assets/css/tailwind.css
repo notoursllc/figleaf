@@ -52,5 +52,12 @@
     font-size: 1rem;
 }
 
+.fig-form-control-state-success {
+    @apply border-green-500;
+}
+.fig-form-control-state-error {
+    @apply border-red-500;
+}
+
 @tailwind utilities;
 @tailwind screens;

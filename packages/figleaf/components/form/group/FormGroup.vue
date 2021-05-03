@@ -60,7 +60,7 @@ export default Vue.extend({
 
             <div
                 v-if="$slots.error"
-                class="text-red-600 pt-1"
+                class="text-red-600 pt-1 text-sm"
                 tabindex="-1"
                 role="alert"
                 aria-live="assertive"><slot name="error" /></div>

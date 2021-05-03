@@ -22,6 +22,12 @@ export default {
             control: {
                 type: 'boolean'
             }
+        },
+
+        state: {
+            control: {
+                type: 'boolean'
+            }
         }
     }
 };

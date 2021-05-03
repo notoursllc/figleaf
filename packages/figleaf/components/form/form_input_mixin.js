@@ -32,15 +32,20 @@ export default {
                 classes.push('cursor-not-allowed bg-gray-100 text-gray-400');
             }
             else {
-                if(this.state === true) {
-                    classes.push('border-green-500');
-                }
-                if(this.state === false) {
-                    classes.push('border-red-500');
-                }
+                classes.push(this.formInputMix_stateClass);
             }
 
             return classes;
+        },
+
+
+        formInputMix_stateClass() {
+            if(this.state === true) {
+                return 'fig-form-control-state-success';
+            }
+            if(this.state === false) {
+                return 'fig-form-control-state-error';
+            }
         }
     }
 
