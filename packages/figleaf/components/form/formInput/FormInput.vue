@@ -104,6 +104,7 @@ export default Vue.extend({
 .form-input-label {
     @apply absolute text-gray-400;
     left: 1em;
+    pointer-events: none;
 }
 .fig-form-control-sm + .form-input-label {
     top: 0.05em;
@@ -112,7 +113,7 @@ export default Vue.extend({
     top: 0.25em;
 }
 .fig-form-control-lg + .form-input-label {
-    top: 0.35em;
+    top: 0.55em;
 }
 
 .fig-form-control:focus + .form-input-label {
