@@ -1,5 +1,9 @@
 import FigFormSelect from './FormSelect.vue';
-import { formSelectSizes } from './constants';
+import {
+    formInputSizes
+} from '../inputConstants.js';
+
+import FigFormInput from '../formInput/FormInput';
 
 export default {
     title: 'Components/Form/Select',
@@ -10,7 +14,7 @@ export default {
         size: {
             control: {
                 type: 'select',
-                options: Object.keys(formSelectSizes)
+                options: Object.keys(formInputSizes)
             }
         },
 
@@ -25,7 +29,8 @@ export default {
 const Template = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     components: {
-        FigFormSelect
+        FigFormSelect,
+        FigFormInput
     },
     data: function() {
         return {
@@ -50,6 +55,6 @@ const Template = (args, { argTypes }) => ({
 
 export const FormSelect = Template.bind({});
 FormSelect.args = {
-    size: formSelectSizes.md
+    size: formInputSizes.md
 };
 

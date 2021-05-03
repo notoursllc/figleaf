@@ -1,19 +1,7 @@
-export const formSelectSizes = {
-    sm: 'sm',
-    md: 'md',
-    lg: 'lg'
-};
-
 export const formSelectProps = {
     value: {
         type: [String, Object],
         default: null
-    },
-
-    size: {
-        type: String,
-        default: formSelectSizes.md,
-        validator: (value) => Object.keys(formSelectSizes).includes(value)
     },
 
     rightRadius: {

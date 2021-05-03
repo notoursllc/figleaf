@@ -1,4 +1,7 @@
 import FigFormSelectCountry from './FormSelectCountry.vue';
+import {
+    formInputSizes
+} from '../inputConstants.js';
 
 export default {
     title: 'Components/Form/SelectCountry',
@@ -6,7 +9,12 @@ export default {
     component: FigFormSelectCountry,
 
     argTypes: {
-
+        size: {
+            control: {
+                type: 'select',
+                options: Object.keys(formInputSizes)
+            }
+        }
     }
 };
 
@@ -30,5 +38,6 @@ const Template = (args, { argTypes }) => ({
 
 export const SelectCountry = Template.bind({});
 SelectCountry.args = {
+    size: 'lg'
 };
 

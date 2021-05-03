@@ -3,6 +3,7 @@ import Vue from 'vue';
 import isObject from 'lodash.isobject';
 import FormSelect from '../select/FormSelect';
 import countries_mixin from '../../../mixins/countries_mixin';
+import form_input_mixin from '../form_input_mixin';
 import { formSelectProps } from '../select/constants';
 
 export default Vue.extend({
@@ -11,7 +12,8 @@ export default Vue.extend({
     },
 
     mixins: [
-        countries_mixin
+        countries_mixin,
+        form_input_mixin
     ],
 
     props: {
