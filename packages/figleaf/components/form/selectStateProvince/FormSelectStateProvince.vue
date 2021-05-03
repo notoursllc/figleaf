@@ -1,8 +1,9 @@
 <script>
 import Vue from 'vue';
 import isObject from 'lodash.isobject';
-import FigFormSelect from '../select/FormSelect';
+import FormSelect from '../select/FormSelect';
 import FigFormInput from '../formInput/FormInput';
+import form_input_mixin from '../form_input_mixin';
 import { formSelectProps } from '../select/constants';
 
 const countryStatesMap = {
@@ -156,9 +157,13 @@ const countryStatesMap = {
 
 export default Vue.extend({
     components: {
-        FigFormSelect,
+        FormSelect,
         FigFormInput
     },
+
+    mixins: [
+        form_input_mixin
+    ],
 
     props: {
         ...formSelectProps,
@@ -223,8 +228,8 @@ export default Vue.extend({
 
 
 <template>
-    <div class="inline-block">
-        <fig-form-select
+    <div>
+        <form-select
             v-if="stateOptions.length"
             v-model="selectedState"
             v-bind="$props"
@@ -235,6 +240,7 @@ export default Vue.extend({
             v-model="selectedState"
             @input="emitInput"
             :placeholder="placeholder"
-            :disabled="disabled" />
+            :disabled="disabled"
+            :size="this.size" />
     </div>
 </template>
