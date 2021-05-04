@@ -56,7 +56,7 @@ export { default as FigTooltip } from './components/tooltip/Tooltip';
 export { default as FigTooltipDivider } from './components/tooltip/TooltipDivider';
 
 // form
-export { default as FigFormCheckbox } from './components/form/FormCheckbox';
+export { default as FigFormCheckbox } from './components/form/checkbox/FormCheckbox';
 export { default as FigFormSelectCountry } from './components/form/selectCountry/FormSelectCountry';
 export { default as FigFormSelectStateProvince } from './components/form/selectStateProvince/FormSelectStateProvince';
 export { default as FigFormGroup } from './components/form/group/FormGroup';

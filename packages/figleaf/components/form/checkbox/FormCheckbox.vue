@@ -1,8 +1,13 @@
 <script>
 import Vue from 'vue';
+import form_input_mixin from '../form_input_mixin';
 
 export default Vue.extend({
     name: 'FormCheckbox',
+
+    mixins: [
+        form_input_mixin
+    ],
 
     props: {
         value: {},
@@ -62,7 +67,7 @@ export default Vue.extend({
     <label class="inline-flex items-center">
         <input
             type="checkbox"
-            class="form-checkbox border-gray-300"
+            class="form-checkbox fig-form-control"
             v-bind="$attrs"
             @change="emitInput"
             v-model="isChecked">
