@@ -57,8 +57,6 @@ export { default as FigTooltipDivider } from './components/tooltip/TooltipDivide
 
 // form
 export { default as FigFormCheckbox } from './components/form/checkbox/FormCheckbox';
-export { default as FigFormSelectCountry } from './components/form/selectCountry/FormSelectCountry';
-export { default as FigFormSelectStateProvince } from './components/form/selectStateProvince/FormSelectStateProvince';
 export { default as FigFormGroup } from './components/form/group/FormGroup';
 export { default as FigFormInput } from './components/form/formInput/FormInput';
 export { default as FigFormInputDate } from './components/form/FormInputDate';
@@ -71,3 +69,6 @@ export { default as FigFormRadio } from './components/form/FormRadio';
 export { default as FigFormSelect } from './components/form/select/FormSelect';
 export { default as FigFormSelectNative } from './components/form/selectNative/FormSelectNative';
 export { default as FigFormTextarea } from './components/form/textarea/FormTextarea';
+
+export { default as FigSelectCountry } from './components/selectCountry/SelectCountry';
+export { default as FigSelectStateProvince } from './components/selectStateProvince/SelectStateProvince';

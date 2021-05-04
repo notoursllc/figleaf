@@ -1,10 +1,10 @@
 <script>
 import Vue from 'vue';
 import isObject from 'lodash.isobject';
-import FormSelect from '../select/FormSelect';
-import FigFormInput from '../formInput/FormInput';
-import form_input_mixin from '../form_input_mixin';
-import { formSelectProps } from '../select/constants';
+import FormSelect from '../form/select/FormSelect';
+import FigFormInput from '../form/formInput/FormInput';
+import form_input_mixin from '../form/form_input_mixin';
+import { formSelectProps } from '../form/select/constants';
 
 const countryStatesMap = {
     // United States

@@ -1,10 +1,10 @@
 <script>
 import Vue from 'vue';
 import isObject from 'lodash.isobject';
-import FormSelect from '../select/FormSelect';
-import countries_mixin from '../../../mixins/countries_mixin';
-import form_input_mixin from '../form_input_mixin';
-import { formSelectProps } from '../select/constants';
+import countries_mixin from '../../mixins/countries_mixin';
+import FormSelect from '../form/select/FormSelect';
+import form_input_mixin from '../form/form_input_mixin';
+import { formSelectProps } from '../form/select/constants';
 
 export default Vue.extend({
     components: {

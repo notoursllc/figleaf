@@ -1,12 +1,12 @@
-import FigFormSelectCountry from './FormSelectCountry.vue';
+import FigSelectCountry from './SelectCountry.vue';
 import {
     formInputSizes
-} from '../inputConstants.js';
+} from '../form/inputConstants.js';
 
 export default {
-    title: 'Components/Form/SelectCountry',
+    title: 'Components/SelectCountry',
 
-    component: FigFormSelectCountry,
+    component: FigSelectCountry,
 
     argTypes: {
         size: {
@@ -21,7 +21,7 @@ export default {
 const Template = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     components: {
-        FigFormSelectCountry
+        FigSelectCountry
     },
     data: function() {
         return {
@@ -31,7 +31,7 @@ const Template = (args, { argTypes }) => ({
     template: `
         <div>
             <div>Selected: {{ selected }}</div>
-            <fig-form-select-country v-bind="$props" v-model="selected" />
+            <fig-select-country v-bind="$props" v-model="selected" />
         </div>
     `
 });
