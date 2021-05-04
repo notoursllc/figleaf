@@ -70,4 +70,4 @@ export { default as FigFormInputToggle } from './components/form/FormInputToggle
 export { default as FigFormRadio } from './components/form/FormRadio';
 export { default as FigFormSelect } from './components/form/select/FormSelect';
 export { default as FigFormSelectNative } from './components/form/selectNative/FormSelectNative';
-export { default as FigFormTextarea } from './components/form/FormTextarea';
+export { default as FigFormTextarea } from './components/form/textarea/FormTextarea';
