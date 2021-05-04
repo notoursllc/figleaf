@@ -1,6 +1,6 @@
 export const formSelectProps = {
     value: {
-        type: [String, Object],
+        type: [String, Object, Array],
         default: null
     },
 
