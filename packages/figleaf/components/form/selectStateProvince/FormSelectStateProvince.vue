@@ -211,7 +211,17 @@ export default Vue.extend({
 
         country: {
             handler(newVal) {
-                this.selectedState = null;
+                if(this.selectedState && this.country && countryStatesMap[this.country]) {
+                    // if the current selected state does not exist in the map of
+                    // states for this country then set it to null
+                    if(!countryStatesMap[this.country][this.selectedState]) {
+                        this.selectedState = null;
+                    }
+                }
+                else {
+                    this.selectedState = null;
+                }
+
                 this.emitInput(this.selectedState);
             },
             immediate: true
