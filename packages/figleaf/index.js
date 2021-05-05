@@ -2,6 +2,9 @@ export { default as FigBadge } from './components/Badge';
 export { default as FigCountry } from './components/Country';
 export { default as FigIconLabel } from './components/iconLabel/IconLabel';
 
+// address
+export { default as FigAddress } from './components/address/Address';
+
 // buttons
 export { default as FigButton } from './components/button/Button';
 export { default as FigButtonFab } from './components/ButtonFab';
