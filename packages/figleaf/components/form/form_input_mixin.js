@@ -1,5 +1,6 @@
 import {
-    formInputSizes
+    formInputSizes,
+    formInputStateBorderClasses
 } from './inputConstants.js';
 
 export default {
@@ -18,10 +19,32 @@ export default {
         disabled: {
             type: Boolean,
             default: false
+        },
+
+        readonly: {
+            type: Boolean
         }
     },
 
     computed: {
+        sizeCssClass() {
+            return `fig-form-control-${this.size}`;
+        },
+
+        stateCssClass() {
+            if(this.state === true) {
+                return formInputStateBorderClasses.success;
+            }
+            if(this.state === false) {
+                return formInputStateBorderClasses.error;
+            }
+            return null;
+        },
+
+        disabledCssClass() {
+            return this.disabled ? 'bg-gray-200 text-gray-400' : 'bg-white';
+        },
+
         formInputMix_classNames() {
             const classes = [
                 'fig-form-control',
@@ -37,7 +60,6 @@ export default {
 
             return classes;
         },
-
 
         formInputMix_stateClass() {
             if(this.state === true) {

@@ -68,7 +68,7 @@ export { default as FigFormInputFileButton } from './components/form/FormInputFi
 export { default as FigFormInputMoney } from './components/form/FormInputMoney';
 export { default as FigFormInputNumber } from './components/form/FormInputNumber';
 export { default as FigFormInputToggle } from './components/form/FormInputToggle';
-export { default as FigFormRadio } from './components/form/FormRadio';
+export { default as FigFormRadio } from './components/form/radio/FormRadio';
 export { default as FigFormSelect } from './components/form/select/FormSelect';
 export { default as FigFormSelectNative } from './components/form/selectNative/FormSelectNative';
 export { default as FigFormTextarea } from './components/form/textarea/FormTextarea';

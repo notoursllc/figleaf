@@ -29,7 +29,7 @@
 }
 
 .fig-form-control {
-    @apply border border-gray-300 rounded-sm bg-white;
+    @apply border border-gray-300 bg-white;
     font-size: .875rem;
 }
 
