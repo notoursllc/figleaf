@@ -21,6 +21,15 @@ export default Vue.extend({
             type: String
         },
 
+        autocomplete: {
+            type: Boolean
+        },
+
+        requird: {
+            type: Boolean,
+            default: false
+        },
+
         inputClasses: {
             type: String
         },
@@ -41,11 +50,16 @@ export default Vue.extend({
     }),
 
     computed: {
-        inputClassNames() {
+        classNames() {
             const classes = [
-                ...this.formInputMix_classNames,
-                this.inputClasses
+                'form-input w-full fig-form-control rounded-sm',
+                this.sizeCssClass,
+                this.disabledCssClass
             ];
+
+            if(this.stateCssClass) {
+                classes.push(this.stateCssClass);
+            }
 
             if(this.type === 'color') {
                 classes.push('p-1');
@@ -93,9 +107,12 @@ export default Vue.extend({
             v-model="selectedValue"
             @input="emitInput"
             class="form-input w-full"
-            :class="inputClassNames"
+            :class="classNames"
             :disabled="disabled"
-            :placeholder="computedPlaceholder">
+            :readonly="readonly"
+            :autocomplete="autocomplete"
+            :placeholder="computedPlaceholder"
+            v-bind="$attrs">
         <div v-if="canShowLabel" class="form-input-label"><slot name="label"></slot></div>
     </div>
 </template>
