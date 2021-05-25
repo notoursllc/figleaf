@@ -11,9 +11,7 @@ export default Vue.extend({
     ],
 
     props: {
-        value: {
-            type: [String, Number]
-        },
+        value: {},
 
         checkedValue: {
             required: true
