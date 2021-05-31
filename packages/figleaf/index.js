@@ -61,7 +61,7 @@ export { default as FigTooltipDivider } from './components/tooltip/TooltipDivide
 // form
 export { default as FigFormCheckbox } from './components/form/checkbox/FormCheckbox';
 export { default as FigFormGroup } from './components/form/group/FormGroup';
-export { default as FigFormInput } from './components/form/formInput/FormInput';
+export { default as FigFormInput } from './components/form/text/FormText';
 export { default as FigFormInputDate } from './components/form/FormInputDate';
 export { default as FigFormInputEndcapper } from './components/form/FormInputEndcapper';
 export { default as FigFormInputFileButton } from './components/form/FormInputFileButton';

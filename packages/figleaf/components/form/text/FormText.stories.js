@@ -1,4 +1,4 @@
-import FigFormInput from './FormInput.vue';
+import FigFormText from './FormText.vue';
 import {
     formInputSizes
 } from '../inputConstants.js';
@@ -6,7 +6,7 @@ import {
 export default {
     title: 'Components/Form/TextInput',
 
-    component: FigFormInput,
+    component: FigFormText,
 
     argTypes: {
         size: {
@@ -28,9 +28,9 @@ export default {
 const Template = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     components: {
-        FigFormInput
+        FigFormText
     },
-    template: '<fig-form-input v-bind="$props" />'
+    template: '<fig-form-text v-bind="$props" />'
 });
 
 export const TextInput = Template.bind({});
@@ -46,12 +46,12 @@ TextInput.args = {
 const Template2 = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     components: {
-        FigFormInput
+        FigFormText
     },
     template: `
-        <fig-form-input v-bind="$props">
+        <fig-form-text v-bind="$props">
             <div slot="label">First name</div>
-        </fig-form-input>
+        </fig-form-text>
     `
 });
 

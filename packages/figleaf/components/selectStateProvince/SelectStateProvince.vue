@@ -2,7 +2,7 @@
 import Vue from 'vue';
 import isObject from 'lodash.isobject';
 import FormSelect from '../form/select/FormSelect';
-import FigFormInput from '../form/formInput/FormInput';
+import FigFormText from '../form/text/FormText';
 import form_input_mixin from '../form/form_input_mixin';
 import { formSelectProps } from '../form/select/constants';
 
@@ -158,7 +158,7 @@ const countryStatesMap = {
 export default Vue.extend({
     components: {
         FormSelect,
-        FigFormInput
+        FigFormText
     },
 
     mixins: [
@@ -245,7 +245,7 @@ export default Vue.extend({
             v-bind="$props"
             :options="stateOptions"
             @input="emitInput" />
-        <fig-form-input
+        <fig-form-text
             v-else
             v-model="selectedState"
             @input="emitInput"

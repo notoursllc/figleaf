@@ -1,5 +1,5 @@
 import FigFormGroup from './FormGroup.vue';
-import FigFormInput from '../formInput/FormInput.vue';
+import FigFormText from '../text/FormText.vue';
 
 export default {
     title: 'Components/Form/Group',
@@ -14,7 +14,7 @@ const Template = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     components: {
         FigFormGroup,
-        FigFormInput
+        FigFormText
     },
     data: function() {
         return {
@@ -24,7 +24,7 @@ const Template = (args, { argTypes }) => ({
     template: `
         <fig-form-group v-bind="$props">
             <template slot="label">First name</template>
-            <fig-form-input v-model="inputVal" />
+            <fig-form-text v-model="inputVal" />
         </fig-form-group>
     `
 });

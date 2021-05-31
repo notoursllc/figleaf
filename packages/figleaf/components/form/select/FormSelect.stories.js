@@ -3,7 +3,7 @@ import {
     formInputSizes
 } from '../inputConstants.js';
 
-import FigFormInput from '../formInput/FormInput';
+import FigFormText from '../text/FormText';
 
 export default {
     title: 'Components/Form/Select',
@@ -36,7 +36,7 @@ const Template = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     components: {
         FigFormSelect,
-        FigFormInput
+        FigFormText
     },
     data: function() {
         return {

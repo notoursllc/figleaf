@@ -3,7 +3,7 @@ import Vue from 'vue';
 import form_input_mixin from '../form_input_mixin';
 
 export default Vue.extend({
-    name: 'FormInput',
+    name: 'FormText',
 
     mixins: [
         form_input_mixin

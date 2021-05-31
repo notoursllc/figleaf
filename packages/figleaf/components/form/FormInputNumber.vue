@@ -2,7 +2,7 @@
 import Vue from 'vue';
 import isFinite from 'lodash.isfinite';
 import { isNumber } from '../utils/common';
-import FormInput from './formInput/FormInput';
+import FormText from './text/FormText';
 import FigButton from '../button/Button';
 import FormInputEndcapper from './FormInputEndcapper';
 
@@ -13,7 +13,7 @@ export default Vue.extend({
     inheritAttrs: false,
 
     components: {
-        FormInput,
+        FormText,
         FigButton,
         FormInputEndcapper
     },
@@ -174,7 +174,7 @@ export default Vue.extend({
         </template>
 
         <div class="fig-input-wrapper">
-            <form-input
+            <form-text
                 v-model="selectedValue"
                 type="number"
                 :min="min"

@@ -2,11 +2,11 @@
 import Vue from 'vue';
 import Flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.css';
-import FormInput from './formInput/FormInput';
+import FormText from './text/FormText';
 
 export default Vue.extend({
     components: {
-        FormInput
+        FormText
     },
 
     props: {
@@ -104,7 +104,7 @@ export default Vue.extend({
 
 
 <template>
-    <form-input
+    <form-text
         v-model="selectedDate"
         :clearable="clearable"
         @input="emitInput"
