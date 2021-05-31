@@ -5,6 +5,9 @@ export { default as FigIconLabel } from './components/iconLabel/IconLabel';
 // address
 export { default as FigAddress } from './components/address/Address';
 
+// address form
+export { default as FigAddressForm } from './components/addressForm/AddressForm';
+
 // buttons
 export { default as FigButton } from './components/button/Button';
 export { default as FigButtonFab } from './components/ButtonFab';

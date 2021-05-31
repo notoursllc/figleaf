@@ -1,4 +1,24 @@
 module.exports = {
+    'Add Company, C/O, Apt, Suite, Unit': 'Add Company, C/O, Apt, Suite, Unit',
+    'Address': 'Address',
+
+    'City': 'City',
+    'Country': 'Country',
+
+    'Email': 'Email',
+
+    'First name': 'First name',
+
+    'Last name': 'Last name',
+
+    'Phone number': 'Phone number',
+    'Please enter a valid email address.': 'Please enter a valid email address.',
+    'Postal code': 'Postal code',
+
+    'Required': 'Required',
+
+    'State/Province/Region': 'State/Province/Region',
+
 
     // Countries
     'Alabama': 'Alabama',
