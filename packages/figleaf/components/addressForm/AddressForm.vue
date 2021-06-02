@@ -96,6 +96,20 @@ export default {
             return `w-full my-${this.rowSpacing} px-${this.cellSpacing} sm:w-1/3`;
         },
 
+        requiredProps() {
+            const reqd = { ...this.required };
+
+            if(this.hidePhone) {
+                delete reqd.phone;
+            }
+
+            if(this.hideEmail) {
+                delete reqd.email;
+            }
+
+            return reqd;
+        },
+
         validationObject() {
             const baseValidation = {};
 
@@ -113,12 +127,12 @@ export default {
             ];
 
             props.forEach((prop) => {
-                if(this.required.includes(prop)) {
+                if(this.requiredProps.includes(prop)) {
                     baseValidation[prop] = { required };
                 }
             });
 
-            baseValidation.email = this.required.includes('email') ? {...baseValidation.email, email } : { email };
+            baseValidation.email = this.requiredProps.includes('email') ? {...baseValidation.email, email } : { email };
 
             return {
                 value: baseValidation
