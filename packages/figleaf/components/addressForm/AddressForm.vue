@@ -97,14 +97,14 @@ export default {
         },
 
         requiredProps() {
-            const reqd = { ...this.required };
+            const reqd = [ ...this.required ];
 
-            if(this.hidePhone) {
-                delete reqd.phone;
+            if(this.hidePhone && reqd.includes('phone')) {
+                reqd.splice(reqd.indexOf('phone'), 1);
             }
 
-            if(this.hideEmail) {
-                delete reqd.email;
+            if(this.hideEmail && reqd.includes('email')) {
+                reqd.splice(reqd.indexOf('email'), 1);
             }
 
             return reqd;
