@@ -4,6 +4,7 @@
     "description": "Yet another inadequate covering made my humans",
     "dependencies": {
         "@popperjs/core": "2.4.4",
+        "@stripe/stripe-js": "^1.15.0",
         "@tailwindcss/custom-forms": "^0.2.1",
         "accounting": "^0.4.1",
         "flatpickr": "^4.6.6",

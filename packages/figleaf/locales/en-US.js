@@ -2,10 +2,12 @@ module.exports = {
     'Add Company, C/O, Apt, Suite, Unit': 'Add Company, C/O, Apt, Suite, Unit',
     'Address': 'Address',
 
+    'Card number': 'Card number',
     'City': 'City',
     'Country': 'Country',
 
     'Email': 'Email',
+    'Expiration date': 'Expiration date',
 
     'First name': 'First name',
 
@@ -17,6 +19,7 @@ module.exports = {
 
     'Required': 'Required',
 
+    'Security code': 'Security code',
     'State/Province/Region': 'State/Province/Region',
 
 

@@ -44,6 +44,9 @@ export { default as FigPopConfirm } from './components/PopConfirm';
 export { default as FigOverlay } from './components/Overlay';
 export { default as FigSpinner } from './components/spinner/Spinner';
 
+// stripe
+export { default as FigStripeForm } from './components/stripeForm/StripeForm';
+
 // tag
 export { default as FigTag } from './components/tag/Tag';
 export { default as FigBooleanTag } from './components/tag/BooleanTag';
