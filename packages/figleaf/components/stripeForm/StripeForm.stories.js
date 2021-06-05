@@ -11,11 +11,6 @@ export default {
     component: FigStripeForm,
 
     argTypes: {
-        stripePublishableKey: {
-            control: {
-                type: 'text'
-            }
-        }
     }
 };
 
@@ -29,6 +24,7 @@ const Template = (args, { argTypes }) => ({
     data: () => {
         return {
             ready: false,
+            Stripe: null,
             isValid: false,
             generatedToken: null
         };
@@ -43,16 +39,13 @@ const Template = (args, { argTypes }) => ({
         }
     },
     async mounted() {
-        // FigStripeForm assumes the Stripe API is already loaded
-        // on the page. This is just a little hack that loads it
-        // for us here in this story
-        const stripe = await loadStripe(testStripeKey);
+        this.Stripe = await loadStripe(testStripeKey);
         this.ready = true;
     },
     template: `
         <fig-stripe-form
             v-if="ready"
-            v-bind="$props"
+            :stripe="Stripe"
             @valid="onStripeFormValid"
             @token="onStripeTokenGenerated">
 
@@ -74,5 +67,4 @@ const Template = (args, { argTypes }) => ({
 
 export const StripeForm = Template.bind({});
 StripeForm.args = {
-    stripePublishableKey: testStripeKey
 };

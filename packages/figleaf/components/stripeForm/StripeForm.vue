@@ -1,11 +1,4 @@
 <script>
-
-/*
-* NOTE: this component uses the Stripe object.  It assumes the Stripe API has
-* already been loaded.  For example:
-* <script src="https://js.stripe.com/v3/" />
-*/
-
 import FigFormGroup from '../form/group/FormGroup';
 
 export default {
@@ -14,15 +7,14 @@ export default {
     },
 
     props: {
-        stripePublishableKey: {
-            type: String,
+        stripe: {
+            type: Object,
             required: true
         }
     },
 
     data: function() {
         return {
-            Stripe: null,
             elements: {
                 card: null,
                 expiry: null,
@@ -44,9 +36,7 @@ export default {
     },
 
     async mounted() {
-        if(this.stripePublishableKey) {
-            this.init();
-        }
+        this.init();
     },
 
     beforeDestroy () {
@@ -62,7 +52,7 @@ export default {
         },
 
         async createToken () {
-            const { token, error } = await this.Stripe.createToken(this.elements.card);
+            const { token, error } = await this.stripe.createToken(this.elements.card);
 
             if (error) {
                 document.getElementById('card-error').innerHTML = error.message;
@@ -73,10 +63,8 @@ export default {
         },
 
         async init() {
-            this.Stripe = Stripe(this.stripePublishableKey);
-
             // Create an instance of Elements.
-            const stripeElements = this.Stripe.elements();
+            const stripeElements = this.stripe.elements();
 
             // Style Object documentation here: https://stripe.com/docs/js/appendix/style
             const style = {
@@ -124,15 +112,6 @@ export default {
                 });
             }
         }
-    },
-
-    watch: {
-        stripePublishableKey: {
-            handler: function(newVal) {
-                this.init();
-            },
-            immediate: true
-        }
     }
 };
 </script>
@@ -171,6 +150,9 @@ export default {
 
         <div id="card-error" class="text-red-600"></div>
 
-        <slot name="content" v-bind:createToken="createToken"></slot>
+        <slot
+            name="content"
+            v-bind:createToken="createToken"
+            v-bind:cardElement="elements.card"></slot>
     </div>
 </template>
