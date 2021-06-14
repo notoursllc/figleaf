@@ -137,7 +137,7 @@ export default Vue.extend({
 
                     case 'success':
                         classes.push(
-                            'text-white bg-green-600 hover:bg-green-700'
+                            'text-white bg-green-500 hover:bg-green-600'
                         );
                         break;
 
