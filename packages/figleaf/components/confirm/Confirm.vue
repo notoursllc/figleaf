@@ -1,5 +1,6 @@
 <script>
 import Vue from 'vue';
+import { confirmSizes } from './constants';
 
 export default Vue.extend({
     name: 'Confirm',
@@ -8,9 +9,7 @@ export default Vue.extend({
         size: {
             type: String,
             default: 'sm',
-            validator(size) {
-                return ['sm', 'md', 'lg', 'xl'].indexOf(size) > -1;
-            }
+            validator: (value) => Object.keys(confirmSizes).includes(value)
         },
 
         centered: {
@@ -29,13 +28,13 @@ export default Vue.extend({
     computed: {
         widthClass() {
             switch(this.size) {
-                case 'sm':
+                case confirmSizes.sm:
                     return 'max-w-xs';
 
-                case 'lg':
+                case confirmSizes.lg:
                     return 'max-w-2xl';
 
-                case 'xl':
+                case confirmSizes.xl:
                     return 'max-w-5xl';
 
                 default:

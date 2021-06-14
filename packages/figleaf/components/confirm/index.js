@@ -4,6 +4,7 @@
 import Vue from 'vue';
 import isObject from 'lodash.isobject';
 import Confirm from './Confirm.vue';
+import { confirmSizes } from './constants';
 
 export default () => {
 
@@ -22,7 +23,7 @@ export default () => {
                 okLabelClass: null,
                 cancelLabel: null,
                 cancelLabelClass: null,
-                size: 'sm',
+                size: confirmSizes.sm,
                 centered: true
             },
             config
