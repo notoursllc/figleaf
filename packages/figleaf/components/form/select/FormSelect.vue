@@ -100,9 +100,11 @@ export default Vue.extend({
     line-height: 1.4;
     font-size: 14px;
 }
-
 .fig-select-sm .vs__dropdown-menu {
     font-size: 14px;
+}
+.fig-select-sm .vs__dropdown-toggle {
+    height: calc(1.3em + .2rem + 2px);
 }
 
 .fig-select-no-right-radius .vs__dropdown-toggle {
@@ -114,13 +116,20 @@ export default Vue.extend({
     @apply flex items-center;
 }
 
-.fig-select-sm .vs__dropdown-toggle {
-    height: calc(1.3em + .2rem + 2px);
+.fig-select-sm .vs__selected {
+    margin: 2px 2px 2px 2px !important;
 }
-.fig-select-sm .vs__selected,
+
 .fig-select-md .vs__selected {
+    margin: 3px 2px 2px 2px !important;
+}
+
+/* the non-multiple select elements (vs--single) */
+.vs--single.fig-select-sm .vs__selected,
+.vs--single.fig-select-md .vs__selected {
     margin-top: 0 !important;
 }
+
 
 .fig-select-md .vs__dropdown-toggle {
     height: calc(1.6em + .2rem + 2px);

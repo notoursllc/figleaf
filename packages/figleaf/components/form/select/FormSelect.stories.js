@@ -28,6 +28,12 @@ export default {
             control: {
                 type: 'boolean'
             }
+        },
+
+        multiple: {
+            control: {
+                type: 'boolean'
+            }
         }
     }
 };
