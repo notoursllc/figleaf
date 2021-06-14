@@ -1,7 +1,10 @@
 <script>
 import Vue from 'vue';
+import VueHotkey from 'v-hotkey';
 import FigButton from '../button/Button';
 import FigIcon from '../icon/FigIcon';
+
+Vue.use(VueHotkey);
 
 export default Vue.extend({
     name: 'AtcConfirm',
@@ -92,7 +95,7 @@ export default Vue.extend({
                         <button
                             type="button"
                             ref="btn_confirm_checkout"
-                            class="hover:bg-green-300 bg-green-200 focus:outline-none"
+                            class="hover:bg-green-200 bg-green-100 focus:outline-none"
                             @click="onCheckout"><slot name="checkoutLabel">Checkout</slot></button>
                     </div>
                 </div>
