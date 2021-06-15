@@ -58,7 +58,7 @@ export default {
                     return 'text-red-600';
 
                 default:
-                    return 'text-blue-600';
+                    return 'text-blue-900';
             }
         },
 
@@ -80,15 +80,15 @@ export default {
 
             switch(variant) {
                 case 'success':
-                    classes.push('bg-green-100');
+                    classes.push('bg-success');
                     break;
 
                 case 'error':
-                    classes.push('bg-red-100');
+                    classes.push('bg-error');
                     break;
 
                 default:
-                    classes.push('bg-blue-100');
+                    classes.push('bg-info');
             }
 
             return classes;
@@ -208,5 +208,15 @@ export default {
 .fig-toast-content {
     @apply py-3 px-4 overflow-y-auto;
     max-height: 300px;
+}
+
+.bg-success {
+    background-color: #f3fbf0;
+}
+.bg-error {
+    background-color: #fbf0f0;
+}
+.bg-info {
+    background-color: #f0f3fb;
 }
 </style>

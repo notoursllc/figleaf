@@ -36,7 +36,8 @@ const Template = (args, { argTypes }) => ({
     template: `
         <div>
             <fig-button @click="showConfirm()">Show</fig-button>
-        </div>`
+        </div>
+    `
 });
 
 export const ConfirmAtc = Template.bind({});
