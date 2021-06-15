@@ -1,13 +1,16 @@
 <script>
 import Vue from 'vue';
+import isObject from 'lodash.isobject';
 
 export default Vue.extend({
     name: 'SizeButtons',
 
     props: {
         value: {
-            type: String,
-            default: null
+            type: Object,
+            default: () => {
+                return {};
+            }
         },
 
         skus: {
@@ -34,7 +37,8 @@ export default Vue.extend({
                 if(sku.label && sku.visible_if_no_inventory) {
                     visibleSkus.push({
                         ...sku,
-                        isDisabled: sku.inventory_count <= 0
+                        isDisabled: sku.inventory_count <= 0,
+                        isSelected: isObject(this.value) && (this.value.id === sku.id)
                     });
                 }
             });
@@ -57,7 +61,7 @@ export default Vue.extend({
             v-for="(sku, index) in sizes"
             :key="index"
             :disabled="sku.isDisabled"
-            :class="{ 'selected': (sku.id === value.id) }"
+            :class="{ 'selected': sku.isSelected }"
             @click="onBtnClick(sku)">{{ sku.label }}</button>
     </div>
 </template>

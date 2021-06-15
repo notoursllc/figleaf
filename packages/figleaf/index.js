@@ -30,7 +30,8 @@ export { default as FigIconSprite } from './components/icon/FigIconSprite';
 export { default as FigVictoryIcon } from './components/icon/VictoryIcon';
 
 // layouts
-export { default as FigCartCtaLayout } from './components/layouts/cartCta/CartCtaLayout';
+export { default as FigCartCtaLayout } from './layouts/cartCta/CartCtaLayout';
+export { default as FigProductDetailsLayout } from './layouts/productDetailsLayout/ProductDetailsLayout';
 
 // modal
 export { default as FigModal } from './components/modal/Modal';

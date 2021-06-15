@@ -1,7 +1,7 @@
 import FigCartCtaLayout from './CartCtaLayout.vue';
 
 export default {
-    title: 'Components/Layouts/CartCtaLayout',
+    title: 'Layouts/CartCtaLayout',
 
     component: FigCartCtaLayout,
 
