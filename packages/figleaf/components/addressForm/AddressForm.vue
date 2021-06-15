@@ -204,7 +204,7 @@ export default {
             <div :class="twoColCellClasses">
                 <fig-form-group>
                     <fig-form-text
-                        v-model="value.firstName"
+                        v-model.trim="value.firstName"
                         :size="inputSize"
                         @input="(val) => touchV('firstName', val)"
                         :state="inputState('firstName')">
@@ -219,7 +219,7 @@ export default {
             <div :class="twoColCellClasses">
                 <fig-form-group>
                     <fig-form-text
-                        v-model="value.lastName"
+                        v-model.trim="value.lastName"
                         :size="inputSize"
                         @input="(val) => touchV('lastName', val)"
                         :state="inputState('lastName')">
@@ -236,7 +236,7 @@ export default {
             <div :class="oneColCellClasses">
                 <fig-form-group>
                     <fig-form-text
-                        v-model="value.streetAddress"
+                        v-model.trim="value.streetAddress"
                         :size="inputSize"
                         @input="(val) => touchV('streetAddress', val)"
                         :state="inputState('streetAddress')">
@@ -263,7 +263,7 @@ export default {
             <div :class="oneColCellClasses">
                 <fig-form-group>
                     <fig-form-text
-                        v-model="value.extendedAddress"
+                        v-model.trim="value.extendedAddress"
                         :size="inputSize"
                         @input="(val) => touchV('extendedAddress', val)"
                         :state="inputState('extendedAddress')" />
@@ -278,7 +278,7 @@ export default {
             <div :class="oneColCellClasses">
                 <fig-form-group>
                     <fig-select-country
-                        v-model="value.countryCodeAlpha2"
+                        v-model.trim="value.countryCodeAlpha2"
                         :placeholder="$t('Country')"
                         :size="inputSize"
                         @input="(val) => touchV('countryCodeAlpha2', val)"
@@ -294,7 +294,7 @@ export default {
             <div :class="threeColCellClasses">
                 <fig-form-group>
                     <fig-form-text
-                        v-model="value.city"
+                        v-model.trim="value.city"
                         :size="inputSize"
                         @input="(val) => touchV('city', val)"
                         :state="inputState('city')">
@@ -310,7 +310,7 @@ export default {
                 <fig-form-group>
                     <fig-select-state-province
                         :country="value.countryCodeAlpha2"
-                        v-model="value.state"
+                        v-model.trim="value.state"
                         :clearable="false"
                         class="w-full"
                         :placeholder="$t('State/Province/Region')"
@@ -326,7 +326,7 @@ export default {
             <div :class="threeColCellClasses">
                 <fig-form-group>
                     <fig-form-text
-                        v-model="value.postalCode"
+                        v-model.trim="value.postalCode"
                         :size="inputSize"
                         @input="(val) => touchV('postalCode', val)"
                         :state="inputState('postalCode')">
@@ -343,7 +343,7 @@ export default {
             <div :class="twoColCellClasses" v-if="!hideEmail">
                 <fig-form-group>
                     <fig-form-text
-                        v-model="value.email"
+                        v-model.trim="value.email"
                         :size="inputSize"
                         @input="(val) => touchV('email', val)"
                         :state="inputState('email')">
@@ -361,7 +361,7 @@ export default {
             <div :class="twoColCellClasses" v-if="!hidePhone">
                 <fig-form-group>
                     <fig-form-text
-                        v-model="value.phone"
+                        v-model.trim="value.phone"
                         :size="inputSize"
                         @input="(val) => touchV('phone', val)"
                         :state="inputState('phone')">
