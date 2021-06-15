@@ -79,5 +79,8 @@ export { default as FigFormSelect } from './components/form/select/FormSelect';
 export { default as FigFormSelectNative } from './components/form/selectNative/FormSelectNative';
 export { default as FigFormTextarea } from './components/form/textarea/FormTextarea';
 
+// size buttons
+export { default as FigSizeButtons } from './components/sizeButtons/SizeButtons';
+
 export { default as FigSelectCountry } from './components/selectCountry/SelectCountry';
 export { default as FigSelectStateProvince } from './components/selectStateProvince/SelectStateProvince';

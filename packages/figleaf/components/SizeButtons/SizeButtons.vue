@@ -24,15 +24,6 @@ export default Vue.extend({
         };
     },
 
-    // watch: {
-    //     value: {
-    //         handler(newVal) {
-
-    //         },
-    //         immediate: true
-    //     }
-    // },
-
     computed: {
         sizes() {
             const visibleSkus = [];
