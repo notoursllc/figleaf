@@ -6,6 +6,7 @@ module.exports = {
     'Card number': 'Card number',
     'City': 'City',
     'Country': 'Country',
+    'Credit card': 'Credit card',
 
     'Email': 'Email',
     'Expiration date': 'Expiration date',
@@ -16,6 +17,7 @@ module.exports = {
 
     'OK': 'OK',
 
+    'PayPal': 'PayPal',
     'Phone number': 'Phone number',
     'Please enter a valid email address.': 'Please enter a valid email address.',
     'Postal code': 'Postal code',
