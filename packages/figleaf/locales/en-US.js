@@ -2,6 +2,7 @@ module.exports = {
     'Add Company, C/O, Apt, Suite, Unit': 'Add Company, C/O, Apt, Suite, Unit',
     'Address': 'Address',
 
+    'cancel': 'cancel',
     'Card number': 'Card number',
     'City': 'City',
     'Country': 'Country',
@@ -12,6 +13,8 @@ module.exports = {
     'First name': 'First name',
 
     'Last name': 'Last name',
+
+    'OK': 'OK',
 
     'Phone number': 'Phone number',
     'Please enter a valid email address.': 'Please enter a valid email address.',

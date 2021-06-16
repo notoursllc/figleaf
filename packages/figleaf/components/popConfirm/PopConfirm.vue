@@ -1,7 +1,7 @@
 <script>
 import { v4 as uuidv4 } from 'uuid';
-import FigButton from './button/Button';
-import FigPopover from './popover/Popover';
+import FigButton from '../button/Button';
+import FigPopover from '../popover/Popover';
 
 export default {
     components: {
@@ -102,7 +102,7 @@ export default {
         <div
             v-if="showConfirmButton || showCancelButton"
             slot="footer"
-            class="text-right">
+            class="flex items-center justify-end flex-nowrap">
             <fig-button
                 v-if="showCancelButton"
                 variant="link"
