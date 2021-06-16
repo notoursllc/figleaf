@@ -37,6 +37,9 @@ export { default as FigProductDetailsLayout } from './layouts/productDetailsLayo
 // modal
 export { default as FigModal } from './components/modal/Modal';
 
+// payment type chooser
+export { default as FigPaymentTypeChooser } from './components/paymentTypeChooser/PaymentTypeChooser';
+
 // popover
 export { default as FigPopover } from './components/popover/Popover';
 export { default as FigPopoverDivider } from './components/popover/PopoverDivider';
