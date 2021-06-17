@@ -76,7 +76,7 @@ export { default as FigFormInput } from './components/form/text/FormText';
 export { default as FigFormInputDate } from './components/form/FormInputDate';
 export { default as FigFormInputEndcapper } from './components/form/FormInputEndcapper';
 export { default as FigFormInputFileButton } from './components/form/FormInputFileButton';
-export { default as FigFormInputMoney } from './components/form/FormInputMoney';
+export { default as FigFormInputMoney } from './components/form/money/FormInputMoney';
 export { default as FigFormInputNumber } from './components/form/FormInputNumber';
 export { default as FigFormInputToggle } from './components/form/FormInputToggle';
 export { default as FigFormRadio } from './components/form/radio/FormRadio';

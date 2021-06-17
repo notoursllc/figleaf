@@ -1,9 +1,9 @@
 <script>
 import accounting from 'accounting';
 // import { CurrencyDirective } from 'vue-currency-input';
-import form_input_mixin from './form_input_mixin';
-import FormInputNumber from './FormInputNumber';
-import FormInputEndcapper from './FormInputEndcapper';
+import form_input_mixin from '../form_input_mixin';
+import FormInputNumber from '../FormInputNumber';
+import FormInputEndcapper from '../FormInputEndcapper';
 
 
 
@@ -56,6 +56,7 @@ export default {
              */
             handler(newVal) {
                 this.selectedPrice = newVal ? parseInt(newVal, 10)/100 : 0;
+                this.emitInput();
             },
             immediate: true
         }
