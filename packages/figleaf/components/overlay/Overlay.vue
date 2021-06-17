@@ -1,6 +1,10 @@
 <script>
 import Vue from 'vue';
-import Spinner from './spinner/Spinner';
+import Spinner from '../spinner/Spinner';
+import {
+    overlaySizes,
+    overlayVariants
+} from './constants';
 
 export default Vue.extend({
     name: 'Overlay',
@@ -31,18 +35,14 @@ export default Vue.extend({
 
         size: {
             type: String,
-            default: 'md',
-            validator(size) {
-                return ['xs', 'sm', 'md', 'lg', 'xl'].indexOf(size) > -1;
-            }
+            default: overlaySizes.md,
+            validator: (val) => Object.keys(overlaySizes).includes(val)
         },
 
         variant: {
             type: String,
-            default: 'primary',
-            validator(val) {
-                return ['primary', 'secondary', 'success', 'error'].indexOf(val) > -1;
-            }
+            default: overlayVariants.primary,
+            validator: (val) => Object.keys(overlayVariants).includes(val)
         },
 
         zIndex: {
@@ -58,16 +58,16 @@ export default Vue.extend({
     computed: {
         spinnerWidth() {
             switch(this.size) {
-                case 'xs':
+                case overlaySizes.xs:
                     return 14;
 
-                case 'sm':
+                case overlaySizes.sm:
                     return 26;
 
-                case 'lg':
+                case overlaySizes.lg:
                     return 60;
 
-                case 'xl':
+                case overlaySizes.xl:
                     return 90;
 
                 default:
@@ -77,13 +77,13 @@ export default Vue.extend({
 
         spinnerColor() {
             switch(this.variant) {
-                case 'success':
+                case overlayVariants.success:
                     return '#16a34a';
 
-                case 'error':
+                case overlayVariants.error:
                     return '#ef4444';
 
-                case 'secondary':
+                case overlayVariants.secondary:
                     return '#a8a29e';
 
                 default:
@@ -93,10 +93,10 @@ export default Vue.extend({
 
         strokeWidth() {
             switch(this.size) {
-                case 'xs':
+                case overlaySizes.xs:
                     return 4;
 
-                case 'sm':
+                case overlaySizes.sm:
                     return 3;
 
                 default:

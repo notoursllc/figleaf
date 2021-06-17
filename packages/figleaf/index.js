@@ -46,7 +46,7 @@ export { default as FigPopoverDivider } from './components/popover/PopoverDivide
 export { default as FigPopConfirm } from './components/popConfirm/PopConfirm';
 
 // overlay
-export { default as FigOverlay } from './components/Overlay';
+export { default as FigOverlay } from './components/overlay/Overlay';
 export { default as FigSpinner } from './components/spinner/Spinner';
 
 // stripe
