@@ -1,6 +1,6 @@
 export const cardTypes = {
     americanexpress: 'americanexpress',
-    discoverdiners: 'discoverdiners',
+    dinersclub: 'discoverdiners',
     discover: 'discover',
     jcb: 'jcb',
     google: 'google',
