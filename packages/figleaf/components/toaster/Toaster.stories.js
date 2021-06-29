@@ -46,6 +46,9 @@ const Template = (args, { argTypes }) => ({
                 closable: true,
                 timeout: 0
             });
+        },
+        clearToasts() {
+            this.$clearToasts();
         }
     },
     template: `
@@ -53,7 +56,8 @@ const Template = (args, { argTypes }) => ({
             <fig-toaster v-bind="$props" />
             <div class="mb-2"><fig-button @click="successToast()">Success toast</fig-button></div>
             <div class="mb-2"><fig-button @click="errorToast()">Error toast</fig-button></div>
-            <div class="mb-2"><fig-button @click="infoToast()">Info  toast</fig-button></div>
+            <div class="mb-2"><fig-button @click="infoToast()">Info toast</fig-button></div>
+            <div class="mb-2"><fig-button @click="clearToasts()">Clear all toasts</fig-button></div>
         </div>
     `
 });

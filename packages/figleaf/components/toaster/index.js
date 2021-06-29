@@ -36,4 +36,6 @@ export default () => {
         );
     };
 
+    Vue.prototype.$clearToasts = methods.removeAllToasts;
+
 };
