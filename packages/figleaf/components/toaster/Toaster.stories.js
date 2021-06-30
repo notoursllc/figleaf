@@ -21,7 +21,7 @@ const Template = (args, { argTypes }) => ({
     },
     methods: {
         successToast() {
-            return this.$successToast({
+            return this.$figleaf.successToast({
                 variant: 'success',
                 title: 'Title goes here',
                 text: 'Text body goes here',
@@ -30,7 +30,7 @@ const Template = (args, { argTypes }) => ({
             });
         },
         errorToast() {
-            return this.$errorToast({
+            return this.$figleaf.errorToast({
                 variant: 'error',
                 title: 'Title goes here',
                 text: 'Text body goes here',
@@ -39,7 +39,7 @@ const Template = (args, { argTypes }) => ({
             });
         },
         infoToast() {
-            return this.$toast({
+            return this.$figleaf.toast({
                 variant: 'info',
                 title: 'Title goes here',
                 text: 'Text body goes here',
@@ -48,7 +48,7 @@ const Template = (args, { argTypes }) => ({
             });
         },
         clearToasts() {
-            this.$clearToasts();
+            this.$figleaf.clearToasts();
         }
     },
     template: `

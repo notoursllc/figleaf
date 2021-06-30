@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import isObject from 'lodash.isobject';
 import { methods } from './toaster.js';
 import Toaster from './Toaster.vue';
 
@@ -6,7 +7,11 @@ export default () => {
 
     Vue.component('FigToaster', Toaster);
 
-    Vue.prototype.$toast = (toastConfig) => {
+    if(!isObject(Vue.prototype.$figleaf)) {
+        Vue.prototype.$figleaf = {};
+    }
+
+    Vue.prototype.$figleaf.toast = (toastConfig) => {
         return methods.addToast(
             Object.assign(
                 {},
@@ -23,19 +28,19 @@ export default () => {
     };
 
 
-    Vue.prototype.$successToast = (toastConfig) => {
-        return Vue.prototype.$toast(
+    Vue.prototype.$figleaf.successToast = (toastConfig) => {
+        return Vue.prototype.$figleaf.toast(
             Object.assign({}, toastConfig, { variant: 'success', timeout: 5000 })
         );
     };
 
 
-    Vue.prototype.$errorToast = (toastConfig) => {
-        return Vue.prototype.$toast(
+    Vue.prototype.$figleaf.errorToast = (toastConfig) => {
+        return Vue.prototype.$figleaf.toast(
             Object.assign({}, toastConfig, { variant: 'error' })
         );
     };
 
-    Vue.prototype.$clearToasts = methods.removeAllToasts;
+    Vue.prototype.$figleaf.clearToasts = methods.removeAllToasts;
 
 };
