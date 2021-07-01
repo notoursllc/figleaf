@@ -96,42 +96,51 @@ export default {
 
                     <!-- checkout label and popover -->
                     <template v-else>
-                        <span class="pr-2 text-xl">{{ $t('Checkout') }}</span>
-
-                        <fig-popover
-                            placement="top"
-                            @visible="onPopoverVisible"
-                            :ref="popoverRef">
-
-                            <template v-slot:toggler>
-                                (<a class="whitespace-nowrap text-xl">{{ numCartItems }}&nbsp;{{ $tc('item_items', numCartItems) }}</a>)
-                            </template>
-
-                            <div class="p-2 text-center">{{ $t('Return to your Shopping Cart?') }}</div>
-
-                            <div
-                                slot="footer"
-                                class="flex items-center justify-center">
-                                <fig-button
-                                    variant="plain"
-                                    size="sm"
-                                    @click="hidePopover"
-                                    class="mr-1"
-                                    :ref="popoverCancelButtonRef">{{ $t('cancel') }}</fig-button>
-
-                                <fig-button
-                                    variant="primary"
-                                    size="sm"
-                                    @click="onReturnToCartClick">{{ $t('Yes, return to cart') }}</fig-button>
+                        <div class="flex items-center">
+                            <div class="pr-1">
+                                <fig-icon
+                                    icon="lock"
+                                    class="vam"
+                                    :width="22"
+                                    :height="22" />
                             </div>
-                        </fig-popover>
+
+                            <div class="pr-1 text-xl">{{ $t('Checkout') }}</div>
+
+                            <fig-popover
+                                placement="top"
+                                @visible="onPopoverVisible"
+                                :ref="popoverRef">
+
+                                <div
+                                    slot="toggler"
+                                    class="whitespace-nowrap text-xl cursor-pointer">(<a>{{ numCartItems }}&nbsp;{{ $tc('item_items', numCartItems) }}</a>)</div>
+
+                                <div class="p-2 text-center">{{ $t('Return to your Shopping Cart?') }}</div>
+
+                                <div
+                                    slot="footer"
+                                    class="flex items-center justify-center">
+                                    <fig-button
+                                        variant="plain"
+                                        size="sm"
+                                        @click="hidePopover"
+                                        class="mr-1"
+                                        :ref="popoverCancelButtonRef">{{ $t('cancel') }}</fig-button>
+
+                                    <fig-button
+                                        variant="primary"
+                                        size="sm"
+                                        @click="onReturnToCartClick">{{ $t('Yes, return to cart') }}</fig-button>
+                                </div>
+                            </fig-popover>
+                        </div>
                     </template>
                 </div>
 
                 <!-- left -->
-                <div>
+                <div v-if="!inCheckout">
                     <button
-                        v-if="!inCheckout"
                         type="button"
                         class="cart-button relative p-0 m-0 mt-2 bg-transparent border-0 mr-3 lg:mr-0"
                         @click="emitCartClick">
@@ -144,14 +153,6 @@ export default {
                             :variant="numCartItems ? 'success' : 'light'"
                             size="sm">{{ numCartItems }}</fig-badge>
                     </button>
-
-                    <fig-icon
-                        v-else
-                        icon="lock"
-                        class="vam"
-                        :width="36"
-                        :height="36"
-                        :stroke-width="1.5" />
                 </div>
             </div>
         </header>
