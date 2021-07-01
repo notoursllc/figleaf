@@ -45,7 +45,7 @@ export default {
     },
 
     methods: {
-        onCartButtonClick() {
+        emitCartClick() {
             this.$emit('cartClick');
         },
 
@@ -59,7 +59,7 @@ export default {
 
         onReturnToCartClick() {
             this.hidePopover();
-            this.$emit('returnToCart');
+            this.emitCartClick();
         },
 
         onPopoverVisible(isVisible) {
@@ -89,9 +89,9 @@ export default {
                             class="block md:hidden cursor-pointer"
                             @click="emitSidebarOpen" />
 
-                        <nav class="hidden md:block">
+                        <div class="hidden md:block">
                             <slot name="middle" />
-                        </nav>
+                        </div>
                     </template>
 
                     <!-- checkout label and popover -->
@@ -134,7 +134,7 @@ export default {
                         v-if="!inCheckout"
                         type="button"
                         class="cart-button relative p-0 m-0 mt-2 bg-transparent border-0 mr-3 lg:mr-0"
-                        @click="onCartButtonClick">
+                        @click="emitCartClick">
                         <fig-icon
                             icon="cart"
                             :width="27"

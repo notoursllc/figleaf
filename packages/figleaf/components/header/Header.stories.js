@@ -21,17 +21,13 @@ const Template = (args, { argTypes }) => ({
             console.log('cart click');
         },
 
-        onReturnToCart() {
-            console.log('return to cart');
-        },
-
         onSidebarOpen() {
             console.log('sidebar open');
         }
     },
     template: `
         <div style="min-height: 200px">
-            <fig-header @cartClick="onCartClick" @returnToCart="onReturnToCart" @sidebarOpen="onSidebarOpen" v-bind="$props">
+            <fig-header @cartClick="onCartClick" @sidebarOpen="onSidebarOpen" v-bind="$props">
                 <fig-victory-icon
                     slot="logo"
                     class="cursor-pointer"
