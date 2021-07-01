@@ -24,6 +24,9 @@ export { default as FigDropdownDivider } from './components/dropdown/DropdownDiv
 export { default as FigCol } from './components/grid/Col';
 export { default as FigRow } from './components/grid/Row';
 
+// header
+export { default as FigHeader } from './components/header/Header';
+
 // icon
 export { default as FigIcon } from './components/icon/FigIcon';
 export { default as FigIconSprite } from './components/icon/FigIconSprite';

@@ -68,9 +68,9 @@ export default {
    left: -105%;
 }
 .slide-enter-active {
-    transition: all .5s ease;
+    transition: all .5s ease-in-out;
 }
 .slide-leave-active {
-    transition: all .9s ease-in-out;
+    transition: all .7s ease-in-out;
 }
 </style>

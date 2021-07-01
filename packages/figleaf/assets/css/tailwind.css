@@ -63,5 +63,24 @@
     display: none;
 }
 
+.content-wrap {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+@media only screen and (min-width: 993px) {
+    .content-wrap {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
+@media only screen and (min-width: 1301px) {
+    .content-wrap {
+        margin-left: 70px;
+        margin-right: 70px;
+    }
+}
+
 @tailwind utilities;
 @tailwind screens;

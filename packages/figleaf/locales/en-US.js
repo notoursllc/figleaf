@@ -4,6 +4,7 @@ module.exports = {
 
     'cancel': 'cancel',
     'Card number': 'Card number',
+    'Checkout': 'Checkout',
     'City': 'City',
     'Country': 'Country',
     'Credit card': 'Credit card',
@@ -12,6 +13,8 @@ module.exports = {
     'Expiration date': 'Expiration date',
 
     'First name': 'First name',
+
+    'item_items': 'item | items',
 
     'Last name': 'Last name',
 
@@ -23,9 +26,12 @@ module.exports = {
     'Postal code': 'Postal code',
 
     'Required': 'Required',
+    'Return to your Shopping Cart?': 'Return to your Shopping Cart?',
 
     'Security code': 'Security code',
     'State/Province/Region': 'State/Province/Region',
+
+    'Yes, return to cart': 'Yes, return to cart',
 
 
     // Countries
