@@ -44,6 +44,9 @@ export { default as FigModal } from './components/modal/Modal';
 // payment type chooser
 export { default as FigPaymentTypeChooser } from './components/paymentTypeChooser/PaymentTypeChooser';
 
+// product grid
+export { default as FigProductGrid } from './components/productGrid/ProductGrid';
+
 // popover
 export { default as FigPopover } from './components/popover/Popover';
 export { default as FigPopoverDivider } from './components/popover/PopoverDivider';
