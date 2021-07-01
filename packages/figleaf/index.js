@@ -50,6 +50,9 @@ export { default as FigPopConfirm } from './components/popConfirm/PopConfirm';
 export { default as FigOverlay } from './components/overlay/Overlay';
 export { default as FigSpinner } from './components/spinner/Spinner';
 
+// slideover
+export { default as FigSlideover } from './components/slideover/Slideover';
+
 // stripe
 export { default as FigStripeForm } from './components/stripeForm/StripeForm';
 

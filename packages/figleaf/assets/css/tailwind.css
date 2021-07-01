@@ -59,5 +59,9 @@
     @apply border-red-500;
 }
 
+[v-cloak] {
+    display: none;
+}
+
 @tailwind utilities;
 @tailwind screens;
