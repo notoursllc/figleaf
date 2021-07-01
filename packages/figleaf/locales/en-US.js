@@ -16,6 +16,8 @@ module.exports = {
 
     'item_items': 'item | items',
 
+    'Just a few left. Order soon.': 'Just a few left. Order soon.',
+
     'Last name': 'Last name',
 
     'OK': 'OK',
@@ -29,6 +31,7 @@ module.exports = {
     'Return to your Shopping Cart?': 'Return to your Shopping Cart?',
 
     'Security code': 'Security code',
+    'Sold out': 'Sold out',
     'State/Province/Region': 'State/Province/Region',
 
     'Yes, return to cart': 'Yes, return to cart',

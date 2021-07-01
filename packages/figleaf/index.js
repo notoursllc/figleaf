@@ -56,6 +56,9 @@ export { default as FigSpinner } from './components/spinner/Spinner';
 // slideover
 export { default as FigSlideover } from './components/slideover/Slideover';
 
+// stock level warning
+export { default as FigStockLevelWarning} from './components/stockLevelWarning/StockLevelWarning';
+
 // stripe
 export { default as FigStripeForm } from './components/stripeForm/StripeForm';
 
