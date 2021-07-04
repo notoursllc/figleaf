@@ -20,6 +20,10 @@ export default Vue.extend({
         sortable: {
             type: Boolean,
             default: false
+        },
+
+        right: {
+            type: Boolean
         }
     },
 
@@ -51,7 +55,7 @@ export default Vue.extend({
             if(this.sortable) {
                 classes.push(
                     'cursor-pointer',
-                    'pr-3'
+                    'pr-7'
                 );
             }
 
@@ -84,6 +88,16 @@ export default Vue.extend({
             }
 
             return classes;
+        },
+
+        labelClasses() {
+            const classes = ['flex-grow'];
+
+            if(this.right) {
+                classes.push('text-right');
+            }
+
+            return classes;
         }
     },
 
@@ -109,7 +123,7 @@ export default Vue.extend({
         @click="onClick"
         v-bind="$attrs">
         <div :class="containerClasses">
-            <div class="flex-grow"><slot></slot></div>
+            <div :class="labelClasses"><slot></slot></div>
             <div
                 v-if="sortable"
                 class="fig-table-th-arrow"
