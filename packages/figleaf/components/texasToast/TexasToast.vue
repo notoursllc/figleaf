@@ -89,17 +89,23 @@ export default Vue.extend({
             document.body.style.overflow = '';
             this.visible = false;
             this.$emit('hide', buttonIndex === undefined ? null : buttonIndex);
+            this.removeTimeout();
         },
 
         onHotkey(e) {
             this.hide();
+        },
+
+        removeTimeout() {
+            if(this.timeoutId) {
+                clearTimeout(this.timeoutId);
+                this.timeoutId = null;
+            }
         }
     },
 
     beforeDestroy () {
-        if(this.timeoutId) {
-            clearTimeout(this.timeoutId);
-        }
+        this.removeTimeout();
     }
 });
 </script>
@@ -131,13 +137,13 @@ export default Vue.extend({
                                 <!--title-->
                                 <div
                                     v-if="$slots.title"
-                                    class="flex-grow flex items-center">
+                                    class="flex items-center">
                                     <fig-icon
                                         :icon="theme.icon"
                                         :stroke="theme.stroke"
                                         stroke-width="1.5"
-                                        :width="20"
-                                        :height="20" />
+                                        :width="24"
+                                        :height="24" />
 
                                     <div class="pl-1 break-words font-semibold">
                                         <slot name="title"></slot>
@@ -145,11 +151,13 @@ export default Vue.extend({
                                 </div>
 
                                 <!-- close button -->
-                                <fig-button
-                                    icon="x"
-                                    variant="plain"
-                                    size="sm"
-                                    @click="onHotkey" />
+                                <div class="flex-grow flex justify-end">
+                                    <fig-button
+                                        icon="x"
+                                        variant="plain"
+                                        size="sm"
+                                        @click="onHotkey" />
+                                </div>
                             </div>
 
                             <!--body-->

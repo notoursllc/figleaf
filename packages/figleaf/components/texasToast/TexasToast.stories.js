@@ -36,8 +36,8 @@ const Template = (args, { argTypes }) => ({
             <fig-texas-toast @hide="onHide" ref="ttoast" v-bind="$props">
                 <template v-slot:title>This is the title</template>
                 <template v-slot:message>Your message goes here</template>
-                <template v-slot:secondaryButtonLabel>View cart2</template>
-                <template v-slot:primaryButtonLabel>Checkout2</template>
+                <template v-slot:secondaryButtonLabel>View cart</template>
+                <template v-slot:primaryButtonLabel>Checkout</template>
             </fig-texas-toast>
 
             <fig-button @click="showToast">Show Toast</fig-button>
