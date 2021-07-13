@@ -30,7 +30,8 @@ export default Vue.extend({
 
     data() {
         return {
-            visible: false
+            visible: false,
+            timeoutId: null
         };
     },
 
@@ -40,7 +41,7 @@ export default Vue.extend({
                 icon: null,
                 stroke: null,
                 primaryButtonClass: null
-            }
+            };
 
             switch(this.variant) {
                 case texasToastVariants.success:
@@ -67,9 +68,21 @@ export default Vue.extend({
     },
 
     methods: {
-        show() {
+        show(timeout) {
             document.body.style.overflow = 'hidden'; // prevent body from scrolling too (double scroll bars)
             this.visible = true;
+
+            if(timeout) {
+                this.timeoutId = setTimeout(() => {
+                    // the toast may have been hidden by the user manually
+                    // before the timer expires, so checking if it's still
+                    // visible before calling hide() so the 'hide' event
+                    // does not fire again unnecessarily
+                    if(this.visible) {
+                        this.hide();
+                    }
+                }, timeout);
+            }
         },
 
         hide(buttonIndex) {
@@ -80,6 +93,12 @@ export default Vue.extend({
 
         onHotkey(e) {
             this.hide();
+        }
+    },
+
+    beforeDestroy () {
+        if(this.timeoutId) {
+            clearTimeout(this.timeoutId);
         }
     }
 });
@@ -100,11 +119,10 @@ export default Vue.extend({
             <div
                 v-if="visible"
                 class="flex items-center overflow-x-hidden overflow-y-auto fixed top-0 left-0 w-full h-full z-50 outline-none focus:outline-none"
-                v-hotkey="{'esc': onHotkey}"
-                v-click-outside="onHotkey">
+                v-hotkey="{'esc': onHotkey}">
 
                 <!--content-->
-                <div class="fig-texas-toast">
+                <div class="fig-texas-toast" v-click-outside="onHotkey">
                     <div
                         class="relative max-w-xs' mx-auto border-0 shadow-tight bg-white outline-none focus:outline-none">
 
@@ -159,7 +177,11 @@ export default Vue.extend({
         </transition>
 
         <!-- backdrop -->
-        <!-- <trans      -->
+        <transition name="confirm-bg-fade">
+            <div
+                v-if="visible"
+                class="opacity-25 fixed top-0 left-0 z-40 bg-black h-screen w-screen"></div>
+        </transition>
     </div>
 </template>
 
