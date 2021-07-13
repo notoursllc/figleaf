@@ -78,6 +78,9 @@ export { default as FigTd } from './components/tableSimple/Td';
 export { default as FigTh } from './components/tableSimple/Th';
 export { default as FigTrNoResults } from './components/tableSimple/TrNoResults';
 
+// texas toast
+export { default as FigTexasToast } from './components/texasToast/TexasToast';
+
 // text card
 export { default as FigTextCard } from './components/textCard/TextCard';
 
