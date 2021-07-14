@@ -1,6 +1,14 @@
 <script>
+import { contentSizes } from './constants';
+
 export default {
     props: {
+        size: {
+            type: String,
+            default: contentSizes.xl,
+            validator: (value) => Object.keys(contentSizes).includes(value)
+        },
+
         nopad: {
             type: Boolean
         },
@@ -12,11 +20,15 @@ export default {
 
     computed: {
         classNames() {
-            const classes = ['fig-content'];
+            const classes = [
+                'fig-content',
+                `fig-content-${this.size}`
+            ];
 
             if(!this.nopad) {
                 classes.push('px-2');
             }
+
             if(this.fullHeight) {
                 classes.push('h-full');
             }
@@ -37,5 +49,11 @@ export default {
     @apply relative;
     max-width: 1586px;
     margin: 0 auto;
+}
+.fig-content-xl {
+    max-width: 1586px;
+}
+.fig-content-lg {
+    max-width: 1025px;
 }
 </style>
