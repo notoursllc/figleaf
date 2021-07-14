@@ -38,7 +38,6 @@ export { default as FigCreditCardIcon } from './components/icon/creditCard/Credi
 
 // layouts
 export { default as FigCartCtaLayout } from './layouts/cartCta/CartCtaLayout';
-export { default as FigCheckoutWrapper } from './layouts/checkoutWrapper/CheckoutWrapper';
 export { default as FigProductDetailsLayout } from './layouts/productDetailsLayout/ProductDetailsLayout';
 
 // modal
