@@ -7,7 +7,6 @@ import FigPopover from '../popover/Popover.vue';
 import FigButton from '../button/Button.vue';
 import FigContent from '../content/Content.vue';
 
-
 export default {
     components: {
         headroom,
@@ -75,8 +74,8 @@ export default {
 
 <template>
     <headroom :disabled="inCheckout" :zIndex="10">
-        <fig-content nopad>
-            <header role="banner" class="fig-header h-12 md:h-16 flex items-center flex-row relative w-full px-4 md:px-2 lg:px-0">
+        <header role="banner" class="fig-header h-12 md:h-16 flex items-center relative p-0 w-full">
+            <fig-content nopad class="flex flex-row items-center w-full px-4">
                 <div>
                     <slot name="logo" />
                 </div>
@@ -156,8 +155,8 @@ export default {
                             size="sm">{{ numCartItems }}</fig-badge>
                     </button>
                 </div>
-            </header>
-        </fig-content>
+            </fig-content>
+        </header>
     </headroom>
 </template>
 
