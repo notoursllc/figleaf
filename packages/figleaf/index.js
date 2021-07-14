@@ -12,6 +12,9 @@ export { default as FigAddressForm } from './components/addressForm/AddressForm'
 export { default as FigButton } from './components/button/Button';
 export { default as FigButtonFab } from './components/ButtonFab';
 
+// content
+export { default as FigContent } from './components/content/Content';
+
 // divider
 export { default as FigDivider } from './components/divider/Divider';
 

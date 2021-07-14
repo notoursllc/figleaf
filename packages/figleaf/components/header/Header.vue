@@ -5,6 +5,7 @@ import FigBadge from '../Badge.vue';
 import FigIcon from '../icon/FigIcon.vue';
 import FigPopover from '../popover/Popover.vue';
 import FigButton from '../button/Button.vue';
+import FigContent from '../content/Content.vue';
 
 
 export default {
@@ -13,7 +14,8 @@ export default {
         FigBadge,
         FigIcon,
         FigPopover,
-        FigButton
+        FigButton,
+        FigContent
     },
 
     props: {
@@ -73,8 +75,8 @@ export default {
 
 <template>
     <headroom :disabled="inCheckout" :zIndex="10">
-        <header role="banner" class="fig-header h-12 md:h-16 flex items-center relative p-0 w-full">
-            <div class="content-wrap flex flex-row items-center w-full px-4 md:px-2 lg:px-0">
+        <fig-content nopad>
+            <header role="banner" class="fig-header h-12 md:h-16 flex items-center flex-row relative w-full px-4 md:px-2 lg:px-0">
                 <div>
                     <slot name="logo" />
                 </div>
@@ -154,8 +156,8 @@ export default {
                             size="sm">{{ numCartItems }}</fig-badge>
                     </button>
                 </div>
-            </div>
-        </header>
+            </header>
+        </fig-content>
     </headroom>
 </template>
 
