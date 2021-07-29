@@ -1,6 +1,6 @@
 {
     "name": "@notoursllc/figleaf",
-    "version": "0.19.1",
+    "version": "0.19.2",
     "description": "Yet another inadequate covering made my humans",
     "dependencies": {
         "@popperjs/core": "2.4.4",
