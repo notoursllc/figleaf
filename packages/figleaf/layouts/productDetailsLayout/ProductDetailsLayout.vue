@@ -10,11 +10,11 @@ export default {
         <div class="block lg:flex lg:my-0 lg:mx-auto border border-gray-200 rounded-md bg-white">
 
             <!-- pics -->
-            <div class="overflow-hidden block lg:flex-grow lg:flex-shrink" v-if="$slots.pics">
+            <div class="prod-pics" v-if="$slots.pics">
                 <slot name="pics"></slot>
             </div>
 
-            <div class="prod-details block px-3 md:px-6 md:py-4">
+            <div class="prod-details block px-3 md:px-6 md:py-4 flex-grow">
                 <!-- title -->
                 <div v-if="$slots.title" class="text-3xl">
                     <slot name="title"></slot>
@@ -55,9 +55,17 @@ export default {
 
 
 <style>
+.prod-pics {
+    @apply overflow-hidden block;
+}
+
 @screen lg {
+    .prod-pics {
+        width: calc(100% - 456px);
+    }
+
     .prod-details {
-        width: 400px;
+        width: 456px;
     }
 }
 </style>
