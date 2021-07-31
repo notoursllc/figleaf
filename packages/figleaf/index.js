@@ -43,6 +43,9 @@ export { default as FigProductDetailsLayout } from './layouts/productDetailsLayo
 // modal
 export { default as FigModal } from './components/modal/Modal';
 
+// money
+export { default as FigMoney } from './components/money/Money';
+
 // operations dropdown
 export { default as FigOperationsDropdown } from './components/operationsDropdown/OperationsDropdown';
 
