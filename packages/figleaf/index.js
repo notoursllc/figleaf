@@ -42,6 +42,10 @@ export { default as FigProductDetailsLayout } from './layouts/productDetailsLayo
 export { default as FigSpecLayout } from './layouts/spec/SpecLayout';
 export { default as FigSpec } from './layouts/spec/Spec';
 
+// label value group
+export { default as FigLabelValueGroup } from './components/labelValueGroup/LabelValueGroup';
+export { default as FigLabelValue } from './components/labelValueGroup/LabelValue';
+
 // modal
 export { default as FigModal } from './components/modal/Modal';
 
