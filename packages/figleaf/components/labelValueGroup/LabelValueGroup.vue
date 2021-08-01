@@ -18,7 +18,7 @@ export default {
 
         density: {
             type: String,
-            default: labelValueGroupDensity.md,
+            default: labelValueGroupDensity.sm,
             validator: (value) => Object.keys(labelValueGroupDensity).includes(value)
         }
     },
