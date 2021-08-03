@@ -89,7 +89,7 @@ export default Vue.extend({
 
                 <!--header-->
                 <div
-                    v-if="$slots.header"
+                    v-if="$slots.header || closeButton"
                     class="flex items-center justify-between py-2 px-5 border-b border-solid border-gray-300 rounded-t-md">
                     <div class="text-lg font-semibold break-words">
                         <slot name="header"></slot>
