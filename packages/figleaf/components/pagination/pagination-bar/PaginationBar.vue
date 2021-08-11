@@ -107,6 +107,7 @@ export default {
             {{ totalNumberOfResultsLabel }}<span class="px-2">&middot;</span>{{ displayingLabel }}
             <span class="px-2">&middot;</span>
             <fig-form-select-native
+                v-model="perPage"
                 @input="emitPerPage"
                 :options="selectOpts"></fig-form-select-native>
         </div>
