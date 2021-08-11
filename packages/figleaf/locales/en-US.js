@@ -9,6 +9,8 @@ module.exports = {
     'Country': 'Country',
     'Credit card': 'Credit card',
 
+    'Displaying {start} - {end}': 'Displaying {start} - {end}',
+
     'Email': 'Email',
     'Expiration date': 'Expiration date',
 
@@ -28,6 +30,7 @@ module.exports = {
     'Postal code': 'Postal code',
 
     'Required': 'Required',
+    '{num} result | {num} results': '{num} result | {num} results',
     'Return to your Shopping Cart?': 'Return to your Shopping Cart?',
 
     'Security code': 'Security code',

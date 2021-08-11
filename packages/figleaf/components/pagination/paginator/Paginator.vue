@@ -1,5 +1,6 @@
 <script>
-import FigIcon from '../icon/FigIcon';
+import FigIcon from '../../icon/FigIcon';
+import pagination_mixin from '../pagination_mixin.js';
 
 export default {
     name: 'Paginator',
@@ -8,25 +9,14 @@ export default {
         FigIcon
     },
 
+    mixins: [
+        pagination_mixin
+    ],
+
     props: {
         value: {
             type: [Number, String],
             default: 1
-        },
-
-        perPage: {
-            type: [Number, String],
-            default: 100
-        },
-
-        totalRecords: {
-            type: [Number, String],
-            default: 0
-        },
-
-        buttonLimit: {
-            type: [Number, String],
-            default: 5
         }
     },
 
@@ -92,7 +82,7 @@ export default {
 
 <template>
     <nav class="fig-paginator">
-        <ul class="flex list-none rounded-md">
+        <ul>
             <li
                 class="fig-paginator-first fig-paginator-btn"
                 v-if="pageData.showChevronsLeft"
@@ -147,9 +137,12 @@ export default {
 </template>
 
 
-<style>
+<style scoped>
 .fig-paginator {
     @apply block;
+}
+.fig-paginator > ul {
+    @apply flex list-none rounded-md p-0;
 }
 
 .fig-paginator-btn {
@@ -160,7 +153,7 @@ export default {
 .fig-paginator-btn.active {
     @apply bg-blue-500 text-white;
 }
-.fig-paginator-btn:hover {
+.fig-paginator-btn:not(.active):hover {
     @apply bg-gray-200 text-blue-700;
 }
 .fig-paginator-btn:first-child {
