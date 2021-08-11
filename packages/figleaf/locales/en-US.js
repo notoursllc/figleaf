@@ -22,6 +22,8 @@ module.exports = {
 
     'Last name': 'Last name',
 
+    '{num} / page': '{num} / page',
+
     'OK': 'OK',
 
     'PayPal': 'PayPal',

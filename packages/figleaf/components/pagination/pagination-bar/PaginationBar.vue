@@ -1,11 +1,13 @@
 <script>
 import FigPaginator from '../paginator/Paginator.vue';
 import pagination_mixin from '../pagination_mixin.js';
+import FigFormSelectNative from '../../form/selectNative/FormSelectNative.vue';
 
 export default {
     name: 'PaginationBar',
 
     components: {
+        FigFormSelectNative,
         FigPaginator
     },
 
@@ -17,6 +19,13 @@ export default {
         currentPage: {
             type: [Number, String],
             default: 1
+        },
+
+        perPageOptions: {
+            type: Array,
+            default: function() {
+                return [25, 50, 100, 250];
+            }
         }
     },
 
@@ -51,6 +60,15 @@ export default {
             }
 
             return this.$t('Displaying {start} - {end}', {start, end});
+        },
+
+        selectOpts() {
+            return this.perPageOptions.map((val) => {
+                return {
+                    label: this.$t('{num} / page', {num: val}),
+                    value: val
+                };
+            });
         }
     },
 
@@ -87,6 +105,10 @@ export default {
     <div class="fig-pagination-bar">
         <div v-if="totalRecords" class="flex-grow text-gray-500">
             {{ totalNumberOfResultsLabel }}<span class="px-2">&middot;</span>{{ displayingLabel }}
+            <span class="px-2">&middot;</span>
+            <fig-form-select-native
+                @input="emitPerPage"
+                :options="selectOpts"></fig-form-select-native>
         </div>
 
         <fig-paginator
