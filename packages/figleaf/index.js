@@ -58,6 +58,9 @@ export { default as FigMoney } from './components/money/Money';
 // operations dropdown
 export { default as FigOperationsDropdown } from './components/operationsDropdown/OperationsDropdown';
 
+// pagination
+export { default as FigPaginator } from './components/pagination/Paginator';
+
 // payment type chooser
 export { default as FigPaymentTypeChooser } from './components/paymentTypeChooser/PaymentTypeChooser';
 
