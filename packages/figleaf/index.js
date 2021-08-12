@@ -80,6 +80,9 @@ export { default as FigPopConfirm } from './components/popConfirm/PopConfirm';
 export { default as FigOverlay } from './components/overlay/Overlay';
 export { default as FigSpinner } from './components/spinner/Spinner';
 
+// signpost
+export { default as FigSignpost } from './components/signpost/Signpost';
+
 // slideover
 export { default as FigSlideover } from './components/slideover/Slideover';
 

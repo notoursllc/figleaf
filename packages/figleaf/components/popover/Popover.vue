@@ -1,65 +1,23 @@
 <script>
-import Vue from 'vue';
 import { createPopper } from '@popperjs/core';
 import vClickOutside from 'v-click-outside';
+import popover_mixin from './popover_mixin';
+import { popoverDisplayAction } from './constants';
 
 
-export default Vue.extend({
+export default {
     name: 'Popover',
 
     directives: {
         clickOutside: vClickOutside.directive
     },
 
+    mixins: [
+        popover_mixin
+    ],
+
     props: {
-        placement: {
-            type: String,
-            validator: (position) => {
-                return [
-                    '',
-                    'top-end',
-                    'top',
-                    'top-start',
-                    'bottom-end',
-                    'bottom',
-                    'bottom-start',
-                    'right-start',
-                    'right',
-                    'right-end',
-                    'left-start',
-                    'left',
-                    'left-end'
-                ].includes(position);
-            },
-            default: 'bottom-start'
-        },
-
-        show: {
-            type: Boolean,
-            default: false
-        },
-
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-
-        offset: {
-            type: Array,
-            default: () => [0, 10]
-        },
-
-        flip: {
-            type: Boolean,
-            default: true
-        },
-
-        customPopperOptions: {
-            type: Object,
-            default: null
-        },
-
-        target: {}
+        // props are coming from the mixin
     },
 
     data() {
@@ -139,10 +97,25 @@ export default Vue.extend({
             this.$emit('visible', this.visible);
         },
 
+        togglerExists(e) {
+            return this.$scopedSlots.toggler && this.$el.firstElementChild.contains(e.target);
+        },
+
         checkClick(e) {
-            if (this.$scopedSlots.toggler
-                && this.$el.firstElementChild.contains(e.target)) {
+            if (this.togglerExists(e) && this.displayAction === popoverDisplayAction.click) {
                 this.toggle(e);
+            }
+        },
+
+        checkMouseOver(e) {
+            if (this.togglerExists(e) && this.displayAction === popoverDisplayAction.mouseover) {
+                this.setVisible(true);
+            }
+        },
+
+        checkMouseOut(e) {
+            if (this.togglerExists(e) && this.displayAction === popoverDisplayAction.mouseover) {
+                this.setVisible(false);
             }
         },
 
@@ -192,7 +165,7 @@ export default Vue.extend({
             });
         }
     }
-});
+};
 </script>
 
 
@@ -200,6 +173,8 @@ export default Vue.extend({
     <div
         v-click-outside="onClickOutside"
         @click="checkClick($event)"
+        @mouseover="checkMouseOver($event)"
+        @mouseout="checkMouseOut($event)"
         class="relative inline-flex">
         <div class="leading-none"><slot name="toggler" :aria-attrs="ariaAttrs"></slot></div>
 
