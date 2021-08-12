@@ -5,8 +5,8 @@ export const messageSizes = {
 };
 
 export const messageVariants = {
-    danger: 'danger',
     success: 'success',
+    error: 'error',
     info: 'info',
     warning: 'warning'
 };

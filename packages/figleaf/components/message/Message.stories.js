@@ -37,6 +37,6 @@ const Template = (args, { argTypes }) => ({
 export const Message = Template.bind({});
 Message.args = {
     size: messageSizes.md,
-    variant: messageVariants.plain
+    variant: messageVariants.success
 };
 

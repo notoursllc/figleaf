@@ -49,7 +49,7 @@ export default {
 
         iconName() {
             switch(this.variant) {
-                case messageVariants.danger:
+                case messageVariants.error:
                     return 'circle-x';
 
                 case messageVariants.info:
@@ -79,7 +79,7 @@ export default {
 
         iconStrokeColor() {
             switch(this.variant) {
-                case 'danger':
+                case 'error':
                     return '#73000c';
 
                 case 'info':
@@ -165,7 +165,7 @@ export default {
     @apply py-4 px-3;
 }
 
-.fig-message-danger {
+.fig-message-error {
     background: #FFCDD2;
     border: solid #e60017;
     border-width: 0 0 0 6px;
