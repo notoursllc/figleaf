@@ -49,6 +49,9 @@ export { default as FigSpec } from './layouts/spec/Spec';
 export { default as FigLabelValueGroup } from './components/labelValueGroup/LabelValueGroup';
 export { default as FigLabelValue } from './components/labelValueGroup/LabelValue';
 
+// message
+export { default as FigMessage } from './components/message/Message';
+
 // modal
 export { default as FigModal } from './components/modal/Modal';
 
