@@ -10,6 +10,15 @@ export default {
         }
     },
 
+    props: {
+        valueClasses: {
+            type: Array,
+            default: () => {
+                return [];
+            }
+        }
+    },
+
     computed: {
         containerClasses() {
             const classNames = [
@@ -98,7 +107,7 @@ export default {
         },
 
         spanClasses() {
-            let classNames = [].concat(this.blockClasses);
+            let classNames = this.valueClasses.concat(this.blockClasses);
 
             if(!this.display.block) {
                 classNames = classNames.concat(this.tableCellClasses);
