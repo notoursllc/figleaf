@@ -51,7 +51,7 @@ export default Vue.extend({
                 class="payment-chooser-button"
                 :class="{'selected': selectedType === 'cc'}"
                 @click="onClickType('cc')">
-                <div class="flex-grow whitespace-nowrap">
+                <div class="flex-grow whitespace-no-wrap">
                     <fig-icon
                         icon="credit-card"
                         :stroke-width="1.5"
@@ -73,7 +73,7 @@ export default Vue.extend({
                 class="payment-chooser-button"
                 :class="{'selected': selectedType === 'paypal'}"
                 @click="onClickType('paypal')">
-                <div class="flex-grow whitespace-nowrap">
+                <div class="flex-grow whitespace-no-wrap">
                     <fig-icon
                         icon="brand-paypal"
                         :stroke-width="1.5"
@@ -98,7 +98,7 @@ export default Vue.extend({
     @apply flex items-center border border-gray-300 rounded py-3 px-4 w-full cursor-pointer;
 }
 .payment-chooser-button:hover {
-    @apply bg-blue-50;
+    @apply bg-blue-100;
 }
 .payment-chooser-button .fig-icon-check-circle {
     visibility: hidden;

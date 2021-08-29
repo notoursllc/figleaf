@@ -30,7 +30,7 @@ export default {
 
 <template>
     <transition name="slide">
-        <aside v-if="opened" class="fig-slideover">
+        <aside v-if="opened" class="fig-slideover sm:w-64">
             <div v-if="closable" class="p-5 flex justify-end">
                 <fig-button
                     variant="naked"
@@ -59,7 +59,7 @@ export default {
 
 <style scoped>
 .fig-slideover {
-    @apply fixed flex flex-col w-full sm:w-64 h-full m-0 left-0 top-0 overflow-y-auto;
+    @apply fixed flex flex-col w-full h-full m-0 left-0 top-0 overflow-y-auto;
     z-index: 999;
 }
 

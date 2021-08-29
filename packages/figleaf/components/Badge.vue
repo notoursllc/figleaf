@@ -93,7 +93,7 @@ export default Vue.extend({
 
 <style scoped>
 .fig-badge {
-    @apply rounded-full flex items-center justify-center font-semibold whitespace-nowrap absolute tracking-normal px-1 py-0;
+    @apply rounded-full flex items-center justify-center font-semibold whitespace-no-wrap absolute tracking-normal px-1 py-0;
 }
 .fig-badge-sm {
     @apply text-sm leading-5 h-5;
