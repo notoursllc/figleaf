@@ -17,7 +17,7 @@ export default Vue.extend({
     },
 
     data: () => ({
-        endCapBaseClasses: 'flex items-center leading-normal border-t border-b bg-gray-200 border-gray-300 px-1 whitespace-no-wrap text-grey-dark text-sm'
+        endCapBaseClasses: 'flex items-center leading-normal border-t border-b bg-gray-200 border-gray-300 px-1 whitespace-nowrap text-grey-dark text-sm'
     }),
 
     methods: {
