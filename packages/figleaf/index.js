@@ -36,9 +36,6 @@ export { default as FigIconSprite } from './components/icon/FigIconSprite';
 export { default as FigVictoryIcon } from './components/icon/VictoryIcon';
 export { default as FigCreditCardIcon } from './components/icon/creditCard/CreditCard';
 
-// json tree view
-export { default as FigJsonTreeView } from './components/jsonTreeView/JsonTreeView';
-
 // layouts
 export { default as FigCartCtaLayout } from './layouts/cartCta/CartCtaLayout';
 export { default as FigProductDetailsLayout } from './layouts/productDetailsLayout/ProductDetailsLayout';
