@@ -50,10 +50,16 @@ export default {
     max-width: 1586px;
     margin: 0 auto;
 }
-.fig-content-xl {
-    max-width: 1586px;
+.fig-content-sm {
+    max-width: 640px;
+}
+.fig-content-md {
+    max-width: 768px;
 }
 .fig-content-lg {
     max-width: 1025px;
+}
+.fig-content-xl {
+    max-width: 1586px;
 }
 </style>

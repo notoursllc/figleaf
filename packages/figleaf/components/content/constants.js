@@ -1,4 +1,6 @@
 export const contentSizes = {
     xl: 'xl',
-    lg: 'lg'
+    lg: 'lg',
+    md: 'md',
+    sm: 'sm'
 };
