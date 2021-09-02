@@ -41,7 +41,7 @@ const Template = (args, { argTypes }) => ({
                 value 1
             </fig-label-value>
 
-            <fig-label-value>
+            <fig-label-value required>
                 <template v-slot:label>label 2:</template>
                 value 2
             </fig-label-value>
@@ -49,6 +49,7 @@ const Template = (args, { argTypes }) => ({
             <fig-label-value>
                 <template v-slot:label>label 3:</template>
                 value 3
+                <template v-slot:error>Error message goes here</template>
             </fig-label-value>
         </fig-label-value-group>
     `

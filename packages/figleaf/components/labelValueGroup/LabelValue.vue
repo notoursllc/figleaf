@@ -16,6 +16,11 @@ export default {
             default: () => {
                 return [];
             }
+        },
+
+        required: {
+            type: Boolean,
+            default: false
         }
     },
 
@@ -122,7 +127,10 @@ export default {
 
 <template>
     <div :class="containerClasses">
-        <span v-if="$slots.label" :class="labelClasses"><slot name="label" /></span>
-        <span :class="spanClasses"><slot /></span>
+        <span v-if="$slots.label" :class="labelClasses"><slot name="label" /><span v-if="required" class="text-red-700">*</span></span>
+        <span :class="spanClasses">
+            <div><slot /></div>
+            <div v-if="$slots.error" class="text-red-600 text-sm"><slot name="error" /></div>
+        </span>
     </div>
 </template>
