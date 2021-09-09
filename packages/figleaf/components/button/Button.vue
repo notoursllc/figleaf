@@ -229,7 +229,7 @@ export default Vue.extend({
     <button
         v-on="$listeners"
         :type="type"
-        class="fig-button rounded font-medium flex items-center justify-center"
+        class="fig-button rounded font-medium"
         :class="classNames"
         tabindex="0"
         :disabled="disabled"
@@ -239,7 +239,7 @@ export default Vue.extend({
             :color="iconStrokeColor"
             :stroke-width="spinnerStrokeWidth"
             :width="spinnerWidth" />
-        <template v-else>
+        <div v-else class="flex items-center justify-center">
             <template v-if="hasIcon">
                 <slot name="icon">
                     <fig-icon
@@ -251,6 +251,6 @@ export default Vue.extend({
                 </slot>
             </template>
             <div :class="{'pl-1': hasIcon && $slots.default}"><slot></slot></div>
-        </template>
+        </div>
     </button>
 </template>
