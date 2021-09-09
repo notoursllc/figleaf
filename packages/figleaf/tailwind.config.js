@@ -1,4 +1,5 @@
 const { getWhiteListClasses } = require('./components/grid/gridConfig');
+const { get_label_value_group_css_safelist } = require('./components/labelValueGroup/constants.js');
 
 module.exports = {
     future: {
@@ -7,18 +8,12 @@ module.exports = {
     },
     purge: {
         enabled: process.env.NODE_ENV === 'production',
-        content: [
-            'components/**/*.vue'
-            // 'layouts/**/*.vue',
-            // 'pages/**/*.vue',
-            // 'plugins/**/*.js',
-            // 'nuxt.config.js'
-            // TypeScript
-            // 'plugins/**/*.ts',
-            // 'nuxt.config.ts'
-        ],
+        content: [],
         options: {
-            whitelist: getWhiteListClasses()
+            safelist: [
+                ...getWhiteListClasses(),
+                ...get_label_value_group_css_safelist()
+            ]
         }
     },
     theme: {

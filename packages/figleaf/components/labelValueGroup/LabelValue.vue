@@ -1,5 +1,5 @@
 <script>
-import { labelValueGroupDensity } from './constants.js';
+import { labelValueGroupDensity, labelValueClassNames_tablecell, labelValueClassNames_pr } from './constants.js';
 
 export default {
     name: 'LabelValue',
@@ -62,7 +62,11 @@ export default {
             else if(this.display.breakpoint) {
                 classNames.push(
                     'block',
-                    `${this.display.breakpoint}:table-cell`
+
+                    // NOTE: doing it this way so that a static list of class
+                    // names can be set in constants.js, so those class names
+                    // can be added to the 'safelist' config prop in tailwind.config.js
+                    labelValueClassNames_tablecell[this.display.breakpoint]
                 );
             }
             else {
@@ -104,7 +108,7 @@ export default {
 
             if(this.display.breakpoint) {
                 classNames.push(
-                    `${this.display.breakpoint}:pr-3`
+                    labelValueClassNames_pr[this.display.breakpoint]
                 );
             }
 
