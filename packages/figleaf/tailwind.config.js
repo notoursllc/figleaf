@@ -1,5 +1,4 @@
 const { getWhiteListClasses } = require('./components/grid/gridConfig');
-const { get_label_value_group_css_safelist } = require('./components/labelValueGroup/constants.js');
 
 module.exports = {
     future: {
@@ -11,8 +10,7 @@ module.exports = {
         content: [],
         options: {
             safelist: [
-                ...getWhiteListClasses(),
-                ...get_label_value_group_css_safelist()
+                ...getWhiteListClasses()
             ]
         }
     },

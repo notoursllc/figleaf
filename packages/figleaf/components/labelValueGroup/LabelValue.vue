@@ -1,5 +1,5 @@
 <script>
-import { labelValueGroupDensity, labelValueClassNames_tablecell, labelValueClassNames_pr } from './constants.js';
+import { labelValueGroupDensity, labelValueGroupBreakpoints } from './constants.js';
 
 export default {
     name: 'LabelValue',
@@ -60,14 +60,31 @@ export default {
                 classNames.push('block');
             }
             else if(this.display.breakpoint) {
-                classNames.push(
-                    'block',
+                classNames.push('block');
 
-                    // NOTE: doing it this way so that a static list of class
-                    // names can be set in constants.js, so those class names
-                    // can be added to the 'safelist' config prop in tailwind.config.js
-                    labelValueClassNames_tablecell[this.display.breakpoint]
-                );
+                // NOTE: a much cleaner approach would be to simply concatenate the
+                // breakpoint to create the tailwind class, like this:
+                // `${this.display.breakpoint}:table-cell`
+                // However doing so would prevent PurgeCSS from finding the full class name
+                // which may result from them being removed.
+                // So unfortunately I gotta put in a switch statement
+                switch(this.display.breakpoint) {
+                    case labelValueGroupBreakpoints.sm:
+                        classNames.push('sm:table-cell');
+                        break;
+
+                    case labelValueGroupBreakpoints.md:
+                        classNames.push('md:table-cell');
+                        break;
+
+                    case labelValueGroupBreakpoints.lg:
+                        classNames.push('lg:table-cell');
+                        break;
+
+                    case labelValueGroupBreakpoints.xl:
+                        classNames.push('xl:table-cell');
+                        break;
+                }
             }
             else {
                 classNames.push('table-cell');
@@ -102,14 +119,8 @@ export default {
         labelClasses() {
             const classNames = [].concat(this.blockClasses);
 
-            if(!this.display.block && !this.display.breakpoint) {
+            if(!this.display.block) {
                 classNames.push('pr-2');
-            }
-
-            if(this.display.breakpoint) {
-                classNames.push(
-                    labelValueClassNames_pr[this.display.breakpoint]
-                );
             }
 
             return classNames;
