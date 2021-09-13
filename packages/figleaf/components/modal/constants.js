@@ -2,5 +2,6 @@ export const modalSizes = {
     sm: 'sm',
     md: 'md',
     lg: 'lg',
-    xl: 'xl'
+    xl: 'xl',
+    full: 'full'
 };

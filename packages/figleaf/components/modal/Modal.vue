@@ -44,6 +44,9 @@ export default Vue.extend({
                 case 'xl':
                     return 'max-w-6xl';
 
+                case 'full':
+                    return  'width_98';
+
                 default:
                     return 'max-w-lg';
             }
@@ -122,3 +125,10 @@ export default Vue.extend({
         <div v-if="visible" class="opacity-25 fixed top-0 left-0 z-40 bg-black h-screen w-screen"></div>
     </div>
 </template>
+
+
+<style scoped>
+.width_98 {
+    width: 98%;
+}
+</style>
