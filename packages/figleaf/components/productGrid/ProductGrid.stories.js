@@ -17,7 +17,7 @@ const Template = (args, { argTypes }) => ({
     template: `
         <fig-product-grid v-bind="$props">
             <template v-slot:default="slotProps">
-                <div style="border:1px solid red; padding: 20px">{{ slotProps.product }}</div>
+                <div style="border:1px solid red; padding: 20px">{{ slotProps.data }}</div>
             </template>
         </fig-product-grid>
     `
