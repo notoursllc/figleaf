@@ -106,7 +106,7 @@ export default {
                                     :height="22" />
                             </div>
 
-                            <div class="pr-1 text-xl">{{ $t('Checkout') }}</div>
+                            <div class="pr-1 text-lg lg:text-xl">{{ $t('Checkout') }}</div>
 
                             <fig-popover
                                 placement="top"
@@ -115,7 +115,7 @@ export default {
 
                                 <div
                                     slot="toggler"
-                                    class="whitespace-nowrap text-xl cursor-pointer">(<a class="text-blue-500">{{ numCartItems }}&nbsp;{{ $tc('item_items', numCartItems) }}</a>)</div>
+                                    class="whitespace-nowrap text-lg lg:text-xl cursor-pointer">(<a class="text-blue-500">{{ numCartItems }}&nbsp;{{ $tc('item_items', numCartItems) }}</a>)</div>
 
                                 <div class="p-2 text-center">{{ $t('Return to your Shopping Cart?') }}</div>
 
