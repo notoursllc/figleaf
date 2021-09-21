@@ -12,3 +12,8 @@ export const tooltipPlacements = {
     'left-start': 'left-start',
     'left-end': 'left-end'
 };
+
+export const tooltipTriggers = {
+    hover: 'hover',
+    click: 'click'
+}

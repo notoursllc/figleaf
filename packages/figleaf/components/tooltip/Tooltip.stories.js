@@ -1,5 +1,5 @@
 import FigTooltip from './Tooltip';
-import { tooltipPlacements } from './constants';
+import { tooltipPlacements, tooltipTriggers } from './constants';
 
 export default {
     title: 'Components/Tooltip',
@@ -11,6 +11,17 @@ export default {
             control: {
                 type: 'select',
                 options: Object.keys(tooltipPlacements)
+            }
+        },
+
+        triggers: {
+            control: {
+                type: 'select',
+                options: [
+                    tooltipTriggers.hover,
+                    tooltipTriggers.click,
+                    [tooltipTriggers.hover, tooltipTriggers.click]
+                ]
             }
         }
     }

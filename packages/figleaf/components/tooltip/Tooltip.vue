@@ -1,9 +1,9 @@
 <script>
-import Vue from 'vue';
 import { createPopper } from '@popperjs/core';
-import { tooltipPlacements } from './constants';
+import { tooltipPlacements, tooltipTriggers } from './constants';
+import { isString } from '../utils/common.js';
 
-export default Vue.extend({
+export default {
     name: 'Tooltip',
 
     props: {
@@ -11,6 +11,20 @@ export default Vue.extend({
             type: String,
             default: tooltipPlacements['bottom-start'],
             validator: (value) => Object.keys(tooltipPlacements).includes(value)
+        },
+
+        triggers: {
+            type: [String, Array],
+            default: Object.keys(tooltipTriggers),
+            validator: (value) => {
+                const placements = Object.keys(tooltipPlacements);
+
+                if(isString(value)) {
+                    return placements.includes(value)
+                }
+
+                return placements.some(key => value.includes(key))
+            }
         },
 
         show: {
@@ -109,8 +123,18 @@ export default Vue.extend({
     },
 
     methods: {
+        isValidTrigger(type) {
+            return Array.isArray(this.triggers) ? this.triggers.includes(type) : this.triggers === type;
+        },
+
         checkHover(e) {
-            if (this.$scopedSlots.toggler) {
+            if (this.$scopedSlots.toggler && this.isValidTrigger(tooltipTriggers.hover)) {
+                this.toggle(e);
+            }
+        },
+
+        checkClick(e) {
+            if (this.$scopedSlots.toggler && this.isValidTrigger(tooltipTriggers.click)) {
                 this.toggle(e);
             }
         },
@@ -157,7 +181,7 @@ export default Vue.extend({
             );
         }
     }
-});
+};
 </script>
 
 
@@ -165,7 +189,8 @@ export default Vue.extend({
     <div
         class="relative inline-flex"
         @mouseenter="checkHover($event)"
-        @mouseleave="checkHover($event)">
+        @mouseleave="checkHover($event)"
+        @click="checkClick($event)">
         <div class="leading-none"><slot name="toggler" :aria-attrs="ariaAttrs"></slot></div>
         <div
             ref="tooltipRef"
