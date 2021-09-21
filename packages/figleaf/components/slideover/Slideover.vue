@@ -44,7 +44,7 @@ export default {
                 </fig-button>
             </div>
 
-            <div class="flex flex-grow md:block md:overflow-y-auto">
+            <div class="flex flex-grow w-full md:overflow-y-auto">
                 <slot />
             </div>
 
