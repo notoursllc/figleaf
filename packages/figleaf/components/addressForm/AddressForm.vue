@@ -289,22 +289,7 @@ export default {
             </div>
         </div>
 
-        <div :class="rowClasses">
-            <!-- city -->
-            <div :class="threeColCellClasses">
-                <fig-form-group>
-                    <fig-form-text
-                        v-model.trim="value.city"
-                        :size="inputSize"
-                        @input="(val) => touchV('city', val)"
-                        :state="inputState('city')">
-                        <template slot="label">{{ $t('City') }}</template>
-                    </fig-form-text>
-
-                    <div slot="error" v-show="canShowValidationMsg('city')">{{ $t('Required') }}</div>
-                </fig-form-group>
-            </div>
-
+        <div :class="rowClasses" v-cloak v-show="value.countryCodeAlpha2 && !canShowValidationMsg('countryCodeAlpha2')">
             <!-- state -->
             <div :class="threeColCellClasses">
                 <fig-form-group>
@@ -319,6 +304,21 @@ export default {
                         :state="value.countryCodeAlpha2 && inputState('state')" />
 
                     <div slot="error" v-show="value.countryCodeAlpha2 && canShowValidationMsg('state')">{{ $t('Required') }}</div>
+                </fig-form-group>
+            </div>
+
+            <!-- city -->
+            <div :class="threeColCellClasses">
+                <fig-form-group>
+                    <fig-form-text
+                        v-model.trim="value.city"
+                        :size="inputSize"
+                        @input="(val) => touchV('city', val)"
+                        :state="inputState('city')">
+                        <template slot="label">{{ $t('City') }}</template>
+                    </fig-form-text>
+
+                    <div slot="error" v-show="canShowValidationMsg('city')">{{ $t('Required') }}</div>
                 </fig-form-group>
             </div>
 
@@ -344,6 +344,7 @@ export default {
                 <fig-form-group>
                     <fig-form-text
                         v-model.trim="value.email"
+                        type="email"
                         :size="inputSize"
                         @input="(val) => touchV('email', val)"
                         :state="inputState('email')">
