@@ -3,6 +3,8 @@ import { createPopper } from '@popperjs/core';
 import { tooltipPlacements, tooltipTriggers } from './constants';
 import { isString } from '../utils/common.js';
 
+const triggerKeys = Object.keys(tooltipTriggers);
+
 export default {
     name: 'Tooltip',
 
@@ -15,15 +17,15 @@ export default {
 
         triggers: {
             type: [String, Array],
-            default: Object.keys(tooltipTriggers),
+            default: () => {
+                return triggerKeys;
+            },
             validator: (value) => {
-                const placements = Object.keys(tooltipPlacements);
-
                 if(isString(value)) {
-                    return placements.includes(value)
+                    return triggerKeys.includes(value);
                 }
 
-                return placements.some(key => value.includes(key))
+                return triggerKeys.some(key => value.includes(key));
             }
         },
 
