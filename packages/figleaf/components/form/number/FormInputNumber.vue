@@ -1,5 +1,5 @@
 <script>
-import FormText from './text/FormText';
+import FormText from '../text/FormText';
 
 export default {
     name: 'FormInputNumber',
