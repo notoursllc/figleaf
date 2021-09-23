@@ -15,9 +15,11 @@ export default Vue.extend({
         uncheckedValue: {}
     },
 
-    data: () => ({
-        isChecked: null
-    }),
+    data() {
+        return {
+            isChecked: null
+        }
+    },
 
     computed: {
         checkedValueSet() {
@@ -47,16 +49,22 @@ export default Vue.extend({
     },
 
     methods: {
-        emitInput(val) {
+        onChange(e) {
+            this.isChecked = e.target.checked;
+
             if(this.isChecked && this.checkedValueSet) {
-                this.$emit('input', this.checkedValue);
+                this.emitInput(this.checkedValue);
             }
             else if(!this.isChecked && this.uncheckedValueSet) {
-                this.$emit('input', this.uncheckedValue);
+                this.emitInput(this.uncheckedValue);
             }
             else {
-                this.$emit('input', this.isChecked);
+                this.emitInput(this.isChecked);
             }
+        },
+
+        emitInput(val) {
+            this.$emit('input', val);
         }
     }
 });
@@ -69,7 +77,7 @@ export default Vue.extend({
             type="checkbox"
             class="form-checkbox fig-form-control"
             v-bind="$attrs"
-            @change="emitInput"
+            @change="onChange"
             v-model="isChecked">
         <span class="ml-2" v-if="$slots.default"><slot></slot></span>
     </label>
