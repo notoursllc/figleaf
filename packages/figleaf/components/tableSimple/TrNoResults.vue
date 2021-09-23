@@ -1,7 +1,5 @@
 <script>
-import Vue from 'vue';
-
-export default Vue.extend({
+export default {
     name: 'TrNoResults',
 
     props: {
@@ -10,7 +8,7 @@ export default Vue.extend({
             default: 1
         }
     }
-});
+};
 </script>
 
 
