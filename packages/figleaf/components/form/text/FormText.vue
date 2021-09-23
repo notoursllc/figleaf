@@ -101,7 +101,7 @@ export default Vue.extend({
 
 
 <template>
-    <div class="relative">
+    <div class="relative w-full">
         <input
             :type="type"
             v-model="selectedValue"
