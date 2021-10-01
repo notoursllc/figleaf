@@ -103,8 +103,6 @@ export default Vue.extend({
 
     methods: {
         onClick(e) {
-            e.preventDefault();
-
             if(this.sortable) {
                 const isAsc = this.tableState.sort.by === this.prop ? !this.tableState.sort.isAsc : false;
                 this.tableState.sort.by = this.prop;
@@ -120,12 +118,12 @@ export default Vue.extend({
     <th
         class="fig-table-th"
         :class="classNames"
-        @click="onClick"
         v-bind="$attrs">
         <div :class="containerClasses">
             <div :class="labelClasses"><slot></slot></div>
             <div
                 v-if="sortable"
+                @click="onClick"
                 class="fig-table-th-arrow"
                 :class="arrowClasses">
                 <fig-icon

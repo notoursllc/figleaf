@@ -1,8 +1,7 @@
 <script>
-import Vue from 'vue';
 import form_input_mixin from '../form_input_mixin';
 
-export default Vue.extend({
+export default {
     name: 'FormCheckbox',
 
     mixins: [
@@ -67,7 +66,7 @@ export default Vue.extend({
             this.$emit('input', val);
         }
     }
-});
+};
 </script>
 
 
