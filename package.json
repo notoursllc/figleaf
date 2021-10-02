@@ -11,6 +11,7 @@
   },
   "main": "index.js",
   "dependencies": {
+    "@vue/composition-api": "^1.2.2",
     "autoprefixer": "^10.2.5",
     "core-js": "^3.6.5",
     "postcss": "^8.2.9",
