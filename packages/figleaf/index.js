@@ -100,6 +100,7 @@ export { default as FigBooleanTag } from './components/tag/BooleanTag.vue';
 export { default as FigTableSimple } from './components/tableSimple/TableSimple.vue';
 export { default as FigTd } from './components/tableSimple/Td.vue';
 export { default as FigTh } from './components/tableSimple/Th.vue';
+export { default as FigTr } from './components/tableSimple/Tr.vue';
 export { default as FigTrNoResults } from './components/tableSimple/TrNoResults.vue';
 
 // texas toast
