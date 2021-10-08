@@ -50,6 +50,12 @@ const Template = (args, { argTypes }) => ({
 
             <div class="mt-6" >
                 <div v-for="(item, idx) in sampleData" :key="idx">
+                    <fig-form-checkbox
+                        inline
+                        @input="(isChecked) => slotProps.toggleOne(item, isChecked)"
+                        :value="slotProps.selectedItems.has(item)">{{ item }} {{ slotProps.selectedItems.has(item) }}</fig-form-checkbox>
+
+                    <!--
                     <label>
                         <input
                             type="checkbox"
@@ -58,12 +64,6 @@ const Template = (args, { argTypes }) => ({
                             :checked="slotProps.selectedItems.has(item)">
                         {{ item }}
                     </label>
-
-                    <!--
-                    <fig-form-checkbox
-                        inline
-                        :checked="slotProps.selectedItems.has(item)"
-                        @input="(isChecked) => slotProps.toggleOne(item, isChecked)">{{ item }} {{ slotProps.selectedItems.has(item) }}</fig-form-checkbox>
                     -->
                 </div>
             </div>

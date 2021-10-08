@@ -44,7 +44,6 @@ export default {
         },
 
         emitChanged() {
-            // this.$emit('changed', [...this.selectedItems])
             this.$emit('changed', this.selectedItems)
         },
 
@@ -90,9 +89,6 @@ export default {
             else {
                 this.clear();
             }
-
-            this.mirrorSelectedItems();
-            this.emitChanged();
         }
     }
 }
