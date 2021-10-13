@@ -108,6 +108,7 @@ export default {
         :max="max"
         :step="step"
         :size="size"
+        v-bind="$attrs"
         @input="emitInput" />
 </template>
 

@@ -1,12 +1,13 @@
-import FigFormInputMoney from './FormInputMoney.vue';
+import FigFormInputNumber from './FormInputNumber.vue';
+
 import {
     formInputSizes
 } from '../inputConstants.js';
 
 export default {
-    title: 'Components/Form/Money',
+    title: 'Components/Form/Number',
 
-    component: FigFormInputMoney,
+    component: FigFormInputNumber,
 
     argTypes: {
         size: {
@@ -22,16 +23,14 @@ export default {
 const Template = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     components: {
-        FigFormInputMoney
+        FigFormInputNumber
     },
-    template: '<fig-form-input-money v-bind="$props" />'
+    template: '<fig-form-input-number v-bind="$props" />'
 });
 
-export const Money = Template.bind({});
-Money.args = {
-    size: formInputSizes.md,
-    min: 0,
-    max: 10
+export const TextInput = Template.bind({});
+TextInput.args = {
+    size: formInputSizes.md
     // state: null
 };
 

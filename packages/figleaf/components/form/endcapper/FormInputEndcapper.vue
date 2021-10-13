@@ -39,7 +39,7 @@ export default Vue.extend({
         <component
             v-if="$slots.prefix"
             :is="prefixAs"
-            class="-mr-px rounded-l-md rounded-r-none border-l"
+            class="input-group-addon rounded-l-sm rounded-r-none border-l"
             :class="endCapBaseClasses"
             @click="onPrefixClick"><slot name="prefix"></slot></component>
 
@@ -50,8 +50,14 @@ export default Vue.extend({
         <component
             v-if="$slots.suffix"
             :is="suffixAs"
-            class="-mr-px rounded-r-md rounded-l-none border-r"
+            class="input-group-addon rounded-r-sm rounded-l-none border-r"
             :class="endCapBaseClasses"
             @click="onSuffixClick"><slot name="suffix"></slot></component>
     </div>
 </template>
+
+<style scoped>
+.input-group-addon {
+    @apply flex items-center justify-center -mr-px border-t border-b bg-gray-200 border-gray-300 px-1 whitespace-nowrap text-gray-600 text-sm leading-normal min-w-min;
+}
+</style>

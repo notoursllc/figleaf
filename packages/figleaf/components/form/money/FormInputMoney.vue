@@ -2,10 +2,8 @@
 import accounting from 'accounting';
 // import { CurrencyDirective } from 'vue-currency-input';
 import form_input_mixin from '../form_input_mixin';
-import FormInputNumber from '../FormInputNumber';
-import FormInputEndcapper from '../FormInputEndcapper';
-
-
+import FormInputNumber from '../number/FormInputNumber.vue';
+import FormInputEndcapper from '../endcapper/FormInputEndcapper.vue';
 
 export default {
     components: {
@@ -88,13 +86,14 @@ export default {
 
 <template>
     <form-input-endcapper>
-        <template slot="prefix">$</template>
+        <template v-slot:prefix>$</template>
         <form-input-number
             v-model="selectedPrice"
             @input="emitInput"
             :size="size"
             :min="0"
             :step=".01"
+            v-bind="$attrs"
             input-classes="fig-input-money" />
     </form-input-endcapper>
 </template>

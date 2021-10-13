@@ -106,7 +106,6 @@ export default Vue.extend({
             :type="type"
             v-model="selectedValue"
             @input="emitInput"
-            class="form-input w-full"
             :class="classNames"
             :disabled="disabled"
             :readonly="readonly"

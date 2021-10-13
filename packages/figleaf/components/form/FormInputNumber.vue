@@ -4,7 +4,7 @@ import isFinite from 'lodash.isfinite';
 import { isNumber } from '../utils/common';
 import FormText from './text/FormText';
 import FigButton from '../button/Button';
-import FormInputEndcapper from './FormInputEndcapper';
+import FormInputEndcapper from './endcapper/FormInputEndcapper';
 
 
 export default Vue.extend({
