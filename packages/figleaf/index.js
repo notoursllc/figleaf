@@ -68,6 +68,9 @@ export { default as FigPaginator } from './components/pagination/paginator/Pagin
 // payment type chooser
 export { default as FigPaymentTypeChooser } from './components/paymentTypeChooser/PaymentTypeChooser.vue';
 
+// percentage
+export { default as FigPercentage } from './components/percentage/Percentage.vue';
+
 // product grid
 export { default as FigProductGrid } from './components/productGrid/ProductGrid.vue';
 
