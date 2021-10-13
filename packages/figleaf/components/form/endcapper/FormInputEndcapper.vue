@@ -34,7 +34,7 @@ export default Vue.extend({
 
 
 <template>
-    <div class="flex flex-no-wrap items-stretch relative">
+    <div class="flex flex-no-wrap items-stretch relative w-full">
         <!-- prefix -->
         <component
             v-if="$slots.prefix"
