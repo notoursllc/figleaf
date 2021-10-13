@@ -118,7 +118,7 @@ export { default as FigFormCheckbox } from './components/form/checkbox/FormCheck
 export { default as FigFormGroup } from './components/form/group/FormGroup.vue';
 export { default as FigFormInput } from './components/form/text/FormText.vue';
 export { default as FigFormInputDate } from './components/form/FormInputDate.vue';
-export { default as FigFormInputEndcapper } from './components/form/FormInputEndcapper.vue';
+export { default as FigFormInputEndcapper } from './components/form/endcapper/FormInputEndcapper.vue';
 export { default as FigFormInputFileButton } from './components/form/FormInputFileButton.vue';
 export { default as FigFormInputMoney } from './components/form/money/FormInputMoney.vue';
 export { default as FigFormInputNumber } from './components/form/number/FormInputNumber.vue';
