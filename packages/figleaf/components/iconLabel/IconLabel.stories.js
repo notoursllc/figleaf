@@ -29,7 +29,7 @@ const Template = (args, { argTypes }) => ({
                 width="18"
                 height="18" />
             Icon on the left
-        </fig-button>`
+        </fig-icon-label>`
 });
 
 export const LeftIcon = Template.bind({});
@@ -54,7 +54,7 @@ const Template2 = (args, { argTypes }) => ({
                 width="18"
                 height="18" />
             Icon on the right
-        </fig-button>`
+        </fig-icon-label>`
 });
 
 export const RightIcon = Template2.bind({});
