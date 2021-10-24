@@ -12,6 +12,7 @@
         "lodash.debounce": "^4.0.8",
         "lodash.isfinite": "^3.3.2",
         "lodash.isobject": "^3.0.2",
+        "query-string": "^7.0.1",
         "svg-inline-loader": "^0.8.2",
         "tailwindcss": "^2.2.8",
         "uuid": "^8.3.2",
