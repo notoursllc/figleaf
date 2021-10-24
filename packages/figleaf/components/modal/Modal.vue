@@ -93,8 +93,8 @@ export default Vue.extend({
                 <!--header-->
                 <div
                     v-if="$slots.header || closeButton"
-                    class="flex items-center justify-between py-2 px-5 border-b border-solid border-gray-300 rounded-t-md">
-                    <div class="text-lg font-semibold break-words">
+                    class="flex items-center justify-between py-2 px-5 border-b border-solid border-gray-300 rounded-t-sm">
+                    <div class="text-md font-semibold break-words">
                         <slot name="header"></slot>
                     </div>
 
@@ -114,7 +114,7 @@ export default Vue.extend({
                 <!--footer-->
                 <div
                     v-if="$slots.footer"
-                    class="flex items-center py-3 px-5 border-t border-solid border-gray-300 bg-gray-100 rounded-b-md">
+                    class="flex items-center py-3 px-5 border-t border-solid border-gray-300 bg-gray-100 rounded-b-sm">
                     <slot name="footer"></slot>
                 </div>
             </div>
