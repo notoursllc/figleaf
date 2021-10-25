@@ -9,6 +9,7 @@
         "@vue/composition-api": "^1.2.2",
         "accounting": "^0.4.1",
         "flatpickr": "^4.6.6",
+        "lodash.clonedeep": "^4.5.0",
         "lodash.debounce": "^4.0.8",
         "lodash.isfinite": "^3.3.2",
         "lodash.isobject": "^3.0.2",
