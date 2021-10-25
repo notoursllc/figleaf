@@ -138,4 +138,7 @@ export { default as FigSizeButtons } from './components/sizeButtons/SizeButtons.
 export { default as FigSelectCountry } from './components/selectCountry/SelectCountry.vue';
 export { default as FigSelectStateProvince } from './components/selectStateProvince/SelectStateProvince.vue';
 
+// vnodes
+export { default as FigVNodes } from './components/vNodes/VNodes.vue';
+
 export { default as BreadvanApi } from './api';
