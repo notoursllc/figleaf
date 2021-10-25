@@ -9,6 +9,7 @@ module.exports = {
     'Country': 'Country',
     'Credit card': 'Credit card',
 
+    'Delete this row?': 'Delete this row?',
     'Displaying {start} - {end}': 'Displaying {start} - {end}',
 
     'Email': 'Email',
@@ -23,6 +24,7 @@ module.exports = {
     'Last name': 'Last name',
 
     '{num} / page': '{num} / page',
+    'New item': 'New item',
 
     'OK': 'OK',
 
@@ -38,6 +40,8 @@ module.exports = {
     'Security code': 'Security code',
     'Sold out': 'Sold out',
     'State/Province/Region': 'State/Province/Region',
+
+    'Value': 'Value',
 
     'Yes, return to cart': 'Yes, return to cart',
 

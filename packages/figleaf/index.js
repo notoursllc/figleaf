@@ -55,6 +55,9 @@ export { default as FigMessage } from './components/message/Message.vue';
 // modal
 export { default as FigModal } from './components/modal/Modal.vue';
 
+// meta data builder
+export { default as FigMetaDataBuilder } from './components/metaDataBuilder/MetaDataBuilder.vue'
+
 // money
 export { default as FigMoney } from './components/money/Money.vue';
 

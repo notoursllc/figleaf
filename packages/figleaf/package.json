@@ -23,6 +23,7 @@
         "vue-flatpickr-component": "^8.1.6",
         "vue-headroom": "^0.10.1",
         "vue-select": "^3.10.8",
+        "vuedraggable": "^2.24.3",
         "vuelidate": "^0.7.6"
     },
     "gitHead": "cc4a2793979cad4e45ad56397b7a01e24b3650a9"
