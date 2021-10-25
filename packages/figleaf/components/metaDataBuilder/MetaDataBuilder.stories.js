@@ -36,7 +36,7 @@ const Template = (args, { argTypes }) => ({
     },
     template: `
         <div>
-            <fig-meta-data-builder v-bind="$props" @input="onInput" :value="values" />
+            <fig-meta-data-builder v-bind="$props" v-model="values" />
 
             <div class="mt-8">
                 value: {{ values }}
