@@ -89,30 +89,8 @@ export default ($axios) => {
             return api.$get(`/carts?${formatParams(params)}`) // TODO: is there a XSS issue here?
         },
 
-        order(id) {
-            return api.$get('/cart/order', { id })
-        },
-
-        purchaseShippingLabel(id) {
-            return api.$post('/cart/shipping/label', { id });
-        },
-
         update(data) {
             return api.$post('/cart/upsert', data)
-        },
-
-        refundCartItems(cart_items, refund_sales_tax) {
-            return api.$post('/cart/items/refund', {
-                cart_items,
-                refund_sales_tax
-            });
-        },
-
-        shipped(cartId, isShipped) {
-            return api.$post('/cart/shipped', {
-                id: cartId,
-                shipped: !!isShipped
-            });
         },
 
         item: {
@@ -126,14 +104,20 @@ export default ($axios) => {
 
             delete(params) {
                 return api.$delete('/cart/item', params);
-            }
+            },
+
+            // TODO: in progress
+            refundCartItems(cart_items, refund_sales_tax) {
+                return api.$post('/cart/items/refund', {
+                    cart_items,
+                    refund_sales_tax
+                });
+            },
         },
 
         order: {
             get(id) {
-                return api.$get('/cart/order', {
-                    id: id
-                })
+                return api.$get('/cart/order', { id })
             },
 
             resendConfirmationEmail(id) {
@@ -152,6 +136,10 @@ export default ($axios) => {
                 });
             },
 
+            purchaseLabel(id) {
+                return api.$post('/cart/shipping/label', { id });
+            },
+
             selectRate(cartId, rateId) {
                 return api.$post('/cart/shipping/rate', {
                     id: cartId,
@@ -159,11 +147,12 @@ export default ($axios) => {
                 });
             },
 
-            purchaseLabel(cartId) {
-                return api.$post('/cart/shipping/label', {
-                    id: cartId
+            isShipped(cartId, isShipped) {
+                return api.$post('/cart/shipped', {
+                    id: cartId,
+                    shipped: !!isShipped
                 });
-            },
+            }
         },
 
         payment: {
@@ -204,7 +193,7 @@ export default ($axios) => {
     };
 
 
-    api.masterTypes = {
+    api.masterType = {
         all(params) {
             return api.$get(`/master_types/all?${formatParams(params)}`); // TODO: is there a XSS issue here?
         },
@@ -265,7 +254,7 @@ export default ($axios) => {
     };
 
 
-    api.packageTypes = {
+    api.packageType = {
         stripRelations(data) {
             delete data.volume_cm;
         },
