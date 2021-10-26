@@ -93,6 +93,10 @@ export default ($axios) => {
             return api.$post('/cart/upsert', data)
         },
 
+        refund(data) {
+            return api.$post('/cart/refund', data);
+        },
+
         item: {
             add(data) {
                 return api.$post('/cart/item', data);
@@ -106,13 +110,7 @@ export default ($axios) => {
                 return api.$delete('/cart/item', params);
             },
 
-            // TODO: in progress
-            refundCartItems(cart_items, refund_sales_tax) {
-                return api.$post('/cart/items/refund', {
-                    cart_items,
-                    refund_sales_tax
-                });
-            },
+
         },
 
         order: {
