@@ -98,6 +98,10 @@ export { default as FigStockLevelWarning} from './components/stockLevelWarning/S
 // stripe
 export { default as FigStripeForm } from './components/stripeForm/StripeForm.vue';
 
+// tabs
+export { default as FigTabPanel } from './components/tabView/TabPanel.vue';
+export { default as FigTabView } from './components/tabView/TabView.vue';
+
 // tag
 export { default as FigTag } from './components/tag/Tag.vue';
 export { default as FigBooleanTag } from './components/tag/BooleanTag.vue';
