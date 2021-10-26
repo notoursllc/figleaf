@@ -1,7 +1,7 @@
 <script>
 import Vue from 'vue';
 import isFinite from 'lodash.isfinite';
-import { isNumber } from '../utils/common';
+import { isNumber } from '../../utils/common.js';
 import FormText from './text/FormText';
 import FigButton from '../button/Button';
 import FormInputEndcapper from './endcapper/FormInputEndcapper';

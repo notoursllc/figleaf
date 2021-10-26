@@ -1,7 +1,7 @@
 <script>
 import { createPopper } from '@popperjs/core';
 import { tooltipPlacements, tooltipTriggers } from './constants';
-import { isString } from '../utils/common.js';
+import { isString } from '../../utils/common.js';
 
 const triggerKeys = Object.keys(tooltipTriggers);
 
