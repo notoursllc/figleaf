@@ -42,7 +42,7 @@ export default {
         },
 
         disabledCssClass() {
-            return this.disabled ? 'bg-gray-100 text-gray-400' : 'bg-white';
+            return this.disabled ? 'bg-gray-100 fig-text-gray-disabled' : 'bg-white';
         },
 
         formInputMix_classNames() {

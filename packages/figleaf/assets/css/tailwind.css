@@ -59,6 +59,10 @@
     @apply border-red-500;
 }
 
+.fig-text-gray-disabled {
+    color: #838181;
+}
+
 [v-cloak] {
     display: none;
 }
