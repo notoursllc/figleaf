@@ -1,218 +1,112 @@
 <script>
-// This component was copied from: https://github.com/primefaces/primevue/blob/master/src/components/tabview/TabView.vue
+// This component was copied from: https://github.com/primefaces/primevue/blob/86360a6df10a8022fecfbf6e7445d0f8b11d8521/src/components/tabview/TabView.vue
 
 import DomHandler from '../../utils/dom.js';
 import VNodes from '../vNodes/VNodes.vue';
 import FigIcon from '../icon/FigIcon.vue';
 
 
-export default {
-    name: 'TabView',
-
-    components: {
-        VNodes,
-        FigIcon
-    },
-
-    emits: ['update:activeIndex', 'tab-change', 'tab-click'],
-
+const TabPanelHeaderSlot = {
+    functional: true,
     props: {
-        activeIndex: {
-            type: Number,
-            default: 0
-        },
-        lazy: {
-            type: Boolean,
-            default: false
-        },
-        scrollable: {
-            type: Boolean,
-            default: false
+        tab: {
+            type: null,
+            default: null
         }
     },
+    render(createElement, context) {
+        return [context.props.tab.$scopedSlots['header']()];
+    }
+};
 
+export default {
     data() {
         return {
-            d_activeIndex: this.activeIndex,
-            backwardIsDisabled: true,
-            forwardIsDisabled: false
-        }
-    },
-
-    watch: {
-        activeIndex(newValue) {
-            this.d_activeIndex = newValue;
-
-            this.updateScrollBar(newValue);
-        }
-    },
-
-    updated() {
-        this.updateInkBar();
+            d_children: []
+        };
     },
 
     mounted() {
+        this.d_children = this.$children;
+    },
+
+    updated() {
+        let activeTab = this.tabs[this.findActiveTabIndex()];
+        if (!activeTab && this.tabs.length) {
+            this.tabs[0].d_active = true;
+        }
         this.updateInkBar();
     },
 
     methods: {
-        onTabClick(event, i) {
-            if (!this.isTabDisabled(this.tabs[i]) && i !== this.d_activeIndex) {
-                this.d_activeIndex = i;
-                this.$emit('update:activeIndex', this.d_activeIndex);
-
+        onTabClick(event, tab) {
+            if (!tab.disabled && !tab.d_active) {
+                this.activateTab(tab);
                 this.$emit('tab-change', {
                     originalEvent: event,
-                    index: i
+                    tab: tab
                 });
-
-                this.updateScrollBar(i);
             }
-
-            this.$emit('tab-click', {
-                originalEvent: event,
-                index: i
-            });
         },
 
-        onTabKeydown(event, i) {
-            if (event.which === 13) {
-                this.onTabClick(event, i);
+        activateTab(tab) {
+            for (let i = 0; i < this.tabs.length; i++) {
+                let active = this.tabs[i] === tab;
+                this.tabs[i].d_active = active;
+                this.tabs[i].$emit('update:active', active);
             }
+            this.updateInkBar();
+        },
+
+        onTabKeydown(event, tab) {
+            if (event.which === 13) {
+                this.onTabClick(event, tab);
+            }
+        },
+
+        findActiveTabIndex() {
+            for (let i = 0; i < this.tabs.length; i++) {
+                let tab = this.tabs[i];
+                if (tab.d_active) {
+                    return i;
+                }
+            }
+            return null;
         },
 
         updateInkBar() {
-            let tabHeader = this.$refs.nav.children[this.d_activeIndex];
+            let tabHeader = this.$refs.nav.children[this.findActiveTabIndex()];
             this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
             this.$refs.inkbar.style.left =  DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
-        },
-
-        updateScrollBar(index) {
-            let tabHeader = this.$refs.nav.children[index];
-            tabHeader.scrollIntoView({ block: 'nearest' })
-        },
-
-        updateButtonState() {
-            const content = this.$refs.content;
-            const { scrollLeft, scrollWidth } = content;
-            const width = DomHandler.getWidth(content);
-
-            this.backwardIsDisabled = scrollLeft === 0;
-            this.forwardIsDisabled = scrollLeft === scrollWidth - width;
-        },
-
-        getKey(tab, i) {
-            return (tab.props && tab.props.header) ? tab.props.header : i;
-        },
-
-        isTabDisabled(tab) {
-            return (tab.props && tab.props.disabled);
-        },
-
-        isTabPanel(child) {
-            // return child.type.name === 'TabPanel'
-            return child.tag && child.tag.includes('TabPanel')
-        },
-
-        onScroll(event) {
-            this.scrollable && this.updateButtonState();
-            event.preventDefault();
-        },
-
-        getVisibleButtonWidths() {
-            const { prevBtn, nextBtn } = this.$refs;
-
-            return [prevBtn, nextBtn].reduce((acc, el) => el ? acc + DomHandler.getWidth(el) : acc, 0);
-        },
-
-        navBackward() {
-            const content = this.$refs.content;
-            const width = DomHandler.getWidth(content) - this.getVisibleButtonWidths();
-            const pos = content.scrollLeft - width;
-            content.scrollLeft = pos <= 0 ? 0 : pos;
-        },
-
-        navForward() {
-            const content = this.$refs.content;
-            const width = DomHandler.getWidth(content) - this.getVisibleButtonWidths();
-            const pos = content.scrollLeft + width;
-            const lastPos = content.scrollWidth - width;
-
-            content.scrollLeft = pos >= lastPos ? lastPos : pos;
         }
     },
 
     computed: {
-        contentClasses() {
-			return ['p-tabview p-component', {'p-tabview-scrollable': this.scrollable}];
-		},
-
-        prevButtonClasses() {
-            return ['p-tabview-nav-prev p-tabview-nav-btn p-link']
-        },
-
-        nextButtonClasses() {
-            return ['p-tabview-nav-next p-tabview-nav-btn p-link']
-        },
-
         tabs() {
-            const tabs = []
-            this.$slots.default.forEach(child => {
-                if (this.isTabPanel(child)) {
-                    tabs.push(child);
-                }
-                else if (child.children && child.children instanceof Array) {
-                    child.children.forEach(nestedChild => {
-                        if (this.isTabPanel(nestedChild)) {
-                            tabs.push(nestedChild)
-                        }
-                    });
-                }
-            })
-            return tabs;
+            return this.d_children.filter(child => child.$vnode.tag.indexOf('tabpanel') !== -1);
         }
+    },
+
+    components: {
+        'TabPanelHeaderSlot': TabPanelHeaderSlot
     }
 }
 </script>
 
+
 <template>
-    <div :class="contentClasses">
-        <div class="p-tabview-nav-container">
-            <button v-if="scrollable && !backwardIsDisabled" ref="prevBtn" :class="prevButtonClasses" @click="navBackward" type="button">
-                <fig-icon
-                    icon="chevron-left"
-                    :height="18"
-                    :width="18"
-                    stroke="#2196F3" />
-			</button>
-
-            <div ref="content" class="p-tabview-nav-content" @scroll="onScroll">
-                <ul ref="nav" class="p-tabview-nav" role="tablist">
-                    <li role="presentation" v-for="(tab, i) of tabs" :key="getKey(tab,i)" :class="[{'p-highlight': (d_activeIndex === i), 'p-disabled': isTabDisabled(tab)}]">
-                        <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, i)" @keydown="onTabKeydown($event, i)" :tabindex="isTabDisabled(tab) ? null : '0'" :aria-selected="d_activeIndex === i">
-                            <span class="p-tabview-title" v-if="tab.componentOptions.propsData.header">{{tab.componentOptions.propsData.header}}</span>
-                            <v-nodes :vnodes="tab.children.header"  v-if="tab.children && tab.children.header" />
-                        </a>
-                    </li>
-                    <li ref="inkbar" class="p-tabview-ink-bar"></li>
-                </ul>
-            </div>
-
-            <button v-if="scrollable && !forwardIsDisabled" ref="nextBtn" :class="nextButtonClasses" @click="navForward" type="button">
-				<fig-icon
-                    icon="chevron-right"
-                    :height="18"
-                    :width="18"
-                    stroke="#2196F3" />
-			</button>
-        </div>
-
+    <div class="p-tabview p-component">
+        <ul ref="nav" class="p-tabview-nav" role="tablist">
+            <li role="presentation" v-for="(tab, i) of tabs" :key="tab.header || i" :class="[{'p-highlight': (tab.d_active), 'p-disabled': tab.disabled}]">
+                <a role="tab" class="p-tabview-nav-link" @click="onTabClick($event, tab)" @keydown="onTabKeydown($event, tab)" :tabindex="tab.disabled ? null : '0'" :aria-selected="tab.d_active">
+                    <span class="p-tabview-title" v-if="tab.header">{{tab.header}}</span>
+                    <TabPanelHeaderSlot :tab="tab" v-if="tab.$scopedSlots.header" />
+                </a>
+            </li>
+            <li ref="inkbar" class="p-tabview-ink-bar"></li>
+        </ul>
         <div class="p-tabview-panels">
-            <div v-for="(tab, i) of tabs" :key="getKey(tab,i)">
-                <div class="p-tabview-panel" role="tabpanel" v-if="lazy ? (d_activeIndex === i) : true" v-show="lazy ? true: (d_activeIndex === i)">
-                    <v-nodes :vnodes="tab" />
-                </div>
-            </div>
+            <slot></slot>
         </div>
     </div>
 </template>
