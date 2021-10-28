@@ -28,8 +28,8 @@ const Template = (args, { argTypes }) => ({
     template: '<fig-form-input-number v-bind="$props" />'
 });
 
-export const TextInput = Template.bind({});
-TextInput.args = {
+export const Number = Template.bind({});
+Number.args = {
     size: formInputSizes.md
     // state: null
 };

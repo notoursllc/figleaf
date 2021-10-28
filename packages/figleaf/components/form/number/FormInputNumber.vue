@@ -1,5 +1,6 @@
 <script>
 import FormText from '../text/FormText';
+import form_input_mixin from '../form_input_mixin';
 
 export default {
     name: 'FormInputNumber',
@@ -7,6 +8,10 @@ export default {
     components: {
         FormText
     },
+
+    mixins: [
+        form_input_mixin
+    ],
 
     props: {
         value: {
@@ -28,14 +33,6 @@ export default {
             default: 1
         },
 
-        size: {
-            type: String,
-            default: 'md',
-            validator: (value) => {
-                return ['sm', 'md', 'lg'].includes(value);
-            }
-        },
-
         center: {
             type: Boolean,
             default: false
@@ -49,11 +46,17 @@ export default {
     computed: {
         classNames() {
             const classes = [
-                `fig-input-number-${this.size}`
+                // `fig-input-number-${this.size}`
+                this.sizeCssClass,
+                this.disabledCssClass
             ];
 
             if(this.center) {
                 classes.push('text-center')
+            }
+
+            if(this.stateCssClass) {
+                classes.push(this.stateCssClass);
             }
 
             return classes;
@@ -108,6 +111,8 @@ export default {
         :max="max"
         :step="step"
         :size="size"
+        :disabled="disabled"
+        :readonly="readonly"
         v-bind="$attrs"
         @input="emitInput" />
 </template>

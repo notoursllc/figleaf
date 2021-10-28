@@ -45,6 +45,24 @@ export default {
         };
     },
 
+    classNames() {
+        const classes = [
+            'fig-input-money w-full fig-form-control',
+            this.sizeCssClass,
+            this.disabledCssClass
+        ];
+
+        if(this.stateCssClass) {
+            classes.push(this.stateCssClass);
+        }
+
+        if(this.type === 'color') {
+            classes.push('p-1');
+        }
+
+        return classes;
+    },
+
     watch: {
         value: {
 
@@ -93,8 +111,10 @@ export default {
             :size="size"
             :min="0"
             :step=".01"
+            :disabled="disabled"
+            :readonly="readonly"
             v-bind="$attrs"
-            input-classes="fig-input-money" />
+            :input-classes="classNames" />
     </form-input-endcapper>
 </template>
 
