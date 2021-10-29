@@ -1,5 +1,5 @@
 {
-    "name": "@notoursllc/breadvanApi",
+    "name": "@notoursllc/breadvan-api",
     "version": "0.0.3",
     "description": "Yet another inadequate covering made my humans",
     "repository": {
@@ -10,6 +10,6 @@
         "lodash-es": "^4.17.21",
         "query-string": "^7.0.1"
     },
-    "gitHead": "325d23abd6a084f948bd65276102b122d17d428a",
+    "gitHead": "c3b2c9b3d41b29b2be2b5b05b1e76f3e416231d1",
     "private": false
 }
