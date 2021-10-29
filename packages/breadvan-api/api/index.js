@@ -202,11 +202,7 @@ export default ($axios) => {
         },
 
         get(id) {
-            return api.$get('/master_type', {
-                searchParams: {
-                    id
-                }
-            })
+            return api.$get('/master_type', { id });
         },
 
         list(params) {
