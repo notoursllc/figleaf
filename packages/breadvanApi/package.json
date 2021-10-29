@@ -1,0 +1,13 @@
+{
+    "name": "@notoursllc/breadvanApi",
+    "version": "0.0.1",
+    "description": "Yet another inadequate covering made my humans",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/notoursllc/figleaf.git"
+    },
+    "dependencies": {
+        "lodash-es": "^4.17.21",
+        "query-string": "^7.0.1"
+    }
+}
