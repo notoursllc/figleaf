@@ -147,5 +147,3 @@ export { default as FigSelectStateProvince } from './components/selectStateProvi
 
 // vnodes
 export { default as FigVNodes } from './components/vNodes/VNodes.vue';
-
-export { default as BreadvanApi } from './api';

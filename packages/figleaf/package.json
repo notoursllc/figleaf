@@ -2,6 +2,10 @@
     "name": "@notoursllc/figleaf",
     "version": "0.32.3",
     "description": "Yet another inadequate covering made my humans",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/notoursllc/figleaf.git"
+    },
     "dependencies": {
         "@popperjs/core": "2.4.4",
         "@stripe/stripe-js": "^1.15.0",
@@ -13,7 +17,6 @@
         "lodash.debounce": "^4.0.8",
         "lodash.isfinite": "^3.3.2",
         "lodash.isobject": "^3.0.2",
-        "query-string": "^7.0.1",
         "svg-inline-loader": "^0.8.2",
         "tailwindcss": "^2.2.8",
         "uuid": "^8.3.2",
