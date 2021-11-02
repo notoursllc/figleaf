@@ -1,8 +1,7 @@
 <script>
-import Vue from 'vue';
 import { textCardVariants } from './constants';
 
-export default Vue.extend({
+export default {
     name: 'TextCard',
 
     props: {
@@ -19,16 +18,26 @@ export default Vue.extend({
         showBody: {
             type: Boolean,
             default: true
+        },
+
+        border: {
+            type: Boolean,
+            default: false
         }
     },
 
     computed: {
         sectionClasses() {
-            const classes = ['fig-text-card border border-gray-200 p-0 rounded-sm'];
+            const classes = ['fig-text-card p-0 rounded-sm'];
 
             if(this.shadow) {
                 classes.push('shadow');
             }
+
+            if(this.border) {
+                classes.push('border border-gray-200')
+            }
+
             return classes;
         },
 
@@ -42,9 +51,15 @@ export default Vue.extend({
                     );
                     break;
 
-                default:
+                case textCardVariants.light:
                     classes.push(
                         'bg-gray-200 text-gray-800'
+                    );
+                    break;
+
+                default:
+                    classes.push(
+                        'bg-white text-gray-800 border-b border-gray-200'
                     );
                     break;
             }
@@ -52,7 +67,7 @@ export default Vue.extend({
             return classes;
         }
     }
-});
+};
 </script>
 
 

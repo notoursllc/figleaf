@@ -1,4 +1,5 @@
 export const textCardVariants = {
     dark: 'dark',
-    light: 'light'
+    light: 'light',
+    white: 'white'
 };
