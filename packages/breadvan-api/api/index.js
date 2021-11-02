@@ -109,9 +109,7 @@ export default ($axios) => {
 
             delete(params) {
                 return api.$delete('/cart/item', params);
-            },
-
-
+            }
         },
 
         order: {
@@ -121,36 +119,6 @@ export default ($axios) => {
 
             resendConfirmationEmail(id) {
                 return api.$post('/cart/order/resend-confirmation', { id });
-            }
-        },
-
-        shipping: {
-            setAddress(data) {
-                return api.$post('/cart/shippingaddress', data);
-            },
-
-            getEstimates(cartId) {
-                return api.$post('/cart/shipping/estimate', {
-                    id: cartId
-                });
-            },
-
-            purchaseLabel(id) {
-                return api.$post('/cart/shipping/label', { id });
-            },
-
-            selectRate(cartId, rateId) {
-                return api.$post('/cart/shipping/rate', {
-                    id: cartId,
-                    rate_id: rateId
-                });
-            },
-
-            isShipped(cartId, isShipped) {
-                return api.$post('/cart/shipped', {
-                    id: cartId,
-                    shipped: !!isShipped
-                });
             }
         },
 
@@ -187,6 +155,46 @@ export default ($axios) => {
                         token: paymentToken
                     });
                 }
+            }
+        },
+
+        refund: {
+            add(data) {
+                return api.$post('/cart/refund', data);
+            },
+
+            list(params) {
+                return api.$get(`/cart/refunds?${formatParams(params)}`)
+            }
+        },
+
+        shipping: {
+            setAddress(data) {
+                return api.$post('/cart/shippingaddress', data);
+            },
+
+            getEstimates(cartId) {
+                return api.$post('/cart/shipping/estimate', {
+                    id: cartId
+                });
+            },
+
+            purchaseLabel(id) {
+                return api.$post('/cart/shipping/label', { id });
+            },
+
+            selectRate(cartId, rateId) {
+                return api.$post('/cart/shipping/rate', {
+                    id: cartId,
+                    rate_id: rateId
+                });
+            },
+
+            isShipped(cartId, isShipped) {
+                return api.$post('/cart/shipped', {
+                    id: cartId,
+                    shipped: !!isShipped
+                });
             }
         }
     };
