@@ -11,3 +11,9 @@ export const labelValueGroupDensity = {
     lg: 'lg',
     xl: 'xl'
 };
+
+export const labelValueGroupDisplay = {
+    block: 'block',
+    table: 'table',
+    row: 'row'
+}

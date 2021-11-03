@@ -1,13 +1,17 @@
 <script>
-import { labelValueGroupBreakpoints, labelValueGroupDensity } from './constants.js';
+import {
+    labelValueGroupBreakpoints,
+    labelValueGroupDensity,
+    labelValueGroupDisplay } from './constants.js';
 
 export default {
     name: 'LabelValueGroup',
 
     props: {
-        block: {
-            type: Boolean,
-            default: false
+        display: {
+            type: String,
+            default: labelValueGroupDisplay.block,
+            validator: (value) => Object.keys(labelValueGroupDisplay).includes(value)
         },
 
         breakpoint: {
@@ -26,20 +30,12 @@ export default {
     computed: {
         classNames() {
             return [
-                'fig-label-value-group',
-                this.block ? 'block' : 'table'
+                'fig-lvg',
+                `fig-lvg-${this.display}`,
+                `fig-lvg-density-${this.density}`,
+                `fig-lvg-breakpoint-${this.breakpoint}`,
             ];
         }
-    },
-
-    provide() {
-        return {
-            display: {
-                block: this.block,
-                breakpoint: this.breakpoint,
-                density: this.density
-            }
-        };
     }
 };
 </script>
@@ -50,3 +46,18 @@ export default {
         <slot></slot>
     </div>
 </template>
+
+
+<style>
+.fig-lvg-block {
+    @apply block;
+}
+
+.fig-lvg-table {
+    @apply table;
+}
+
+.fig-lvg-row {
+    @apply flex flex-row;
+}
+</style>

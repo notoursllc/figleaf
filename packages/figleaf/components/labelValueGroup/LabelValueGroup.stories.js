@@ -1,6 +1,9 @@
 import FigLabelValueGroup from './LabelValueGroup.vue';
 import FigLabelValue from './LabelValue.vue';
-import { labelValueGroupBreakpoints, labelValueGroupDensity } from './constants.js';
+import {
+    labelValueGroupBreakpoints,
+    labelValueGroupDensity,
+    labelValueGroupDisplay } from './constants.js';
 
 export default {
     title: 'Components/LabelValueGroup',
@@ -8,8 +11,11 @@ export default {
     component: FigLabelValueGroup,
 
     argTypes: {
-        block: {
-            type: 'boolean'
+        display: {
+            control: {
+                type: 'select',
+                options: Object.keys(labelValueGroupDisplay)
+            }
         },
 
         breakpoint: {
@@ -57,7 +63,7 @@ const Template = (args, { argTypes }) => ({
 
 export const LabelValueGroup = Template.bind({});
 LabelValueGroup.args = {
-    block: false,
+    display: labelValueGroupDisplay.block,
     breakpoint: labelValueGroupBreakpoints.sm,
     density: labelValueGroupDensity.sm
 };
