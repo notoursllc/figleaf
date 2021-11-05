@@ -12,6 +12,9 @@ export { default as FigAddressForm } from './components/addressForm/AddressForm.
 export { default as FigButton } from './components/button/Button.vue';
 export { default as FigButtonFab } from './components/ButtonFab.vue';
 
+// card last four
+export { defalut as FigCardLastFour } from './components/cardLastFour/CardLastFour.vue';
+
 // content
 export { default as FigContent } from './components/content/Content.vue';
 
