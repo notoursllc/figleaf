@@ -1,6 +1,7 @@
 import isObject from 'lodash-es/isObject';
 import cloneDeep from 'lodash-es/cloneDeep';
 import queryString from 'query-string';
+import qs from 'qs';
 
 
 function formatParams(params) {
@@ -164,7 +165,7 @@ export default ($axios) => {
             },
 
             list(params) {
-                return api.$get(`/cart/refunds?${formatParams(params)}`)
+                return api.$get(`/cart/refunds?${qs.stringify(params)}`)
             }
         },
 
