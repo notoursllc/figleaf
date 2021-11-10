@@ -92,7 +92,9 @@ export default {
             @perPage="onPerPageChange"
             @pageNumber="onPageNumberChange" />
 
-        <slot></slot>
+        <div class="py-4">
+            <slot></slot>
+        </div>
 
         <pagination-bar
             v-if="bottom"
