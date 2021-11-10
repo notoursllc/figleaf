@@ -1,15 +1,6 @@
 import isObject from 'lodash-es/isObject';
 import cloneDeep from 'lodash-es/cloneDeep';
-import queryString from 'query-string';
-import qs from 'qs';
 
-
-function formatParams(params) {
-    return queryString.stringify(
-        params,
-        { arrayFormat: 'bracket' }
-    );
-}
 
 export default ($axios) => {
 
@@ -83,12 +74,12 @@ export default ($axios) => {
 
 
     api.cart = {
-        get(params) {
-            return api.$get('/cart', params)
+        closed(params) {
+            return api.$get('/carts/closed', params)
         },
 
-        list(params) {
-            return api.$get(`/carts?${formatParams(params)}`) // TODO: is there a XSS issue here?
+        get(params) {
+            return api.$get('/cart', params)
         },
 
         update(data) {
@@ -165,7 +156,7 @@ export default ($axios) => {
             },
 
             list(params) {
-                return api.$get(`/cart/refunds?${qs.stringify(params)}`)
+                return api.$get('/cart/refunds', params)
             }
         },
 
@@ -202,10 +193,6 @@ export default ($axios) => {
 
 
     api.masterType = {
-        all(params) {
-            return api.$get(`/master_types/all?${formatParams(params)}`); // TODO: is there a XSS issue here?
-        },
-
         delete(id) {
             return api.$delete('/master_type', { id });
         },
@@ -215,7 +202,7 @@ export default ($axios) => {
         },
 
         list(params) {
-            return api.$get(`/master_types?${formatParams(params)}`); // TODO: is there a XSS issue here?
+            return api.$get('/master_types', params);
         },
 
         ordinals(data) {
@@ -263,22 +250,17 @@ export default ($axios) => {
             delete data.volume_cm;
         },
 
-        all(params) {
-            return api.$get(`/package_types/all?${formatParams(params)}`);
-        },
-
         delete(id) {
             return api.$delete('/package_type', { id });
         },
 
         list(params) {
-            return api.$get(`/package_types?${formatParams(params)}`);
+            return api.$get('/package_types', params);
         },
 
         ordinals(data) {
             return api.$put('/package_types/ordinal', data);
         },
-
 
         upsert(data) {
             const type = cloneDeep(data);
@@ -336,7 +318,7 @@ export default ($axios) => {
             //     ['total_inventory_count', '>', 0]
             // ],
             // }
-            return api.$get(`/products?${formatParams(params)}`);
+            return api.$get('/products', params);
         },
 
         get(id, options) {
@@ -354,10 +336,6 @@ export default ($axios) => {
         },
 
         accentMessage: {
-            all(params) {
-                return api.$get(`/product/accent_messages/all?${formatParams(params)}`);
-            },
-
             get(id) {
                 return api.$get('/product/accent_message', { id });
             },
@@ -367,12 +345,12 @@ export default ($axios) => {
             },
 
             list(params) {
-                return api.$get(`/product/accent_messages?${formatParams(params)}`);
+                return api.$get('/product/accent_messages', params);
             },
 
             upsert(props) {
                 return api[props.id ? '$put' : '$post']('/product/accent_message', props);
-            },
+            }
         },
 
         collection: {
@@ -391,7 +369,7 @@ export default ($axios) => {
             },
 
             list(params) {
-                return api.$get(`/product/collections?${formatParams(params)}`);
+                return api.$get('/product/collections', params);
             },
 
             upsert(data) {
@@ -399,14 +377,10 @@ export default ($axios) => {
                 api.product.collections.stripRelations(prod);
 
                 return api[prod.id ? '$put' : '$post']('/product/collection', prod);
-            },
+            }
         },
 
         colorSwatch: {
-            all(params) {
-                return api.$get(`/product/color_swatches/all?${formatParams(params)}`);
-            },
-
             delete(id) {
                 return api.$delete('/product/color_swatch', { id });
             },
@@ -416,7 +390,7 @@ export default ($axios) => {
             },
 
             list(params) {
-                return api.$get(`/product/color_swatches?${formatParams(params)}`);
+                return api.$get('/product/color_swatches', params);
             },
 
             upsert(data) {
@@ -425,10 +399,6 @@ export default ($axios) => {
         },
 
         dataTable: {
-            all(params) {
-                return api.$get(`/product/data_tables/all?${formatParams(params)}`);
-            },
-
             delete(id) {
                 return api.$delete('/product/data_table', { id });
             },
@@ -438,7 +408,7 @@ export default ($axios) => {
             },
 
             list(params) {
-                return api.$get(`/product/data_tables?${formatParams(params)}`);
+                return api.$get('/product/data_tables', params);
             },
 
             upsert(data) {
@@ -478,7 +448,7 @@ export default ($axios) => {
         },
 
         list(params) {
-            return api.$get(`/nexus/list?${formatParams(params)}`);
+            return api.$get('/nexus/list', params);
         },
 
         get(id) {
