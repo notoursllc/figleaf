@@ -78,7 +78,7 @@ export default Vue.extend({
 
     methods: {
         emitSort() {
-            this.$emit('sort', { ...this.sharedState.sort });
+            this.$emit('sort', `${this.sharedState.sort.by}:${this.sharedState.sort.isAsc ? 'asc' : 'desc'}`);
         }
     }
 });
