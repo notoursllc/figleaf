@@ -70,7 +70,7 @@ export { default as FigOperationsDropdown } from './components/operationsDropdow
 // pagination
 export { default as FigPaginationBar } from './components/pagination/pagination-bar/PaginationBar.vue';
 export { default as FigPaginator } from './components/pagination/paginator/Paginator.vue';
-export { default as FigPaginationWrapper } from './components/pagination/paginationWrapper/PaginationWrapper.vue'
+export { default as FigPaginationWrapper } from './components/pagination/paginationWrapper/PaginationWrapper.vue';
 
 // payment type chooser
 export { default as FigPaymentTypeChooser } from './components/paymentTypeChooser/PaymentTypeChooser.vue';
