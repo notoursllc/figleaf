@@ -48,8 +48,8 @@ export default {
         },
 
         displayingLabel() {
-            const current = parseInt(this.currentPage, 10);
-            const per = parseInt(this.perPage, 10);
+            const current = parseInt(this.selectedPageNumber, 10);
+            const per = parseInt(this.selectedPerPage, 10);
 
             const start = (current - 1) * (per) + 1;
             let end = current * per;
@@ -107,7 +107,7 @@ export default {
             {{ totalNumberOfResultsLabel }}<span class="px-2">&middot;</span>{{ displayingLabel }}
             <span class="px-2">&middot;</span>
             <fig-form-select-native
-                v-model="perPage"
+                v-model="selectedPerPage"
                 @input="emitPerPage"
                 :options="selectOpts"></fig-form-select-native>
         </div>
