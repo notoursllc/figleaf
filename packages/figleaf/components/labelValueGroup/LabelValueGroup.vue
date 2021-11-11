@@ -54,7 +54,7 @@ export default {
 }
 
 .fig-lvg-table {
-    @apply table w-full;
+    @apply table;
 }
 
 .fig-lvg-row {
