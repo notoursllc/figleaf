@@ -16,6 +16,11 @@ export default {
     ],
 
     props: {
+        icon: {
+            type: String,
+            default: 'info-circle'
+        },
+
         iconStrokeColor: {
             type: String
         },
@@ -33,7 +38,7 @@ export default {
     <fig-popover v-bind="$props">
         <template v-slot:toggler>
             <fig-icon
-                icon="info-circle"
+                :icon="icon"
                 :stroke-width="1.5"
                 :stroke="iconStrokeColor"
                 :width="iconWidth"
