@@ -86,10 +86,6 @@ export default ($axios) => {
             return api.$post('/cart/upsert', data)
         },
 
-        refund(data) {
-            return api.$post('/cart/refund', data);
-        },
-
         item: {
             add(data) {
                 return api.$post('/cart/item', data);
@@ -157,6 +153,10 @@ export default ($axios) => {
 
             list(params) {
                 return api.$get('/cart/refunds', params)
+            },
+
+            summary(params) {
+                return api.$get('/cart/refunds/summary', params)
             }
         },
 
