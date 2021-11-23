@@ -249,8 +249,8 @@ export default {
         </div>
 
         <!-- extended address -->
-        <div :class="rowClasses">
-            <div :class="oneColCellClasses" class="text-gray-500" v-if="!showExtendedAddress">
+        <div :class="rowClasses" class="pb-3" style="margin-top:-10px">
+            <div :class="oneColCellClasses" class="text-gray-400" v-if="!showExtendedAddress">
                 <fig-button
                     variant="naked"
                     icon="plus"
