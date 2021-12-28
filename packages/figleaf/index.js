@@ -64,6 +64,9 @@ export { default as FigMetaDataBuilder } from './components/metaDataBuilder/Meta
 // money
 export { default as FigMoney } from './components/money/Money.vue';
 
+// nuxtImgBunny
+export { default as FigNuxtImgBunny } from './components/nuxtImgBunny/NuxtImgBunny.vue';
+
 // operations dropdown
 export { default as FigOperationsDropdown } from './components/operationsDropdown/OperationsDropdown.vue';
 
