@@ -28,7 +28,8 @@ const Template = (args, { argTypes }) => ({
                 postalCode: null,
                 company: null,
                 phone: null,
-                email: null
+                email: null,
+                is_gift: false
             },
             formIsInvalid: true
         };
@@ -41,9 +42,13 @@ const Template = (args, { argTypes }) => ({
     template: `
         <div>
             <fig-address-form v-model="form" v-bind="$props" @invalid="onInvalid" />
-            <div>FORM: {{ form }}</div>
-            <div>FORM IS INVALID: {{ formIsInvalid }}</div>
-        </div>`
+
+            <div class="pt-6">
+                <div>FORM: {{ form }}</div>
+                <div>FORM IS INVALID: {{ formIsInvalid }}</div>
+            </div>
+        </div>
+    `
 });
 
 export const AddressForm = Template.bind({});

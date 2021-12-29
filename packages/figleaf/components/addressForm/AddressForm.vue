@@ -8,6 +8,9 @@ import FigFormGroup from '../form/group/FormGroup';
 import FigButton from '../button/Button';
 import FigSelectCountry from '../selectCountry/SelectCountry';
 import FigSelectStateProvince from '../selectStateProvince/SelectStateProvince';
+import FigIcon from '../icon/FigIcon';
+import FigFormSelectNative from '../form/selectNative/FormSelectNative.vue';
+import FigTooltip from '../tooltip/Tooltip.vue';
 import {
     addressFormRequiredProps,
     addressFormInputSizes,
@@ -66,7 +69,10 @@ export default {
         FigFormText,
         FigFormGroup,
         FigSelectCountry,
-        FigSelectStateProvince
+        FigSelectStateProvince,
+        FigIcon,
+        FigFormSelectNative,
+        FigTooltip
     },
 
     data: function() {
@@ -363,6 +369,39 @@ export default {
                     <div slot="error" v-show="canShowValidationMsg('phone')">{{ $t('Required') }}</div>
                 </fig-form-group>
             </div>
+        </div>
+
+        <div class="pt-2">
+            <fig-form-group :stacked="false">
+                <template v-slot:label>
+                    <fig-icon
+                        icon="gift"
+                        :height="22"
+                        :width="22"
+                        :stroke-width="1.5" /> {{ $t('Is this order a gift?') }}
+                </template>
+                <div class="pl-2">
+                    <fig-form-select-native
+                        v-model.trim="value.is_gift"
+                        :options="[
+                            { label: $t('No'), value: false },
+                            { label: $t('Yes'), value: true }
+                        ]" />
+
+                    <fig-tooltip :centered="false">
+                        <template slot="toggler">
+                            <div class="pl-1">
+                                <fig-icon
+                                    icon="info-circle"
+                                    :height="20"
+                                    :width="20" />
+                            </div>
+                        </template>
+                        {{ $t('is_gift_tooltip') }}
+                    </fig-tooltip>
+                </div>
+            </fig-form-group>
+
         </div>
     </div>
 </template>
