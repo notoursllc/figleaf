@@ -19,3 +19,21 @@ export function getImage(src, config) {
         url: `https://bv-pullzone-1.b-cdn.net/${path}?class=${className}`
     };
 }
+
+
+export const presets = {
+    prodthumb: {
+        modifiers: {
+            format: 'jpg',
+            width: 75,
+            height: 75
+        }
+    },
+    prodthumbxs: {
+        modifiers: {
+            format: 'jpg',
+            width: 45,
+            height: 45
+        }
+    }
+};
