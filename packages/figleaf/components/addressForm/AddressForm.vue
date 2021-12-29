@@ -279,7 +279,8 @@ export default {
                         :placeholder="$t('Country')"
                         :size="inputSize"
                         @input="(val) => touchV('countryCodeAlpha2', val)"
-                        :state="inputState('countryCodeAlpha2')" />
+                        :state="inputState('countryCodeAlpha2')"
+                        :clearable="false" />
 
                     <div slot="error" v-show="canShowValidationMsg('countryCodeAlpha2')">{{ $t('Required') }}</div>
                 </fig-form-group>
@@ -287,6 +288,21 @@ export default {
         </div>
 
         <div :class="rowClasses" v-cloak v-show="value.countryCodeAlpha2 && !canShowValidationMsg('countryCodeAlpha2')">
+            <!-- city -->
+            <div :class="threeColCellClasses">
+                <fig-form-group>
+                    <fig-form-text
+                        v-model.trim="value.city"
+                        :size="inputSize"
+                        @input="(val) => touchV('city', val)"
+                        :state="inputState('city')">
+                        <template slot="label">{{ $t('City') }}</template>
+                    </fig-form-text>
+
+                    <div slot="error" v-show="canShowValidationMsg('city')">{{ $t('Required') }}</div>
+                </fig-form-group>
+            </div>
+
             <!-- state -->
             <div :class="threeColCellClasses">
                 <fig-form-group>
@@ -301,21 +317,6 @@ export default {
                         :state="value.countryCodeAlpha2 && inputState('state')" />
 
                     <div slot="error" v-show="value.countryCodeAlpha2 && canShowValidationMsg('state')">{{ $t('Required') }}</div>
-                </fig-form-group>
-            </div>
-
-            <!-- city -->
-            <div :class="threeColCellClasses">
-                <fig-form-group>
-                    <fig-form-text
-                        v-model.trim="value.city"
-                        :size="inputSize"
-                        @input="(val) => touchV('city', val)"
-                        :state="inputState('city')">
-                        <template slot="label">{{ $t('City') }}</template>
-                    </fig-form-text>
-
-                    <div slot="error" v-show="canShowValidationMsg('city')">{{ $t('Required') }}</div>
                 </fig-form-group>
             </div>
 
