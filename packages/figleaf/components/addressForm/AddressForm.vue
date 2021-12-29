@@ -71,7 +71,6 @@ export default {
 
     data: function() {
         return {
-            showExtendedAddress: false
         };
     },
 
@@ -240,7 +239,7 @@ export default {
                         :size="inputSize"
                         @input="(val) => touchV('streetAddress', val)"
                         :state="inputState('streetAddress')">
-                        <template slot="label">{{ $t('Address') }}</template>
+                        <template slot="label">{{ $t('Address line 1') }}</template>
                     </fig-form-text>
 
                     <div slot="error" v-show="canShowValidationMsg('streetAddress')">{{ $t('Required') }}</div>
@@ -249,24 +248,16 @@ export default {
         </div>
 
         <!-- extended address -->
-        <div :class="rowClasses" class="pb-3" style="margin-top:-10px">
-            <div :class="oneColCellClasses" class="text-gray-400" v-if="!showExtendedAddress">
-                <fig-button
-                    variant="naked"
-                    icon="plus"
-                    size="sm"
-                    @click="showExtendedAddress = true">{{ $t('Add Company, C/O, Apt, Suite, Unit') }}</fig-button>
-            </div>
-        </div>
-
-        <div :class="rowClasses" v-if="showExtendedAddress">
+        <div :class="rowClasses">
             <div :class="oneColCellClasses">
                 <fig-form-group>
                     <fig-form-text
                         v-model.trim="value.extendedAddress"
                         :size="inputSize"
                         @input="(val) => touchV('extendedAddress', val)"
-                        :state="inputState('extendedAddress')" />
+                        :state="inputState('extendedAddress')">
+                        <template slot="label">{{ $t('Address line 2') }}</template>
+                    </fig-form-text>
 
                     <div slot="error" v-show="canShowValidationMsg('extendedAddress')">{{ $t('Required') }}</div>
                 </fig-form-group>

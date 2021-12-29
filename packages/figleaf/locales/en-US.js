@@ -1,6 +1,6 @@
 module.exports = {
-    'Add Company, C/O, Apt, Suite, Unit': 'Add Company, C/O, Apt, Suite, Unit',
-    'Address': 'Address',
+    'Address line 1': 'Address line 1',
+    'Address line 2': 'Address line 2',
 
     'cancel': 'cancel',
     'Card number': 'Card number',
