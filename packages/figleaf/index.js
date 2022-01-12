@@ -99,6 +99,9 @@ export { default as FigSignpost } from './components/signpost/Signpost.vue';
 // slideover
 export { default as FigSlideover } from './components/slideover/Slideover.vue';
 
+// slider
+export { default as FigSlider } from './components/slider/Slider.vue';
+
 // stock level warning
 export { default as FigStockLevelWarning} from './components/stockLevelWarning/StockLevelWarning.vue';
 
