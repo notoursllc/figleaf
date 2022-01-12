@@ -191,6 +191,34 @@ export default ($axios) => {
         }
     };
 
+    api.hero = {
+        delete(id) {
+            return api.$delete('/hero', { id });
+        },
+
+        get(id) {
+            return api.$get('/hero', { id });
+        },
+
+        list(params) {
+            return api.$get('/heros', params);
+        },
+
+        ordinals(data) {
+            return api.$put('/heros/ordinal', data);
+        },
+
+        upsert(data) {
+            return api[data.hasOwnProperty('id') ? '$put' : '$post']('/hero', data);
+        },
+
+        addImage(File) {
+            const formData = new FormData();
+            formData.append('file', File);
+
+            return api.$post('/hero/image', formData);
+        }
+    },
 
     api.masterType = {
         delete(id) {
