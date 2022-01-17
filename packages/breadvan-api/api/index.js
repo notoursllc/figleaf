@@ -209,7 +209,28 @@ export default ($axios) => {
         },
 
         upsert(data) {
-            return api[data.hasOwnProperty('id') ? '$put' : '$post']('/hero', data);
+            const fd = new FormData();
+            fd.append('title', data.title);
+            fd.append('published', data.published === false ? false : true);
+            fd.append('ordinal', parseInt(data.ordinal || 0, 10));
+
+            if(data.id) {
+                fd.append('id', data.id);
+            }
+            if(data.file) {
+                fd.append('file', data.file);
+            }
+            if(data.caption) {
+                fd.append('caption', data.caption);
+            }
+            if(data.alt_text) {
+                fd.append('alt_text', data.alt_text);
+            }
+            if(data.metadata) {
+                fd.append('metadata', JSON.stringify(data.metadata));
+            }
+
+            return api[data.hasOwnProperty('id') ? '$put' : '$post']('/hero', fd);
         },
 
         addImage(File) {
