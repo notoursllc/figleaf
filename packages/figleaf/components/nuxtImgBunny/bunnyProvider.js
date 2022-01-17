@@ -35,5 +35,22 @@ export const presets = {
             width: 45,
             height: 45
         }
-    }
+    },
+    w45: {},
+    w75: {},
+    w150: {
+        modifiers: {
+            format: 'jpg',
+            width: 150
+        }
+    },
+    w375: {
+        modifiers: {
+            format: 'jpg',
+            width: 375
+        }
+    },
+    w500: {},
+    w550: {},
+    w575: {},
 };
