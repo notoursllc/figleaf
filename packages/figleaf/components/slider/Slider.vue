@@ -358,9 +358,9 @@ export default {
     @apply flex flex-row flex-nowrap;
 }
 
-/* .Slider__actions {
-    @apply absolute bottom-0 flex justify-between items-center w-full px-0 py-0;
-} */
+.Slider__actions {
+    @apply absolute bottom-0 flex justify-between items-center w-full px-0 pb-4 pt-0;
+}
 
 .Slider__nav-button {
     @apply bg-white opacity-75 hover:opacity-100 rounded-full p-2 absolute top-1/3;
