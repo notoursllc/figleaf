@@ -1,0 +1,40 @@
+import FigHeroSlider from './HeroSlider.vue';
+
+export default {
+    title: 'Components/HeroSlider',
+
+    component: FigHeroSlider,
+
+    argTypes: {
+
+    }
+};
+
+const Template = (args, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    components: {
+        FigHeroSlider
+    },
+    template: `
+        <div style="height: 80vh">
+            <fig-hero-slider v-bind="$props" />
+        </div>
+    `
+});
+
+export const HeroSlider = Template.bind({});
+HeroSlider.args = {
+    heros: [
+        {
+            title: '111',
+            caption: 'caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 ',
+            url: 'images/1642402260652-shirt_team_4.jpg?class=w500'
+        },
+        {
+            title: '2222',
+            caption: 'caption 2222',
+            url: 'images/1642402237925-shirt_team_3.jpg?class=w500'
+        }
+    ]
+};
+

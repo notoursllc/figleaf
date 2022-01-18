@@ -19,3 +19,5 @@ export const removeLeadingSlash = (path) => {
 
     return path;
 }
+
+export const bunnyBaseUrl = 'https://bv-pullzone-1.b-cdn.net';
