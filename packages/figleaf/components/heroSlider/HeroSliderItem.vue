@@ -25,7 +25,7 @@ export default {
 
 
 <template>
-    <div class="fig-hero" :style="{ backgroundImage: getBackgroundImageUrl(hero.url) }">
+    <div class="fig-hero bg-[red]">
         <div class="fig-hero-fade fig-hero-fade-top" />
 
         <div class="w-full p-4 md:p-8">
