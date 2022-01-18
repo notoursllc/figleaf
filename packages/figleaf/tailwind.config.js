@@ -1,19 +1,24 @@
 const { getWhiteListClasses } = require('./components/grid/gridConfig');
 
 module.exports = {
+    mode: 'jit',
     future: {
         // removeDeprecatedGapUtilities: true,
         // purgeLayersByDefault: true,
     },
-    purge: {
-        enabled: process.env.NODE_ENV === 'production',
-        content: [],
-        options: {
-            safelist: [
-                ...getWhiteListClasses()
-            ]
-        }
-    },
+    purge: [
+        './packages/figleaf/components/**/*.{vue,js,ts,jsx,tsx}',
+        './packages/figleaf/layouts/**/*.{vue,js,ts,jsx,tsx}'
+    ],
+    // purge: {
+    //     enabled: process.env.NODE_ENV === 'production',
+    //     content: [],
+    //     options: {
+    //         safelist: [
+    //             ...getWhiteListClasses()
+    //         ]
+    //     }
+    // },
     theme: {
         extend: {
             colors: {
