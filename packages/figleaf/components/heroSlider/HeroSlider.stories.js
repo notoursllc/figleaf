@@ -31,12 +31,12 @@ HeroSlider.args = {
         {
             title: '111',
             caption: 'caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 ',
-            url: 'images/1642402260652-shirt_team_4.jpg?class=w500'
+            url: '/images/1642402260652-shirt_team_4.jpg'
         },
         // {
         //     title: '2222',
         //     caption: 'caption 2222',
-        //     url: 'images/1642402237925-shirt_team_3.jpg?class=w500'
+        //     url: '/images/1642402237925-shirt_team_3.jpg'
         // }
     ]
 };
