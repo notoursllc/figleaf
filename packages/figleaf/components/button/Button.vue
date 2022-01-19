@@ -137,13 +137,13 @@ export default Vue.extend({
 
                     case 'success':
                         classes.push(
-                            'text-white bg-green-500 hover:bg-green-600'
+                            'text-white bg-emerald-500 hover:bg-emerald-600'
                         );
                         break;
 
                     case 'success-outline':
                         classes.push(
-                            'background-white text-green-700 border-green-600 hover:bg-green-600'
+                            'background-white text-emerald-700 border-emerald-600 hover:bg-emerald-600'
                         );
                         break;
 

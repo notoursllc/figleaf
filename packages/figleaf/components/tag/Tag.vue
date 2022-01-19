@@ -48,7 +48,7 @@ export default Vue.extend({
                     break;
 
                 case tagVariants.success:
-                    classes.push('text-green-900 bg-green-200');
+                    classes.push('text-emerald-900 bg-emerald-200');
                     break;
 
                 case tagVariants.error:
@@ -56,7 +56,7 @@ export default Vue.extend({
                     break;
 
                 case tagVariants.warning:
-                    classes.push('text-yellow-900 bg-yellow-300');
+                    classes.push('text-amber-900 bg-amber-300');
                     break;
 
                 case tagVariants.dark:

@@ -47,7 +47,7 @@ export default Vue.extend({
                 case texasToastVariants.success:
                     themeData.icon = 'check-circle';
                     themeData.stroke = '#48bb78';
-                    themeData.primaryButtonClass = 'bg-green-100 hover:bg-green-200 text-green-900';
+                    themeData.primaryButtonClass = 'bg-emerald-100 hover:bg-emerald-200 text-emerald-900';
                     break;
 
                 case texasToastVariants.danger:
@@ -151,7 +151,7 @@ export default Vue.extend({
                                 </div>
 
                                 <!-- close button -->
-                                <div class="flex-grow flex justify-end">
+                                <div class="grow flex justify-end">
                                     <fig-button
                                         icon="x"
                                         variant="plain"

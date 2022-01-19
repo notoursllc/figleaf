@@ -52,7 +52,7 @@ export default Vue.extend({
                     break;
 
                 case 'success':
-                    classes.push('text-white bg-green-600');
+                    classes.push('text-white bg-emerald-600');
                     break;
 
                 case 'error':

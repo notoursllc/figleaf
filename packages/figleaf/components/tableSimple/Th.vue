@@ -62,8 +62,8 @@ export default Vue.extend({
             if(this.isActive) {
                 classes.push(
                     'bg-gray-200',
-                    'text-purple-800',
-                    'border-purple-600',
+                    'text-violet-800',
+                    'border-violet-600',
                     'transition-transform',
                     'duration-500',
                     this.tableState.sort.isAsc ? 'border-t-2' : 'border-b-2'
@@ -91,7 +91,7 @@ export default Vue.extend({
         },
 
         labelClasses() {
-            const classes = ['flex-grow'];
+            const classes = ['grow'];
 
             if(this.right) {
                 classes.push('text-right');

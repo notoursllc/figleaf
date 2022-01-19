@@ -81,7 +81,7 @@ export default {
                 </div>
 
                 <!-- middle -->
-                <div class="flex flex-no-wrap flex-grow items-center text-base justify-center">
+                <div class="flex flex-no-wrap grow items-center text-base justify-center">
                     <template v-if="!inCheckout">
                         <fig-icon
                             icon="menu-2"

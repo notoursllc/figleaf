@@ -75,7 +75,7 @@ export default Vue.extend({
 }
 
 .size-buttons > button {
-    @apply border border-gray-300 text-black bg-white flex flex-grow items-center justify-center rounded-md;
+    @apply border border-gray-300 text-black bg-white flex grow items-center justify-center rounded-md;
     height: 48px;
 }
 .size-buttons > button:disabled {

@@ -14,7 +14,7 @@ export default {
                 <slot name="pics"></slot>
             </div>
 
-            <div class="prod-details block px-3 md:px-6 md:py-4 flex-grow">
+            <div class="prod-details block px-3 md:px-6 md:py-4 grow">
                 <!-- title -->
                 <div v-if="$slots.title" class="text-3xl">
                     <slot name="title"></slot>

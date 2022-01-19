@@ -21,7 +21,7 @@ export default {
         },
 
         rightClasses() {
-            const classes = ['flex-shrink-0 align-top w-full lg:w-1/3'];
+            const classes = ['shrink-0 align-top w-full lg:w-1/3'];
 
             classes.push(
                 this.rightFirstOnBreak ? 'pb-4 lg:pb-0' : 'pb-0'
@@ -37,7 +37,7 @@ export default {
 <template>
     <section class="container mx-auto">
         <div :class="parentClasses">
-            <div class="flex-grow pr-0 pb-4 lg:pr-4 lg:pb-0 align-top w-full lg:w-2/3"><slot name="left"></slot></div>
+            <div class="grow pr-0 pb-4 lg:pr-4 lg:pb-0 align-top w-full lg:w-2/3"><slot name="left"></slot></div>
             <div :class="rightClasses"><slot name="right"></slot></div>
         </div>
     </section>

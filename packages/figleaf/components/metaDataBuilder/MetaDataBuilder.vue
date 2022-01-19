@@ -143,7 +143,7 @@ export default {
                                 :placeholder="propertyPlaceholder" />
                         </div>
 
-                        <div class="flex flex-grow items-start flex-nowrap" :class="densityClass">
+                        <div class="flex grow items-start flex-nowrap" :class="densityClass">
                             <fig-form-input
                                 v-model="obj.value"
                                 @input="onInputChange"

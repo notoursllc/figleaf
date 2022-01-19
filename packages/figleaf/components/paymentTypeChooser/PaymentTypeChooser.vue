@@ -51,7 +51,7 @@ export default Vue.extend({
                 class="payment-chooser-button"
                 :class="{'selected': selectedType === 'cc'}"
                 @click="onClickType('cc')">
-                <div class="flex-grow whitespace-nowrap">
+                <div class="grow whitespace-nowrap">
                     <fig-icon
                         icon="credit-card"
                         :stroke-width="1.5"
@@ -73,7 +73,7 @@ export default Vue.extend({
                 class="payment-chooser-button"
                 :class="{'selected': selectedType === 'paypal'}"
                 @click="onClickType('paypal')">
-                <div class="flex-grow whitespace-nowrap">
+                <div class="grow whitespace-nowrap">
                     <fig-icon
                         icon="brand-paypal"
                         :stroke-width="1.5"

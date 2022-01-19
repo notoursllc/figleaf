@@ -380,14 +380,14 @@ export default {
 
 
 .Slider__slides {
-    @apply flex flex-row flex-grow flex-shrink-0 flex-nowrap items-center justify-start;
+    @apply flex flex-row grow shrink-0 flex-nowrap items-center justify-start;
 }
 
 .Slider__slide {
     @apply block;
 }
 .Slider--slideGrow .Slider__slide {
-    @apply flex-grow flex-shrink-0;
+    @apply grow shrink-0;
 }
 
 .Slider__dots {

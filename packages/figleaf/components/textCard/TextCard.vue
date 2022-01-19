@@ -74,7 +74,7 @@ export default {
 <template>
     <section :class="sectionClasses">
         <header :class="headerClasses" v-if="$slots['header-left'] || $slots['header-right']">
-            <div v-if="$slots['header-left']" class="flex items-center flex-grow"><slot name="header-left" /></div>
+            <div v-if="$slots['header-left']" class="flex items-center grow"><slot name="header-left" /></div>
             <div v-if="$slots['header-right']" class="flex items-center"><slot name="header-right" /></div>
         </header>
         <div v-if="showBody" class="p-3 bg-white"><slot /></div>

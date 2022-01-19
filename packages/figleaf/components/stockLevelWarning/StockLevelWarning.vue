@@ -35,7 +35,7 @@ export default {
 <template>
     <fig-icon-label
         v-if="qty <= threshold"
-        class="text-yellow-600">
+        class="text-amber-600">
         <fig-icon
             slot="left"
             icon="urgent"

@@ -127,11 +127,11 @@ export default {
 }
 
 .toggle-input:checked + .toggle-switch {
-    /* @apply bg-green-500; */
+    /* @apply bg-emerald-500; */
     background-color: var(--switch-checked-color);
 }
 .toggle-input:checked + .toggle-switch::before {
-    /* @apply border-green-500; */
+    /* @apply border-emerald-500; */
     border-color: var(--switch-checked-color);
 
     /* Move the inner circle to the right */

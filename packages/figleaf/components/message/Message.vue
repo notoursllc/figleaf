@@ -116,7 +116,7 @@ export default {
 <template>
     <div :class="classNames" v-if="isVisible">
         <div class="flex items-center">
-            <div class="flex flex-grow justify-start items-center flex-nowrap">
+            <div class="flex grow justify-start items-center flex-nowrap">
                 <div v-if="hasIcon">
                     <slot name="icon">
                         <fig-icon
@@ -172,7 +172,7 @@ export default {
     color: #73000c;
 }
 .fig-message-success {
-    @apply text-green-900;
+    @apply text-emerald-900;
     background: #C8E6C9;
     border: solid #439446;
     border-width: 0 0 0 6px;

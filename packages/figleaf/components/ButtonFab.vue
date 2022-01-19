@@ -56,7 +56,7 @@ export default Vue.extend({
 
                 default:
                     classes.push(
-                        this.isDisabled ? 'bg-green-400' : 'bg-green-500 hover:bg-green-600'
+                        this.isDisabled ? 'bg-emerald-400' : 'bg-emerald-500 hover:bg-emerald-600'
                     );
             }
 

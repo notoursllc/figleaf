@@ -103,7 +103,7 @@ export default {
 
 <template>
     <div class="fig-pagination-bar">
-        <div v-if="totalRecords" class="flex-grow text-gray-500">
+        <div v-if="totalRecords" class="grow text-gray-500">
             {{ totalNumberOfResultsLabel }}<span class="px-2">&middot;</span>{{ displayingLabel }}
             <span class="px-2">&middot;</span>
             <fig-form-select-native

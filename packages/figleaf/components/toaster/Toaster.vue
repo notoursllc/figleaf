@@ -52,7 +52,7 @@ export default {
         getTitleClass(variant) {
             switch(variant) {
                 case 'success':
-                    return 'text-green-700';
+                    return 'text-emerald-700';
 
                 case 'error':
                     return 'text-red-600';
@@ -103,7 +103,7 @@ export default {
 
             switch(toastConfig.variant) {
                 case 'success':
-                    classes.push('bg-green-500');
+                    classes.push('bg-emerald-500');
                     break;
 
                 case 'error':

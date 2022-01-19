@@ -141,7 +141,7 @@ export default Vue.extend({
 
 /* state */
 .fig-select.fig-form-control-state-success .vs__dropdown-toggle {
-    @apply border-green-500;
+    @apply border-emerald-500;
 }
 .fig-select.fig-form-control-state-error .vs__dropdown-toggle {
     @apply border-red-500;

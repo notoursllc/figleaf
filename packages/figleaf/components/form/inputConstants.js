@@ -5,6 +5,6 @@ export const formInputSizes = {
 };
 
 export const formInputStateBorderClasses = {
-    success: 'border-green-600',
+    success: 'border-emerald-600',
     error: 'border-red-700'
 };

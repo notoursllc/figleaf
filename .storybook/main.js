@@ -10,6 +10,16 @@ module.exports = {
     "addons": [
         "@storybook/addon-links",
         "@storybook/addon-essentials",
-        "@storybook/addon-postcss",
+
+        // tailwind 3.x requires postcss 8
+        // this forces the usage of postcss 8 (the version defined in package.json):
+        {
+            name: '@storybook/addon-postcss',
+            options: {
+                postcssLoaderOptions: {
+                    implementation: require('postcss'),
+                },
+            },
+        }
     ]
 }
