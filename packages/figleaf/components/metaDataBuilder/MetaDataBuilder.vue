@@ -166,7 +166,7 @@ export default {
             </draggable>
         </div>
 
-        <div class="pt-6 text-left">
+        <div class="pt-2 text-left">
             <fig-button
                 @click="addNewItem"
                 variant="plain"
