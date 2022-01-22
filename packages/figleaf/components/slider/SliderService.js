@@ -53,7 +53,7 @@ export const props = {
         // Infinite loop sliding
         infinite: {
             type: Boolean,
-            default: true,
+            default: false,
         },
 
         // Index of slide to start on
