@@ -1,6 +1,5 @@
 import ResizeObserver from 'resize-observer-polyfill';
 
-
 export const initResizeObserver = (callback) => {
     // cache the last size
     let lastSize = {
@@ -31,13 +30,15 @@ export const initResizeObserver = (callback) => {
         } = lastSize;
 
         // observer‘s callback is always triggered the first time
-        if (lastWidth === 0 && lastHeight === 0 && lastOffsetWidth === 0 && lastOffsetHeight === 0) {
-            lastSize = {
-                width: fixedWidth,
-                height: fixedHeight, offsetWidth, offsetHeight
-            };
-            return;
-        }
+        // commenting this out because I think I want this callback to fire the first time so the correct
+        // dimensions are returned immediately
+        // if (lastWidth === 0 && lastHeight === 0 && lastOffsetWidth === 0 && lastOffsetHeight === 0) {
+        //     lastSize = {
+        //         width: fixedWidth,
+        //         height: fixedHeight, offsetWidth, offsetHeight
+        //     };
+        //     return;
+        // }
 
         if (lastWidth !== fixedWidth ||
             lastHeight !== fixedHeight ||
