@@ -31,7 +31,8 @@ HeroSlider.args = {
         {
             title: '111',
             caption: 'caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 caption 111 ',
-            url: '/images/1642402260652-shirt_team_4.jpg'
+            // url: '/images/1642402260652-shirt_team_4.jpg'
+            url: 'http://image.tmdb.org/t/p/w1280/3G1Q5xF40HkUBJXxt2DQgQzKTp5.jpg'
         },
         // {
         //     title: '2222',

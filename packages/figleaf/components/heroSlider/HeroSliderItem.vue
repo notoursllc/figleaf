@@ -4,8 +4,14 @@ import {
     bunnyBaseUrl
 } from '../../utils/common.js';
 
+import resizeObserver from '../../directives/resizeObserver/resizeObserver.js';
+
 export default {
     name: 'HeroSliderItem',
+
+    directives: {
+        resizeObserver
+    },
 
     props: {
         hero: {
@@ -24,46 +30,46 @@ export default {
     computed: {
         backgroundImageUrl() {
             if(this.hero.url) {
-                return `url(${bunnyBaseUrl}/${removeLeadingSlash(this.hero.url)}?class=${this.imageClass})`;
+                const pattern = /^((http|https):\/\/)/;
+                let backgroundUrl = null;
+
+                if(pattern.test(this.hero.url)) {
+                    backgroundUrl = this.hero.url;
+                }
+                else {
+                    backgroundUrl = `${bunnyBaseUrl}/${removeLeadingSlash(this.hero.url)}`;
+                }
+
+                return `url(${backgroundUrl}?class=${this.imageClass})`;
             }
         }
     },
 
     methods: {
-        onResize() {
-            const w = window.innerWidth;
-
+        onResize(val) {
+            console.log("RESIZE", val)
             // Using the tailwind breakpoint values
             // https://v1.tailwindcss.com/docs/breakpoints
-            if(w <= 640) {
+            if(val.offsetWidth <= 640) {
                 this.imageClass = 'w375';
             }
-            else if(w <= 768) {
+            else if(val.offsetWidth <= 768) {
                 this.imageClass = 'w550';
             }
             else {
                 this.imageClass = 'w1280';
             }
         }
-    },
-
-    mounted() {
-        this.onResize();
-
-        this.$nextTick(() => {
-            window.addEventListener('resize', this.onResize);
-        })
-    },
-
-    beforeDestroy() {
-        window.removeEventListener('resize', this.onResize);
-    },
+    }
 }
 </script>
 
 
 <template>
-    <div class="fig-hero" :style="{ backgroundImage: backgroundImageUrl }">
+    <div
+        class="fig-hero"
+        v-resize-observer="onResize"
+        :style="{ backgroundImage: backgroundImageUrl }">
         <div class="fig-hero-fade fig-hero-fade-top" />
 
         <div class="w-full p-4 md:p-8">
