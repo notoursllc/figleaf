@@ -94,7 +94,7 @@ export default {
 
 .fig-hero-fade {
     @apply absolute w-full pointer-events-none;
-    height: 30%;
+    height: 20%;
 }
 
 .fig-hero-fade-top {
