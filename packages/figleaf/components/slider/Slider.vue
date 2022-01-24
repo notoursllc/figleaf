@@ -180,7 +180,7 @@ export default {
 
         goToNext() {
             if (this.canGoToNext) {
-            this.goTo(this.currentSlide + 1 * this.settings.slidesToScroll);
+                this.goTo(this.currentSlide + 1 * this.settings.slidesToScroll);
             }
         },
 
@@ -275,6 +275,46 @@ export default {
 
 <template>
     <div class="Slider" :class="sliderClasses">
+
+        <!-- header -->
+        <div class="flex items-center w-full">
+            <!-- title -->
+            <div class="grow">
+                <slot name="title"></slot>
+            </div>
+
+            <!-- nav buttons -->
+            <div v-if="!settings.disabled && settings.navButtons">
+                <button
+                    type="button"
+                    ref="prevButton"
+                    class="Slider__nav-button"
+                    :disabled="!canGoToPrev"
+                    @click="goToPrev(), restartAutoPlay()">
+                    <fig-icon
+                        icon="chevron-left"
+                        :stroke-width="2"
+                        stroke="#000"
+                        :width="26"
+                        :height="26" />
+                </button>
+
+                <button
+                    type="button"
+                    ref="nextButton"
+                    class="Slider__nav-button"
+                    :disabled="!canGoToNext"
+                    @click="goToNext(), restartAutoPlay()">
+                    <fig-icon
+                        icon="chevron-right"
+                        :stroke-width="2"
+                        stroke="#000"
+                        :width="26"
+                        :height="26" />
+                </button>
+            </div>
+        </div>
+
         <div ref="list" class="Slider__list">
             <div
                 ref="track"
@@ -298,22 +338,7 @@ export default {
             </div>
         </div>
 
-        <div class="Slider__actions" v-if="!settings.disabled && (settings.navButtons || settings.dots)">
-            <button
-                type="button"
-                ref="prevButton"
-                v-if="settings.navButtons && !settings.disabled"
-                class="Slider__nav-button Slider__nav-button--prev"
-                :disabled="!canGoToPrev"
-                @click="goToPrev(), restartAutoPlay()">
-                <fig-icon
-                    icon="chevron-left"
-                    :stroke-width="2"
-                    stroke="#000"
-                    :width="40"
-                    :height="40" />
-            </button>
-
+        <div class="Slider__actions" v-if="!settings.disabled && settings.dots">
             <ul ref="dots" v-if="settings.dots && !settings.disabled" class="Slider__dots">
                 <li
                 v-for="n in slidesCount"
@@ -325,21 +350,6 @@ export default {
                 <button @click="goTo(n - 1), restartAutoPlay()" type="button">{{n}}</button>
                 </li>
             </ul>
-
-            <button
-                type="button"
-                ref="nextButton"
-                v-if="settings.navButtons && !settings.disabled"
-                class="Slider__nav-button Slider__nav-button--next"
-                :disabled="!canGoToNext"
-                @click="goToNext(), restartAutoPlay()">
-                <fig-icon
-                    icon="chevron-right"
-                    :stroke-width="2"
-                    stroke="#000"
-                    :width="40"
-                    :height="40" />
-            </button>
         </div>
     </div>
 </template>
@@ -363,19 +373,13 @@ export default {
 }
 
 .Slider__nav-button {
-    @apply bg-white opacity-75 hover:opacity-100 rounded-full p-2 absolute top-1/3;
+    @apply bg-gray-400 opacity-75 hover:opacity-100 rounded-full p-2 mx-1;
 }
 .Slider__nav-button > svg {
     @apply opacity-100;
 }
 .Slider__nav-button[disabled] {
-    @apply invisible;
-}
-.Slider__nav-button--prev {
-    @apply left-0;
-}
-.Slider__nav-button--next {
-    @apply right-0;
+    @apply opacity-20;
 }
 
 
