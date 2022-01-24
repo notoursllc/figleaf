@@ -150,6 +150,12 @@ export default Vue.extend({
                     case 'naked':
                         classes.push('border-0 background-transparent p-0');
                         break;
+
+                    case 'warning':
+                        classes.push(
+                            'text-gray-900 bg-amber-400 hover:bg-amber-500'
+                        );
+                        break;
                 }
             }
 

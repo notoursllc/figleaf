@@ -13,7 +13,8 @@ export const buttonVariants = {
     primary: 'primary',
     success: 'success',
     'success-outline': 'success-outline',
-    naked: 'naked'
+    naked: 'naked',
+    warning: 'warning'
 };
 
 export const buttonTypes = {
