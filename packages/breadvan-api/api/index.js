@@ -491,6 +491,25 @@ export default ($axios) => {
     };
 
 
+    api.product_artists = {
+        delete(id) {
+            return api.$delete('/product/artist', { id });
+        },
+
+        list(params) {
+            return api.$get('/product/artists', params);
+        },
+
+        get(id) {
+            return api.$get('/product/artist', { id });
+        },
+
+        upsert(data) {
+            return api[data.hasOwnProperty('id') ? '$put' : '$post']('product/artist', data);
+        }
+    };
+
+
     api.nexus = {
         delete(id) {
             return api.$delete('/nexus', { id });
