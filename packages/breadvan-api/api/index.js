@@ -505,7 +505,23 @@ export default ($axios) => {
         },
 
         upsert(data) {
-            return api[data.hasOwnProperty('id') ? '$put' : '$post']('product/artist', data);
+            const fd = new FormData();
+            fd.append('name', data.name);
+            fd.append('description', data.description);
+            fd.append('website', data.website);
+            fd.append('city', data.city);
+            fd.append('state', data.state);
+            fd.append('countryCodeAlpha2', data.countryCodeAlpha2);
+            fd.append('published', data.published === false ? false : true);
+
+            if(data.id) {
+                fd.append('id', data.id);
+            }
+            if(data.file) {
+                fd.append('file', data.file);
+            }
+
+            return api[data.hasOwnProperty('id') ? '$put' : '$post']('/product/artist', fd);
         }
     };
 
