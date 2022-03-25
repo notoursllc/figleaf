@@ -327,6 +327,7 @@ export default ($axios) => {
             delete data.deleted_at;
             delete data.total_inventory_count;
             delete data.packing_volume_cm;
+            delete data.artist;
 
             if(Array.isArray(data.variants)) {
                 data.variants.forEach((variant) => {
