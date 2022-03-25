@@ -40,6 +40,11 @@ export default {
             type: String
         },
 
+        countryCodeInline: {
+            type: Boolean,
+            default: false
+        },
+
         email: {
             type: String
         },
@@ -94,6 +99,10 @@ export default {
                 }
             }
 
+            if(this.countryCodeInline && this.countryCode) {
+                val.push(', ' +  this.countryCode);
+            }
+
             return val.join('');
         }
     }
@@ -107,7 +116,7 @@ export default {
         <div class="addressRow" v-if="streetAddress">{{ streetAddress }}</div>
         <div class="addressRow" v-if="extendedAddress">{{ extendedAddress }}</div>
         <div class="addressRow">{{ formattedCityStateZip }}</div>
-        <div class="addressRow" v-if="countryCode" >{{ countryCode }}</div>
+        <div class="addressRow" v-if="countryCode && !countryCodeInline" >{{ countryCode }}</div>
         <div class="addressRow" v-if="email">{{ email }}</div>
         <div v-if="phone">{{ phone }}</div>
     </div>
