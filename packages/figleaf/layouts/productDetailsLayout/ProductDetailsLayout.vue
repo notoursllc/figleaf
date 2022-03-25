@@ -44,6 +44,11 @@ export default {
                 <div v-if="$slots.description" class="mt-6 break-normal text-base">
                     <slot name="description"></slot>
                 </div>
+
+                <!-- artist -->
+                <div v-if="$slots.artist" class="mt-8 break-normal text-base">
+                    <slot name="artist"></slot>
+                </div>
             </div>
         </div>
 
