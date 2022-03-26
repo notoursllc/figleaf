@@ -254,6 +254,10 @@ export default ($axios) => {
             return api.$get('/master_types', params);
         },
 
+        all(params) {
+            return api.$get('/master_types/all', params);
+        },
+
         ordinals(data) {
             return api.$put('/master_types/ordinal', data);
         },
