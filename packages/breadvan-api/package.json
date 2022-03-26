@@ -1,6 +1,6 @@
 {
     "name": "@notoursllc/breadvan-api",
-    "version": "0.4.4",
+    "version": "0.4.5",
     "private": false,
     "description": "API definition using Axios",
     "repository": {
