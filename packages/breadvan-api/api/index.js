@@ -389,6 +389,10 @@ export default ($axios) => {
             return api[prod.id ? '$put' : '$post']('/product', prod);
         },
 
+        getStipeTaxCodes(params) {
+            return api.$get('/product/tax_codes', params);
+        },
+
         accentMessage: {
             get(id) {
                 return api.$get('/product/accent_message', { id });
