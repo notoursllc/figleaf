@@ -6,6 +6,10 @@ import FigFormText from '../form/text/FormText';
 import form_input_mixin from '../form/form_input_mixin';
 import { formSelectProps } from '../form/select/constants';
 
+// State values are ISO_3166-2 subdivision code, which is required by Stripe
+// https://en.wikipedia.org/wiki/ISO_3166-2
+// https://stripe.com/docs/api/orders_v2/create#create_order_v2-shipping_details-address-state
+
 const countryStatesMap = {
     // United States
     US: {

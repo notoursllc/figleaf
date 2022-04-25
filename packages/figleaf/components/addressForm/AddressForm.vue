@@ -9,6 +9,7 @@ import FigButton from '../button/Button';
 import FigSelectCountry from '../selectCountry/SelectCountry';
 import FigSelectStateProvince from '../selectStateProvince/SelectStateProvince';
 import FigIcon from '../icon/FigIcon';
+import FigIconLabel from '../iconLabel/IconLabel';
 import FigFormSelectNative from '../form/selectNative/FormSelectNative.vue';
 import FigTooltip from '../tooltip/Tooltip.vue';
 import {
@@ -71,6 +72,7 @@ export default {
         FigSelectCountry,
         FigSelectStateProvince,
         FigIcon,
+        FigIconLabel,
         FigFormSelectNative,
         FigTooltip
     },
@@ -375,11 +377,16 @@ export default {
         <div class="pt-2">
             <fig-form-group :stacked="false">
                 <template v-slot:label>
-                    <fig-icon
-                        icon="gift"
-                        :height="22"
-                        :width="22"
-                        :stroke-width="1.5" /> {{ $t('Is this order a gift?') }}
+                    <fig-icon-label>
+                        <template v-slot:left>
+                            <fig-icon
+                                icon="gift"
+                                :height="22"
+                                :width="22"
+                                :stroke-width="1.5" />
+                        </template>
+                        {{ $t('Is this order a gift?') }}
+                    </fig-icon-label>
                 </template>
                 <div class="pl-2">
                     <fig-form-select-native

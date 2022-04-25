@@ -1,12 +1,14 @@
 <script>
 import Vue from 'vue';
 import FigIcon from '../icon/FigIcon';
+import FigIconLabel from '../iconLabel/IconLabel';
 import { paymentTypes } from './constants';
 
 
 export default Vue.extend({
     components: {
-        FigIcon
+        FigIcon,
+        FigIconLabel
     },
 
     props: {
@@ -52,12 +54,16 @@ export default Vue.extend({
                 :class="{'selected': selectedType === 'cc'}"
                 @click="onClickType('cc')">
                 <div class="grow whitespace-nowrap">
-                    <fig-icon
-                        icon="credit-card"
-                        :stroke-width="1.5"
-                        :width="24"
-                        :height="24"
-                        class="mr-2" />{{ $t('Credit card') }}
+                    <fig-icon-label>
+                        <template v-slot:left>
+                            <fig-icon
+                                icon="credit-card"
+                                :stroke-width="1.5"
+                                :width="24"
+                                :height="24" />
+                        </template>
+                        {{ $t('Credit card') }}
+                    </fig-icon-label>
                 </div>
                 <fig-icon
                     icon="check-circle"
@@ -74,12 +80,16 @@ export default Vue.extend({
                 :class="{'selected': selectedType === 'paypal'}"
                 @click="onClickType('paypal')">
                 <div class="grow whitespace-nowrap">
-                    <fig-icon
-                        icon="brand-paypal"
-                        :stroke-width="1.5"
-                        :width="24"
-                        :height="24"
-                        class="mr-2" />{{ $t('PayPal') }}
+                    <fig-icon-label>
+                        <template v-slot:left>
+                            <fig-icon
+                                icon="brand-paypal"
+                                :stroke-width="1.5"
+                                :width="24"
+                                :height="24" />
+                        </template>
+                        {{ $t('PayPal') }}
+                    </fig-icon-label>
                 </div>
                 <fig-icon
                     icon="check-circle"
