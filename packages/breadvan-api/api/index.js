@@ -301,6 +301,8 @@ export default ($axios) => {
     api.packageType = {
         stripRelations(data) {
             delete data.volume_cm;
+            delete data.created_at;
+            delete data.updated_at;
         },
 
         delete(id) {
