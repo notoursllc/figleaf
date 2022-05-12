@@ -25,8 +25,10 @@ const Template = (args, { argTypes }) => ({
             <template slot="sizes">Sizes slot</template>
             <template slot="button">Button slot</template>
             <template slot="description">Description slot</template>
+            <template slot="artist">Artist slot</template>
+            <template slot="video">Video slot</template>
             <template slot="under">Under slot</template>
-        </fig-button>
+        </fig-product-details-layout>
     `
 });
 
