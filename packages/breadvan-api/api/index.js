@@ -317,7 +317,7 @@ export default ($axios) => {
 
         upsert(data) {
             const type = cloneDeep(data);
-            api.packageTypes.stripRelations(type);
+            api.packageType.stripRelations(type);
 
             return api[data.hasOwnProperty('id') ? '$put' : '$post']('/package_type', type);
         }
