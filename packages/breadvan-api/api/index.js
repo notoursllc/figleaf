@@ -307,6 +307,10 @@ export default ($axios) => {
             return api.$delete('/package_type', { id });
         },
 
+        get(id) {
+            return api.$get('/package_type', { id });
+        },
+
         list(params) {
             return api.$get('/package_types', params);
         },
