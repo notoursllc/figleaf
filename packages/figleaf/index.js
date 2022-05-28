@@ -45,6 +45,7 @@ export { default as FigIcon } from './components/icon/FigIcon.vue';
 export { default as FigIconSprite } from './components/icon/FigIconSprite.vue';
 export { default as FigVictoryIcon } from './components/icon/VictoryIcon.vue';
 export { default as FigCreditCardIcon } from './components/icon/creditCard/CreditCard.vue';
+export { default as FigBvLogo } from './components/icon/BvLogo.vue';
 
 // layouts
 export { default as FigCartCtaLayout } from './layouts/cartCta/CartCtaLayout.vue';
