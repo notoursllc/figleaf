@@ -11,10 +11,7 @@ export default Vue.extend({
     ],
 
     props: {
-        value: {
-            type: [String, Number],
-            default: ''
-        },
+        value: {},
 
         options: {
             type: Array
