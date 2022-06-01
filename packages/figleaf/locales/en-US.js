@@ -41,6 +41,8 @@ module.exports = {
     'Return to your Shopping Cart?': 'Return to your Shopping Cart?',
 
     'Security code': 'Security code',
+    'See all tax codes': 'See all tax codes',
+    'See common tax codes': 'See common tax codes',
     'Sold out': 'Sold out',
     'State/Province/Region': 'State/Province/Region',
 

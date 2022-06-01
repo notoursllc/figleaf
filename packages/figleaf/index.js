@@ -152,6 +152,7 @@ export { default as FigFormRadio } from './components/form/radio/FormRadio.vue';
 export { default as FigFormSelect } from './components/form/select/FormSelect.vue';
 export { default as FigFormSelectBitwise } from './components/form/selectBitwise/FormSelectBitwise.vue';
 export { default as FigFormSelectNative } from './components/form/selectNative/FormSelectNative.vue';
+export { default as FigFormSelectStripeTaxCode } from './components/form/selectStripeTaxCode/FormSelectStripeTaxCode.vue';
 export { default as FigFormTextarea } from './components/form/textarea/FormTextarea.vue';
 
 // size buttons
