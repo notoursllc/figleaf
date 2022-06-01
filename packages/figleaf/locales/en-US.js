@@ -18,6 +18,7 @@ module.exports = {
     'First name': 'First name',
 
     'is_gift_tooltip': 'If this order is a gift, we will HIDE prices on the packing slip. Order status emails will still be sent, so please use an email address that only you will see. Items often arrive with our logo on the box. If you are trying to keep it secret, we recommend shipping to an alternate address.',
+    'Is this order a gift?': 'Is this order a gift?',
     'item_items': 'item | items',
 
     'Just a few left. Order soon.': 'Just a few left. Order soon.',
