@@ -11,12 +11,14 @@ export function getImage(src, config) {
     const path = removeLeadingSlash(src);
 
     let className = config.preset;
-    if(config.modifiers) {
+    if(config?.modifiers?.width) {
         className = `w${config.modifiers.width}`;
     }
 
+    const query = className ? `?class=${className}` : '';
+
     return {
-        url: `https://bv-pullzone-1.b-cdn.net/${path}?class=${className}`
+        url: `https://bv-pullzone-1.b-cdn.net/${path}${query}`
     };
 }
 
