@@ -521,19 +521,19 @@ export default ($axios) => {
 
         upsert(data) {
             const fd = new FormData();
-            fd.append('name', data.name);
-            fd.append('description', data.description);
-            fd.append('website', data.website);
-            fd.append('city', data.city);
-            fd.append('state', data.state);
-            fd.append('countryCodeAlpha2', data.countryCodeAlpha2);
-            fd.append('published', data.published === false ? false : true);
+            const blacklist = ['created_at', 'updated_at', 'deleted_at', 'image'];
 
-            if(data.id) {
-                fd.append('id', data.id);
-            }
-            if(data.file) {
-                fd.append('file', data.file);
+            for(const key in data) {
+                if (!blacklist.includes(key)) {
+                    if(key === 'file') {
+                        if(data.file) {
+                            fd.append('file', data.file);
+                        }
+                    }
+                    else {
+                        fd.append(key, data[key]);
+                    }
+                }
             }
 
             return api[data.hasOwnProperty('id') ? '$put' : '$post']('/product/artist', fd);
