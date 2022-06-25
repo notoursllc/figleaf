@@ -100,7 +100,14 @@ export default {
             }
 
             if(this.countryCodeInline && this.countryCode) {
-                val.push(', ' +  this.countryCode);
+                if(
+                    (this.city && this.city.trim())
+                    || (this.state && this.state.trim())
+                    || (this.zip && this.zip.trim())
+                ) {
+                    val.push(',');
+                }
+                val.push(this.countryCode);
             }
 
             return val.join('');
