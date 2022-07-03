@@ -499,8 +499,14 @@ export default ($axios) => {
                 });
             },
 
-            getSku(id) {
-                return api.$get('/product/variant/sku', { id });
+            sku: {
+                get(id) {
+                    return api.$get('/product/variant/sku', { id });
+                },
+
+                delete(id) {
+                    return api.$delete('/product/variant/sku', { id });
+                }
             }
         }
     };
