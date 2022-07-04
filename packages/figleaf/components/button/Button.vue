@@ -239,7 +239,7 @@ export default Vue.extend({
     <button
         v-on="$listeners"
         :type="type"
-        class="fig-button rounded font-medium"
+        class="fig-button"
         :class="classNames"
         tabindex="0"
         :disabled="disabled"
@@ -266,6 +266,14 @@ export default Vue.extend({
 </template>
 
 <style>
+.fig-button {
+    @apply rounded font-medium;
+}
+
+.fig-button svg {
+    @apply inline-block;
+}
+
 .fig-button-loading {
     @apply text-center;
 }
