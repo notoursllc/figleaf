@@ -90,6 +90,10 @@ export default Vue.extend({
                 classes.push('align-bottom');
             }
 
+            if(this.loading) {
+                classes.push('fig-button-loading');
+            }
+
             // variants
             if(this.disabled) {
                 classes.push(
@@ -260,3 +264,9 @@ export default Vue.extend({
         </div>
     </button>
 </template>
+
+<style>
+.fig-button-loading {
+    @apply text-center;
+}
+</style>
