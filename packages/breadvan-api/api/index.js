@@ -73,6 +73,17 @@ export default ($axios) => {
     };
 
 
+    api.account = {
+        get(params) {
+            return api.$get('/account', params)
+        },
+
+        update(data) {
+            return api.$put('/account', data)
+        }
+    },
+
+
     api.cart = {
         closed(params) {
             return api.$get('/carts/closed', params)
