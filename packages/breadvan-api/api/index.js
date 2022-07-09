@@ -18,8 +18,8 @@ export default ($axios) => {
     };
 
     api.$get = async (url, params) => {
-        const { data } = await api.get(url, params);
-        return data;
+        const response = await api.get(url, params);
+        return response?.data;
     };
 
 
@@ -29,8 +29,8 @@ export default ($axios) => {
     };
 
     api.$post = async (url, params) => {
-        const { data } = await api.post(url, params);
-        return data;
+        const response = await api.post(url, params);
+        return response?.data;
     };
 
 
@@ -40,8 +40,8 @@ export default ($axios) => {
     };
 
     api.$put = async (url, params) => {
-        const { data } = await api.put(url, params);
-        return data;
+        const response = await api.put(url, params);
+        return response?.data;
     };
 
 
@@ -57,8 +57,8 @@ export default ($axios) => {
     };
 
     api.$delete = async (url, params) => {
-        const { data } = await api.delete(url, params);
-        return data;
+        const response = await api.delete(url, params);
+        return response?.data;
     };
 
 
