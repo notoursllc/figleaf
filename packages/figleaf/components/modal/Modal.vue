@@ -6,7 +6,7 @@ import { modalSizes } from './constants';
 
 Vue.use(VueHotkey);
 
-export default Vue.extend({
+export default {
     name: 'Modal',
 
     components: {
@@ -21,6 +21,11 @@ export default Vue.extend({
         },
 
         closeButton: {
+            type: Boolean,
+            default: true
+        },
+
+        escapeToClose: {
             type: Boolean,
             default: true
         }
@@ -72,9 +77,15 @@ export default Vue.extend({
             this.visible = false;
             document.body.style.overflow = '';
             this.emitVisible();
+        },
+
+        onEscape() {
+            if(this.escapeToClose) {
+                this.hide();
+            }
         }
     }
-});
+};
 </script>
 
 
@@ -83,7 +94,7 @@ export default Vue.extend({
         <div
             v-if="visible"
             class="overflow-x-hidden overflow-y-auto fixed top-0 left-0 w-full h-full z-50 outline-none focus:outline-none"
-            v-hotkey="{'esc': hide}">
+            v-hotkey="{'esc': onEscape}">
 
             <!--content-->
             <div
