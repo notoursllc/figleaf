@@ -6,16 +6,21 @@ module.exports = {
     'Card number': 'Card number',
     'Checkout': 'Checkout',
     'City': 'City',
+    'confirm_your_address_desc': 'We couldn\'t verify the exact address you entered, but did find a close match. Please make sure your mailing address is correct to ensure accurate delivery.',
+    'Continue': 'Continue',
     'Country': 'Country',
     'Credit card': 'Credit card',
 
     'Delete this row?': 'Delete this row?',
     'Displaying {start} - {end}': 'Displaying {start} - {end}',
 
+    'Edit the address': 'Edit the address',
     'Email': 'Email',
     'Expiration date': 'Expiration date',
 
     'First name': 'First name',
+
+    'Hmm… something\'s not quite right with your address': 'Hmm… something\'s not quite right with your address',
 
     'is_gift_tooltip': 'If this order is a gift, we will HIDE prices on the packing slip. Order status emails will still be sent, so please use an email address that only you will see. Items often arrive with our logo on the box. If you are trying to keep it secret, we recommend shipping to an alternate address.',
     'Is this order a gift?': 'Is this order a gift?',
@@ -45,6 +50,11 @@ module.exports = {
     'See common tax codes': 'See common tax codes',
     'Sold out': 'Sold out',
     'State/Province/Region': 'State/Province/Region',
+    'Suggested address': 'Suggested address',
+
+    'The address you entered': 'The address you entered',
+
+    'Use this address': 'Use this address',
 
     'Value': 'Value',
 

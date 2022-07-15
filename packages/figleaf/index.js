@@ -15,6 +15,9 @@ export { default as FigButtonFab } from './components/ButtonFab.vue';
 // card last four
 export { default as FigCardLastFour } from './components/cardLastFour/CardLastFour.vue';
 
+// compare address modal
+export { default as FigCompareAddressModal } from './components/compareAddressModal/CompareAddressModal.vue';
+
 // content
 export { default as FigContent } from './components/content/Content.vue';
 
