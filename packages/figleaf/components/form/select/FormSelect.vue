@@ -91,6 +91,9 @@ export default Vue.extend({
 .fig-select {
     @apply bg-white;
 }
+.fig-select input {
+    @apply placeholder-gray-400;
+}
 .fig-select .fig-icon.vs__open-indicator {
     fill: none;
 }

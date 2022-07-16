@@ -52,6 +52,10 @@ export default {
             type: Boolean
         },
 
+        hideGift: {
+            type: Boolean
+        },
+
         rowSpacing: {
             type: [Number, String],
             default: 1,
@@ -264,7 +268,7 @@ export default {
                         :size="inputSize"
                         @input="(val) => touchV('extendedAddress', val)"
                         :state="inputState('extendedAddress')">
-                        <template slot="label">{{ $t('Address line 2') }}</template>
+                        <template slot="label">{{ $t('Address line 2') }} ({{ $t('not required') }})</template>
                     </fig-form-text>
 
                     <div slot="error" v-show="canShowValidationMsg('extendedAddress')">{{ $t('Required') }}</div>
@@ -289,54 +293,64 @@ export default {
             </div>
         </div>
 
-        <div :class="rowClasses" v-cloak v-show="value.countryCodeAlpha2 && !canShowValidationMsg('countryCodeAlpha2')">
-            <!-- city -->
-            <div :class="threeColCellClasses">
-                <fig-form-group>
-                    <fig-form-text
-                        v-model.trim="value.city"
-                        :size="inputSize"
-                        @input="(val) => touchV('city', val)"
-                        :state="inputState('city')">
-                        <template slot="label">{{ $t('City') }}</template>
-                    </fig-form-text>
+        <template v-if="value.countryCodeAlpha2">
+            <div :class="rowClasses" v-cloak v-show="value.countryCodeAlpha2 && !canShowValidationMsg('countryCodeAlpha2')">
+                <!-- city -->
+                <div :class="threeColCellClasses">
+                    <fig-form-group>
+                        <fig-form-text
+                            v-model.trim="value.city"
+                            :size="inputSize"
+                            @input="(val) => touchV('city', val)"
+                            :state="inputState('city')">
+                            <template slot="label">{{ $t('City') }}</template>
+                        </fig-form-text>
 
-                    <div slot="error" v-show="canShowValidationMsg('city')">{{ $t('Required') }}</div>
-                </fig-form-group>
+                        <div slot="error" v-show="canShowValidationMsg('city')">{{ $t('Required') }}</div>
+                    </fig-form-group>
+                </div>
+
+                <!-- state -->
+                <div :class="threeColCellClasses">
+                    <fig-form-group>
+                        <fig-select-state-province
+                            :country="value.countryCodeAlpha2"
+                            v-model.trim="value.state"
+                            :clearable="false"
+                            class="w-full "
+                            :placeholder="$t('State/Province/Region')"
+                            :size="inputSize"
+                            @input="(val) => touchV('state', val)" />
+                        <!-- <fig-select-state-province
+                            :country="value.countryCodeAlpha2"
+                            v-model.trim="value.state"
+                            :clearable="false"
+                            class="w-full"
+                            :placeholder="$t('State/Province/Region')"
+                            :size="inputSize"
+                            @input="(val) => touchV('state', val)"
+                            :state="value.countryCodeAlpha2 && inputState('state')" /> -->
+
+                        <!-- <div slot="error" v-show="value.countryCodeAlpha2 && canShowValidationMsg('state')">{{ $t('Required') }}</div> -->
+                    </fig-form-group>
+                </div>
+
+                <!-- zip -->
+                <div :class="threeColCellClasses">
+                    <fig-form-group>
+                        <fig-form-text
+                            v-model.trim="value.postalCode"
+                            :size="inputSize"
+                            @input="(val) => touchV('postalCode', val)"
+                            :state="inputState('postalCode')">
+                            <template slot="label">{{ $t('Postal code') }}</template>
+                        </fig-form-text>
+
+                        <div slot="error" v-show="canShowValidationMsg('postalCode')">{{ $t('Required') }}</div>
+                    </fig-form-group>
+                </div>
             </div>
-
-            <!-- state -->
-            <div :class="threeColCellClasses">
-                <fig-form-group>
-                    <fig-select-state-province
-                        :country="value.countryCodeAlpha2"
-                        v-model.trim="value.state"
-                        :clearable="false"
-                        class="w-full"
-                        :placeholder="$t('State/Province/Region')"
-                        :size="inputSize"
-                        @input="(val) => touchV('state', val)"
-                        :state="value.countryCodeAlpha2 && inputState('state')" />
-
-                    <div slot="error" v-show="value.countryCodeAlpha2 && canShowValidationMsg('state')">{{ $t('Required') }}</div>
-                </fig-form-group>
-            </div>
-
-            <!-- zip -->
-            <div :class="threeColCellClasses">
-                <fig-form-group>
-                    <fig-form-text
-                        v-model.trim="value.postalCode"
-                        :size="inputSize"
-                        @input="(val) => touchV('postalCode', val)"
-                        :state="inputState('postalCode')">
-                        <template slot="label">{{ $t('Postal code') }}</template>
-                    </fig-form-text>
-
-                    <div slot="error" v-show="canShowValidationMsg('postalCode')">{{ $t('Required') }}</div>
-                </fig-form-group>
-            </div>
-        </div>
+        </template>
 
         <div :class="rowClasses" v-if="!hideEmail || !hidePhone">
             <!-- email -->
@@ -374,7 +388,7 @@ export default {
             </div>
         </div>
 
-        <div class="pt-2">
+        <div class="pt-2" v-if="!hideGift">
             <fig-form-group :stacked="false">
                 <template v-slot:label>
                     <fig-icon-label>
@@ -409,7 +423,6 @@ export default {
                     </fig-tooltip>
                 </div>
             </fig-form-group>
-
         </div>
     </div>
 </template>

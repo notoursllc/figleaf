@@ -33,6 +33,7 @@ module.exports = {
     '{num} / page': '{num} / page',
     'New item': 'New item',
     'No': 'No',
+    'not required': 'not required',
 
     'OK': 'OK',
 
