@@ -101,6 +101,9 @@ export { default as FigPopConfirm } from './components/popConfirm/PopConfirm.vue
 export { default as FigOverlay } from './components/overlay/Overlay.vue';
 export { default as FigSpinner } from './components/spinner/Spinner.vue';
 
+// required
+export { default as FigRequired } from './components/form/Required.vue';
+
 // signpost
 export { default as FigSignpost } from './components/signpost/Signpost.vue';
 

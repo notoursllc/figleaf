@@ -12,6 +12,8 @@ import FigIcon from '../icon/FigIcon';
 import FigIconLabel from '../iconLabel/IconLabel';
 import FigFormSelectNative from '../form/selectNative/FormSelectNative.vue';
 import FigTooltip from '../tooltip/Tooltip.vue';
+import FigRequired from '../form/Required.vue';
+
 import {
     addressFormRequiredProps,
     addressFormInputSizes,
@@ -78,7 +80,8 @@ export default {
         FigIcon,
         FigIconLabel,
         FigFormSelectNative,
-        FigTooltip
+        FigTooltip,
+        FigRequired
     },
 
     data: function() {
@@ -96,15 +99,15 @@ export default {
         },
 
         oneColCellClasses() {
-            return `w-full my-${this.rowSpacing} px-${this.cellSpacing}`;
+            return `w-full mb-${this.rowSpacing} px-${this.cellSpacing}`;
         },
 
         twoColCellClasses() {
-            return `w-full my-${this.rowSpacing} px-${this.cellSpacing} sm:w-1/2`;
+            return `w-full mb-${this.rowSpacing} px-${this.cellSpacing} sm:w-1/2`;
         },
 
         threeColCellClasses() {
-            return `w-full my-${this.rowSpacing} px-${this.cellSpacing} sm:w-1/3`;
+            return `w-full mb-${this.rowSpacing} px-${this.cellSpacing} sm:w-1/3`;
         },
 
         requiredProps() {
@@ -214,13 +217,15 @@ export default {
             <!-- first name -->
             <div :class="twoColCellClasses">
                 <fig-form-group>
+                    <template v-slot:label>
+                        <span class="fig-address-label">{{ $t('First name') }}</span>
+                        <fig-required />
+                    </template>
                     <fig-form-text
                         v-model.trim="value.firstName"
                         :size="inputSize"
                         @input="(val) => touchV('firstName', val)"
-                        :state="inputState('firstName')">
-                        <template slot="label">{{ $t('First name') }}</template>
-                    </fig-form-text>
+                        :state="inputState('firstName')" />
 
                     <div slot="error" v-show="canShowValidationMsg('firstName')">{{ $t('Required') }}</div>
                 </fig-form-group>
@@ -229,13 +234,15 @@ export default {
             <!-- last name -->
             <div :class="twoColCellClasses">
                 <fig-form-group>
+                    <template v-slot:label>
+                        <span class="fig-address-label">{{ $t('Last name') }}</span>
+                        <fig-required />
+                    </template>
                     <fig-form-text
                         v-model.trim="value.lastName"
                         :size="inputSize"
                         @input="(val) => touchV('lastName', val)"
-                        :state="inputState('lastName')">
-                        <template slot="label">{{ $t('Last name') }}</template>
-                    </fig-form-text>
+                        :state="inputState('lastName')" />
 
                     <div slot="error" v-show="canShowValidationMsg('lastName')">{{ $t('Required') }}</div>
                 </fig-form-group>
@@ -246,13 +253,15 @@ export default {
         <div :class="rowClasses">
             <div :class="oneColCellClasses">
                 <fig-form-group>
+                    <template v-slot:label>
+                        <span class="fig-address-label">{{ $t('Address line 1') }}</span>
+                        <fig-required />
+                    </template>
                     <fig-form-text
                         v-model.trim="value.streetAddress"
                         :size="inputSize"
                         @input="(val) => touchV('streetAddress', val)"
-                        :state="inputState('streetAddress')">
-                        <template slot="label">{{ $t('Address line 1') }}</template>
-                    </fig-form-text>
+                        :state="inputState('streetAddress')" />
 
                     <div slot="error" v-show="canShowValidationMsg('streetAddress')">{{ $t('Required') }}</div>
                 </fig-form-group>
@@ -263,13 +272,14 @@ export default {
         <div :class="rowClasses">
             <div :class="oneColCellClasses">
                 <fig-form-group>
+                    <template v-slot:label>
+                        <span class="fig-address-label">{{ $t('Address line 2') }}</span>
+                    </template>
                     <fig-form-text
                         v-model.trim="value.extendedAddress"
                         :size="inputSize"
                         @input="(val) => touchV('extendedAddress', val)"
-                        :state="inputState('extendedAddress')">
-                        <template slot="label">{{ $t('Address line 2') }} ({{ $t('not required') }})</template>
-                    </fig-form-text>
+                        :state="inputState('extendedAddress')" />
 
                     <div slot="error" v-show="canShowValidationMsg('extendedAddress')">{{ $t('Required') }}</div>
                 </fig-form-group>
@@ -280,9 +290,13 @@ export default {
         <div :class="rowClasses">
             <div :class="oneColCellClasses">
                 <fig-form-group>
+                    <template v-slot:label>
+                        <span class="fig-address-label">{{ $t('Country') }}</span>
+                        <fig-required />
+                    </template>
+
                     <fig-select-country
                         v-model.trim="value.countryCodeAlpha2"
-                        :placeholder="$t('Country')"
                         :size="inputSize"
                         @input="(val) => touchV('countryCodeAlpha2', val)"
                         :state="inputState('countryCodeAlpha2')"
@@ -298,13 +312,16 @@ export default {
                 <!-- city -->
                 <div :class="threeColCellClasses">
                     <fig-form-group>
+                        <template v-slot:label>
+                            <span class="fig-address-label">{{ $t('City') }}</span>
+                            <fig-required />
+                        </template>
+
                         <fig-form-text
                             v-model.trim="value.city"
                             :size="inputSize"
                             @input="(val) => touchV('city', val)"
-                            :state="inputState('city')">
-                            <template slot="label">{{ $t('City') }}</template>
-                        </fig-form-text>
+                            :state="inputState('city')" />
 
                         <div slot="error" v-show="canShowValidationMsg('city')">{{ $t('Required') }}</div>
                     </fig-form-group>
@@ -313,12 +330,16 @@ export default {
                 <!-- state -->
                 <div :class="threeColCellClasses">
                     <fig-form-group>
+                        <template v-slot:label>
+                            <span class="fig-address-label">{{ $t('State/Province/Region') }}</span>
+                            <fig-required />
+                        </template>
+
                         <fig-select-state-province
                             :country="value.countryCodeAlpha2"
                             v-model.trim="value.state"
                             :clearable="false"
                             class="w-full "
-                            :placeholder="$t('State/Province/Region')"
                             :size="inputSize"
                             @input="(val) => touchV('state', val)" />
                         <!-- <fig-select-state-province
@@ -338,13 +359,16 @@ export default {
                 <!-- zip -->
                 <div :class="threeColCellClasses">
                     <fig-form-group>
+                        <template v-slot:label>
+                            <span class="fig-address-label">{{ $t('Postal code') }}</span>
+                            <fig-required />
+                        </template>
+
                         <fig-form-text
                             v-model.trim="value.postalCode"
                             :size="inputSize"
                             @input="(val) => touchV('postalCode', val)"
-                            :state="inputState('postalCode')">
-                            <template slot="label">{{ $t('Postal code') }}</template>
-                        </fig-form-text>
+                            :state="inputState('postalCode')" />
 
                         <div slot="error" v-show="canShowValidationMsg('postalCode')">{{ $t('Required') }}</div>
                     </fig-form-group>
@@ -356,14 +380,17 @@ export default {
             <!-- email -->
             <div :class="twoColCellClasses" v-if="!hideEmail">
                 <fig-form-group>
+                    <template v-slot:label>
+                        <span class="fig-address-label">{{ $t('Email') }}</span>
+                        <fig-required />
+                    </template>
+
                     <fig-form-text
                         v-model.trim="value.email"
                         type="email"
                         :size="inputSize"
                         @input="(val) => touchV('email', val)"
-                        :state="inputState('email')">
-                        <template slot="label">{{ $t('Email') }}</template>
-                    </fig-form-text>
+                        :state="inputState('email')" />
 
                     <div slot="error" v-show="canShowValidationMsg('email')">
                         <div v-if="$v.value.email.hasOwnProperty('required') && !$v.value.email.required">{{ $t('Required') }}</div>
@@ -375,13 +402,16 @@ export default {
             <!-- phone number -->
             <div :class="twoColCellClasses" v-if="!hidePhone">
                 <fig-form-group>
+                    <template v-slot:label>
+                        <span class="fig-address-label">{{ $t('Phone number') }}</span>
+                        <fig-required />
+                    </template>
+
                     <fig-form-text
                         v-model.trim="value.phone"
                         :size="inputSize"
                         @input="(val) => touchV('phone', val)"
-                        :state="inputState('phone')">
-                        <template slot="label">{{ $t('Phone number') }}</template>
-                    </fig-form-text>
+                        :state="inputState('phone')" />
 
                     <div slot="error" v-show="canShowValidationMsg('phone')">{{ $t('Required') }}</div>
                 </fig-form-group>
@@ -426,3 +456,10 @@ export default {
         </div>
     </div>
 </template>
+
+
+<style scoped>
+.fig-address-label {
+    @apply  text-gray-600 text-sm;
+}
+</style>
