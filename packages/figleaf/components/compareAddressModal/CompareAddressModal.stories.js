@@ -37,6 +37,7 @@ const Template = (args, { argTypes }) => ({
     template: `
         <div>
             <fig-compare-address-modal
+                v-bind="$props"
                 ref="comparemodal"
                 original-line1="1 portola dr"
                 original-city="San Mateo"
@@ -60,5 +61,5 @@ const Template = (args, { argTypes }) => ({
 export const CompareAddressModal = Template.bind({});
 CompareAddressModal.storyName = "CompareAddressModal";
 CompareAddressModal.args = {
-
+    showSuggestedAddress: false
 };

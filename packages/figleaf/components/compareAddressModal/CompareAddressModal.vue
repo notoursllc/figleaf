@@ -63,12 +63,17 @@ export default {
 
         suggestedCountry: {
             type: String
+        },
+
+        showSuggestedAddress: {
+            type: Boolean,
+            default: true
         }
     },
 
     data() {
         return {
-            selectedAddress: 'suggested'
+            selectedAddress: this.showSuggestedAddress ? 'suggested' : 'edit'
         }
     },
 
@@ -133,27 +138,31 @@ export default {
             {{ $t('confirm_your_address_desc') }}
         </div>
 
-        <div class="mb-1"
-            :class="{'fig-compare-radio-label-selected': selectedIsSuggested}">{{ $t('Suggested address') }}:</div>
-        <div class="fig-compare-radio"
-            :class="{'fig-compare-radio-selected': selectedIsSuggested}">
-            <fig-form-radio
-                block
-                name="selectedNumber"
-                checked-value="suggested"
-                v-model="selectedAddress">
-                <div class="pl-4">
-                    <fig-address
-                        :street-address="suggestedLine1"
-                        :extended-address="suggestedLine2"
-                        :city="suggestedCity"
-                        :state="suggestedState"
-                        :zip="suggestedZip"
-                        :country-code="suggestedCountry" />
-                </div>
-            </fig-form-radio>
-        </div>
+        <!-- Suggested address -->
+        <template v-if="showSuggestedAddress">
+            <div class="mb-1"
+                :class="{'fig-compare-radio-label-selected': selectedIsSuggested}">{{ $t('Suggested address') }}:</div>
+            <div class="fig-compare-radio"
+                :class="{'fig-compare-radio-selected': selectedIsSuggested}">
+                <fig-form-radio
+                    block
+                    name="selectedNumber"
+                    checked-value="suggested"
+                    v-model="selectedAddress">
+                    <div class="pl-4">
+                        <fig-address
+                            :street-address="suggestedLine1"
+                            :extended-address="suggestedLine2"
+                            :city="suggestedCity"
+                            :state="suggestedState"
+                            :zip="suggestedZip"
+                            :country-code="suggestedCountry" />
+                    </div>
+                </fig-form-radio>
+            </div>
+        </template>
 
+        <!-- Original address -->
         <div class="mt-4  mb-1"
             :class="{'fig-compare-radio-label-selected': selectedIsOriginal}">{{ $t('The address you entered') }}:</div>
         <div class="fig-compare-radio"
@@ -175,7 +184,9 @@ export default {
             </fig-form-radio>
         </div>
 
-        <div class="fig-compare-radio mt-6"
+        <!-- Edit address -->
+        <div
+            class="fig-compare-radio mt-6"
             :class="{'fig-compare-radio-selected': selectedIsEdit}">
             <fig-form-radio
                 block
