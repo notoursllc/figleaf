@@ -135,11 +135,12 @@ export default {
         </template>
 
         <div class="mb-8 text-gray-700">
-            {{ $t('confirm_your_address_desc') }}
+            {{ $t(showSuggestedAddress ? 'confirm_your_address_desc1' : 'confirm_your_address_desc2') }}
+            <div class="text-red-800">{{ $t('Please make sure your mailing address is correct to ensure accurate delivery.')}}</div>
         </div>
 
         <!-- Suggested address -->
-        <template v-if="showSuggestedAddress">
+        <div v-if="showSuggestedAddress" class="mb-4">
             <div class="mb-1"
                 :class="{'fig-compare-radio-label-selected': selectedIsSuggested}">{{ $t('Suggested address') }}:</div>
             <div class="fig-compare-radio"
@@ -160,10 +161,10 @@ export default {
                     </div>
                 </fig-form-radio>
             </div>
-        </template>
+        </div>
 
         <!-- Original address -->
-        <div class="mt-4  mb-1"
+        <div class="mb-1"
             :class="{'fig-compare-radio-label-selected': selectedIsOriginal}">{{ $t('The address you entered') }}:</div>
         <div class="fig-compare-radio"
             :class="{'fig-compare-radio-selected': selectedIsOriginal}">

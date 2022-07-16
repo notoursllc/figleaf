@@ -6,7 +6,8 @@ module.exports = {
     'Card number': 'Card number',
     'Checkout': 'Checkout',
     'City': 'City',
-    'confirm_your_address_desc': 'We couldn\'t verify the exact address you entered, but did find a close match. Please make sure your mailing address is correct to ensure accurate delivery.',
+    'confirm_your_address_desc1': 'We couldn\'t verify the exact address you entered, but did find a close match.',
+    'confirm_your_address_desc2': 'We couldn\'t verify the exact address you entered.',
     'Continue': 'Continue',
     'Country': 'Country',
     'Credit card': 'Credit card',
@@ -39,6 +40,7 @@ module.exports = {
     'PayPal': 'PayPal',
     'Phone number': 'Phone number',
     'Please enter a valid email address.': 'Please enter a valid email address.',
+    'Please make sure your mailing address is correct to ensure accurate delivery.': 'Please make sure your mailing address is correct to ensure accurate delivery.',
     'Postal code': 'Postal code',
 
     'Required': 'Required',
