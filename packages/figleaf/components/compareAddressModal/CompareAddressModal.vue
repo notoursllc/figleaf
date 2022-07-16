@@ -73,7 +73,7 @@ export default {
 
     data() {
         return {
-            selectedAddress: this.showSuggestedAddress ? 'suggested' : 'edit'
+            selectedAddress: 'suggested'
         }
     },
 
@@ -118,7 +118,16 @@ export default {
             this.$emit(this.selectedAddress, payload);
             this.hide();
         }
-    }
+    },
+
+    watch: {
+        showSuggestedAddress: {
+            handler(newVal) {
+                this.selectedAddress = newVal ? 'suggested' : 'edit';
+            },
+            immediate: true
+        }
+    },
 }
 </script>
 
@@ -131,7 +140,7 @@ export default {
         :close-button="false"
         :escape-to-close="false">
         <template slot="header">
-            {{ $t("Hmm… something's not quite right with your address") }}:
+            {{ $t("Confirm your address") }}:
         </template>
 
         <div class="mb-8 text-gray-700">
@@ -147,7 +156,7 @@ export default {
                 :class="{'fig-compare-radio-selected': selectedIsSuggested}">
                 <fig-form-radio
                     block
-                    name="selectedNumber"
+                    name="selectedAction"
                     checked-value="suggested"
                     v-model="selectedAddress">
                     <div class="pl-4">
@@ -170,7 +179,7 @@ export default {
             :class="{'fig-compare-radio-selected': selectedIsOriginal}">
             <fig-form-radio
                 block
-                name="selectedNumber"
+                name="selectedAction"
                 checked-value="original"
                 v-model="selectedAddress">
                 <div class="pl-4">
@@ -191,7 +200,7 @@ export default {
             :class="{'fig-compare-radio-selected': selectedIsEdit}">
             <fig-form-radio
                 block
-                name="selectedNumber"
+                name="selectedAction"
                 checked-value="edit"
                 v-model="selectedAddress">
                 <div class="pl-4"

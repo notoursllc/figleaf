@@ -6,6 +6,7 @@ module.exports = {
     'Card number': 'Card number',
     'Checkout': 'Checkout',
     'City': 'City',
+    'Confirm your address': 'Confirm your address',
     'confirm_your_address_desc1': 'We couldn\'t verify the exact address you entered, but did find a close match.',
     'confirm_your_address_desc2': 'We couldn\'t verify the exact address you entered.',
     'Continue': 'Continue',
@@ -20,8 +21,6 @@ module.exports = {
     'Expiration date': 'Expiration date',
 
     'First name': 'First name',
-
-    'Hmm… something\'s not quite right with your address': 'Hmm… something\'s not quite right with your address',
 
     'is_gift_tooltip': 'If this order is a gift, we will HIDE prices on the packing slip. Order status emails will still be sent, so please use an email address that only you will see. Items often arrive with our logo on the box. If you are trying to keep it secret, we recommend shipping to an alternate address.',
     'Is this order a gift?': 'Is this order a gift?',
