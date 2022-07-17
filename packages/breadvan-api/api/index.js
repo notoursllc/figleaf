@@ -176,6 +176,10 @@ export default ($axios) => {
                 return api.$post('/cart/shippingaddress', data);
             },
 
+            validateAddress(data) {
+                return api.$post('/cart/shippingaddress/validate', data);
+            },
+
             getEstimates(cartId) {
                 return api.$post('/cart/shipping/estimate', {
                     id: cartId
