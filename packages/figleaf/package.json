@@ -16,6 +16,7 @@
         "flatpickr": "^4.6.6",
         "lodash.clonedeep": "^4.5.0",
         "lodash.debounce": "^4.0.8",
+        "lodash.isdate": "^4.0.1",
         "lodash.isfinite": "^3.3.2",
         "lodash.isobject": "^3.0.2",
         "resize-observer-polyfill": "^1.5.1",

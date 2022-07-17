@@ -174,4 +174,7 @@ export { default as FigVNodes } from './components/vNodes/VNodes.vue';
 export { default as FigYouTube } from './components/youtube/Youtube.vue';
 
 // directives
-export { default as FigResizeObserverDirective } from './directives/resizeObserver/resizeObserver.js'
+export { default as FigResizeObserverDirective } from './directives/resizeObserver/resizeObserver.js';
+
+// composition functions
+export { default as FigUseUtils } from './composables/useUtils.js';
