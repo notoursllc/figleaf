@@ -193,7 +193,7 @@ export default ($axios) => {
             selectRate(cartId, rateId) {
                 return api.$post('/cart/shipping/rate', {
                     id: cartId,
-                    rate_id: rateId
+                    rate_id: rateId || null
                 });
             },
 
