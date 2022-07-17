@@ -213,6 +213,9 @@ export default {
 
 <template>
     <div>
+
+
+
         <div :class="rowClasses">
             <!-- first name -->
             <div :class="twoColCellClasses">
@@ -249,42 +252,6 @@ export default {
             </div>
         </div>
 
-        <!-- street address -->
-        <div :class="rowClasses">
-            <div :class="oneColCellClasses">
-                <fig-form-group>
-                    <template v-slot:label>
-                        <span class="fig-address-label">{{ $t('Address line 1') }}</span>
-                        <fig-required />
-                    </template>
-                    <fig-form-text
-                        v-model.trim="value.streetAddress"
-                        :size="inputSize"
-                        @input="(val) => touchV('streetAddress', val)"
-                        :state="inputState('streetAddress')" />
-
-                    <div slot="error" v-show="canShowValidationMsg('streetAddress')">{{ $t('Required') }}</div>
-                </fig-form-group>
-            </div>
-        </div>
-
-        <!-- extended address -->
-        <div :class="rowClasses">
-            <div :class="oneColCellClasses">
-                <fig-form-group>
-                    <template v-slot:label>
-                        <span class="fig-address-label">{{ $t('Address line 2') }}</span>
-                    </template>
-                    <fig-form-text
-                        v-model.trim="value.extendedAddress"
-                        :size="inputSize"
-                        @input="(val) => touchV('extendedAddress', val)"
-                        :state="inputState('extendedAddress')" />
-
-                    <div slot="error" v-show="canShowValidationMsg('extendedAddress')">{{ $t('Required') }}</div>
-                </fig-form-group>
-            </div>
-        </div>
 
         <!-- country -->
         <div :class="rowClasses">
@@ -308,6 +275,43 @@ export default {
         </div>
 
         <template v-if="value.countryCodeAlpha2">
+            <!-- street address -->
+            <div :class="rowClasses">
+                <div :class="oneColCellClasses">
+                    <fig-form-group>
+                        <template v-slot:label>
+                            <span class="fig-address-label">{{ $t('Address line 1') }}</span>
+                            <fig-required />
+                        </template>
+                        <fig-form-text
+                            v-model.trim="value.streetAddress"
+                            :size="inputSize"
+                            @input="(val) => touchV('streetAddress', val)"
+                            :state="inputState('streetAddress')" />
+
+                        <div slot="error" v-show="canShowValidationMsg('streetAddress')">{{ $t('Required') }}</div>
+                    </fig-form-group>
+                </div>
+            </div>
+
+            <!-- extended address -->
+            <div :class="rowClasses">
+                <div :class="oneColCellClasses">
+                    <fig-form-group>
+                        <template v-slot:label>
+                            <span class="fig-address-label">{{ $t('Address line 2') }}</span>
+                        </template>
+                        <fig-form-text
+                            v-model.trim="value.extendedAddress"
+                            :size="inputSize"
+                            @input="(val) => touchV('extendedAddress', val)"
+                            :state="inputState('extendedAddress')" />
+
+                        <div slot="error" v-show="canShowValidationMsg('extendedAddress')">{{ $t('Required') }}</div>
+                    </fig-form-group>
+                </div>
+            </div>
+
             <div :class="rowClasses" v-cloak v-show="value.countryCodeAlpha2 && !canShowValidationMsg('countryCodeAlpha2')">
                 <!-- city -->
                 <div :class="threeColCellClasses">
