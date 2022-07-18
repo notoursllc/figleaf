@@ -26,8 +26,8 @@ const Template = (args, { argTypes }) => ({
             <fig-icon
                 slot="left"
                 icon="cart"
-                width="18"
-                height="18" />
+                width="24"
+                height="24" />
             Icon on the left
         </fig-icon-label>`
 });

@@ -32,8 +32,8 @@ export default Vue.extend({
 
 <template>
     <div class="flex items-center break-normal">
-        <slot name="left"></slot>
+        <div class="flex-shrink-0" v-if="$slots.left"><slot name="left"></slot></div>
         <div :class="defaultSlotClasses"><slot></slot></div>
-        <slot name="right"></slot>
+        <div class="flex-shrink-0" v-if="$slots.right"><slot name="right"></slot></div>
     </div>
 </template>

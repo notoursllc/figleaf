@@ -94,7 +94,7 @@ export default {
 
 @screen sm {
     .fig-hero {
-        min-height: 80vh;
+        min-height: 70vh;
     }
 }
 
