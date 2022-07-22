@@ -82,6 +82,10 @@ export default ($axios) => {
             return api.$put('/account', data)
         },
 
+        deleteApiKey() {
+            return api.$delete('/account/api_key')
+        },
+
         updateApiKey() {
             return api.$put('/account/api_key')
         }
