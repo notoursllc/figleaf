@@ -87,6 +87,10 @@ export default ($axios) => {
         },
 
         updateApiKey() {
+            // Some kind of payload needs to be sent
+            // so the API request handler can access the request.payload
+            // object.  Without this, is seems that only request.query is available
+            // and an error occurrs.
             return api.$put('/account/api_key', {})
         }
     },
