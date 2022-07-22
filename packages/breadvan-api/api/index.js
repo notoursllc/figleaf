@@ -87,7 +87,7 @@ export default ($axios) => {
         },
 
         updateApiKey() {
-            return api.$put('/account/api_key')
+            return api.$put('/account/api_key', {})
         }
     },
 
