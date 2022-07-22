@@ -80,6 +80,10 @@ export default ($axios) => {
 
         update(data) {
             return api.$put('/account', data)
+        },
+
+        updateApiKey() {
+            return api.$put('/account/api_key')
         }
     },
 
