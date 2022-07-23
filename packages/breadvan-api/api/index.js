@@ -219,12 +219,8 @@ export default ($axios) => {
     };
 
     api.exchangeRate = {
-        latest() {
-            return api.$get('/exchange-rate/latest');
-        },
-
-        list(params) {
-            return api.$get('/exchange-rates', params);
+        get(params) {
+            return api.$get('/exchange-rate', params);
         }
     }
 
