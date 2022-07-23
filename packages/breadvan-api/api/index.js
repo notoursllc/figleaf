@@ -218,6 +218,16 @@ export default ($axios) => {
         }
     };
 
+    api.exchangeRate = {
+        latest() {
+            return api.$get('/exchange-rate/latest');
+        },
+
+        list(params) {
+            return api.$get('/exchange-rates', params);
+        }
+    }
+
     api.hero = {
         delete(id) {
             return api.$delete('/hero', { id });
