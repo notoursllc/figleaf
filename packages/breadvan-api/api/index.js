@@ -101,6 +101,10 @@ export default ($axios) => {
             return api.$get('/carts/closed', params)
         },
 
+        currency(params) {
+            return api.$post('/cart/currency', params)
+        },
+
         get(params) {
             return api.$get('/cart', params)
         },
