@@ -74,9 +74,10 @@ export default {
 
 <template>
     <headroom :disabled="inCheckout" :zIndex="10">
-        <fig-content nopad class="fig-header-top">
-            <slot name="top" />
-        </fig-content>
+        <div class="fig-header-top">
+            <fig-content nopad><slot name="top" /></fig-content>
+        </div>
+
         <header role="banner" class="fig-header h-12 md:h-16 flex items-center relative p-0 w-full">
             <fig-content nopad class="flex flex-row items-center w-full px-4">
                 <div>
