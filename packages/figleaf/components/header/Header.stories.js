@@ -28,14 +28,15 @@ const Template = (args, { argTypes }) => ({
     template: `
         <div style="min-height: 200px">
             <fig-header @cartClick="onCartClick" @sidebarOpen="onSidebarOpen" v-bind="$props">
-                <fig-victory-icon
-                    slot="logo"
-                    class="cursor-pointer"
-                    fill="#565656"
-                    :width="60"
-                    :height="30" />
-
-                <div slot="middle">nav goes here</div>
+                <template v-slot:top>Above header</template>
+                <template v-slot:logo>
+                    <fig-victory-icon
+                        class="cursor-pointer"
+                        fill="#565656"
+                        :width="60"
+                        :height="30" />
+                </template>
+                <template v-slot:middle>nav goes here</template>
             </fig-header>
         </div>
     `
