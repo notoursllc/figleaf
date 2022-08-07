@@ -21,6 +21,11 @@ export { default as FigCompareAddressModal } from './components/compareAddressMo
 // content
 export { default as FigContent } from './components/content/Content.vue';
 
+// currency
+export { default as FigCurrency } from './components/currency/Currency.vue';
+export { default as FigCurrencySymbol } from './components/currency/CurrencySymbol.vue';
+export { default as FigUseCurrency } from './components/currency/useCurrency.js';
+
 // data toggler
 export { default as FigDataToggler } from './components/dataToggler/DataToggler.vue';
 
