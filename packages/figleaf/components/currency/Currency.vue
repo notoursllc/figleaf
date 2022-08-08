@@ -49,15 +49,25 @@ export default {
         * as 'dollars', and also applies the exchange rate
         */
         convertedPrice() {
+            const p = this.getExchangeRatePrice();
+
+            // convert cents to dollars (/100)
+            // and limit the float decimal precision to 2 places
+            return limitDecimalPrecision(p/100, 2);
+        }
+    },
+
+    methods: {
+        getExchangeRatePrice() {
             let p = this.price;
 
             if(this.applyExchangeRate) {
                 p = exchangeRatePrice(this.price, this.exchangeRate);
             }
 
-            // convert cents to dollars (/100)
-            // and limit the float decimal precision to 2 places
-            return limitDecimalPrecision(p/100, 2);
+            this.$emit('exchangeRatePrice', p);
+
+            return p;
         }
     }
 };
@@ -72,7 +82,8 @@ export default {
         :format="{ key: 'currency', currency: currency }">
         <template #currency="slotProps">
             <span class="fig-currency-symbol">{{ slotProps.currency }}</span>
-        </template></i18n-n>
+        </template>
+    </i18n-n>
 </template>
 
 
