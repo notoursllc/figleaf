@@ -33,12 +33,6 @@ export default {
         }
     },
 
-    data() {
-        return {
-            fx: null
-        }
-    },
-
     computed: {
         exchangeRate() {
             return this.exchangeRates[this.currency] || 1;

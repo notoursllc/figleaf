@@ -1,5 +1,5 @@
 export { default as FigBadge } from './components/Badge.vue';
-export { default as FigCountry } from './components/Country.vue';
+export { default as FigCountry } from './components/country/Country.vue';
 export { default as FigIconLabel } from './components/iconLabel/IconLabel.vue';
 
 // address
@@ -182,4 +182,6 @@ export { default as FigYouTube } from './components/youtube/Youtube.vue';
 export { default as FigResizeObserverDirective } from './directives/resizeObserver/resizeObserver.js';
 
 // composition functions
+export { default as FigUseCountry } from './components/country/useCountry.js';
 export { default as FigUseUtils } from './composables/useUtils.js';
+export { default as FigUseTime } from './composables/useTime.js';

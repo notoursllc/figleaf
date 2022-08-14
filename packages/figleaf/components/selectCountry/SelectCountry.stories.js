@@ -1,3 +1,4 @@
+import useTime from '../../composables/useTime.js';
 import FigSelectCountry from './SelectCountry.vue';
 import {
     formInputSizes
@@ -25,13 +26,23 @@ const Template = (args, { argTypes }) => ({
     },
     data: function() {
         return {
-            selected: null
+            selected: null,
+            timezone: null,
+            country: null
         };
+    },
+    created() {
+        const { getTimezone, getCountryFromTimezone } = useTime();
+        this.timezone = getTimezone();
+        this.country = getCountryFromTimezone();
     },
     template: `
         <div>
-            <div>Selected: {{ selected }}</div>
             <fig-select-country v-bind="$props" v-model="selected" />
+
+            <div class="pt-6">Selected: {{ selected }}</div>
+            <div>Your timezone: {{ timezone }}</div>
+            <div>Your country: {{ country }}</div>
         </div>
     `
 });

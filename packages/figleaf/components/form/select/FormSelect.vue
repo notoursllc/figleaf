@@ -1,12 +1,11 @@
 <script>
-import Vue from 'vue';
 import vSelect from 'vue-select';
 import FigIcon from '../../icon/FigIcon';
 import { formSelectProps } from './constants';
 import form_input_mixin from '../form_input_mixin';
 import 'vue-select/dist/vue-select.css';
 
-export default Vue.extend({
+export default {
     name: 'FormSelect',
 
     components: {
@@ -72,7 +71,7 @@ export default Vue.extend({
             return names;
         }
     }
-});
+};
 </script>
 
 
