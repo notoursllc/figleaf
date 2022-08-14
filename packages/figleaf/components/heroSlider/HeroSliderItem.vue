@@ -47,7 +47,6 @@ export default {
 
     methods: {
         onResize(val) {
-            console.log("RESIZE", val)
             // Using the tailwind breakpoint values
             // https://v1.tailwindcss.com/docs/breakpoints
             if(val.offsetWidth <= 640) {
