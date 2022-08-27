@@ -137,8 +137,9 @@ export default ($axios) => {
             },
 
             notes: {
-                update(notes) {
+                update(id, notes) {
                     return api.$put('/cart/order/notes', {
+                        id: id,
                         admin_order_notes: notes
                     })
                 }
