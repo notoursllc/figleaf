@@ -129,13 +129,13 @@ export default {
                             <fig-icon icon="dots-vertical-double" />
                         </div>
 
-                        <div class="flex" :class="densityClass">
+                        <div class="flex flex-grow" :class="densityClass">
                             <slot :rowBuilder="obj"></slot>
                         </div>
 
                         <div
                             v-if="removable"
-                            class="flex grow items-start flex-nowrap"
+                            class="flex items-start flex-nowrap"
                             :class="densityClass">
 
                             <fig-pop-confirm
@@ -174,7 +174,7 @@ export default {
 
 <style scoped>
 .fig-row-builder .fig-row-builder-row {
-    @apply flex flex-col flex-nowrap;
+    @apply flex flex-col flex-nowrap w-full;
 }
 
 .fig-row-builder .fig-row-builder-row-handle {
