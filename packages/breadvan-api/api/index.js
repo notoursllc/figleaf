@@ -134,6 +134,14 @@ export default ($axios) => {
 
             resendConfirmationEmail(id) {
                 return api.$post('/cart/order/resend-confirmation', { id });
+            },
+
+            notes: {
+                update(notes) {
+                    return api.$put('/cart/order/notes', {
+                        admin_order_notes: notes
+                    })
+                }
             }
         },
 
