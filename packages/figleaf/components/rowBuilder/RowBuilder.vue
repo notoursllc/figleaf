@@ -30,6 +30,11 @@ export default {
             default: true
         },
 
+        addable: {
+            type: Boolean,
+            default: true
+        },
+
         removable: {
             type: Boolean,
             default: true
@@ -72,6 +77,9 @@ export default {
         },
 
         canAddRow() {
+            if(!this.addable) {
+                return false;
+            }
             const maxRows = parseInt(this.maxRows);
             return isNaN(maxRows) || (maxRows > 0 && this.rows.length < maxRows);
         }
@@ -160,14 +168,19 @@ export default {
         </div>
 
         <div
-            v-if="canAddRow"
             :class="{'pt-2': rows.length}"
-            class="text-left">
+            class="flex items-center">
             <fig-button
+                v-if="canAddRow"
                 @click="addRow"
                 variant="plain"
                 size="sm"
-                icon="plus"><slot name="buttonLabel">{{ $t('Add row') }}</slot></fig-button>
+                icon="plus"
+                class="mr-3"><slot name="buttonLabel">{{ $t('Add row') }}</slot></fig-button>
+
+            <div class="flex-grow">
+                <slot name="addButtonRight" />
+            </div>
         </div>
     </div>
 </template>
