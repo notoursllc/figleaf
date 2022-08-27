@@ -1,4 +1,5 @@
 module.exports = {
+    'Add row': 'Add row',
     'Address line 1': 'Address line 1',
     'Address line 2': 'Address line 2',
 

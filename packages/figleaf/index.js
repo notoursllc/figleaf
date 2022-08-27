@@ -109,6 +109,9 @@ export { default as FigSpinner } from './components/spinner/Spinner.vue';
 // required
 export { default as FigRequired } from './components/form/Required.vue';
 
+// row builder
+export { default as FigRowBuilder } from './components/rowBuilder/RowBuilder.vue';
+
 // signpost
 export { default as FigSignpost } from './components/signpost/Signpost.vue';
 
