@@ -57,6 +57,7 @@ export { default as FigBvLogo } from './components/icon/BvLogo.vue';
 
 // layouts
 export { default as FigCartCtaLayout } from './layouts/cartCta/CartCtaLayout.vue';
+export { default as FigPackingSlipLayout } from './layouts/packingSlip/PackingSlipLayout.vue';
 export { default as FigProductDetailsLayout } from './layouts/productDetailsLayout/ProductDetailsLayout.vue';
 export { default as FigSpecLayout } from './layouts/spec/SpecLayout.vue';
 export { default as FigSpec } from './layouts/spec/Spec.vue';
