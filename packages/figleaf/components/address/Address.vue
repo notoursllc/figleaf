@@ -95,7 +95,9 @@ export default {
                 }
 
                 if(this.zip) {
-                    val.push(' ' + this.zip.trim());
+                    // make sure zip is a string before trimming
+                    const z = this.zip + '';
+                    val.push(' ' + z.trim());
                 }
             }
 

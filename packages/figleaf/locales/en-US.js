@@ -47,6 +47,7 @@ module.exports = {
     'Required': 'Required',
     '{num} result | {num} results': '{num} result | {num} results',
     'Return to your Shopping Cart?': 'Return to your Shopping Cart?',
+    'Returns address': 'Returns address',
 
     'Security code': 'Security code',
     'See all tax codes': 'See all tax codes',

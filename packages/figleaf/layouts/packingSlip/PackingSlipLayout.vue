@@ -19,11 +19,6 @@
 
         <!-- addresses -->
         <div class="grid grid-cols-3 gap-4 w-full mt-6">
-            <!-- company address-->
-            <div>
-                <slot name="address_company" />
-            </div>
-
             <!-- shipping address -->
             <div>
                 <div class="text-gray-400 text-sm mt-1">{{ $t('Ship to') }}:</div>
@@ -38,6 +33,14 @@
                 </template>
             </div>
 
+            <!-- return address-->
+            <div>
+                <template v-if="$slots.address_returns">
+                    <div class="text-gray-400 text-sm mt-1">{{ $t('Returns address') }}:</div>
+                    <slot name="address_returns" />
+                </template>
+            </div>
+
             <!-- order date -->
             <div>
                 <div class="text-gray-400 text-sm mt-1">{{ $t('Order date') }}:</div>
@@ -45,7 +48,7 @@
             </div>
 
             <!-- order number -->
-            <div>
+            <div class="col-span-2">
                 <div class="text-gray-400 text-sm mt-1">{{ $t('Order number') }}:</div>
                 <slot name="order_number" />
             </div>
