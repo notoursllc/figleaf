@@ -36,7 +36,7 @@
             <!-- return address-->
             <div>
                 <template v-if="$slots.address_returns">
-                    <div class="text-gray-400 text-sm mt-1">{{ $t('Returns address') }}:</div>
+                    <div class="text-gray-400 text-sm mt-1">{{ $t('Returns') }}:</div>
                     <slot name="address_returns" />
                 </template>
             </div>
