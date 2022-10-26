@@ -54,6 +54,11 @@ export default {
                 <div v-if="$slots.video" class="mt-8">
                     <slot name="video"></slot>
                 </div>
+
+                <!-- youtube video -->
+                <div v-if="$slots.youtube" class="mt-8">
+                    <slot name="youtube"></slot>
+                </div>
             </div>
         </div>
 
