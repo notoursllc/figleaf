@@ -1,15 +1,15 @@
 <script>
 import draggable from 'vuedraggable';
-import FigFormInput from '../form/text/FormText.vue';
-import FigPopConfirm from '../popConfirm/PopConfirm.vue';
-import FigTag from '../tag/Tag.vue';
-import FigModal from '../modal/Modal.vue';
-import FigNuxtImgBunny from '../nuxtImgBunny/NuxtImgBunny.vue';
-import FigFormTextarea from '../form/textarea/FormTextarea.vue';
 import {
+    FigFormTextarea,
+    FigNuxtImgBunny,
+    FigModal,
+    FigTag,
+    FigPopConfirm,
+    FigFormInput,
     FigButton,
     FigIcon
-} from '/packages/figleaf/index.js';
+} from '../../index.js';
 
 export default {
     components: {
