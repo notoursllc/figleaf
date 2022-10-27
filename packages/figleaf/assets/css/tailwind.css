@@ -63,6 +63,18 @@
     color: #838181;
 }
 
+.fig-unstyled-button {
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    padding: 0;
+    height: inherit;
+    text-align: left;
+    color: #222222;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
 [v-cloak] {
     display: none;
 }

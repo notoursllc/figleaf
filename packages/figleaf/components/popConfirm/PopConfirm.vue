@@ -30,7 +30,9 @@ export default {
         cancelButtonLabel: {
             type: String,
             default: ''
-        }
+        },
+
+        target: {}
     },
 
     data() {
@@ -91,7 +93,7 @@ export default {
         placement="top"
         @visible="focusCancelButton"
         :ref="popoverRef"
-        v-bind="$attrs">
+        v-bind="{ ...$attrs, ...$props }">
 
         <template v-slot:toggler>
             <slot name="reference"></slot>

@@ -2,6 +2,8 @@ module.exports = {
     'Add row': 'Add row',
     'Address line 1': 'Address line 1',
     'Address line 2': 'Address line 2',
+    'alt_text_explanation': 'Use alternative (alt) text to describe images or media for people with visual impairments. Alt text is accessible by screen readers and can also impact your listings\’ SEO on external search engines.',
+    'Alt text': 'Alt text',
 
     'cancel': 'cancel',
     'Card number': 'Card number',
@@ -22,6 +24,7 @@ module.exports = {
     'Expiration date': 'Expiration date',
 
     'First name': 'First name',
+
 
     'is_gift_tooltip': 'If this order is a gift, we will HIDE prices on the packing slip. Order status emails will still be sent, so please use an email address that only you will see. Items often arrive with our logo on the box. If you are trying to keep it secret, we recommend shipping to an alternate address.',
     'Is this order a gift?': 'Is this order a gift?',
