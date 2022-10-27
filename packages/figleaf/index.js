@@ -8,6 +8,9 @@ export { default as FigAddress } from './components/address/Address.vue';
 // address form
 export { default as FigAddressForm } from './components/addressForm/AddressForm.vue';
 
+// bunny video player
+export { default as FigBunnyVideoPlayer } from './components/bunnyVideoPlayer/BunnyVideoPlayer.vue';
+
 // buttons
 export { default as FigButton } from './components/button/Button.vue';
 export { default as FigButtonFab } from './components/ButtonFab.vue';
@@ -94,6 +97,9 @@ export { default as FigPaymentTypeChooser } from './components/paymentTypeChoose
 
 // percentage
 export { default as FigPercentage } from './components/percentage/Percentage.vue';
+
+// photo manager
+export { default as FigPhotoManager } from './components/photoManager/PhotoManager.vue';
 
 // product grid
 export { default as FigProductGrid } from './components/productGrid/ProductGrid.vue';
