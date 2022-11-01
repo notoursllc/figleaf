@@ -45,11 +45,6 @@ export default {
                     <slot name="description"></slot>
                 </div>
 
-                <!-- artist -->
-                <div v-if="$slots.artist" class="mt-8 break-normal text-base">
-                    <slot name="artist"></slot>
-                </div>
-
                 <!-- video -->
                 <div v-if="$slots.video" class="mt-8">
                     <slot name="video"></slot>
@@ -58,6 +53,11 @@ export default {
                 <!-- youtube video -->
                 <div v-if="$slots.youtube" class="mt-8">
                     <slot name="youtube"></slot>
+                </div>
+
+                <!-- artist -->
+                <div v-if="$slots.artist" class="mt-8 break-normal text-base">
+                    <slot name="artist"></slot>
                 </div>
             </div>
         </div>
