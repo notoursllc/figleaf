@@ -37,6 +37,9 @@ const Template = (args, { argTypes }) => ({
                         :height="30" />
                 </template>
                 <template v-slot:middle>nav goes here</template>
+                <template v-slot:right>
+                    <div class="pr-4">curr chooser</div>
+                </template>
             </fig-header>
         </div>
     `

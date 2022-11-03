@@ -144,21 +144,24 @@ export default {
                         </template>
                     </div>
 
-                    <!-- left -->
-                    <div v-if="!inCheckout">
-                        <button
-                            type="button"
-                            class="cart-button relative p-0 m-0 mt-2 bg-transparent border-0 mr-3 lg:mr-0"
-                            @click="emitCartClick">
-                            <fig-icon
-                                icon="cart"
-                                :width="27"
-                                :height="27"
-                                :stroke-width="1.5" />
-                            <fig-badge
-                                :variant="numCartItems ? 'success' : 'light'"
-                                size="sm">{{ numCartItems }}</fig-badge>
-                        </button>
+                    <!-- right -->
+                    <div class="flex items-center">
+                        <slot name="right" />
+                        <div v-if="!inCheckout">
+                            <button
+                                type="button"
+                                class="cart-button relative p-0 m-0 mt-2 bg-transparent border-0 mr-3 lg:mr-0"
+                                @click="emitCartClick">
+                                <fig-icon
+                                    icon="cart"
+                                    :width="27"
+                                    :height="27"
+                                    :stroke-width="1.5" />
+                                <fig-badge
+                                    :variant="numCartItems ? 'success' : 'light'"
+                                    size="sm">{{ numCartItems }}</fig-badge>
+                            </button>
+                        </div>
                     </div>
                 </fig-content>
             </div>
