@@ -47,6 +47,9 @@ export { default as FigRow } from './components/grid/Row.vue';
 // header
 export { default as FigHeader } from './components/header/Header.vue';
 
+// hero
+export { default as FigHero } from './components/hero/Hero.vue';
+
 // hero slider
 export { default as FigHeroSlider } from './components/heroSlider/HeroSlider.vue';
 export { default as FigHeroSliderItem } from './components/heroSlider/HeroSliderItem.vue';
