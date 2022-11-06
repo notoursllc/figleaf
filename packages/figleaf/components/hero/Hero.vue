@@ -23,7 +23,7 @@ export default {
 
         imageLoading: {
             type: String,
-            default: 'lazy'
+            default: 'eager'
         },
 
         shadows: {
