@@ -1,11 +1,11 @@
 <script>
-import resizeObserver from '../../directives/resizeObserver/resizeObserver.js';
+import FigNuxtImgBunny from '../nuxtImgBunny/NuxtImgBunny.vue';
 
 export default {
     name: 'FigHero',
 
-    directives: {
-        resizeObserver
+    components: {
+        FigNuxtImgBunny
     },
 
     props: {
@@ -13,21 +13,22 @@ export default {
             type: String
         },
 
+        altText: {
+            type: String
+        },
+
+        imageSizes: {
+            type: String
+        },
+
+        imageLoading: {
+            type: String,
+            default: 'lazy'
+        },
+
         shadows: {
             type: Boolean,
             default: false
-        }
-    },
-
-    data: function() {
-        return {
-            imageClass: 'w375'
-        }
-    },
-
-    methods: {
-        onResize(e) {
-            this.$emit('resize', e)
         }
     }
 }
@@ -36,10 +37,13 @@ export default {
 
 <template>
     <div class="fig-hero-container">
-        <div class="fig-hero" v-resize-observer="onResize">
-            <img
-                format="webp"
+        <div class="fig-hero">
+            <fig-nuxt-img-bunny
                 :src="url"
+                format="webp"
+                :sizes="imageSizes"
+                :alt="altText"
+                :loading="imageLoading"
                 class="h-full w-full object-cover" />
             <div class="absolute top-0 right-0 left-0 bottom-0 flex justify-center">
                 <div v-if="shadows" class="fig-hero-fade fig-hero-fade-top" />
@@ -61,7 +65,6 @@ export default {
         aspect-ratio: 25/9;
     }
 }
-
 
 .fig-hero {
     @apply w-full h-full text-white bg-no-repeat bg-cover bg-center relative;
