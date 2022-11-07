@@ -69,14 +69,13 @@ export default Vue.extend({
 
 <style  scoped>
 .size-buttons {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 7px;
+    @apply flex flex-row gap-2 flex-wrap justify-start items-center;
 }
 
 .size-buttons > button {
-    @apply border border-gray-300 text-black bg-white flex grow items-center justify-center rounded-md;
+    @apply border border-gray-300 text-black bg-white rounded-md px-2 m-0;
     height: 48px;
+    min-width: 50px;
 }
 .size-buttons > button:disabled {
     @apply cursor-not-allowed bg-gray-100 text-gray-300;
