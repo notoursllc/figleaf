@@ -1,6 +1,6 @@
 module.exports = {
     plugins: {
-        tailwindcss: './packages/figleaf/tailwind.config.js',
+        tailwindcss: './src/tailwind.config.js',
         autoprefixer: {}
     }
 };

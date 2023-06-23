@@ -1,59 +1,43 @@
-// import VueCompositionAPI from '@vue/composition-api'
-import Vue from 'vue';
-import VueI18n from 'vue-i18n';
-import { addDecorator } from '@storybook/vue';
+/*
+* https://storybook.js.org/docs/vue/writing-stories/decorators#context-for-mocking
+*/
+import { setup } from '@storybook/vue3';
 import Canvas from './components/Canvas.vue';
+import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
+import ConfirmPlugin from '../src/components/confirm/index.js';
+import I18nPlugin from './i18n.js';
 
-Vue.use(VueI18n);
-// Vue.use(VueCompositionAPI);
-
-import enUS from '../packages/figleaf/locales/en-US.js';
-
-const i18n = new VueI18n({
-    locale: 'en',
-    fallbackLocale: 'en',
-    messages: {
-        'en': enUS
-    },
-    numberFormats: {
-        'en': {
-            currency: {
-                style: 'currency',
-                currency: 'USD',
-                notation: 'standard'
-            }
-        }
-    }
+setup((app) => {
+    app.use(ConfirmPlugin);
+    app.use(I18nPlugin);
 });
 
-// Hook a global method here
-// So you can use {{ $t() }} in Vue.js single file component without error.
-// Vue.prototype.$t = function(...args){
-//     return i18n.t(...args);
-// }
-// Vue.prototype.$n = function(...args){
-//     return i18n.n(...args);
-// }
-
-
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
+    actions: {
+        argTypesRegex: "^on[A-Z].*"
     },
-  },
-}
 
-addDecorator(() => ({
-    components: {
-        Canvas
+    controls: {
+        matchers: {
+            color: /(background|color)$/i,
+            date: /Date$/,
+        },
     },
-    i18n,
-    template: `
-        <Canvas>
-            <story />
-        </Canvas>
-    `
-}));
+
+    viewport: {
+        viewports: MINIMAL_VIEWPORTS,
+    },
+};
+
+export const decorators = [
+    (story) => ({
+        components: {
+            Canvas
+        },
+        template: `
+            <Canvas>
+                <story />
+            </Canvas>
+        `
+    })
+];
