@@ -1,6 +1,6 @@
 {
   "name": "@notoursllc/figleaf",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Yet another inadequate covering made my humans",
   "author": "",
   "scripts": {
@@ -64,7 +64,6 @@
     "svgstore": "3.0.1",
     "vitest": "^0.29.1"
   },
-  "_id": "figleaf@0.1.0",
   "bugs": {
     "url": "https://github.com/notoursllc/figleaf/issues"
   },
