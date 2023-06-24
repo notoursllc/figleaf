@@ -44,7 +44,7 @@ const classes = computed(() => {
 
 
 <template>
-    <component :is="tag" :class="classes" :on="$listeners"><slot /></component>
+    <component :is="tag" :class="classes"><slot /></component>
 </template>
 
 

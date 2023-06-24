@@ -1,11 +1,10 @@
 <script>
 import { tooltipTriggers } from './constants';
+export const triggerKeys = Object.keys(tooltipTriggers);
 
 export default {
     name: 'FigTooltip'
 }
-
-export const triggerKeys = Object.keys(tooltipTriggers);
 </script>
 
 <script setup>

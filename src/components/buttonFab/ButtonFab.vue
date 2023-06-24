@@ -5,28 +5,29 @@ export default {
 </script>
 
 <script setup>
-import { computed, useAttrs } from 'vue';
+import { computed } from 'vue';
 import FigIcon from '../icon/FigIcon.vue';
 
 const props = defineProps({
     icon: {
         type: String,
-        required: false,
         default: 'plus'
     },
 
     column: {
         type: Number,
-        required: false,
         default: 1
     },
 
     disabled: {
         type: Boolean,
-        required: false,
         default: false
     }
 });
+
+const emit = defineEmits([
+    'click'
+]);
 
 const classes = computed(() => {
     return {
@@ -38,15 +39,23 @@ const classes = computed(() => {
         'fig-button-fab-white': props.icon === 'x'
     }
 });
+
+function onClick(e) {
+    if(props.disabled) {
+        return;
+    }
+
+    emit('click', e);
+}
 </script>
 
 <template>
     <button
         type="button"
         tabindex="0"
-        class="fig-button-fab fixed rounded-full p-14px z-1"
+        class="fig-button-fab"
         :class="classes"
-        v-on="$listeners">
+        @click="onClick">
         <fig-icon
             :icon="icon"
             :height="28"
@@ -58,7 +67,7 @@ const classes = computed(() => {
 
 <style scoped>
 .fig-button-fab {
-    @apply bg-emerald-500;
+    @apply bg-emerald-500 rounded-full fixed p-3;
     bottom: 20px;
     right: 20px;
 }
