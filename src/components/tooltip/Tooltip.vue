@@ -10,9 +10,9 @@ export default {
 <script setup>
 import { ref, watch, computed, onBeforeUnmount, useSlots } from 'vue';
 import { createPopper } from '@popperjs/core';
-import isFunction from 'lodash.isfunction';
-import isString from 'lodash.isstring';
-import { tooltipPlacements } from './constants';
+import isFunction from 'lodash-es/isFunction';
+import isString from 'lodash-es/isString';
+import { tooltipPlacements } from './constants.js';
 
 const props = defineProps({
     placement: {

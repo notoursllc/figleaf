@@ -26,6 +26,7 @@
     "flatpickr": "4.6.13",
     "focus-trap": "7.4.0",
     "get-youtube-id": "1.0.1",
+    "lodash-es": "4.17.21",
     "lodash.clonedeep": "4.5.0",
     "lodash.debounce": "4.0.8",
     "lodash.isdate": "4.0.1",

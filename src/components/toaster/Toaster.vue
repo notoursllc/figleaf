@@ -7,7 +7,7 @@ export default {
 <script setup>
 import { computed } from 'vue';
 import { state, methods } from './toaster.js';
-import FigIcon from '../icon/FigIcon';
+import FigIcon from '../icon/FigIcon.vue';
 import { toastVariants } from './constants.js';
 
 const props = defineProps({
