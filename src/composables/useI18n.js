@@ -5,7 +5,8 @@ export default function useI18n() {
             currency: {
                 style: 'currency',
                 currency: 'USD',
-                currencyDisplay: 'symbol'
+                currencyDisplay: 'symbol',
+                useGrouping: true,
             },
             decimal: {
                 style: 'decimal',
@@ -22,7 +23,8 @@ export default function useI18n() {
             currency: {
                 style: 'currency',
                 currency: 'BRL',
-                currencyDisplay: 'symbol'
+                currencyDisplay: 'symbol',
+                useGrouping: true,
             },
             decimal: {
                 style: 'decimal',
