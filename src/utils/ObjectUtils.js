@@ -1,4 +1,4 @@
-import isEqual from 'lodash.isequal'
+import isEqual from 'lodash-es/isEqual.js';
 
 export default {
     contains(value, list) {

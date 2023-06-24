@@ -9,7 +9,7 @@ export const builderProps = RowBuilderProps;
 
 <script setup>
 import { ref, watch } from 'vue';
-import cloneDeep from 'lodash.clonedeep';
+import cloneDeep from 'lodash-es/cloneDeep.js';
 import FigRowBuilder from '../rowBuilder/RowBuilder.vue';
 import FigFormInput from '../form/text/FormText.vue';
 

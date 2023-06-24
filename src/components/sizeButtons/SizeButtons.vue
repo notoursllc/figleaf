@@ -6,7 +6,7 @@ export default {
 
 <script setup>
 import { computed } from 'vue';
-import isObject from 'lodash.isobject';
+import isObject from 'lodash-es/isObject.js';
 
 const props = defineProps({
     modelValue: {

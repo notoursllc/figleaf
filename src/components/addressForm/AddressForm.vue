@@ -8,7 +8,6 @@ export default {
 import { computed, ref, reactive, onMounted, watch } from 'vue';
 import { email, required } from '@vuelidate/validators';
 import { useVuelidate } from '@vuelidate/core';
-import isObject from 'lodash.isobject';
 import FigFormText from '../form/text/FormText.vue';
 import FigFormGroup from '../form/group/FormGroup.vue';
 import FigSelectCountry from '../selectCountry/SelectCountry.vue';

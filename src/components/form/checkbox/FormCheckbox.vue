@@ -7,7 +7,7 @@ export default {
 <script setup>
 import { ref, watch, computed, useAttrs } from 'vue';
 import ObjectUtils from '../../../utils/ObjectUtils.js';
-import isEqual from 'lodash.isequal';
+import isEqual from 'lodash-es/isEqual.js';
 
 const props = defineProps({
     value: null,

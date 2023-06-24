@@ -7,7 +7,7 @@ export default {
 <script setup>
 import { ref, computed, useSlots, watch, onMounted } from 'vue';
 import { createPopper } from '@popperjs/core';
-import isFunction from 'lodash.isfunction';
+import isFunction from 'lodash-es/isFunction.js';
 import { onClickOutside, onKeyStroke } from '@vueuse/core';
 import { popoverProps } from './constants';
 

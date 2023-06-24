@@ -1,5 +1,5 @@
 <script>
-import isFinite from 'lodash.isfinite';
+import isFinite from 'lodash-es/isFinite.js';
 import { isNumber } from '../../utils/common.js';
 import FormText from './text/FormText';
 import FigButton from '../button/Button';

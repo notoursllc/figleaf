@@ -5,8 +5,7 @@ export default {
 </script>
 
 <script setup>
-import { computed, watch, ref } from 'vue';
-import isObject from 'lodash.isobject';
+import { watch, ref } from 'vue';
 import FigFormMultiselect from '../multiselect/FormMultiSelect.vue';
 
 console.log("PROPS", FigFormMultiselect.props);
@@ -37,7 +36,6 @@ function setSelectedValue() {
 
 
 function selectValueChanged(valueArray) {
-    console.log("selectValueChanged", valueArray)
     let total = 0;
 
     if(!Array.isArray(valueArray)) {

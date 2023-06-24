@@ -7,7 +7,6 @@ export default {
 <script setup>
 import { ref, onMounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import isObject from 'lodash.isobject';
 import FormMultiSelect from '../form/multiselect/FormMultiSelect.vue';
 import useCountry from '../country/useCountry.js';
 

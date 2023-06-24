@@ -6,7 +6,7 @@ export default {
 
 <script setup>
 import { computed } from 'vue';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash-es/debounce.js';
 import FigButton from '../button/Button.vue';
 import FigDropdown from '../dropdown/Dropdown.vue';
 import FigDropdownButton from '../dropdown/DropdownButton.vue';

@@ -5,8 +5,7 @@ export default {
 </script>
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue';
-import isObject from 'lodash.isobject';
+import { ref, computed, watch } from 'vue';
 import FormMultiSelect from '../form/multiselect/FormMultiSelect.vue';
 import FigFormText from '../form/text/FormText.vue';
 import useCountry from '../country/useCountry.js';
