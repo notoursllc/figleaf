@@ -1,3 +1,11 @@
+import { reactive } from 'vue';
+import { toastVariants } from './constants.js';
+
+export const state = reactive({
+    currentToasts: []
+});
+
+
 let count = 0;
 
 const generateId = () => {
@@ -5,39 +13,46 @@ const generateId = () => {
     return count;
 };
 
-function isObject(value) {
-    const type = typeof value;
-    return value != null && (type === 'object' || type === 'function')
-}
-
-export const state = {
-    toasts: []
-};
-
 export const methods = {
     addToast(toastConfig) {
-        if(!isObject(toastConfig)) {
-            return;
-        }
-
-        toastConfig.id = generateId();
+        const cfg = Object.assign(
+            {},
+            {
+                timeout: 4000,
+                icon: true,
+                variant: toastVariants.info,
+                closable: true,
+                title: null,
+                text: null,
+                dangerousText: null
+            },
+            toastConfig,
+            {
+                id: generateId()
+            }
+        );
 
         // add toasts to the front of the array so
         // the new ones appear at the top of the UI
-        state.toasts.unshift(toastConfig);
+        state.currentToasts.unshift(cfg);
 
-        if(toastConfig.timeout !== 0) {
-            setTimeout(() => {
-                this.removeToast(toastConfig.id);
-            }, toastConfig.timeout || 4000);
+        if(cfg.timeout === 0) {
+            return;
         }
+
+        setTimeout(
+            () => {
+                this.removeToast(cfg.id);
+            }, 
+            cfg.timeout || 4000
+        );
     },
 
     removeToast(id) {
-        state.toasts.splice(state.toasts.findIndex(toastConfig => toastConfig.id === id), 1);
+        state.currentToasts.splice(state.currentToasts.findIndex(toastConfig => toastConfig.id === id), 1);
     },
 
     removeAllToasts() {
-        state.toasts.splice(0, state.toasts.length);
+        state.currentToasts.splice(0, state.currentToasts.length);
     }
 };

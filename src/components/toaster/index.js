@@ -1,46 +1,46 @@
-import Vue from 'vue';
-import isObject from 'lodash.isobject';
 import { methods } from './toaster.js';
-import Toaster from './Toaster.vue';
 
-export default () => {
+let installed = false;
 
-    Vue.component('FigToaster', Toaster);
+export default {
+    install: (app) => {
+        if (installed) {
+            return;
+        }
 
-    if(!isObject(Vue.prototype.$figleaf)) {
-        Vue.prototype.$figleaf = {};
+        function toast(toastConfig) {
+            return methods.addToast(
+                Object.assign(
+                    {},
+                    {
+                        variant: 'info',
+                        title: null,
+                        text: null,
+                        closable: true,
+                        timeout: 0
+                    },
+                    toastConfig
+                )
+            );
+        }
+
+        function successToast(toastConfig) {
+            return toast(
+                Object.assign({}, toastConfig, { variant: 'success', timeout: 5000 })
+            );
+        }
+
+        function errorToast(toastConfig) {
+            return toast(
+                Object.assign({}, toastConfig, { variant: 'error' })
+            );
+        }
+
+        app.provide('figToast', toast);
+        app.provide('figSuccessToast', successToast);
+        app.provide('figErrorToast', errorToast);
+        app.provide('figClearToasts', methods.removeAllToasts);
+
+        installed = true;
     }
-
-    Vue.prototype.$figleaf.toast = (toastConfig) => {
-        return methods.addToast(
-            Object.assign(
-                {},
-                {
-                    variant: 'info',
-                    title: null,
-                    text: null,
-                    closable: true,
-                    timeout: 0
-                },
-                toastConfig
-            )
-        );
-    };
-
-
-    Vue.prototype.$figleaf.successToast = (toastConfig) => {
-        return Vue.prototype.$figleaf.toast(
-            Object.assign({}, toastConfig, { variant: 'success', timeout: 5000 })
-        );
-    };
-
-
-    Vue.prototype.$figleaf.errorToast = (toastConfig) => {
-        return Vue.prototype.$figleaf.toast(
-            Object.assign({}, toastConfig, { variant: 'error' })
-        );
-    };
-
-    Vue.prototype.$figleaf.clearToasts = methods.removeAllToasts;
-
 };

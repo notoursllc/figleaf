@@ -1,136 +1,124 @@
 <script>
+export default {
+    name: 'FigToaster'
+}
+</script>
+
+<script setup>
+import { computed } from 'vue';
 import { state, methods } from './toaster.js';
 import FigIcon from '../icon/FigIcon';
+import { toastVariants } from './constants.js';
 
-export default {
-    name: 'Toaster',
-
-    components: {
-        FigIcon
-    },
-
-    props: {
-        maxNotifications: {
-            type: Number,
-            default: 10
-        }
-    },
-
-    data() {
-        return {
-            toasts: state.toasts
-        };
-    },
-
-    computed: {
-        enterActiveClasses() {
-            const classes = [
-                'transform',
-                'ease-out',
-                'duration-300',
-                'transition'
-            ];
-
-            if(this.toasts.length > 1) {
-                classes.push('delay-300');
-            }
-
-            return classes.join(',');
-        },
-
-        includedToasts() {
-            return [...this.toasts].slice(0, this.maxNotifications);
-        }
-    },
-
-    methods: {
-        closeToast(id) {
-            this.$emit('close');
-            methods.removeToast(id);
-        },
-
-        getTitleClass(variant) {
-            switch(variant) {
-                case 'success':
-                    return 'text-emerald-700';
-
-                case 'error':
-                    return 'text-red-600';
-
-                default:
-                    return 'text-blue-900';
-            }
-        },
-
-        getIconType(variant) {
-            switch(variant) {
-                case 'success':
-                    return 'check-circle';
-
-                case 'error':
-                    return 'alert-circle';
-
-                default:
-                    return 'info-circle';
-            }
-        },
-
-        getMessageClasses(variant) {
-            const classes = [];
-
-            switch(variant) {
-                case 'success':
-                    classes.push('bg-success');
-                    break;
-
-                case 'error':
-                    classes.push('bg-error');
-                    break;
-
-                default:
-                    classes.push('bg-info');
-            }
-
-            return classes;
-        },
-
-        getIconBgClasses(toastConfig) {
-            const classes = [];
-
-            classes.push(
-                toastConfig.icon !== false ? 'w-10' : 'w-2'
-            );
-
-            switch(toastConfig.variant) {
-                case 'success':
-                    classes.push('bg-emerald-500');
-                    break;
-
-                case 'error':
-                    classes.push('bg-red-500');
-                    break;
-
-                default:
-                    classes.push('bg-blue-400');
-            }
-
-            return classes;
-        }
-    },
-
-    mounted() {
-        this.$root.$on('fig::toaster::hideall', methods.removeAllToasts);
-    },
-
-    beforeDestroy() {
-        this.$root.$off('fig::toaster::hideall', methods.removeAllToasts);
+const props = defineProps({
+    maxToasts: {
+        type: Number,
+        default: 10
     }
-};
+});
+
+const emit = defineEmits([
+    'close'
+]);
+
+const includedToasts = computed(() => {
+    return [...state.currentToasts].slice(0, props.maxToasts);
+});
+
+function closeToast(id) {
+    emit('close');
+    methods.removeToast(id);
+}
+
+
+const enterActiveClasses = computed(() => {
+    const classes = [
+        'transform',
+        'ease-out',
+        'duration-300',
+        'transition'
+    ];
+
+    if(toasts.value.length > 1) {
+        classes.push('delay-300');
+    }
+
+    return classes.join(',');
+});
+
+
+function getTitleClass(variant) {
+    switch(variant) {
+        case toastVariants.success:
+            return 'text-emerald-700';
+
+        case toastVariants.error:
+            return 'text-red-600';
+
+        default:
+            return 'text-blue-900';
+    }
+}
+
+function getIconType(variant) {
+    switch(variant) {
+        case toastVariants.success:
+            return 'check-circle';
+
+        case toastVariants.error:
+            return 'alert-circle';
+
+        default:
+            return 'info-circle';
+    }
+}
+
+function getMessageClasses(variant) {
+    const classes = [];
+
+    switch(variant) {
+        case toastVariants.success:
+            classes.push('bg-success');
+            break;
+
+        case toastVariants.error:
+            classes.push('bg-error');
+            break;
+
+        default:
+            classes.push('bg-info');
+    }
+
+    return classes;
+}
+
+function getIconBgClasses(toastConfig) {
+    const classes = [];
+
+    classes.push(
+        toastConfig.icon !== false ? 'w-10' : 'w-2'
+    );
+
+    switch(toastConfig.variant) {
+        case toastVariants.success:
+            classes.push('bg-emerald-500');
+            break;
+
+        case toastVariants.error:
+            classes.push('bg-red-500');
+            break;
+
+        default:
+            classes.push('bg-blue-400');
+    }
+
+    return classes;
+}
 </script>
 
 
 <template>
-    <div class="fig-toast">
+    <div class="fig-toaster">
         <div class="max-w-sm w-full">
 
             <transition-group
@@ -143,7 +131,7 @@ export default {
                 move-class="transition duration-500">
 
                 <div
-                    class="flex max-w-sm w-full mx-auto shadow-tight rounded-lg overflow-hidden mt-4 relative pointer-events-auto"
+                    class="fig-toast shadow-tight"
                     :class="getMessageClasses(toastConfig.variant)"
                     v-for="toastConfig in includedToasts"
                     :key="toastConfig.id">
@@ -152,7 +140,7 @@ export default {
                     <div
                         class="flex justify-center items-center"
                         :class="getIconBgClasses(toastConfig)">
-                        <i class="px-1">
+                        <i class="p-2">
                             <fig-icon
                                 v-if="toastConfig.icon !== false"
                                 :icon="getIconType(toastConfig.variant)"
@@ -201,10 +189,15 @@ export default {
 
 <style scoped>
 /* Note that toasts should have the hightest z-index so they appear over modal and everything else */
-.fig-toast {
+.fig-toaster {
     @apply fixed inset-0 flex px-4 py-6 p-6 items-start justify-end pointer-events-none;
     z-index: 9999;
 }
+
+.fig-toast {
+    @apply flex max-w-sm w-full mx-auto bg-white rounded-lg overflow-hidden mt-4 relative pointer-events-auto;
+}
+
 .fig-toast-content {
     @apply py-3 px-4 overflow-y-auto;
     max-height: 300px;
