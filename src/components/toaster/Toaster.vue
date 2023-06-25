@@ -39,7 +39,7 @@ const enterActiveClasses = computed(() => {
         'transition'
     ];
 
-    if(toasts.value.length > 1) {
+    if(state.currentToasts.length > 1) {
         classes.push('delay-300');
     }
 
