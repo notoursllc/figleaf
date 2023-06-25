@@ -7,7 +7,7 @@ export default {
 <script setup>
 import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue';
 import youtubePlayer from 'youtube-player';
-import getIdFromUrl from 'get-youtube-id'
+import { getIdFromUrl } from '../../utils/youtube.js';
 
 const props = defineProps({
     videoId: {
