@@ -76,7 +76,6 @@ export { default as FigPaginationBar } from './src/components/pagination/paginat
 export { default as FigPaginationNav } from './src/components/pagination/paginationNav/PaginationNav.vue';
 export { default as FigPaginationWrapper } from './src/components/pagination/paginationWrapper/PaginationWrapper.vue';
 export { default as FigPaymentTypeChooser } from './src/components/paymentTypeChooser/PaymentTypeChooser.vue';
-export { default as FigPercentage } from './src/components/percentage/Percentage.vue';
 // export { default as FigPhotoManager } from './src/components/photoManager/PhotoManager.vue';
 export { default as FigProductGrid } from './src/components/productGrid/ProductGrid.vue';
 export { default as FigPopover } from './src/components/popover/Popover.vue';
