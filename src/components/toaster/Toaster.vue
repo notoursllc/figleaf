@@ -123,10 +123,10 @@ function getIconBgClasses(toastConfig) {
 
             <transition-group
                 :enter-active-class="enterActiveClasses"
-                enter-class="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-4"
+                enter-from-class="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-4"
                 enter-to-class="translate-y-0 opacity-100 sm:translate-x-0"
                 leave-active-class="transition ease-in duration-500"
-                leave-class="opacity-100"
+                leave-from-class="opacity-100"
                 leave-to-class="opacity-0"
                 move-class="transition duration-500">
 
