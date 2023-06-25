@@ -7,7 +7,7 @@ export default {
 <script setup>
 import { inject, computed } from 'vue';
 import FigIcon from '../icon/FigIcon.vue';
-import debounce from 'lodash/debounce';
+import debounce from 'lodash-es/debounce.js';
 
 const props = defineProps({
     sort: {

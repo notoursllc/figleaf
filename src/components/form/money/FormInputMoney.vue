@@ -6,10 +6,10 @@ export default {
 
 <script setup>
 import { ref, watch } from 'vue';
-import accounting from 'accounting';
 import FormInputNumber from '../number/FormInputNumber.vue';
 import FormInputEndcapper from '../endcapper/FormInputEndcapper.vue';
 import useFormInput from '../useFormInput.js';
+import round from 'lodash-es/round.js';
 
 const props = defineProps({
     modelValue: {
@@ -33,10 +33,7 @@ function emitInput() {
     let clean = 0;
 
     if(selectedPrice.value) {
-        clean = accounting.toFixed(parseFloat(selectedPrice.value) * 100, 0);
-
-        // accounting returns a string.  This converts back to a float
-        clean = parseFloat(clean);
+        clean = round(parseFloat(selectedPrice.value) * 100, 0);
     }
 
     emit('update:modelValue', clean);
