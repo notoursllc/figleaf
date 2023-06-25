@@ -1,46 +1,33 @@
 import { methods } from './toaster.js';
 
-let installed = false;
+export const toast = (toastConfig) => {
+    return methods.addToast(
+        Object.assign(
+            {},
+            {
+                variant: 'info',
+                title: null,
+                text: null,
+                closable: true,
+                timeout: 0
+            },
+            toastConfig
+        )
+    );
+}
 
-export default {
-    install: (app) => {
-        if (installed) {
-            return;
-        }
+export const successToast = (toastConfig) => {
+    return toast(
+        Object.assign({}, toastConfig, { variant: 'success', timeout: 5000 })
+    );
+}
 
-        function toast(toastConfig) {
-            return methods.addToast(
-                Object.assign(
-                    {},
-                    {
-                        variant: 'info',
-                        title: null,
-                        text: null,
-                        closable: true,
-                        timeout: 0
-                    },
-                    toastConfig
-                )
-            );
-        }
+export const errorToast = (toastConfig) => {
+    return toast(
+        Object.assign({}, toastConfig, { variant: 'error' })
+    );
+}
 
-        function successToast(toastConfig) {
-            return toast(
-                Object.assign({}, toastConfig, { variant: 'success', timeout: 5000 })
-            );
-        }
-
-        function errorToast(toastConfig) {
-            return toast(
-                Object.assign({}, toastConfig, { variant: 'error' })
-            );
-        }
-
-        app.provide('figToast', toast);
-        app.provide('figSuccessToast', successToast);
-        app.provide('figErrorToast', errorToast);
-        app.provide('figClearToasts', methods.removeAllToasts);
-
-        installed = true;
-    }
-};
+export const clearToasts = () => {
+    return methods.removeAllToasts();
+}
