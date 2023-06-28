@@ -40,6 +40,7 @@ export { default as FigFormTextarea } from './src/components/form/textarea/FormT
 
 export { default as FigHeader } from './src/components/header/Header.vue';
 export { default as FigHero } from './src/components/hero/Hero.vue';
+export { default as FigHorizontalSlider } from './src/components/horizontalSlider/HorizontalSlider.vue';
 
 // hero slider - TODO: still need upgrading to vue 3
 // export { default as FigHeroSlider } from './src/components/heroSlider/HeroSlider.vue';
