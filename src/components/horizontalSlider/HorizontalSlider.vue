@@ -77,6 +77,13 @@ const emit = defineEmits([
     // 'scroll-debounce'
 ]);
 
+defineExpose({
+    prev,
+    next,
+    scrollToLeft,
+    scrollToIndex
+});
+
 // Compatibility delta due to rounding issues
 const delta = 2.5
   

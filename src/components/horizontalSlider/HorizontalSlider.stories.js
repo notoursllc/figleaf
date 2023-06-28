@@ -41,54 +41,13 @@ const Template = (args, { argTypes }) => ({
     },
     template: `
         <fig-horizontal-slider v-bind="args" style="width:800px">
-            <div class="block border border-red-500 mr-6 whitespace-nowrap" style="width:550px">
-                <h4>Don't have to be the same tag</h4>
-                <p>I used a h4 instead of a h3</p>
-            </div>
-
-            <div class="block border border-red-500 mr-6 whitespace-nowrap" style="width:550px">
-                <h3>Navigation Button</h3>
-                <p>The navigation button will appear if there is an overflow.</p>
-            </div>
-
-            <div class="block border border-red-500 mr-6 whitespace-nowrap" style="width:550px">
-                <h3>Scroll1</h3>
-                <p>You can just trackpad to scroll still!</p>
-            </div>
-
-            <div class="block border border-red-500 mr-6 whitespace-nowrap" style="width:550px">
-                <h3>Scroll2</h3>
-                <p>You can just trackpad to scroll still!</p>
-            </div>
-
-            <div class="block border border-red-500 mr-6 whitespace-nowrap" style="width:550px">
-                <h3>Scroll3</h3>
-                <p>You can just trackpad to scroll still!</p>
-            </div>
-
-            <div class="block border border-red-500 mr-6 whitespace-nowrap" style="width:550px">
-                <h3>Scroll4</h3>
-                <p>You can just trackpad to scroll still!</p>
-            </div>
-
-            <div class="block border border-red-500 mr-6 whitespace-nowrap" style="width:550px">
-                <h3>Scroll5</h3>
-                <p>You can just trackpad to scroll still!</p>
-            </div>
-
-            <div class="block border border-red-500 mr-6 whitespace-nowrap" style="width:550px">
-                <h3>Scroll6</h3>
-                <p>You can just trackpad to scroll still!</p>
-            </div>
-
-            <div class="block border border-red-500 mr-6 whitespace-nowrap" style="width:550px">
-                <h3>Scroll7</h3>
-                <p>You can just trackpad to scroll still!</p>
-            </div>
-
-            <div class="block border border-red-500 mr-6 whitespace-nowrap" style="width:550px">
-                <h3>Scroll8</h3>
-                <p>You can just trackpad to scroll still!</p>
+            <div 
+                v-for="i in [0,1,2,3,4,5,6,7,8,9]" 
+                :key="i"
+                class="block border border-red-500 mr-6 whitespace-nowrap" 
+                style="width:550px">
+                <h4>Slide {{ i }}</h4>
+                <p>slide {{ i }} content</p>
             </div>
         </fig-horizontal-slider>
     `
