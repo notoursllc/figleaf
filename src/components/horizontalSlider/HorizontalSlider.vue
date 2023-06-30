@@ -395,6 +395,31 @@ onBeforeUnmount(() => {
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+
+    /* For firefox only */
+    scrollbar-width: auto;
+    scrollbar-color: transparent transparent;
+}
+
+.fig-hs-container:hover {
+    /* For firefox only */
+    scrollbar-color: rgb(163, 163, 163) transparent;
+}
+
+.fig-hs-container::-webkit-scrollbar {
+    height: 16px;
+    width: 16px;
+    background: transparent;
+}
+
+.fig-hs-container::-webkit-scrollbar-track {
+    @apply rounded;
+    background-color: #f3f3f7;
+}
+
+.fig-hs:hover .fig-hs-container::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 border-solid border-4 rounded-lg;
+    border-color: #f3f3f7;
 }
 
 .fig-hs-container > * {
