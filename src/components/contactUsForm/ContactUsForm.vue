@@ -18,6 +18,10 @@ const emit = defineEmits([
     'submit'
 ]);
 
+defineExpose({
+    reset
+});
+
 const form = reactive({
     name: null,
     company: null,
@@ -36,6 +40,16 @@ const v$ = useVuelidate(validatiorRules, form);
 
 function onSubmit() {
     emit('submit', { ...toRaw(form) });
+}
+
+function reset() {
+    form.name = null;
+    form.company = null;
+    form.email = null;
+    form.message = null;
+
+    // reset the dirty state of the form
+    v$.value.$reset();
 }
 </script>
 
