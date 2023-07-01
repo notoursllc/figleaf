@@ -52,6 +52,7 @@ const { classNames } = useFormInput(props);
 
 const classes = computed(() => {
     return {
+        'w-full': true,
         'rounded-sm': true,
         ...classNames.value,
         'rounded-l-none': props.squareLeft,
