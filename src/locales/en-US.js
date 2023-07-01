@@ -12,6 +12,7 @@ export default {
     'Card number': 'Card number',
     'Checkout': 'Checkout',
     'City': 'City',
+    'Company': 'Company',
     'Confirm your address': 'Confirm your address',
     'confirm_your_address_desc1': 'We couldn\'t verify the exact address you entered, but did find a close match.',
     'confirm_your_address_desc2': 'We couldn\'t verify the exact address you entered.',
@@ -28,6 +29,7 @@ export default {
 
     'First name': 'First name',
 
+    'invalid email address format': 'invalid email address format',
     'is_gift_tooltip': 'If this order is a gift, we will HIDE prices on the packing slip. Order status emails will still be sent, so please use an email address that only you will see. Items often arrive with our logo on the box. If you are trying to keep it secret, we recommend shipping to an alternate address.',
     'Is this order a gift?': 'Is this order a gift?',
     'item_items': 'item | items',
@@ -35,6 +37,8 @@ export default {
     'Just a few left. Order soon.': 'Just a few left. Order soon.',
 
     'Last name': 'Last name',
+
+    'Message': 'Message',
 
     '{num} / page': '{num} / page',
     '{num} result | {num} results': '{num} result | {num} results',
@@ -53,7 +57,7 @@ export default {
     'Postal code': 'Postal code',
     'Property': 'Property',
 
-    'Required': 'Required',
+    'required': 'required',
     '{num} result | {num} results': '{num} result | {num} results',
     'Return to your Shopping Cart?': 'Return to your Shopping Cart?',
     'Returns': 'Returns',
@@ -63,6 +67,7 @@ export default {
     'See common tax codes': 'See common tax codes',
     'Sold out': 'Sold out',
     'State/Province/Region': 'State/Province/Region',
+    'Submit': 'Submit',
     'Suggested address': 'Suggested address',
 
     'The address you entered': 'The address you entered',
@@ -74,6 +79,7 @@ export default {
 
     'Yes': 'Yes',
     'Yes, return to cart': 'Yes, return to cart',
+    'Your name': 'Your name',
 
     // Date formatting
     'date.format.mdy': 'dd/LLL/yy',

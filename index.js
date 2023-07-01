@@ -10,6 +10,7 @@ export { default as FigBvLogo } from './src/components/bvlogo/BvLogo.vue';
 
 export { default as FigCardLastFour } from './src/components/cardLastFour/CardLastFour.vue';
 export { default as FigCompareAddressModal } from './src/components/compareAddressModal/CompareAddressModal.vue';
+export { default as FigContactUsForm } from './src/components/contactUsForm/ContactUsForm.vue';
 export { default as FigContent } from './src/components/content/Content.vue';
 export { default as FigCountry } from './src/components/country/Country.vue';
 export { default as FigCreditCardIcon } from './src/components/icon/creditCard/CreditCard.vue';

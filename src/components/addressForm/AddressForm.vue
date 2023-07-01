@@ -439,7 +439,7 @@ watch(
                     class="w-full" />
 
                 <template v-slot:error>
-                    <div v-show="canShowRequiredMsg('firstName')">{{ $t('Required') }}</div>
+                    <div v-show="canShowRequiredMsg('firstName')">{{ $t('required') }}</div>
                 </template>
             </fig-form-group>
 
@@ -458,7 +458,7 @@ watch(
                     class="w-full" />
 
                 <template v-slot:error>
-                    <div v-show="canShowRequiredMsg('lastName')">{{ $t('Required') }}</div>
+                    <div v-show="canShowRequiredMsg('lastName')">{{ $t('required') }}</div>
                 </template>
             </fig-form-group>
         </div>
@@ -478,7 +478,7 @@ watch(
                 class="w-full" />
 
             <template v-slot:error>
-                <div v-show="canShowRequiredMsg('streetAddress')">{{ $t('Required') }}</div>
+                <div v-show="canShowRequiredMsg('streetAddress')">{{ $t('required') }}</div>
             </template>
         </fig-form-group>
 
@@ -497,7 +497,7 @@ watch(
                 class="w-full" />
 
             <template v-slot:error>
-                <div v-show="canShowRequiredMsg('extendedAddress')">{{ $t('Required') }}</div>
+                <div v-show="canShowRequiredMsg('extendedAddress')">{{ $t('required') }}</div>
             </template>
         </fig-form-group>
 
@@ -517,7 +517,7 @@ watch(
                 class="w-full" />
 
             <template v-slot:error>
-                <div v-show="canShowRequiredMsg('countryCodeAlpha2')">{{ $t('Required') }}</div>
+                <div v-show="canShowRequiredMsg('countryCodeAlpha2')">{{ $t('required') }}</div>
             </template>
         </fig-form-group>
 
@@ -541,7 +541,7 @@ watch(
                     class="w-full" />
 
                 <template v-slot:error>
-                    <div v-show="canShowRequiredMsg('city')">{{ $t('Required') }}</div>
+                    <div v-show="canShowRequiredMsg('city')">{{ $t('required') }}</div>
                 </template>
             </fig-form-group>
 
@@ -561,7 +561,7 @@ watch(
                     @update:modelValue="(val) => touchV('state', val)" />
 
                 <template v-slot:error>
-                    <div v-show="canShowRequiredMsg('state')">{{ $t('Required') }}</div>
+                    <div v-show="canShowRequiredMsg('state')">{{ $t('required') }}</div>
                 </template>
             </fig-form-group>
 
@@ -580,7 +580,7 @@ watch(
                     class="w-full" />
 
                 <template v-slot:error>
-                    <div v-show="canShowRequiredMsg('postalCode')">{{ $t('Required') }}</div>
+                    <div v-show="canShowRequiredMsg('postalCode')">{{ $t('required') }}</div>
                 </template>
             </fig-form-group>
         </div>
@@ -604,7 +604,7 @@ watch(
                     class="w-full" />
 
                 <template v-slot:error>
-                    <div v-show="canShowRequiredMsg('email')">{{ $t('Required') }}</div>
+                    <div v-show="canShowRequiredMsg('email')">{{ $t('required') }}</div>
                     <div v-if="v$.email?.email.$invalid">{{ $t('Please enter a valid email address.') }}</div>
                 </template>
             </fig-form-group>
@@ -624,7 +624,7 @@ watch(
                     class="w-full" />
 
                 <template v-slot:error>
-                    <div v-show="canShowRequiredMsg('phone')">{{ $t('Required') }}</div>
+                    <div v-show="canShowRequiredMsg('phone')">{{ $t('required') }}</div>
                 </template>
             </fig-form-group>
         </div>
@@ -666,7 +666,7 @@ watch(
                 </div>
 
                 <template v-slot:error>
-                    <div v-show="canShowRequiredMsg('is_gift')">{{ $t('Required') }}</div>
+                    <div v-show="canShowRequiredMsg('is_gift')">{{ $t('required') }}</div>
                 </template>
             </fig-form-group>
         </div>
