@@ -1,8 +1,8 @@
 import { createI18n } from "vue-i18n";
-import useI18n from "../src/composables/useI18n.js";
+import useI18n from "../../src/composables/useI18n.js";
 
 function loadLocaleMessages() {
-    const locales = import.meta.globEager('../src/locales/*.js');
+    const locales = import.meta.globEager('../../src/locales/*.js');
     const messages = {};
 
     Object.keys(locales).forEach(key => {

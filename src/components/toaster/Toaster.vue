@@ -6,9 +6,9 @@ export default {
 
 <script setup>
 import { computed } from 'vue';
-import { state, methods } from './toaster.js';
 import FigIcon from '../icon/FigIcon.vue';
 import { toastVariants } from './constants.js';
+import useToaster from './useToaster.js';
 
 const props = defineProps({
     maxToasts: {
@@ -21,15 +21,16 @@ const emit = defineEmits([
     'close'
 ]);
 
+const { currentToasts, removeToast } = useToaster();
+
 const includedToasts = computed(() => {
-    return [...state.currentToasts].slice(0, props.maxToasts);
+    return [...currentToasts].slice(0, props.maxToasts);
 });
 
 function closeToast(id) {
     emit('close');
-    methods.removeToast(id);
+    removeToast(id);
 }
-
 
 const enterActiveClasses = computed(() => {
     const classes = [
@@ -39,7 +40,7 @@ const enterActiveClasses = computed(() => {
         'transition'
     ];
 
-    if(state.currentToasts.length > 1) {
+    if(currentToasts.length > 1) {
         classes.push('delay-300');
     }
 

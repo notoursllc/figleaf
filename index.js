@@ -107,7 +107,7 @@ export { default as FigTexasToast } from './src/components/texasToast/TexasToast
 export { default as FigTextCard } from './src/components/textCard/TextCard.vue';
 export { default as FigTooltip } from './src/components/tooltip/Tooltip.vue';
 export { default as FigToaster } from './src/components/toaster/Toaster.vue';
-export { default as FigToastPlugin } from './src/components/toaster/index.js';
+export { default as FigUseToaster } from './src/components/toaster/useToaster.js';
 
 export { default as FigVNodes } from './src/components/vnodes/VNodes.vue';
 
