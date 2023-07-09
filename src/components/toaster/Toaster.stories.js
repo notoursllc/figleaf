@@ -16,9 +16,9 @@ const Template = (args, { argTypes }) => ({
     },
     setup() {
         const {
+            showToast,
             showSuccessToast,
             showErrorToast,
-            showToast,
             clearToasts
         } = useToaster();
 

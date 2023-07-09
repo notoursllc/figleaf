@@ -5,10 +5,10 @@ export default {
 </script>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, reactive } from 'vue';
 import FigIcon from '../icon/FigIcon.vue';
 import { toastVariants } from './constants.js';
-import useToaster from './useToaster.js';
+import { v4 as uuidv4 } from 'uuid';
 
 const props = defineProps({
     maxToasts: {
@@ -21,7 +21,13 @@ const emit = defineEmits([
     'close'
 ]);
 
-const { currentToasts, removeToast } = useToaster();
+defineExpose({
+    addToast, 
+    removeToast,
+    clearToasts
+});
+
+const currentToasts = reactive([]);
 
 const includedToasts = computed(() => {
     return [...currentToasts].slice(0, props.maxToasts);
@@ -114,6 +120,51 @@ function getIconBgClasses(toastConfig) {
     }
 
     return classes;
+}
+
+function clearToasts() {
+    currentToasts.splice(0, currentToasts.length);
+}
+
+function removeToast(id) {
+    currentToasts.splice(
+        currentToasts.findIndex(toastConfig => toastConfig.id === id), 
+        1
+    );
+}
+
+function addToast(toastConfig) {
+    const cfg = Object.assign(
+        {},
+        {
+            timeout: 4000,
+            icon: true,
+            variant: toastVariants.info,
+            closable: true,
+            title: null,
+            text: null,
+            dangerousText: null
+        },
+        toastConfig,
+        {
+            id: uuidv4()
+        }
+    );
+
+    // add toasts to the front of the array so
+    // the new ones appear at the top of the UI
+    currentToasts.unshift(cfg);
+
+    if(cfg.timeout === 0) {
+        return;
+    }
+
+    setTimeout(
+        () => {
+            removeToast(cfg.id);
+        }, 
+        cfg.timeout || 4000
+    );
 }
 </script>
 
