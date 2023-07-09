@@ -13,16 +13,12 @@ import FigConfirm from '../confirm/Confirm.vue';
 
 const toaster = ref(null);
 
-function addToast(config) {
+provide('figAddToast', (config) => {
     return toaster.value?.addToast(config);
-}
-
-provide('figAddToast', addToast);
+});
 
 provide('figClearToasts', () => {
-    if (toaster.value?.clearToasts) {
-        toaster.value.clearToasts();
-    }
+    return toaster.value?.clearToasts();
 });
 </script>
 

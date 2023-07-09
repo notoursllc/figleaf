@@ -23,7 +23,6 @@ const emit = defineEmits([
 
 defineExpose({
     addToast, 
-    removeToast,
     clearToasts
 });
 
