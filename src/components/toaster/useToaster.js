@@ -13,6 +13,7 @@ export default function useToaster() {
 
     function showErrorToast(toastConfig) {
         return addToast({
+            timeout: 0,
             ...toastConfig,
             variant: 'error'
         });
