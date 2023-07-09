@@ -115,12 +115,12 @@ async function onFadeEnter() {
         </transition>
 
         <!-- backdrop -->
-        <transition name="confirm-bg-fade">
+        <!-- <transition name="confirm-bg-fade">
             <div
                 v-if="isShowing"
                 key="confirm-bg"
                 class="opacity-25 fixed top-0 left-0 z-40 bg-black h-screen w-screen"></div>
-        </transition>
+        </transition> -->
     </div>
 </template>
 
