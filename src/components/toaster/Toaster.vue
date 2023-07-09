@@ -7,6 +7,7 @@ export default {
 <script setup>
 import { computed, reactive } from 'vue';
 import FigIcon from '../icon/FigIcon.vue';
+import FigTimerBar from '../timerBar/TimerBar.vue'
 import { toastVariants } from './constants.js';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -165,6 +166,19 @@ function addToast(toastConfig) {
         cfg.timeout || 4000
     );
 }
+
+function getTimerBarColor(variant) {
+    switch(variant) {
+        case toastVariants.success:
+            return '#4ADE80';
+
+        case toastVariants.error:
+            return '#FCA5A5';
+
+        default:
+            return '#93C5FD';
+    }
+}
 </script>
 
 
@@ -230,10 +244,18 @@ function addToast(toastConfig) {
                             :width="18"
                             :height="18" />
                     </button>
+
+                    <fig-timer-bar ref="timerBar" 
+                        autostart
+                        :duration="toastConfig.timeout" 
+                        height="1px" 
+                        :color="getTimerBarColor(toastConfig.variant)"
+                        class="timer-bar" />
                 </div>
             </transition-group>
 
         </div>
+        
     </div>
 </template>
 
@@ -262,5 +284,9 @@ function addToast(toastConfig) {
 }
 .bg-info {
     background-color: #f0f3fb;
+}
+
+.timer-bar {
+    @apply absolute bottom-0 left-0 right-0;
 }
 </style>

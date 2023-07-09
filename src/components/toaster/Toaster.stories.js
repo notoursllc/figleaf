@@ -25,21 +25,24 @@ const Template = (args, { argTypes }) => ({
         function successToast() {
             showSuccessToast({
                 title: 'Success',
-                text: 'This is a success toast'
+                text: 'This is a success toast',
+                // timeout: 100000
             });
         }
 
         function errorToast() {
             showErrorToast({
                 title: 'Error',
-                text: 'This is an error toast'
+                text: 'This is an error toast',
+                // timeout: 100000
             });
         }
 
         function infoToast() {
             showToast({
                 title: 'Info',
-                text: 'This is an info toast'
+                text: 'This is an info toast',
+                // timeout: 100000
             });
         }
 

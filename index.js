@@ -106,6 +106,7 @@ export { default as FigTr } from './src/components/tableSimple/Tr.vue';
 export { default as FigTrNoResults } from './src/components/tableSimple/TrNoResults.vue';
 export { default as FigTexasToast } from './src/components/texasToast/TexasToast.vue';
 export { default as FigTextCard } from './src/components/textCard/TextCard.vue';
+export { default as FigTimerBar } from './src/components/timerBar/TimerBar.vue';
 export { default as FigTooltip } from './src/components/tooltip/Tooltip.vue';
 export { default as FigToaster } from './src/components/toaster/Toaster.vue';
 export { default as FigUseToaster } from './src/components/toaster/useToaster.js';
