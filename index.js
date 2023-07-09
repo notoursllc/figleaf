@@ -1,5 +1,6 @@
 export { default as FigAddress } from './src/components/address/Address.vue';
 export { default as FigAddressForm } from './src/components/addressForm/AddressForm.vue';
+export { default as FigAppWrapper } from './src/components/appWrapper/AppWrapper.vue';
 
 export { default as FigBadge } from './src/components/badge/Badge.vue';
 export { default as FigBooleanTag } from './src/components/booleanTag/BooleanTag.vue';
