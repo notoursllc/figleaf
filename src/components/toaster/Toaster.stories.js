@@ -1,5 +1,9 @@
-import { FigToaster, FigButton } from '../../../index.js';
-import useToaster from './useToaster.js'
+import { 
+    FigToaster, 
+    FigUseToaster, 
+    FigButton 
+} from '../../../index.js';
+
 
 export default {
     title: 'Components/Toaster',
@@ -20,7 +24,7 @@ const Template = (args, { argTypes }) => ({
             showSuccessToast,
             showErrorToast,
             clearToasts
-        } = useToaster();
+        } = FigUseToaster();
 
         function successToast() {
             showSuccessToast({

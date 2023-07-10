@@ -11,6 +11,8 @@ export { default as FigBvLogo } from './src/components/bvlogo/BvLogo.vue';
 
 export { default as FigCardLastFour } from './src/components/cardLastFour/CardLastFour.vue';
 export { default as FigCompareAddressModal } from './src/components/compareAddressModal/CompareAddressModal.vue';
+export { default as FigConfirm } from './src/components/confirm/Confirm.vue';
+
 export { default as FigContactUsForm } from './src/components/contactUsForm/ContactUsForm.vue';
 export { default as FigContent } from './src/components/content/Content.vue';
 export { default as FigCountry } from './src/components/country/Country.vue';
@@ -109,7 +111,7 @@ export { default as FigTextCard } from './src/components/textCard/TextCard.vue';
 export { default as FigTimerBar } from './src/components/timerBar/TimerBar.vue';
 export { default as FigTooltip } from './src/components/tooltip/Tooltip.vue';
 export { default as FigToaster } from './src/components/toaster/Toaster.vue';
-export { default as FigUseToaster } from './src/components/toaster/useToaster.js';
+
 
 export { default as FigVNodes } from './src/components/vnodes/VNodes.vue';
 
@@ -119,8 +121,11 @@ export { default as FigYouTube } from './src/components/youtube/Youtube.vue';
 // export { default as FigResizeObserverDirective } from './src/directives/resizeObserver/resizeObserver.js';
 
 // composition functions
+export { default as FigUseConfirm } from './src/components/confirm/useConfirm.js';
 export { default as FigUseCountry } from './src/components/country/useCountry.js';
+export { default as FigUseCurrency } from './src/components/currency/useCurrency.js';
 export { default as FigUseI18n } from './src/composables/useI18n.js';
 // export { default as FigUseUtils } from './src/composables/useUtils.js';
 export { default as FigUseTime } from './src/composables/useTime.js';
-export { default as FigUseCurrency } from './src/components/currency/useCurrency.js';
+export { default as FigUseToaster } from './src/components/toaster/useToaster.js';
+

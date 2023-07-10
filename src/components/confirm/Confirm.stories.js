@@ -1,6 +1,5 @@
 import { ref } from 'vue';
-import FigConfirm from './index';
-import useConfirm from './useConfirm.js';
+import { FigConfirm, FigUseConfirm } from '../../../index.js';
 import { confirmSizes } from './constants';
 
 export default {
@@ -19,12 +18,12 @@ export default {
 const Template = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     setup() {
-        const $figConfirm = useConfirm();
+        const { showConfirm } = FigUseConfirm();
         const isAccepted = ref(false);
 
-        async function showConfirm() {
+        async function onShowConfirm() {
             try {
-                await $figConfirm.show(
+                await showConfirm(
                     "Are you sure?",
                     {
                         size: args.size || confirmSizes.md,
@@ -41,13 +40,13 @@ const Template = (args, { argTypes }) => ({
 
         return {
             args,
-            showConfirm,
+            onShowConfirm,
             isAccepted
         };
     },
     template: `
         <div>
-            <a @click="showConfirm()">Show</a>
+            <button @click="onShowConfirm" class="bg-gray-100 p-2">Show confirm</button>
 
             <div class="mt-4">
                 Confirm is accepted: {{ isAccepted ? 'true' : 'false' }}

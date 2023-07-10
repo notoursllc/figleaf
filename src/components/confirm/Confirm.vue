@@ -5,12 +5,16 @@ export default {
 </script>
 
 <script setup>
-import { ref, computed } from 'vue';
-import { vOnKeyStroke } from '@vueuse/components';
+import { ref, computed, onMounted } from 'vue';
+import { onKeyStroke } from '@vueuse/core';
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
-import useConfirm from './useConfirm.js';
+import FigOverlay from '../overlay/Overlay.vue';
+import { confirmSizes } from './constants.js';
 
-const confirm = useConfirm();
+defineExpose({
+    show
+});
+
 const footer_buttons = ref(null);
 const btn_confirm_cancel = ref(null);
 
@@ -23,9 +27,44 @@ const { activate, deactivate } = useFocusTrap(
     }
 );
 
-const currentConfirm = computed(() => {
-    return confirm?.state.currentConfirm;
-});
+const currentConfirm = ref(null);
+const resolveFn = ref(null);
+const rejectFn = ref(null);
+
+function reset() {
+    currentConfirm.value = null;
+    resolveFn.value = null;
+    rejectFn.value = null;
+}
+
+function resolve() {
+    resolveFn.value?.();
+    reset();
+}
+
+function reject() {
+    rejectFn.value?.();
+    reset();
+}
+
+function show(message, config) {
+    reset();
+
+    currentConfirm.value = {
+        title: null,
+        okLabel: null,
+        cancelLabel: null,
+        centered: true,
+        size: confirmSizes.sm,
+        ...config,
+        message: message
+    }
+
+    return new Promise((resolve, reject) => {
+        resolveFn.value = resolve;
+        rejectFn.value = reject;
+    });
+}
 
 const title = computed(() => {
     return currentConfirm.value?.title;
@@ -52,18 +91,22 @@ const widthClass = computed(() => {
 });
 
 function onConfirm() {
-    confirm.resolve();
+    resolve();
     deactivate();
 };
 
 function onReject() {
-    confirm.reject();
+    reject();
     deactivate();
 };
 
 async function onFadeEnter() {
     activate();
 }
+
+onMounted(() => {
+    onKeyStroke('Escape', onReject, { target: document });
+});
 </script>
 
 
@@ -74,7 +117,6 @@ async function onFadeEnter() {
             @after-enter="onFadeEnter">
             <div
                 v-if="currentConfirm"
-                v-on-key-stroke:esc="onReject"
                 class="fig-confirm">
 
                 <!--content-->
@@ -114,13 +156,10 @@ async function onFadeEnter() {
             </div>
         </transition>
 
-        <!-- backdrop -->
-        <!-- <transition name="confirm-bg-fade">
-            <div
-                v-if="isShowing"
-                key="confirm-bg"
-                class="opacity-25 fixed top-0 left-0 z-40 bg-black h-screen w-screen"></div>
-        </transition> -->
+        <fig-overlay
+            :show="!!currentConfirm"
+            :show-spinner="false"
+            :z-index="1" />
     </div>
 </template>
 
@@ -176,15 +215,8 @@ async function onFadeEnter() {
     transition: opacity 0.35s ease-out;
 }
 
-.confirm-bg-fade-enter-active,
-.confirm-bg-fade-leave-active {
-    transition: opacity 0.1s ease-out;
-}
-
 .confirm-fade-enter,
-.confirm-fade-leave-to,
-.confirm-bg-fade-enter,
-.confirm-bg-fade-leave-to {
+.confirm-fade-leave-to {
     opacity: 0;
 }
 </style>

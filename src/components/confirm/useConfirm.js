@@ -1,6 +1,9 @@
-import { getCurrentInstance } from 'vue';
+import { inject } from 'vue';
 
-export default function useConfirm() {
-    const vm = getCurrentInstance()
-    return vm.appContext.config.globalProperties.$figConfirm;
+export default function useToaster() {
+    const show = inject('figShowConfirm');
+
+    return {
+        showConfirm: show
+    }
 }

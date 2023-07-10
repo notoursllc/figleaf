@@ -4,11 +4,9 @@
 import { setup } from '@storybook/vue3';
 import Canvas from './components/Canvas.vue';
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
-import ConfirmPlugin from '../src/components/confirm/index.js';
 import I18nPlugin from './plugins/i18n.js';
 
 setup((app) => {
-    app.use(ConfirmPlugin);
     app.use(I18nPlugin);
 });
 

@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
 import FigSpinner from '../spinner/Spinner.vue';
 import {
     overlaySizes,
@@ -36,12 +36,18 @@ const props = defineProps({
         default: 2
     },
 
+    /**
+     * The size of the spinner
+     */
     size: {
         type: String,
         default: overlaySizes.md,
         validator: (val) => Object.keys(overlaySizes).includes(val)
     },
 
+    /**
+     * The variant (color) of the spinner
+     */
     variant: {
         type: String,
         default: overlayVariants.primary,
@@ -51,6 +57,23 @@ const props = defineProps({
     zIndex: {
         type: Number,
         default: 10
+    },
+
+    lockWindow: {
+        type: Boolean,
+        default: true
+    },
+
+    showSpinner: {
+        type: Boolean,
+        default: true
+    }
+});
+
+const classNames = computed(() =>{
+    return {
+        'fig-overlay': true,
+        'fig-overlay-visible': props.show
     }
 });
 
@@ -114,11 +137,21 @@ const backdropStyle = computed(() => {
 
     return style;
 });
+
+watch(
+    () => props.lockWindow,
+    (val) => {
+        document.body.style.overflow = val ? 'hidden' : 'auto';
+    },
+    { immediate: true }
+)
 </script>
 
 
 <template>
-    <div class="fig-overlay relative">
+    <div 
+        :class="classNames"
+        :style="`z-index:${zIndex}`">
         <slot></slot>
         <div
             v-if="show"
@@ -131,7 +164,9 @@ const backdropStyle = computed(() => {
                 :style="backdropStyle"></div>
 
             <!-- spinner -->
-            <div class="spinner-container">
+            <div 
+                v-if="showSpinner" 
+                class="spinner-container">
                 <fig-spinner
                     :width="spinnerWidth"
                     :color="spinnerColor"
@@ -143,10 +178,19 @@ const backdropStyle = computed(() => {
 
 
 <style>
+.fig-overlay {
+    @apply fixed top-0 left-0 right-0 bottom-0 overflow-hidden bg-black invisible opacity-0;
+    /* transition: visibility 0.3s linear, opacity 0.3s linear; */
+    transition: visibility 0.3s linear;
+    transition-delay: 100ms
+}
+
+.fig-overlay-visible {
+    @apply visible opacity-25;
+    transition-delay: 0ms;
+}
+
 .spinner-container {
-    @apply absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 </style>
