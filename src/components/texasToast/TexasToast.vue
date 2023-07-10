@@ -1,5 +1,6 @@
 <script>
 import { directive } from 'vue3-click-away';
+import FigOverlay from '../overlay/Overlay.vue';
 
 export default {
     name: 'FigTexasToast',
@@ -179,12 +180,10 @@ onUnmounted(() => {
             </div>
         </transition>
 
-        <!-- backdrop -->
-        <transition name="confirm-bg-fade">
-            <div
-                v-if="visible"
-                class="opacity-25 fixed top-0 left-0 z-40 bg-black h-screen w-screen"></div>
-        </transition>
+        <fig-overlay
+            :show="visible"
+            :show-spinner="false"
+            :z-index="40" />
     </div>
 </template>
 
@@ -212,18 +211,5 @@ onUnmounted(() => {
 }
 .footer-container > button.confirm-btn-right {
     @apply border-r border-gray-300;
-}
-
-/**
-* Transition
-*/
-.confirm-bg-fade-enter-active,
-.confirm-bg-fade-leave-active {
-    transition: opacity 0.1s ease-out;
-}
-
-.confirm-bg-fade-enter,
-.confirm-bg-fade-leave-to {
-    @apply opacity-0;
 }
 </style>
