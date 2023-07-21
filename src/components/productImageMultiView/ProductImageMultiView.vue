@@ -40,6 +40,10 @@ const props = defineProps({
     }
 });
 
+defineExpose({
+    goTo
+})
+
 const currentIndex = ref(0);
 const widthWindow = ref(0);
 const showFullScreen = ref(false);
