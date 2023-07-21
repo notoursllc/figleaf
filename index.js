@@ -87,6 +87,7 @@ export { default as FigPopover } from './src/components/popover/Popover.vue';
 export { default as FigPopoverDivider } from './src/components/popover/PopoverDivider.vue';
 export { default as FigPopoverContent } from './src/components/popover/PopoverContent.vue';
 export { default as FigPopConfirm } from './src/components/popConfirm/PopConfirm.vue';
+export { default as FigProductImageMultiView } from './src/components/productImageMultiView/ProductImageMultiView.vue';
 
 export { default as FigRequired } from './src/components/form/required/Required.vue';
 export { default as FigRowBuilder } from './src/components/rowBuilder/RowBuilder.vue';
