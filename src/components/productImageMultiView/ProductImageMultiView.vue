@@ -40,10 +40,6 @@ const props = defineProps({
     }
 });
 
-defineExpose({
-    goTo
-})
-
 const currentIndex = ref(0);
 const widthWindow = ref(0);
 const showFullScreen = ref(false);
@@ -160,6 +156,10 @@ onMounted(() => {
         { target: document }
     );
 });
+
+defineExpose({
+    goTo
+})
 </script>
 
 
