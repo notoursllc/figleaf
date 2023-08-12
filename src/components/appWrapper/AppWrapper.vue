@@ -6,6 +6,7 @@ export default {
 
 <script setup>
 import { ref, provide } from 'vue';
+import ClientOnly from '@duannx/vue-client-only';
 import '../../assets/css/tailwind.css';
 import FigIconSprite from '../icon/SvgSprite.vue';
 import FigToaster from '../toaster/Toaster.vue';
@@ -30,6 +31,13 @@ provide('figShowConfirm', (message, config) => {
 <template>
     <fig-icon-sprite />
     <fig-confirm ref="confirm" />
-    <fig-toaster ref="toaster" />
+
+    <!-- 
+        Nuxt has it's own client-only component, 
+        but using another client-only component so we dont have a dependency on Nuxt.
+    -->
+    <client-only>
+        <fig-toaster ref="toaster" />
+    </client-only>  
     <slot />
 </template>
