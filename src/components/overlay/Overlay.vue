@@ -139,9 +139,9 @@ const backdropStyle = computed(() => {
 });
 
 watch(
-    () => props.lockWindow,
+    () => props.show,
     (val) => {
-        document.body.style.overflow = val ? 'hidden' : 'auto';
+        document.body.style.overflow = val && props.lockWindow ? 'hidden' : 'auto';
     },
     { immediate: true }
 )
