@@ -30,14 +30,14 @@ provide('figShowConfirm', (message, config) => {
 
 <template>
     <fig-icon-sprite />
-    <fig-confirm ref="confirm" />
+    <fig-toaster ref="toaster" />
 
     <!-- 
         Nuxt has it's own client-only component, 
         but using another client-only component so we dont have a dependency on Nuxt.
     -->
     <client-only>
-        <fig-toaster ref="toaster" />
+        <fig-confirm ref="confirm" />
     </client-only>  
     <slot />
 </template>
