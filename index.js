@@ -20,6 +20,7 @@ export { default as FigCreditCardIcon } from './src/components/icon/creditCard/C
 export { default as FigCurrency } from './src/components/currency/Currency.vue';
 export { default as FigCurrencySymbol } from './src/components/currencySymbol/CurrencySymbol.vue';
 
+export { default as FigDisclosureNav } from './src/components/disclosureNav/DisclosureNav.vue';
 export { default as FigDivider } from './src/components/divider/Divider.vue';
 export { default as FigDropdown } from './src/components/dropdown/Dropdown.vue';
 export { default as FigDropdownButton } from './src/components/dropdown/DropdownButton.vue';
@@ -64,6 +65,7 @@ export { default as FigLabelValue } from './src/components/labelValueGroup/Label
 export { default as FigCartCtaLayout } from './src/layouts/cartCta/CartCtaLayout.vue';
 export { default as FigPackingSlipLayout } from './src/layouts/packingSlip/PackingSlipLayout.vue';
 export { default as FigProductDetailsLayout } from './src/layouts/productDetailsLayout/ProductDetailsLayout.vue';
+export { default as FigSidebarLayout } from './src/layouts/sidebarLayout/SidebarLayout.vue';
 export { default as FigSpecLayout } from './src/layouts/spec/SpecLayout.vue';
 export { default as FigSpec } from './src/layouts/spec/Spec.vue';
 
