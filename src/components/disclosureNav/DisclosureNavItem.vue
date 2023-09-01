@@ -7,6 +7,7 @@ export default {
 <script setup>
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
+import isString from 'lodash-es/isString.js';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
 import DisclosureNavItem from './DisclosureNavItem.vue';
 import FigIcon from '../icon/FigIcon.vue';
@@ -43,12 +44,16 @@ const classNames = computed(() => {
         'is-active': props.item?.active,
     }
 });
+
+const componentIs = computed(() => {
+    return isString(props.item.href) && props.item.href?.startsWith('http') ? 'a' : 'router-link';
+});
 </script>
 
 <template>
     <component
         v-if="!item.children?.length"
-        :is="item.href?.startsWith('http') ? 'a' : 'router-link'"
+        :is="componentIs"
         :to="item.href"
         :href="item.href"
         :class="classNames">

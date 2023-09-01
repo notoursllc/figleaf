@@ -75,7 +75,7 @@ const barProps = computed(() => {
 
     for (const prop in paginationBarProps) {
         if (!['pageSize', 'pageNumber'].includes(prop)) {
-            cleanProps[props] = props[prop];
+            cleanProps[prop] = props[prop];
         }
     }
 
@@ -86,14 +86,14 @@ watch(
     () => props.pageSize,
     (val) => {
         Pagination.setPageSize(val);
-    }  
+    }
 );
 
 watch(
     () => props.pageNumber,
     (val) => {
         Pagination.setPageNumber(val);
-    }  
+    }
 );
 </script>
 
