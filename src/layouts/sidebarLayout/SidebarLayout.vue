@@ -105,8 +105,12 @@ const sidebarOpened = ref(false);
                 </div>
             </header>
 
-            <div class="flex-1 px-4 pt-4 pb-10">
-                <slot />
+            <div class="flex-1">
+                <!-- element id added to help support teleport -->
+                <div id="fig-sidebar-layout-above-content"><slot name="aboveContent" /></div>
+                <div class="px-4 pt-4 pb-10">
+                    <slot />
+                </div>
             </div>
         </div>
     </div>

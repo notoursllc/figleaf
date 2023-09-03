@@ -20,6 +20,7 @@ const Template = (args, { argTypes }) => ({
     template: `
         <div>
             <fig-sidebar-layout v-bind="args">
+                <template #aboveContent>ABOVE CONTENT</template>
                 <template #headerTools>HEADER TOOLS</template>
                 MAIN BODY
             </fig-sidebar-layout>
