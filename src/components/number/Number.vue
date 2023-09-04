@@ -5,13 +5,13 @@ export default {
 </script>
 
 <script setup>
-import { computed, h } from 'vue';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import useNumeric from '../../composables/useNumeric.js';
 
 const props = defineProps({
     value: {
-        type: Number,
+        type: [Number, String],
     },
 
     localize: {
