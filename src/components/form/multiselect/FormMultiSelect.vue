@@ -9,7 +9,6 @@ import { computed, ref } from 'vue';
 import MultiSelect from '@vueform/multiselect';
 import '@vueform/multiselect/themes/default.css';
 import { formSelectSizes } from './constants.js';
-import useFormInput from '../useFormInput.js';
 
 // https://github.com/vueform/multiselect#advanced-props
 const props = defineProps({
@@ -40,9 +39,11 @@ const tailwindClasses = computed(() => {
         case formSelectSizes.sm:
             sizeClass = 'fig-form-multiselect--sm';
             break;
+
         case formSelectSizes.md:
             sizeClass = 'fig-form-multiselect--md';
             break;
+
         case formSelectSizes.lg:
             sizeClass = 'fig-form-multiselect--lg';
             break;
@@ -65,6 +66,14 @@ function onClose(e) {
 function onChange() {
     emit('update:modelValue', selectedValue.value);
 }
+
+watch(
+    () => props.modelValue,
+    (value) => {
+        selectedValue.value = value;
+    },
+    { immediate: true }
+)
 </script>
 
 
