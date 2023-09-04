@@ -74,6 +74,7 @@ export { default as FigModal } from './src/components/modal/Modal.vue';
 export { default as FigMetaDataBuilder } from './src/components/metaDataBuilder/MetaDataBuilder.vue'
 export { default as FigMoney } from './src/components/money/Money.vue';
 
+export { default as FigNumber } from './src/components/number/Number.vue';
 export { default as FigNuxtImgBunny } from './src/components/nuxtImgBunny/NuxtImgBunny.vue';
 
 export { default as FigOperationsDropdown } from './src/components/operationsDropdown/OperationsDropdown.vue';
