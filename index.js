@@ -26,7 +26,6 @@ export { default as FigDropdown } from './src/components/dropdown/Dropdown.vue';
 export { default as FigDropdownButton } from './src/components/dropdown/DropdownButton.vue';
 export { default as FigDropdownDivider } from './src/components/dropdown/DropdownDivider.vue';
 
-// form
 export { default as FigFormCheckbox } from './src/components/form/checkbox/FormCheckbox.vue';
 export { default as FigFormGroup } from './src/components/form/group/FormGroup.vue';
 export { default as FigFormText } from './src/components/form/text/FormText.vue';
@@ -42,6 +41,7 @@ export { default as FigFormSelectBitwise } from './src/components/form/selectBit
 export { default as FigFormSelectNative } from './src/components/form/selectNative/FormSelectNative.vue';
 export { default as FigFormSelectStripeTaxCode } from './src/components/form/selectStripeTaxCode/FormSelectStripeTaxCode.vue';
 export { default as FigFormTextarea } from './src/components/form/textarea/FormTextarea.vue';
+export { default as FigFormat8601 } from './src/components/format8601/Format8601.vue';
 
 export { default as FigHeader } from './src/components/header/Header.vue';
 export { default as FigHero } from './src/components/hero/Hero.vue';
