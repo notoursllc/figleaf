@@ -67,8 +67,8 @@ const Template = (args, { argTypes }) => ({
 
 export const LabelValueGroup = Template.bind({});
 LabelValueGroup.args = {
-    display: labelValueGroupDisplay.block,
+    display: labelValueGroupDisplay.row,
     breakpoint: labelValueGroupBreakpoints.sm,
-    density: labelValueGroupDensity.sm
+    density: labelValueGroupDensity.lg
 };
 
