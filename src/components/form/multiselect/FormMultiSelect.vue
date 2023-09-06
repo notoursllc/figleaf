@@ -14,10 +14,6 @@ import { formSelectSizes } from './constants.js';
 const props = defineProps({
     modelValue: {},
 
-    options: {
-        type: Array
-    },
-
     size: {
         type: String,
         default: formSelectSizes.md,
@@ -85,8 +81,7 @@ watch(
         :classes="tailwindClasses"
         :canDeselect="false"
         :searchable="true"
-        v-bind="$attrs"
-        :options="options"
+        v-bind="$props"
         @close="onClose">
         <slot v-for="(_, name) in $slots" :name="name" :slot="name" />
     </MultiSelect>
