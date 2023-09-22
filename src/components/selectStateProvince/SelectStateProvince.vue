@@ -7,7 +7,6 @@ export default {
 <script setup>
 import { ref, computed, watch } from 'vue';
 import FormMultiSelect from '../form/multiselect/FormMultiSelect.vue';
-import FigFormText from '../form/text/FormText.vue';
 import useCountry from '../country/useCountry.js';
 import { formInputSizes } from '../form/inputConstants.js';
 
@@ -29,10 +28,6 @@ const props = defineProps({
     disabled: {
         type: Boolean,
         default: false
-    },
-
-    placeholder: {
-        type: String,
     }
 });
 
@@ -62,6 +57,10 @@ const stateOptions = computed(() => {
     return options;
 });
 
+const isDisabled = computed(() => {
+    return props.disabled || !stateOptions.value.length;
+});
+
 function emitInput() {
     emit('update:modelValue', selectedState.value);
 }
@@ -77,12 +76,10 @@ watch(
 watch(
     () => props.country,
     (newVal) => {
-        if(selectedState.value && newVal && countryStatesMap[newVal]) {
-            // if the current selected state does not exist in the map of
-            // states for this country then set it to null
-            if(!countryStatesMap[newVal][selectedState.value]) {
-                selectedState.value = null;
-            }
+        if(newVal
+            && props.modelValue
+            && countryStatesMap[newVal]?.[props.modelValue]) {
+            selectedState.value = props.modelValue;
         }
         else {
             selectedState.value = null;
@@ -96,20 +93,17 @@ watch(
 
 
 <template>
-    <div>
-        <form-multi-select
-            v-if="stateOptions.length"
-            v-model="selectedState"
-            v-bind="$props"
-            :options="stateOptions"
-            @update:modelValue="emitInput" />
-        <fig-form-text
-            v-else
-            v-model="selectedState"
-            @update:modelValue="emitInput"
-            :placeholder="placeholder"
-            :disabled="disabled"
-            :size="size"
-            class="w-full" />
-    </div>
+    <form-multi-select
+        v-model="selectedState"
+        :options="stateOptions"
+        :disabled="isDisabled"
+        @update:modelValue="emitInput"
+        class="fig-select-region" />
+    <div v-if="!country" class="text-gray-400">{{ $t('Please choose a country first') }}</div>
 </template>
+
+<style scoped>
+.fig-select-region.is-disabled {
+    @apply bg-gray-100 cursor-auto;
+}
+</style>

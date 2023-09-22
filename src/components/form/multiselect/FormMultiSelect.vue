@@ -119,10 +119,10 @@ watch(
 }
 
 /* small */
-.fig-form-multiselect--sm,
+/* .fig-form-multiselect--sm,
 .fig-form-multiselect--md {
     font-size: 12px;
-}
+} */
 
 .fig-form-multiselect--sm .multiselect-tags {
     margin-top: 0;

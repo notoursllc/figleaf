@@ -23,8 +23,7 @@ const Template = (args, { argTypes }) => ({
         FigSelectCountry
     },
     setup() {
-
-        const selected = ref(null);
+        const selected = ref('CA');
 
         return {
             args,

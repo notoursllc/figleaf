@@ -5,12 +5,10 @@ export default {
 </script>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import FormMultiSelect from '../form/multiselect/FormMultiSelect.vue';
 import useCountry from '../country/useCountry.js';
-
-const { getCountries } = useCountry();
 
 const props = defineProps({
     modelValue: {
@@ -23,8 +21,17 @@ const emit = defineEmits([
 ]);
 
 const { t } = useI18n();
-const selectedCountry = ref(null);
-const selectOptions = ref([]);
+const { getCountries } = useCountry();
+
+const selectedCountry = ref(props.modelValue);
+
+const countries = getCountries();
+const selectOptions = Object.keys(countries).map((countryCode) => {
+    return {
+        label: t(countries[countryCode]),
+        value: countryCode
+    }
+});
 
 function onChange() {
     emit('update:modelValue', selectedCountry.value);
@@ -37,17 +44,6 @@ watch(
     },
     { immediate: true }
 );
-
-onMounted(() => {
-    const countries = getCountries();
-
-    selectOptions.value = Object.keys(countries).map((countryCode) => {
-        return {
-            label: t(countries[countryCode]),
-            value: countryCode
-        }
-    });
-});
 </script>
 
 

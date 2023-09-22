@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import {
     FigSelectStateProvince,
     FigSelectCountry
@@ -28,6 +28,13 @@ const Template = (args, { argTypes }) => ({
         const selected = ref(null);
         const selectedCountry = ref(null);
 
+        onMounted(() => {
+            setTimeout(() => {
+                selected.value = 'CA';
+                selectedCountry.value = 'US';
+            }, 1000);
+        });
+
         return {
             args,
             selected,
@@ -50,6 +57,7 @@ const Template = (args, { argTypes }) => ({
             </div>
 
             <div>Selected state: {{ selected }}</div>
+            <div>Selected country: {{ selectedCountry }}</div>
         </div>
     `
 });

@@ -52,6 +52,7 @@ export default {
     'PayPal': 'PayPal',
     'Per page': 'Per page',
     'Phone number': 'Phone number',
+    'Please choose a country first': 'Please choose a country first',
     'Please enter a valid email address.': 'Please enter a valid email address.',
     'Please make sure your mailing address is correct to ensure accurate delivery.': 'Please make sure your mailing address is correct to ensure accurate delivery.',
     'Postal code': 'Postal code',
