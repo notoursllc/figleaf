@@ -64,5 +64,5 @@ const Template = (args, { argTypes }) => ({
 
 export const SelectStateProvince = Template.bind({});
 SelectStateProvince.args = {
-    size: 'lg'
+    size: 'sm'
 };

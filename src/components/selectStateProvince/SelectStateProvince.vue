@@ -1,6 +1,7 @@
 <script>
 export default {
-    name: 'SelectStateProvince'
+    name: 'SelectStateProvince',
+    inheritAttrs: false
 }
 </script>
 
@@ -8,7 +9,6 @@ export default {
 import { ref, computed, watch } from 'vue';
 import FormMultiSelect from '../form/multiselect/FormMultiSelect.vue';
 import useCountry from '../country/useCountry.js';
-import { formInputSizes } from '../form/inputConstants.js';
 
 const props = defineProps({
     modelValue: {
@@ -17,12 +17,6 @@ const props = defineProps({
 
     country: {
         type: String
-    },
-
-    size: {
-        type: String,
-        default: formInputSizes.md,
-        validator: (value) => Object.keys(formInputSizes).includes(value)
     },
 
     disabled: {
@@ -94,6 +88,7 @@ watch(
 
 <template>
     <form-multi-select
+        v-bind="$attrs"
         v-model="selectedState"
         :options="stateOptions"
         :disabled="isDisabled"
