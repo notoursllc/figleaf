@@ -12,10 +12,8 @@ export default {
     component: FigPopover,
     argTypes: {
         placement: {
-            control: {
-                type: 'select',
-                options: Object.keys(popoverPlacements)
-            },
+            control: { type: 'select' },
+            options: Object.keys(popoverPlacements),
             table: {
                 defaultValue: {
                     summary: popoverPlacements['bottom-start']

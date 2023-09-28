@@ -9,10 +9,8 @@ export default {
 
     argTypes: {
         size: {
-            control: {
-                type: 'select',
-                options: Object.keys(modalSizes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(modalSizes)
         }
     }
 };

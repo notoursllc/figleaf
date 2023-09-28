@@ -13,24 +13,18 @@ export default {
     component: FigLabelValueGroup,
     argTypes: {
         display: {
-            control: {
-                type: 'select',
-                options: Object.keys(labelValueGroupDisplay)
-            }
+            control: { type: 'select' },
+            options: Object.keys(labelValueGroupDisplay)
         },
 
         breakpoint: {
-            control: {
-                type: 'select',
-                options: Object.keys(labelValueGroupBreakpoints)
-            }
+            control: { type: 'select' },
+            options: Object.keys(labelValueGroupBreakpoints)
         },
 
         density: {
-            control: {
-                type: 'select',
-                options: Object.keys(labelValueGroupDensity)
-            }
+            control: { type: 'select' },
+            options: Object.keys(labelValueGroupDensity)
         }
     }
 };

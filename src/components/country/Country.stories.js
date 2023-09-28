@@ -9,10 +9,8 @@ export default {
     component: FigCountry,
     argTypes: {
         alpha2: {
-            control: {
-                type: 'select',
-                options: Object.keys(countries)
-            }
+            control: { type: 'select' },
+            options: Object.keys(countries)
         }
     }
 };

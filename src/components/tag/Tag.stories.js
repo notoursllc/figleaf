@@ -9,17 +9,13 @@ export default {
     component: FigTag,
     argTypes: {
         size: {
-            control: {
-                type: 'select',
-                options: Object.keys(tagSizes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(tagSizes)
         },
 
         variant: {
-            control: {
-                type: 'select',
-                options: Object.keys(tagVariants)
-            }
+            control: { type: 'select' },
+            options: Object.keys(tagVariants)
         }
     }
 };

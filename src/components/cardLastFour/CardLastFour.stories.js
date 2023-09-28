@@ -6,10 +6,8 @@ export default {
     component: FigCardLastFour,
     argTypes: {
         type: {
-            control: {
-                type: 'select',
-                options: Object.keys(cardTypes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(cardTypes)
         }
     }
 };

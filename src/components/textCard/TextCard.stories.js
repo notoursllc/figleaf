@@ -6,10 +6,8 @@ export default {
     component: FigTextCard,
     argTypes: {
         variant: {
-            control: {
-                type: 'select',
-                options: Object.keys(textCardVariants)
-            }
+            control: { type: 'select' },
+            options: Object.keys(textCardVariants)
         }
     }
 };

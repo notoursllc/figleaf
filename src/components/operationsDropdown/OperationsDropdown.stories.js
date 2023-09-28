@@ -10,10 +10,8 @@ export default {
     component: FigOperationsDropdown,
     argTypes: {
         size: {
-            control: {
-                type: 'select',
-                options: Object.keys(buttonSizes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(buttonSizes)
         }
     }
 };

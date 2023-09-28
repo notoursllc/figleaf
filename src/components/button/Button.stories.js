@@ -10,24 +10,18 @@ export default {
     component: FigButton,
     argTypes: {
         size: {
-            control: {
-                type: 'select',
-                options: Object.keys(buttonSizes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(buttonSizes)
         },
 
         variant: {
-            control: {
-                type: 'select',
-                options: Object.keys(buttonVariants)
-            }
+            control: { type: 'select' },
+            options: Object.keys(buttonVariants)
         },
 
         type: {
-            control: {
-                type: 'select',
-                options: Object.keys(buttonTypes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(buttonTypes)
         }
     }
 };

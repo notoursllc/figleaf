@@ -9,10 +9,8 @@ export default {
     component: FigSelectCountry,
     argTypes: {
         size: {
-            control: {
-                type: 'select',
-                options: Object.keys(formInputSizes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(formInputSizes)
         }
     }
 };

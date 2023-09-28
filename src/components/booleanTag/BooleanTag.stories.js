@@ -8,10 +8,8 @@ export default {
     component: FigBooleanTag,
     argTypes: {
         size: {
-            control: {
-                type: 'select',
-                options: Object.keys(tagSizes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(tagSizes)
         }
     }
 };

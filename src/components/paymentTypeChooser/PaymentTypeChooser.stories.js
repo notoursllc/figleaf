@@ -7,10 +7,8 @@ export default {
     component: FigPaymentTypeChooser,
     argTypes: {
         value: {
-            control: {
-                type: 'select',
-                options: Object.keys(paymentTypes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(paymentTypes)
         }
     }
 };

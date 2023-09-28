@@ -10,17 +10,13 @@ export default {
     component: FigOverlay,
     argTypes: {
         size: {
-            control: {
-                type: 'select',
-                options: Object.keys(overlaySizes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(overlaySizes)
         },
 
         variant: {
-            control: {
-                type: 'select',
-                options: Object.keys(overlayVariants)
-            }
+            control: { type: 'select' },
+            options: Object.keys(overlayVariants)
         }
     }
 };

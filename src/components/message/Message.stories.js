@@ -9,17 +9,13 @@ export default {
     component: FigMessage,
     argTypes: {
         size: {
-            control: {
-                type: 'select',
-                options: Object.keys(messageSizes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(messageSizes)
         },
 
         variant: {
-            control: {
-                type: 'select',
-                options: Object.keys(messageVariants)
-            }
+            control: { type: 'select' },
+            options: Object.keys(messageVariants)
         }
     }
 };

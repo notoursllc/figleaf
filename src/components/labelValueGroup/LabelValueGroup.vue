@@ -28,16 +28,22 @@ const props = defineProps({
         type: String,
         default: labelValueGroupDensity.sm,
         validator: (value) => Object.keys(labelValueGroupDensity).includes(value)
+    },
+
+    boldLabels: {
+        type: Boolean,
+        default: false
     }
 });
 
 const classNames = computed(() => {
-    return [
-        'fig-lvg',
-        `fig-lvg-${props.display}`,
-        `fig-lvg-density-${props.density}`,
-        `fig-lvg-breakpoint-${props.breakpoint}`,
-    ];
+    return {
+        'fig-lvg': true,
+        [`fig-lvg-${props.display}`]: true,
+        [`fig-lvg-density-${props.density}`]: true,
+        [`fig-lvg-breakpoint-${props.breakpoint}`]: true,
+        'fig-lvg-boldlabel': props.boldLabels
+    }
 });
 </script>
 
@@ -60,5 +66,9 @@ const classNames = computed(() => {
 
 .fig-lvg-row {
     @apply flex flex-row;
+}
+
+.fig-lvg-boldlabel .fig-lv-label {
+    @apply font-semibold;
 }
 </style>

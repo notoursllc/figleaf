@@ -6,10 +6,8 @@ export default {
     component: FigContent,
     argTypes: {
         size: {
-            control: {
-                type: 'select',
-                options: Object.keys(contentSizes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(contentSizes)
         }
     }
 };

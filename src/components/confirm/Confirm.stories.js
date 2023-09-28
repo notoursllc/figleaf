@@ -7,10 +7,8 @@ export default {
     component: FigConfirm,
     argTypes: {
         size: {
-            control: {
-                type: 'select',
-                options: Object.keys(confirmSizes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(confirmSizes)
         }
     }
 };

@@ -7,10 +7,8 @@ export default {
     component: FigFormMultiSelect,
     argTypes: {
         size: {
-            control: {
-                type: 'select',
-                options: Object.keys(formSelectSizes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(formSelectSizes)
         }
     }
 };

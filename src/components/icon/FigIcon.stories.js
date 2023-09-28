@@ -7,17 +7,13 @@ export default {
     component: FigIcon,
     argTypes: {
         variant: {
-            control: {
-                type: 'select',
-                options: Object.keys(figIconVariants)
-            }
+            control: { type: 'select' },
+            options: Object.keys(figIconVariants)
         },
 
         icon: {
-            control: {
-                type: 'select',
-                options: svgFileNames
-            }
+            control: { type: 'select' },
+            options: svgFileNames
         }
     }
 };

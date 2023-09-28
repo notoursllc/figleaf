@@ -11,18 +11,14 @@ export default {
     component: FigBadge,
     argTypes: {
         size: {
-            control: {
-                type: 'select',
-                options: Object.keys(badgeSizes)
-            }
+            control: { type: 'select' },
+            options: Object.keys(badgeSizes)
         },
 
         variant: {
-            control: {
-                type: 'select',
-                options: Object.keys(badgeVariants)
-            }
-        },
+            control: { type: 'select' },
+            options: Object.keys(badgeVariants)
+        }
     }
 };
 
