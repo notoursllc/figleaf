@@ -168,7 +168,7 @@ onMounted(() => {
 
         <span class="json-tree-row" v-show="expanded">
             <span class="json-tree-ending" :class="{'json-tree-paired': hovered}">
-                <span class="json-tree-indent" v-for="n in (parsed.depth * 2 + 3)" :key="n">&nbsp;</span>
+                <span class="json-tree-indent" v-for="n in (parsed.depth * 2 + 4)" :key="n">&nbsp;</span>
                 <span class="json-tree-close">{{ parsed.type === 'array' ? ']' : '}' }}</span>
                 <span v-if="!parsed.last">,</span>
                 <span class="json-tree-indent">&nbsp;</span>
