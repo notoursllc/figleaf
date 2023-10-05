@@ -57,6 +57,8 @@ export { default as FigIconLabel } from './src/components/iconLabel/IconLabel.vu
 export { default as FigIconSprite } from './src/components/icon/SvgSprite.vue';
 export { default as FigVictoryIcon } from './src/components/icon/VictoryIcon.vue';
 
+export { default as FigJsonTree } from './src/components/jsonTree/JsonTree.vue';
+
 export { default as FigLabelValueGroup } from './src/components/labelValueGroup/LabelValueGroup.vue';
 export { default as FigLabelValue } from './src/components/labelValueGroup/LabelValue.vue';
 

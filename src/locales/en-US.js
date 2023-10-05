@@ -1,5 +1,6 @@
 export default {
     '{num} files selected': '{num} file selected | {num} files selected',
+    '{num} items': '{num} item | {num} items',
     'Add row': 'Add row',
     'Address line 1': 'Address line 1',
     'Address line 2': 'Address line 2',
