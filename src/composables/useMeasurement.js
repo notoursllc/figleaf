@@ -1,6 +1,8 @@
-import isNumeric from 'lodash-es/isNumeric.js';
+import useNumeric from './useNumeric.js';
 
 export default function useMeasurement() {
+
+    const { isNumeric } = useNumeric();
 
     function inchesToCentimeters(inches) {
         if(!isNumeric(inches)) {
