@@ -1,6 +1,6 @@
 import { inject } from 'vue';
 
-export default function useToaster() {
+export default function useConfirm() {
     const show = inject('figShowConfirm');
 
     return {

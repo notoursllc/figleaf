@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import { FigTooltip } from '../../../index.js';
+import { FigTooltip } from '../../../../index.js';
 
 export default {
     title: 'Components/Tooltip',

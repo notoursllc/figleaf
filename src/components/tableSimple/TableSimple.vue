@@ -93,7 +93,7 @@ watch(
 <template>
     <div
         class="p-1 overflow-x-auto px-1 pb-1 align-middle inine-block"
-        :class="{'min-w-full': props.full}">
+        :class="{'min-w-full': full}">
 
         <div v-if="$slots.tools" class="mb-2 px-2">
             <slot name="tools"></slot>

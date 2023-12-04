@@ -1,4 +1,6 @@
 <script>
+// This component was borrowed heavily from
+// https://github.com/myst729/vue-json-tree/blob/master/src/json-tree.vue
 export default {
     name: 'JsonTree'
 }

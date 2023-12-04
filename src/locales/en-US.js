@@ -28,6 +28,7 @@ export default {
     'Email': 'Email',
     'Expiration date': 'Expiration date',
 
+    'false': 'false',
     'First name': 'First name',
 
     'invalid email address format': 'invalid email address format',
@@ -73,6 +74,7 @@ export default {
     'Suggested address': 'Suggested address',
 
     'The address you entered': 'The address you entered',
+    'true': 'true',
 
     'Use this address': 'Use this address',
 
