@@ -64,7 +64,7 @@ FormSelectBitwise.storyName = 'Select Bitwise';
 FormSelectBitwise.args = {
     size: formInputSizes.md,
     searchable: true,
-    mode: 'single',  // single/multiple/tags
+    mode: 'tags',  // single/multiple/tags
     closeOnSelect: false,
     canClear: true
 };

@@ -7,17 +7,27 @@ export default {
 <script setup>
 import { watch, ref } from 'vue';
 import FigFormMultiselect from '../multiselect/FormMultiSelect.vue';
-
-console.log("PROPS", FigFormMultiselect.props);
+import { formSelectSizes } from '../multiselect/constants.js';
 
 const props = defineProps({
-    ...FigFormMultiselect.props,
+    modelValue: {},
 
-    // modelValue: {},
+    options: {
+        type: Array
+    },
 
-    // options: {
-    //     type: Array
-    // }
+    clearable: {
+        type: Boolean,
+        default: true
+    },
+
+    size: {
+        type: String,
+        default: formSelectSizes.md,
+        validator: (value) => {
+            return Object.values(formSelectSizes).includes(value);
+        }
+    }
 });
 
 const emit = defineEmits([
@@ -67,13 +77,18 @@ watch(
 </script>
 
 <template>
-    <div>
     <fig-form-multiselect
-        v-model="selectedVal"
-        v-bind="$attrs"
+        v-model="selectedValue"
         :options="options"
+        :clearable="clearable"
+        :size="size"
         :mode='$attrs.mode || "tags"'
         @update:modelValue="selectValueChanged"
         class="fig-form-select-bitwise" />
-    </div>
 </template>
+
+<style scoped>
+.fig-form-select-bitwise {
+    @apply w-full;
+}
+</style>
