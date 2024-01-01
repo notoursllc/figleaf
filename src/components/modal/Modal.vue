@@ -130,7 +130,7 @@ onMounted(() => {
 
 <style scoped>
 .fig-modal {
-    @apply relative w-auto my-6 mx-auto border-0 rounded-md shadow-lg bg-white outline-none focus:outline-none max-w-lg;
+    @apply relative w-auto my-6 mx-auto border-0 rounded-md shadow-lg bg-white outline-none focus:outline-none;
 }
 
 /* sizes */
