@@ -43,6 +43,7 @@ const classes = computed(() => {
     return {
         'fig-modal': true,
         'fig-modal-sm': props.size === modalSizes.sm,
+        'fig-modal-md': ![modalSizes.sm, modalSizes.lg, modalSizes.xl, modalSizes.full].includes(props.size),
         'fig-modal-lg': props.size === modalSizes.lg,
         'fig-modal-xl': props.size === modalSizes.xl,
         'fig-modal-full': props.size === modalSizes.full
@@ -135,6 +136,9 @@ onMounted(() => {
 /* sizes */
 .fig-modal-sm {
     @apply max-w-xs;
+}
+.fig-modal-md {
+    @apply max-w-lg;
 }
 .fig-modal-lg {
     @apply max-w-3xl;
