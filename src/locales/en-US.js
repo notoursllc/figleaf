@@ -31,6 +31,8 @@ export default {
     'false': 'false',
     'First name': 'First name',
 
+    'image_alt_text_description': 'A brief description of the image to improve search engine optimization (SEO) and accessibility for visually impaired customers.',
+    'Image alt text': 'Image alt text',
     'invalid email address format': 'invalid email address format',
     'is_gift_tooltip': 'If this order is a gift, we will HIDE prices on the packing slip. Order status emails will still be sent, so please use an email address that only you will see. Items often arrive with our logo on the box. If you are trying to keep it secret, we recommend shipping to an alternate address.',
     'Is this order a gift?': 'Is this order a gift?',
@@ -58,6 +60,7 @@ export default {
     'Please enter a valid email address.': 'Please enter a valid email address.',
     'Please make sure your mailing address is correct to ensure accurate delivery.': 'Please make sure your mailing address is correct to ensure accurate delivery.',
     'Postal code': 'Postal code',
+    'Primary': 'Primary',
     'Property': 'Property',
 
     'required': 'required',
@@ -83,6 +86,9 @@ export default {
 
     'Yes': 'Yes',
     'Yes, return to cart': 'Yes, return to cart',
+    'You can choose only {number} more images': 'You can choose only {number} more images',
+    'You can choose only one more image': 'You can choose only one more image',
+    'You can upload {number} more images': 'You can upload {number} more images',
     'Your name': 'Your name',
 
     // Date formatting

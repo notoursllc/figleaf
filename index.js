@@ -55,6 +55,7 @@ export { default as FigHorizontalSlider } from './src/components/horizontalSlide
 export { default as FigIcon } from './src/components/icon/FigIcon.vue';
 export { default as FigIconLabel } from './src/components/iconLabel/IconLabel.vue';
 export { default as FigIconSprite } from './src/components/icon/SvgSprite.vue';
+export { default as FigImageManager } from './src/components/imageManager/ImageManager.vue';
 export { default as FigVictoryIcon } from './src/components/icon/VictoryIcon.vue';
 
 export { default as FigJsonTree } from './src/components/jsonTree/JsonTree.vue';

@@ -10,7 +10,11 @@ export default function useFile() {
      * @returns boolean
      */
     function filesAreAcceptedType(FileList, accept) {
-        if (!Array.isArray(accept) || accept.length === 0) {
+        if (!Array.isArray(accept)) {
+            accept = accept?.split(',').map((type) => type.trim());
+        }
+
+        if (!accept.length) {
             return true;
         }
 

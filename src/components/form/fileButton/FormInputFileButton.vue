@@ -115,8 +115,7 @@ function clear() {
             @blur="onBlur"
             @keydown.enter="browse"
             tabindex="0"
-            :disabled="disabled"
-            class="flex items-center justify-center">
+            :disabled="disabled">
             <fig-button
                 variant="plain"
                 :icon="buttonIcon"
