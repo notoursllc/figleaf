@@ -133,6 +133,7 @@ export { default as FigUseCountry } from './src/components/country/useCountry.js
 export { default as FigUseCurrency } from './src/components/currency/useCurrency.js';
 export { default as FigUseFile } from './src/composables/useFile.js';
 export { default as FigUseI18n } from './src/composables/useI18n.js';
+export { default as FigUseLoading } from './src/composables/useLoading.js';
 export { default as FigUseMeasurement } from './src/composables/useMeasurement.js';
 // export { default as FigUseUtils } from './src/composables/useUtils.js';
 export { default as FigUseTime } from './src/composables/useTime.js';
