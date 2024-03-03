@@ -30,11 +30,6 @@ const props = defineProps({
         default: false
     },
 
-    full: {
-        type: Boolean,
-        default: false
-    },
-
     cellPadding: {
         type: Number,
         default: 2,
@@ -91,9 +86,7 @@ watch(
 
 
 <template>
-    <div
-        class="p-1 overflow-x-auto px-1 pb-1 align-middle inine-block"
-        :class="{'min-w-full': full}">
+    <div class="p-1 overflow-x-auto px-1 pb-1 align-middle inine-block w-full">
 
         <div v-if="$slots.tools" class="mb-2 px-2">
             <slot name="tools"></slot>
@@ -120,7 +113,7 @@ watch(
 
 <style scoped>
 .fig-table {
-    @apply border border-gray-300 text-gray-900 border-collapse bg-white;
+    @apply border border-gray-300 text-gray-900 border-collapse bg-white w-full;
 }
 
 .fig-table > tbody {
